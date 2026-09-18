@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""><link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&amp;family=Inter:wght@400;500;600;700&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#FAFAF8;font-family:Inter,system-ui,sans-serif}
+a{color:#004B8C;text-decoration:none}a:hover{color:#00335F}
+</style></helmet>
+
+<div data-screen-label="A3 Governance" style="width:1440px;margin:0 auto;background:#FFFFFF">
+
+<dc-import name="SiteHeader" active="About" hint-size="100%,78px"></dc-import>
+
+<section style="background:#00335F;padding:56px 0 66px;position:relative;overflow:hidden">
+<svg viewBox="0 0 1440 400" preserveAspectRatio="none" style="position:absolute;inset:0;width:100%;height:100%;opacity:.24" aria-hidden="true">
+<g stroke="#7FAED9" stroke-width="1" fill="none">
+<path d="M1210 60 V120 M1080 120 H1340 M1080 120 V170 M1210 120 V170 M1340 120 V170"></path>
+<path d="M1080 230 H1340 M1210 200 V230 M1080 230 V270 M1210 230 V270 M1340 230 V270"></path>
+</g>
+<g fill="#7FAED9">
+<rect x="1180" y="44" width="60" height="16" rx="2"></rect>
+<rect x="1055" y="170" width="50" height="14" rx="2"></rect><rect x="1185" y="170" width="50" height="14" rx="2"></rect><rect x="1315" y="170" width="50" height="14" rx="2"></rect>
+<rect x="1055" y="270" width="50" height="14" rx="2"></rect><rect x="1185" y="270" width="50" height="14" rx="2"></rect><rect x="1315" y="270" width="50" height="14" rx="2"></rect>
+</g>
+</svg>
+<div style="width:1320px;margin:0 auto;position:relative">
+<div style="font:500 11px 'IBM Plex Mono',monospace;letter-spacing:.13em;color:#7FAED9;margin-bottom:28px"><a href="CERDAS Home.dc.html" style="color:#7FAED9">HOME</a> <span style="color:#E38C07">/</span> <a href="#" style="color:#7FAED9">ABOUT</a> <span style="color:#E38C07">/</span> GOVERNANCE</div>
+<h1 style="margin:0 0 22px;font:700 52px/1.07 'Inter Tight',sans-serif;letter-spacing:-.02em;color:#FFFFFF;max-width:840px;text-wrap:pretty">Governance &amp; organisational structure</h1>
+<p style="margin:0;font:400 18.5px/1.62 Inter,sans-serif;color:#BFD2E4;max-width:720px;text-wrap:pretty">Six research groups deliver. Four strategic functions enable. One Director is accountable for the whole. Select any unit below to see what it owns and who sits in it.</p>
+</div>
+</section>
+
+<section style="background:#FFFFFF;padding:104px 0 20px;border-bottom:1px solid #D8DEE5">
+<div style="width:1320px;margin:0 auto">
+
+<div style="text-align:center;margin:0 auto 52px">
+<div style="font:500 10.5px 'IBM Plex Mono',monospace;letter-spacing:.2em;color:#E38C07;margin-bottom:18px">WE HAVE ONE OBJECTIVE</div>
+<div style="width:40px;height:1px;background:#D8DEE5;margin:0 auto 34px"></div>
+<p style="margin:0 auto;max-width:1120px;font:600 42px/1.26 'Inter Tight',sans-serif;letter-spacing:-.022em;color:#004B8C;text-wrap:balance">To share UTP-CERDAS strength and capability towards resilient data analytics and computational systems research.</p>
+</div>
+
+<p style="margin:0 0 8px;font:400 17px/1.66 Inter,sans-serif;color:#5A6472;text-wrap:pretty">CERDAS aspires to share UTP’s strength and capability in data analytics and computational systems research. The centre focuses on three project pillars — Solution Data Driven, Ecosystem Infrastructure, and Human Development. Together these support digital readiness across client ecosystems, develop customised AI solutions built around real domain pain points, and create a platform for talent development that combines technical know-how with data expertise.</p>
+
+<sc-if value="{{ pillarColumns }}" hint-placeholder-val="{{ true }}">
+<div style="margin-top:44px;padding-top:36px;border-top:1px solid #D8DEE5;display:grid;grid-template-columns:repeat(3,1fr);gap:52px">
+<div>
+<div style="font:500 10.5px 'IBM Plex Mono',monospace;letter-spacing:.13em;color:#004B8C;margin-bottom:10px">PILLAR 01</div>
+<div style="font:600 19px/1.34 'Inter Tight',sans-serif;color:#14181D;margin-bottom:9px">Solution Data Driven</div>
+<div style="font:400 14.5px/1.6 Inter,sans-serif;color:#5A6472;text-wrap:pretty">Customised AI and analytics solutions built around real domain pain points, not generic models.</div>
+</div>
+<div>
+<div style="font:500 10.5px 'IBM Plex Mono',monospace;letter-spacing:.13em;color:#004B8C;margin-bottom:10px">PILLAR 02</div>
+<div style="font:600 19px/1.34 'Inter Tight',sans-serif;color:#14181D;margin-bottom:9px">Ecosystem Infrastructure</div>
+<div style="font:400 14.5px/1.6 Inter,sans-serif;color:#5A6472;text-wrap:pretty">Digital readiness across client ecosystems — the platforms and pipelines that make deployment possible.</div>
+</div>
+<div>
+<div style="font:500 10.5px 'IBM Plex Mono',monospace;letter-spacing:.13em;color:#004B8C;margin-bottom:10px">PILLAR 03</div>
+<div style="font:600 19px/1.34 'Inter Tight',sans-serif;color:#14181D;margin-bottom:9px">Human Development</div>
+<div style="font:400 14.5px/1.6 Inter,sans-serif;color:#5A6472;text-wrap:pretty">A talent platform that combines technical know-how with data expertise, from postgraduate to practitioner.</div>
+</div>
+</div>
+</sc-if>
+
+<div style="height:64px"></div>
+
+<div style="border-top:1px solid #D8DEE5;padding:40px 0 42px;display:grid;grid-template-columns:230px 1fr;gap:56px;align-items:start">
+<div style="font:500 10.5px 'IBM Plex Mono',monospace;letter-spacing:.14em;color:#5A6472">VISION</div>
+<div style="display:flex;flex-direction:column;gap:18px;max-width:900px">
+<p style="margin:0;font:400 17px/1.58 Inter,sans-serif;color:#14181D;text-wrap:pretty">To conduct research and develop researchers who deliver resilient, intelligent solutions for industry and society.</p>
+<p style="margin:0;font:400 17px/1.58 Inter,sans-serif;color:#14181D;text-wrap:pretty">To become a leading centre for data analytics and computational systems, recognised nationally and internationally for research excellence and translated impact.</p>
+</div>
+</div>
+
+<div style="border-top:1px solid #D8DEE5;padding:40px 0 42px;display:grid;grid-template-columns:230px 1fr;gap:56px;align-items:start">
+<div style="font:500 10.5px 'IBM Plex Mono',monospace;letter-spacing:.14em;color:#5A6472">MISSION</div>
+<div style="display:flex;flex-direction:column;gap:16px;max-width:900px">
+<div style="display:grid;grid-template-columns:38px 1fr;gap:0;align-items:baseline">
+<span style="font:500 12px 'IBM Plex Mono',monospace;color:#004B8C">01</span>
+<span style="font:400 15.5px/1.62 Inter,sans-serif;color:#5A6472;text-wrap:pretty">To advance research across artificial intelligence, computational science, intelligent systems, and next-generation computing.</span>
+</div>
+<div style="display:grid;grid-template-columns:38px 1fr;gap:0;align-items:baseline">
+<span style="font:500 12px 'IBM Plex Mono',monospace;color:#004B8C">02</span>
+<span style="font:400 15.5px/1.62 Inter,sans-serif;color:#5A6472;text-wrap:pretty">To develop the research leaders and technical talent of the next decade.</span>
+</div>
+<div style="display:grid;grid-template-columns:38px 1fr;gap:0;align-items:baseline">
+<span style="font:500 12px 'IBM Plex Mono',monospace;color:#004B8C">03</span>
+<span style="font:400 15.5px/1.62 Inter,sans-serif;color:#5A6472;text-wrap:pretty">To translate research into deployable technologies, platforms, and solutions.</span>
+</div>
+<div style="display:grid;grid-template-columns:38px 1fr;gap:0;align-items:baseline">
+<span style="font:500 12px 'IBM Plex Mono',monospace;color:#004B8C">04</span>
+<span style="font:400 15.5px/1.62 Inter,sans-serif;color:#5A6472;text-wrap:pretty">To collaborate with industry partners on problems that matter to them, with energy and heavy industry as a founding strength.</span>
+</div>
+</div>
+</div>
+
+<div style="border-top:1px solid #D8DEE5;padding:40px 0 52px;display:grid;grid-template-columns:230px 1fr;gap:56px;align-items:start">
+<div>
+<div style="font:500 10.5px 'IBM Plex Mono',monospace;letter-spacing:.14em;color:#5A6472;margin-bottom:10px">NICHE AREA</div>
+<div style="font:400 12.5px/1.5 Inter,sans-serif;color:#5A6472">Four strands, delivered across the six research groups below.</div>
+</div>
+<div style="display:flex;flex-direction:column;gap:14px;max-width:900px">
+<div style="display:grid;grid-template-columns:4px 1fr;gap:0">
+<div style="background:#004B8C"></div>
+<div style="padding:2px 0 2px 20px">
+<div style="font:500 10.5px 'IBM Plex Mono',monospace;letter-spacing:.11em;color:#004B8C;margin-bottom:7px">N1 <span style="color:#5A6472">· AI &amp; DATA INTELLIGENCE</span></div>
+<div style="font:400 15px/1.6 Inter,sans-serif;color:#5A6472;text-wrap:pretty">Analytics environments that combine domain expertise, computational capability, and statistical rigour to extract decisions, not just insights, from operational data.</div>
+</div>
+</div>
+<div style="display:grid;grid-template-columns:4px 1fr;gap:0">
+<div style="background:#1A6BAE"></div>
+<div style="padding:2px 0 2px 20px">
+<div style="font:500 10.5px 'IBM Plex Mono',monospace;letter-spacing:.11em;color:#004B8C;margin-bottom:7px">N2 <span style="color:#5A6472">· COMPUTATIONAL SCIENCE &amp; OPTIMISATION</span></div>
+<div style="font:400 15px/1.6 Inter,sans-serif;color:#5A6472;text-wrap:pretty">Descriptive through prescriptive analytics for industrial assets — corrosion rate prediction, remaining useful life estimation, and data quality assurance.</div>
+</div>
+</div>
+<div style="display:grid;grid-template-columns:4px 1fr;gap:0">
+<div style="background:#4A8CC4"></div>
+<div style="padding:2px 0 2px 20px">
+<div style="font:500 10.5px 'IBM Plex Mono',monospace;letter-spacing:.11em;color:#004B8C;margin-bottom:7px">N3 <span style="color:#5A6472">· INTELLIGENT &amp; DISTRIBUTED SYSTEMS</span></div>
+<div style="font:400 15px/1.6 Inter,sans-serif;color:#5A6472;text-wrap:pretty">Machine learning and AI modelling adapted to specific client problems rather than applied generically.</div>
+</div>
+</div>
+<div style="display:grid;grid-template-columns:4px 1fr;gap:0">
+<div style="background:#7FAED9"></div>
+<div style="padding:2px 0 2px 20px">
+<div style="font:500 10.5px 'IBM Plex Mono',monospace;letter-spacing:.11em;color:#004B8C;margin-bottom:7px">N4 <span style="color:#5A6472">· NEXT-GENERATION COMPUTING</span></div>
+<div style="font:400 15px/1.6 Inter,sans-serif;color:#5A6472;text-wrap:pretty">Computational and distributed systems research — simulation, optimisation, edge intelligence, and high-performance computing — that makes the above run at operational scale.</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</section>
+
+<section style="background:#FFFFFF;padding:64px 0 80px">
+<div style="width:1320px;margin:0 auto">
+
+<div style="display:flex;align-items:flex-end;justify-content:space-between;gap:40px;margin-bottom:30px">
+<div>
+<div style="width:44px;height:3px;background:#E38C07;margin-bottom:20px"></div>
+<h2 style="margin:0 0 10px;font:700 30px/1.16 'Inter Tight',sans-serif;letter-spacing:-.015em;color:#14181D">CERDAS organisation chart</h2>
+<p style="margin:0;font:400 15.5px/1.6 Inter,sans-serif;color:#5A6472;max-width:600px">Click a unit in the diagram. The panel on the right shows that unit's remit and its named members.</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:9px;flex:none">
+<div style="display:flex;align-items:center;gap:9px"><span style="width:26px;height:0;border-top:1.5px solid #4A8CC4;display:block"></span><span style="font:500 10.5px 'IBM Plex Mono',monospace;letter-spacing:.09em;color:#5A6472">REPORTING LINE</span></div>
+<div style="display:flex;align-items:center;gap:9px"><span style="width:26px;height:0;border-top:1.5px dashed #4A8CC4;display:block"></span><span style="font:500 10.5px 'IBM Plex Mono',monospace;letter-spacing:.09em;color:#5A6472">ADVISORY, NOT LINE MANAGEMENT</span></div>
+<div style="display:flex;align-items:center;gap:9px"><span style="width:26px;height:3px;background:#E38C07;display:block"></span><span style="font:500 10.5px 'IBM Plex Mono',monospace;letter-spacing:.09em;color:#5A6472">UNIT ON SHOW IN THE PANEL</span></div>
+</div>
+</div>
+
+<div style="display:grid;grid-template-columns:830px 450px;gap:40px;align-items:start">
+
+<div style="width:830px;display:flex;flex-direction:column">
+
+<div style="display:flex;align-items:center;justify-content:space-between;gap:0">
+<button type="button" onClick="{{ pickRlmt }}" style="position:relative;width:216px;min-height:104px;box-sizing:border-box;background:#FFFFFF;border:1px solid #BFD2E4;border-radius:7px;padding:14px 16px;text-align:left;cursor:pointer;font-family:Inter,sans-serif;overflow:hidden" style-hover="border-color:#004B8C">
+<sc-if value="{{ onRlmt }}" hint-placeholder-val="{{ false }}"><span style="position:absolute;left:0;right:0;top:0;height:3px;background:#E38C07"></span></sc-if>
+<div style="font:500 9.5px 'IBM Plex Mono',monospace;letter-spacing:.13em;color:#5A6472;margin-bottom:7px">GOVERNANCE</div>
+<div style="font:600 14.5px/1.22 'Inter Tight',sans-serif;color:#14181D">Research Leadership &amp; Management Team</div>
+<div style="margin-top:6px;font:400 11px Inter,sans-serif;color:#5A6472">Strategic leadership and oversight</div>
+</button>
+<div style="flex:1;height:0;border-top:1.5px dashed #4A8CC4;min-width:20px"></div>
+<button type="button" onClick="{{ pickDirector }}" style="position:relative;width:282px;min-height:104px;box-sizing:border-box;background:#004B8C;border:1px solid #004B8C;border-radius:7px;padding:16px 18px;text-align:left;cursor:pointer;font-family:Inter,sans-serif;overflow:hidden" style-hover="background:#00335F">
+<sc-if value="{{ onDirector }}" hint-placeholder-val="{{ true }}"><span style="position:absolute;left:0;right:0;top:0;height:3px;background:#E38C07"></span></sc-if>
+<div style="font:500 9.5px 'IBM Plex Mono',monospace;letter-spacing:.13em;color:#7FAED9;margin-bottom:8px">ACCOUNTABLE OVERALL</div>
+<div style="font:600 20px/1.2 'Inter Tight',sans-serif;color:#FFFFFF">CERDAS Director</div>
+<div style="margin-top:6px;font:500 12.5px Inter,sans-serif;color:#FFFFFF">Prof. Ts. Dr. Jafreezal Jaafar</div>
+</button>
+<div style="flex:1;height:0;border-top:1.5px dashed #4A8CC4;min-width:20px"></div>
+<button type="button" onClick="{{ pickAdvisory }}" style="position:relative;width:216px;min-height:104px;box-sizing:border-box;background:#FFFFFF;border:1px solid #BFD2E4;border-radius:7px;padding:14px 16px;text-align:left;cursor:pointer;font-family:Inter,sans-serif;overflow:hidden" style-hover="border-color:#004B8C">
+<sc-if value="{{ onAdvisory }}" hint-placeholder-val="{{ false }}"><span style="position:absolute;left:0;right:0;top:0;height:3px;background:#E38C07"></span></sc-if>
+<div style="font:500 9.5px 'IBM Plex Mono',monospace;letter-spacing:.13em;color:#5A6472;margin-bottom:7px">ADVISORY</div>
+<div style="font:600 14.5px/1.22 'Inter Tight',sans-serif;color:#14181D">Advisory Board</div>
+<div style="margin-top:6px;font:400 11px Inter,sans-serif;color:#5A6472">Industry · Academia · Government · Partners</div>
+</button>
+</div>
+
+<div style="width:1.5px;height:24px;background:#4A8CC4;margin:0 auto"></div>
+
+<button type="button" onClick="{{ pickCro }}" style="position:relative;width:520px;margin:0 auto;box-sizing:border-box;background:#FAFAF8;border:1px solid #D8DEE5;border-radius:7px;padding:16px 20px;text-align:left;cursor:pointer;font-family:Inter,sans-serif;overflow:hidden" style-hover="border-color:#004B8C">
+<sc-if value="{{ onCro }}" hint-placeholder-val="{{ false }}"><span style="position:absolute;left:0;right:0;top:0;height:3px;background:#E38C07"></span></sc-if>
+<div style="font:500 9.5px 'IBM Plex Mono',monospace;letter-spacing:.13em;color:#5A6472;margin-bottom:7px">SECRETARIAT &amp; SUPPORT</div>
+<div style="display:flex;align-items:baseline;justify-content:space-between;gap:16px">
+<div style="font:600 16px/1.22 'Inter Tight',sans-serif;color:#14181D">Centre Research Officer (CRO)</div>
+<div style="flex:none;font:400 11px Inter,sans-serif;color:#5A6472">Nine support functions</div>
+</div>
+<div style="margin-top:6px;font:500 13px Inter,sans-serif;color:#004B8C">Latty Shazana Ismail</div>
+</button>
+
+<div style="width:1.5px;height:24px;background:#4A8CC4;margin:0 auto"></div>
+
+<div style="background:#004B8C;border-radius:7px;padding:14px 20px;display:flex;align-items:baseline;justify-content:space-between;gap:20px">
+<div style="font:700 15px/1.2 'Inter Tight',sans-serif;letter-spacing:.02em;color:#FFFFFF">RESEARCH GROUPS</div>
+<div style="font:400 12px/1.2 Inter,sans-serif;color:#BFD2E4;font-style:italic">Scientific &amp; technical backbone</div>
+</div>
+
+<div style="margin-top:16px;display:grid;grid-template-columns:repeat(3,1fr);gap:14px">
+<sc-for list="{{ groups }}" as="n" hint-placeholder-count="6">
+<button type="button" onClick="{{ n.pick }}" style="position:relative;box-sizing:border-box;min-height:150px;background:#FFFFFF;border:1px solid #BFD2E4;border-radius:7px;padding:14px 15px;text-align:left;cursor:pointer;font-family:Inter,sans-serif;overflow:hidden;display:flex;flex-direction:column" style-hover="border-color:#004B8C">
+<sc-if value="{{ n.on }}" hint-placeholder-val="{{ false }}"><span style="position:absolute;left:0;right:0;top:0;height:3px;background:#E38C07"></span></sc-if>
+<div style="font:600 10px 'IBM Plex Mono',monospace;letter-spacing:.1em;color:#FFFFFF;background:#004B8C;padding:4px 8px;border-radius:3px;align-self:flex-start;margin-bottom:10px">{{ n.code }}</div>
+<div style="font:600 14.5px/1.26 'Inter Tight',sans-serif;color:#14181D;margin-bottom:10px">{{ n.title }}</div>
+<div style="margin-top:auto;padding-top:10px;border-top:1px solid #E8ECF1">
+<div style="font:500 9.5px 'IBM Plex Mono',monospace;letter-spacing:.1em;color:#5A6472;margin-bottom:4px">GROUP HEAD</div>
+<div style="font:500 12px/1.35 Inter,sans-serif;color:#004B8C">{{ n.lead }}</div>
+</div>
+</button>
+</sc-for>
+</div>
+
+<div style="width:1.5px;height:24px;background:#4A8CC4;margin:24px auto 0"></div>
+
+<div style="background:#00335F;border-radius:7px;padding:14px 20px;display:flex;align-items:baseline;justify-content:space-between;gap:20px">
+<div style="font:700 15px/1.2 'Inter Tight',sans-serif;letter-spacing:.02em;color:#FFFFFF">STRATEGIC FUNCTIONS</div>
+<div style="font:400 12px/1.2 Inter,sans-serif;color:#BFD2E4;font-style:italic">Enablers &amp; impact drivers</div>
+</div>
+
+<div style="margin-top:16px;display:grid;grid-template-columns:repeat(4,1fr);gap:14px">
+<sc-for list="{{ functions }}" as="n" hint-placeholder-count="4">
+<button type="button" onClick="{{ n.pick }}" style="position:relative;box-sizing:border-box;min-height:150px;background:#FAFAF8;border:1px solid #D8DEE5;border-radius:7px;padding:14px 15px;text-align:left;cursor:pointer;font-family:Inter,sans-serif;overflow:hidden;display:flex;flex-direction:column" style-hover="border-color:#004B8C">
+<sc-if value="{{ n.on }}" hint-placeholder-val="{{ false }}"><span style="position:absolute;left:0;right:0;top:0;height:3px;background:#E38C07"></span></sc-if>
+<div style="font:600 10px 'IBM Plex Mono',monospace;letter-spacing:.1em;color:#FFFFFF;background:#00335F;padding:4px 8px;border-radius:3px;align-self:flex-start;margin-bottom:10px">{{ n.code }}</div>
+<div style="font:600 14px/1.26 'Inter Tight',sans-serif;color:#14181D;margin-bottom:10px">{{ n.title }}</div>
+<div style="margin-top:auto;padding-top:10px;border-top:1px solid #E8ECF1">
+<div style="font:500 9.5px 'IBM Plex Mono',monospace;letter-spacing:.1em;color:#5A6472;margin-bottom:4px">HEAD</div>
+<div style="font:500 12px/1.35 Inter,sans-serif;color:#004B8C">{{ n.lead }}</div>
+</div>
+</button>
+</sc-for>
+</div>
+
+</div>
+
+<div style="position:sticky;top:24px;max-height:86vh;overflow-y:auto;background:#FFFFFF;border:1px solid #D8DEE5;border-radius:8px;box-shadow:0 1px 3px rgba(20,24,29,.05)">
+<div style="background:#00335F;padding:24px 26px 22px">
+<div style="font:500 10px 'IBM Plex Mono',monospace;letter-spacing:.14em;color:#7FAED9;margin-bottom:12px">{{ panelKind }}</div>
+<div style="font:700 25px/1.18 'Inter Tight',sans-serif;letter-spacing:-.015em;color:#FFFFFF;text-wrap:pretty">{{ panelTitle }}</div>
+<div style="margin-top:10px;font:400 13.5px/1.5 Inter,sans-serif;color:#BFD2E4">{{ panelSub }}</div>
+</div>
+<div style="padding:24px 26px 26px">
+<p style="margin:0 0 22px;font:400 14.5px/1.62 Inter,sans-serif;color:#14181D;text-wrap:pretty">{{ panelRemit }}</p>
+<div style="font:500 10px 'IBM Plex Mono',monospace;letter-spacing:.14em;color:#5A6472;margin-bottom:14px">{{ panelListLabel }}</div>
+<div style="display:flex;flex-direction:column;gap:11px;margin-bottom:26px">
+<sc-for list="{{ panelResp }}" as="r" hint-placeholder-count="5">
+<div style="display:flex;gap:11px;align-items:flex-start">
+<span style="flex:none;width:5px;height:5px;border-radius:50%;background:#E38C07;margin-top:7px"></span>
+<span style="font:400 14px/1.5 Inter,sans-serif;color:#5A6472">{{ r }}</span>
+</div>
+</sc-for>
+</div>
+<div style="font:500 10px 'IBM Plex Mono',monospace;letter-spacing:.14em;color:#5A6472;margin-bottom:14px;padding-top:22px;border-top:1px solid #E8ECF1">{{ panelPeopleLabel }}</div>
+<div style="display:flex;flex-direction:column;gap:1px;background:#E8ECF1;border-radius:6px;overflow:hidden;margin-bottom:22px">
+<sc-for list="{{ panelPeople }}" as="p" hint-placeholder-count="3">
+<div style="background:#FFFFFF;padding:12px 14px;display:flex;align-items:baseline;justify-content:space-between;gap:14px">
+<span style="font:500 13.5px/1.35 Inter,sans-serif;color:#14181D">{{ p.name }}</span>
+<span style="flex:none;font:400 11.5px Inter,sans-serif;color:#5A6472;text-align:right">{{ p.role }}</span>
+</div>
+</sc-for>
+</div>
+<a href="{{ panelHref }}" style="font:600 14px Inter,sans-serif;color:#004B8C">{{ panelLink }} →</a>
+</div>
+</div>
+
+</div>
+</div>
+</section>
+
+<section style="background:#FAFAF8;padding:72px 0 80px;border-top:1px solid #D8DEE5">
+<div style="width:1320px;margin:0 auto">
+<div style="width:44px;height:3px;background:#E38C07;margin-bottom:22px"></div>
+<h2 style="margin:0 0 12px;font:700 32px/1.16 'Inter Tight',sans-serif;letter-spacing:-.015em;color:#14181D">How research groups and strategic functions work together</h2>
+<p style="margin:0 0 40px;font:400 16px/1.6 Inter,sans-serif;color:#5A6472;max-width:680px">The two halves of the structure do different jobs, and the distinction is deliberate.</p>
+
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:24px">
+<div style="background:#FFFFFF;border:1px solid #D8DEE5;border-radius:8px;padding:34px 34px 36px">
+<div style="font:500 10px 'IBM Plex Mono',monospace;letter-spacing:.14em;color:#004B8C;margin-bottom:16px">RG01–RG06 — DELIVER</div>
+<h3 style="margin:0 0 14px;font:600 22px/1.24 'Inter Tight',sans-serif;color:#14181D">Research groups do the research</h3>
+<p style="margin:0 0 16px;font:400 15px/1.65 Inter,sans-serif;color:#5A6472">A research group is where the work happens: proposals written, projects run, papers published, students supervised, prototypes built. Each group has a Group Head who owns its targets and decides how its researchers and facility time are used.</p>
+<p style="margin:0;font:400 15px/1.65 Inter,sans-serif;color:#5A6472">Groups are organised around research questions, not departments — a researcher can sit in more than one, and most flagship projects deliberately span two.</p>
+</div>
+<div style="background:#FFFFFF;border:1px solid #D8DEE5;border-radius:8px;padding:34px 34px 36px">
+<div style="font:500 10px 'IBM Plex Mono',monospace;letter-spacing:.14em;color:#004B8C;margin-bottom:16px">F1–F4 — ENABLE</div>
+<h3 style="margin:0 0 14px;font:600 22px/1.24 'Inter Tight',sans-serif;color:#14181D">Strategic functions clear the path</h3>
+<p style="margin:0 0 16px;font:400 15px/1.65 Inter,sans-serif;color:#5A6472">A strategic function holds no research targets of its own. It exists to remove what slows the groups down — finding the funding call, drafting the agreement, filing the patent, booking the cluster, collecting the KPI evidence.</p>
+<p style="margin:0;font:400 15px/1.65 Inter,sans-serif;color:#5A6472">Functions cut across all six research groups. That is the point: one route to industry, one appointment process, one performance return, rather than six of each.</p>
+</div>
+</div>
+
+<div style="background:#004B8C;border-radius:8px;padding:44px 48px">
+<div style="max-width:900px">
+<div style="width:44px;height:3px;background:#E38C07;margin-bottom:24px"></div>
+<p style="margin:0;font:400 23px/1.5 'Inter Tight',sans-serif;color:#FFFFFF;text-wrap:pretty">Combining six focused research groups with clear governance and accountable leadership is how CERDAS intends to drive the journey from research excellence to sustainable impact.</p>
+</div>
+</div>
+</div>
+</section>
+
+<section style="background:#FFFFFF;padding:72px 0 76px;border-top:1px solid #D8DEE5">
+<div style="width:1320px;margin:0 auto">
+<div style="width:44px;height:3px;background:#E38C07;margin-bottom:22px"></div>
+<h2 style="margin:0 0 32px;font:700 30px/1.16 'Inter Tight',sans-serif;letter-spacing:-.015em;color:#14181D">Our values</h2>
+<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:#E8ECF1;border:1px solid #E8ECF1;border-radius:8px;overflow:hidden">
+<sc-for list="{{ values }}" as="v" hint-placeholder-count="6">
+<div style="background:#FFFFFF;padding:26px 28px 28px">
+<div style="font:500 10px 'IBM Plex Mono',monospace;letter-spacing:.14em;color:#004B8C;margin-bottom:12px">{{ v.n }}</div>
+<div style="font:600 18px/1.28 'Inter Tight',sans-serif;color:#14181D">{{ v.label }}</div>
+</div>
+</sc-for>
+</div>
+
+<div style="margin-top:36px;background:#00335F;border-radius:8px;padding:30px 36px">
+<div style="display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap">
+<sc-for list="{{ chain }}" as="c" hint-placeholder-count="5">
+<div style="display:flex;align-items:center;gap:18px">
+<span style="font:600 14px 'IBM Plex Mono',monospace;letter-spacing:.14em;color:#FFFFFF">{{ c.label }}</span>
+<sc-if value="{{ c.arrow }}" hint-placeholder-val="{{ true }}"><span style="font:600 15px Inter,sans-serif;color:#E38C07">→</span></sc-if>
+</div>
+</sc-for>
+</div>
+<div style="margin-top:22px;padding-top:22px;border-top:1px solid rgba(191,210,228,.28);font:500 15px/1.4 'Inter Tight',sans-serif;font-style:italic;color:#BFD2E4">Powering computational intelligence for a resilient &amp; sustainable future.</div>
+</div>
+</div>
+</section>
+
+<section style="background:#FAFAF8;padding:64px 0 76px;border-top:1px solid #D8DEE5">
+<div style="width:1320px;margin:0 auto">
+<div style="width:44px;height:3px;background:#E38C07;margin-bottom:22px"></div>
+<h2 style="margin:0 0 32px;font:700 26px/1.2 'Inter Tight',sans-serif;letter-spacing:-.015em;color:#14181D">Also in About</h2>
+<div style="display:grid;grid-template-columns:repeat(4,1fr);gap:20px">
+<a href="#" style="background:#FFFFFF;border:1px solid #D8DEE5;border-radius:8px;padding:26px 26px 28px;display:block" style-hover="border-color:#004B8C">
+<div style="font:500 10px 'IBM Plex Mono',monospace;letter-spacing:.14em;color:#5A6472;margin-bottom:14px">A4</div>
+<div style="font:600 18px/1.26 'Inter Tight',sans-serif;color:#14181D;margin-bottom:8px">Roles &amp; responsibilities</div>
+<div style="font:400 13.5px/1.5 Inter,sans-serif;color:#5A6472">The full duty list for every role in the structure.</div>
+</a>
+<a href="#" style="background:#FFFFFF;border:1px solid #D8DEE5;border-radius:8px;padding:26px 26px 28px;display:block" style-hover="border-color:#004B8C">
+<div style="font:500 10px 'IBM Plex Mono',monospace;letter-spacing:.14em;color:#5A6472;margin-bottom:14px">A5</div>
+<div style="font:600 18px/1.26 'Inter Tight',sans-serif;color:#14181D;margin-bottom:8px">Advisory Board</div>
+<div style="font:400 13.5px/1.5 Inter,sans-serif;color:#5A6472">Who advises the centre, and on what.</div>
+</a>
+<a href="CERDAS Fellowship Framework.dc.html" style="background:#FFFFFF;border:1px solid #D8DEE5;border-radius:8px;padding:26px 26px 28px;display:block" style-hover="border-color:#004B8C">
+<div style="font:500 10px 'IBM Plex Mono',monospace;letter-spacing:.14em;color:#5A6472;margin-bottom:14px">A6</div>
+<div style="font:600 18px/1.26 'Inter Tight',sans-serif;color:#14181D;margin-bottom:8px">Fellowship framework</div>
+<div style="font:400 13.5px/1.5 Inter,sans-serif;color:#5A6472">Five categories, seventeen appointment types.</div>
+</a>
+<a href="CERDAS Research Dashboard.dc.html" style="background:#FFFFFF;border:1px solid #D8DEE5;border-radius:8px;padding:26px 26px 28px;display:block" style-hover="border-color:#004B8C">
+<div style="font:500 10px 'IBM Plex Mono',monospace;letter-spacing:.14em;color:#5A6472;margin-bottom:14px">E5</div>
+<div style="font:600 18px/1.26 'Inter Tight',sans-serif;color:#14181D;margin-bottom:8px">Research dashboard</div>
+<div style="font:400 13.5px/1.5 Inter,sans-serif;color:#5A6472">The performance this structure is accountable for.</div>
+</a>
+</div>
+</div>
+</section>
+
+<dc-import name="SiteFooter" hint-size="100%,340px"></dc-import>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1440},&quot;pillarColumns&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Objective block&quot;}}">
+const NODES = {
+  director: {
+    kind: 'ACCOUNTABLE OVERALL', title: 'CERDAS Director', sub: 'Prof. Ts. Dr. Jafreezal Jaafar',
+    remit: 'The Director is accountable to the university and to HiCoE for the centre as a whole — its strategy, its performance position and its external standing.',
+    listLabel: 'RESPONSIBILITIES',
+    resp: [
+      'Sets the centre\u2019s strategic direction and research agenda',
+      'Chairs the Research Leadership & Management Team',
+      'Owns overall KPI performance and the annual HiCoE return',
+      'Represents CERDAS to the university, funders, partners and government',
+      'Approves fellowship appointments, laboratory and facility allocation',
+      'Decides reallocation of effort and budget at each quarterly review'
+    ],
+    people: [
+      { name: 'Prof. Ts. Dr. Jafreezal Jaafar', role: 'Director' }
+    ],
+    link: 'See the Director\u2019s message', href: '#'
+  },
+  rlmt: {
+    kind: 'GOVERNANCE', title: 'Research Leadership & Management Team', sub: 'Provides strategic leadership and oversight for CERDAS',
+    remit: 'The centre\u2019s decision-making body. It turns strategy into group-level plans and holds the quarterly performance review.',
+    listLabel: 'RESPONSIBILITIES',
+    resp: [
+      'Translates strategy into research group plans, targets and resourcing',
+      'Reviews the project pipeline, grant applications and portfolio balance',
+      'Reviews the KPI position each quarter and agrees written actions',
+      'Endorses new laboratories, facilities and major purchases',
+      'Recommends fellowship appointments to the Director'
+    ],
+    peopleLabel: 'COMPOSITION',
+    people: [
+      { name: 'Director', role: 'Chair' },
+      { name: 'Research Group Heads', role: 'RG01–RG06' },
+      { name: 'Heads of Strategic Functions', role: 'F1–F4' },
+      { name: 'Centre Research Officer', role: 'Secretariat' }
+    ],
+    link: 'Full roles and responsibilities', href: '#'
+  },
+  advisory: {
+    kind: 'ADVISORY · NOT LINE MANAGEMENT', title: 'Advisory Board', sub: 'Provides strategic advice and guidance',
+    remit: 'An external board that advises the Director. It has no line-management authority over any part of the centre and holds no KPI targets.',
+    listLabel: 'REMIT',
+    resp: [
+      'Validates the centre\u2019s research direction and priorities',
+      'Offers industry insight and technology foresight',
+      'Supports partnership and funding development',
+      'Reviews the annual performance summary before it is published',
+      'Advises on international positioning and reputation'
+    ],
+    peopleLabel: 'REPRESENTATION',
+    people: [
+      { name: 'Industry', role: 'Board seat' },
+      { name: 'Academia', role: 'Board seat' },
+      { name: 'Government', role: 'Board seat' },
+      { name: 'Partners', role: 'Board seat' }
+    ],
+    link: 'Meet the Advisory Board', href: '#'
+  },
+  cro: {
+    kind: 'SECRETARIAT & SUPPORT', title: 'Centre Research Officer (CRO)', sub: 'Latty Shazana Ismail',
+    remit: 'The centre\u2019s administrative spine. The Centre Research Officer runs nine support functions that keep research, reporting and compliance moving.',
+    listLabel: 'NINE SUPPORT FUNCTIONS',
+    resp: [
+      'Research administration',
+      'Grant & proposal support',
+      'KPI & reporting',
+      'Financial & procurement support',
+      'Data & publication management',
+      'HiCoE evidence & MyRA',
+      'Meeting & secretariat',
+      'Communications & events',
+      'Website & information management'
+    ],
+    people: [
+      { name: 'Latty Shazana Ismail', role: 'Centre Research Officer' }
+    ],
+    link: 'Contact the centre office', href: '#'
+  }
+};
+
+const GROUP_DUTIES = [
+  'Sets the group\u2019s research agenda and priorities',
+  'Owns the group\u2019s publication, completion and project targets',
+  'Allocates researchers and facility time within the group',
+  'Develops proposals and industry projects in its domain',
+  'Reports the group KPI position each quarter'
+];
+
+const GROUPS = [
+  { id: 'rg01', code: 'RG01', title: 'Data Science & Analytics',
+    lead: 'Assoc. Prof. Ts. Dr. Hitham Seddig Alhassan Alhussian',
+    members: [
+      'Dr. Emelia Akashah Patah Akhir',
+      'Dr. Noureen Talpur',
+      'Dr. Nazleeni Samiha Haron @ Baharon',
+      'Assoc. Prof. Ts. Dr. Shuhaida Mohamed Shuhidan',
+      'Ts. Dr. Maged Mohamed Saeed Nasser'
+    ] },
+  { id: 'rg02', code: 'RG02', title: 'Machine Learning & Intelligent Systems',
+    lead: 'Assoc. Prof. Ts. Dr. Said Jadid Abdulkadir',
+    members: [
+      'Assoc. Prof. Ts. Dr. Hanita Daud',
+      'Ts. Dr. Yaman Hamed',
+      'Dr. Rajalingam Sokkalingam',
+      'Ts. Dr. Nurul Aida Osman'
+    ] },
+  { id: 'rg03', code: 'RG03', title: 'Generative AI',
+    lead: 'Ts. Dr. Shakirah Mohd Taib',
+    members: [
+      'Assoc. Prof. Ts. Dr. Yew Kwang Hooi',
+      'Ts. Ahmad Izuddin Zainal Abidin',
+      'Dr. Farahida Hanim Bt Mausor'
+    ] },
+  { id: 'rg04', code: 'RG04', title: 'Computational Modelling, Simulation & Optimisation',
+    lead: 'Ts. Dr. Mohana Sundaram A/L Muthuvalu',
+    members: [
+      'Dr. Siti Nurlaili Karim',
+      'Ts. Dr. Nooraini Zainuddin',
+      'Ts. Dr. Hamzah Sakidin',
+      'Ts. Dr. Dennis Ling Chuan Ching',
+      'Dr. Zazilah May',
+      'Dr. Syahirah Bt Suboh'
+    ] },
+  { id: 'rg05', code: 'RG05', title: 'Edge Computing',
+    lead: 'Assoc. Prof. Ts. Dr. Mohd Anuaruddin bin Ahmadon',
+    members: [
+      'Dr. Nur Syadhila Che Lah',
+      'Dr. Ahmad Bukhari bin Aujih',
+      'Dr. Aliza Sarlan',
+      'Ts. Faizal Ahmad Fadzil',
+      'Prof. Dr. Haruhiro Fujita'
+    ] },
+  { id: 'rg06', code: 'RG06', title: 'Next-Generation & Quantum Computing',
+    lead: 'Assoc. Prof. Dr. Ibrahim Venkat Krishnamurthy',
+    members: [
+      'Prof. Ts. Dr. Jafreezal Jaafar',
+      'Assoc. Prof. Ts. Dr. Mohd Hilmi Hasan',
+      'Prof. Ts. Dr. Mohd Fadzil Hassan',
+      'Assoc. Prof. Ts. Dr. Izzatdin Abdul Aziz'
+    ] }
+];
+
+const FUNCTIONS = [
+  { id: 'f1', code: 'F1', title: 'Research Excellence & Talent',
+    lead: 'Assoc. Prof. Ts. Dr. Shuhaida Mohamed Shuhidan',
+    remit: 'Holds no research targets. Talent development, research capacity building, researcher support, postgraduate development, and research excellence initiatives.',
+    resp: [
+      'Talent development',
+      'Research capacity building',
+      'Researcher support',
+      'Postgraduate development',
+      'Research excellence initiatives'
+    ] },
+  { id: 'f2', code: 'F2', title: 'Innovation & Impact Translation',
+    lead: 'Dr. Emelia Akashah Patah Akhir',
+    remit: 'Holds no research targets. Innovation management, IP and commercialisation, technology transfer, industry solutions, and research impact acceleration.',
+    resp: [
+      'Innovation management',
+      'IP & commercialisation',
+      'Technology transfer',
+      'Industry solutions',
+      'Research impact acceleration'
+    ] },
+  { id: 'f3', code: 'F3', title: 'Industry & Strategic Partnerships',
+    lead: 'Assoc. Prof. Ts. Dr. Yew Kwang Hooi',
+    remit: 'Holds no research targets. Industry collaboration, strategic partnerships, consultancy services, MoUs and agreements, and joint research initiatives.',
+    resp: [
+      'Industry collaboration',
+      'Strategic partnerships',
+      'Consultancy services',
+      'MoUs & agreements',
+      'Joint research initiatives'
+    ] },
+  { id: 'f4', code: 'F4', title: 'Operations, Resources & Performance',
+    lead: 'Dr. Nur Syadhila Che Lah',
+    remit: 'Holds no research targets. Resource management, infrastructure and facilities, finance and procurement support, KPI monitoring, and performance management.',
+    resp: [
+      'Resource management',
+      'Infrastructure & facilities',
+      'Finance & procurement support',
+      'KPI monitoring',
+      'Performance management'
+    ] }
+];
+
+const VALUES = [
+  { n: 'V1', label: 'Excellence in Research' },
+  { n: 'V2', label: 'Collaboration & Inclusivity' },
+  { n: 'V3', label: 'Data-Driven Decision Making' },
+  { n: 'V4', label: 'Sustainability & Responsibility' },
+  { n: 'V5', label: 'Continuous Improvement' },
+  { n: 'V6', label: 'Integrity & Accountability' }
+];
+
+const CHAIN = ['RESEARCH', 'TALENT', 'INNOVATION', 'PARTNERSHIP', 'IMPACT'];
+
+class Component extends DCLogic {
+  state = { sel: 'director' };
+
+  pick(id) { return () => this.setState({ sel: id }); }
+
+  panelFor(id) {
+    if (NODES[id]) return NODES[id];
+    const g = GROUPS.find(x => x.id === id);
+    if (g) {
+      return {
+        kind: 'RESEARCH GROUP ' + g.code + ' · DELIVERS', title: g.title, sub: g.lead + ' · Group Head',
+        remit: 'One of six research groups forming the scientific and technical backbone of CERDAS. The group holds ' + (g.members.length + 1) + ' named researchers and owns its own performance targets.',
+        listLabel: 'RESPONSIBILITIES', resp: GROUP_DUTIES,
+        peopleLabel: 'GROUP MEMBERS',
+        people: [{ name: g.lead, role: 'Group Head' }].concat(g.members.map(m => ({ name: m, role: 'Member' }))),
+        link: 'Explore this research group', href: 'CERDAS Theme.dc.html'
+      };
+    }
+    const f = FUNCTIONS.find(x => x.id === id);
+    return {
+      kind: f.code + ' · ENABLES AND MONITORS', title: f.title, sub: f.lead + ' · Head of Strategic Function',
+      remit: f.remit, listLabel: 'SCOPE', resp: f.resp,
+      peopleLabel: 'HEAD OF STRATEGIC FUNCTION',
+      people: [{ name: f.lead, role: 'Head' }],
+      link: 'Full roles and responsibilities', href: '#'
+    };
+  }
+
+  renderVals() {
+    const sel = this.state.sel;
+    const p = this.panelFor(sel);
+    return {
+      pillarColumns: this.props.pillarColumns ?? true,
+      pickDirector: this.pick('director'), pickRlmt: this.pick('rlmt'),
+      pickAdvisory: this.pick('advisory'), pickCro: this.pick('cro'),
+      onDirector: sel === 'director', onRlmt: sel === 'rlmt',
+      onAdvisory: sel === 'advisory', onCro: sel === 'cro',
+      groups: GROUPS.map(g => ({ code: g.code, title: g.title, lead: g.lead, on: sel === g.id, pick: this.pick(g.id) })),
+      functions: FUNCTIONS.map(f => ({ code: f.code, title: f.title, lead: f.lead, on: sel === f.id, pick: this.pick(f.id) })),
+      values: VALUES,
+      chain: CHAIN.map((label, i) => ({ label, arrow: i < CHAIN.length - 1 })),
+      panelKind: p.kind, panelTitle: p.title, panelSub: p.sub, panelRemit: p.remit,
+      panelListLabel: p.listLabel, panelResp: p.resp, panelPeople: p.people,
+      panelPeopleLabel: p.peopleLabel || 'PEOPLE',
+      panelLink: p.link, panelHref: p.href
+    };
+  }
+}
+</script>
+</body>
+</html>

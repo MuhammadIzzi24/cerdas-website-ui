@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet><meta name="viewport" content="width=390, initial-scale=1"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""><link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&amp;family=Inter:wght@400;500;600;700&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<script src="./image-slot.js"></script>
+<style>
+body{margin:0;background:#FFFFFF;font-family:Inter,system-ui,sans-serif;-webkit-text-size-adjust:100%}
+a{color:#004B8C;text-decoration:none}a:hover{color:#00335F}
+[data-hscroll]::-webkit-scrollbar{height:0;display:none}
+[data-hscroll]{scrollbar-width:none}
+</style></helmet>
+
+<div data-screen-label="M1 Home · 390" style="width:390px;margin:0 auto;background:#FFFFFF;overflow:hidden">
+
+<dc-import name="MobileHeader" onOpen="{{ openMenu }}" hint-size="100%,56px"></dc-import>
+
+<sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
+<dc-import name="MobileDrawer" active="Home" onClose="{{ closeMenu }}" hint-size="100%,100%"></dc-import>
+</sc-if>
+
+<section style="background:#00335F;padding:34px 16px 38px;position:relative;overflow:hidden">
+<sc-if value="{{ motifNet }}" hint-placeholder-val="{{ true }}">
+<svg viewBox="0 0 390 420" preserveAspectRatio="xMidYMid slice" style="position:absolute;inset:0;width:100%;height:100%;opacity:.28" aria-hidden="true">
+<g stroke="#7FAED9" stroke-width="1" fill="none">
+<polyline points="30,60 105,150 60,270 190,215 265,110 350,60"></polyline>
+<polyline points="105,150 175,80 190,215 250,330"></polyline>
+<polyline points="265,110 330,200 250,330 360,370"></polyline>
+</g>
+<g fill="#7FAED9">
+<circle cx="30" cy="60" r="3.4"></circle><circle cx="105" cy="150" r="4"></circle><circle cx="60" cy="270" r="3"></circle><circle cx="175" cy="80" r="2.6"></circle><circle cx="190" cy="215" r="4.4"></circle><circle cx="250" cy="330" r="3"></circle><circle cx="265" cy="110" r="3.4"></circle><circle cx="330" cy="200" r="3"></circle><circle cx="350" cy="60" r="2.6"></circle><circle cx="360" cy="370" r="3.4"></circle>
+</g>
+</svg>
+</sc-if>
+<sc-if value="{{ motifDots }}" hint-placeholder-val="{{ false }}">
+<div style="position:absolute;inset:0;background-image:radial-gradient(#7FAED9 1.3px,transparent 1.3px);background-size:22px 22px;opacity:.2"></div>
+</sc-if>
+<div style="position:relative">
+<div style="font:500 10px/1.5 'IBM Plex Mono',monospace;letter-spacing:.15em;color:#F5C46B;margin-bottom:18px">UNIVERSITI TEKNOLOGI PETRONAS<br>RESEARCH CENTRE</div>
+<h1 style="margin:0 0 18px;font:700 35px/1.08 'Inter Tight',sans-serif;letter-spacing:-.02em;color:#FFFFFF;text-wrap:pretty">Resilient intelligence for a sustainable future</h1>
+<p style="margin:0 0 26px;font:400 15.5px/1.6 Inter,sans-serif;color:#BFD2E4;text-wrap:pretty">CERDAS builds the data analytics and computational systems that keep critical infrastructure running — across energy, manufacturing, health and the environment.</p>
+<div style="display:flex;flex-direction:column;gap:10px">
+<a href="CERDAS Research.dc.html" style="display:flex;align-items:center;justify-content:center;height:52px;font:600 15.5px Inter,sans-serif;color:#14181D;background:#E38C07;border-radius:6px">Explore our research</a>
+<a href="CERDAS Industry.dc.html" style="display:flex;align-items:center;justify-content:center;height:52px;font:600 15.5px Inter,sans-serif;color:#FFFFFF;border:1px solid rgba(255,255,255,.42);border-radius:6px">Collaborate with us</a>
+</div>
+</div>
+</section>
+
+<section style="background:#FFFFFF;border-bottom:1px solid #D8DEE5">
+<div style="display:grid;grid-template-columns:1fr 1fr">
+<div style="padding:24px 16px;border-bottom:1px solid #E8ECF1">
+<div style="width:28px;height:3px;background:#E38C07;margin-bottom:14px"></div>
+<div style="font:600 34px/1 'IBM Plex Mono',monospace;color:#004B8C;letter-spacing:-.03em">68</div>
+<div style="margin-top:9px;font:500 10.5px/1.35 Inter,sans-serif;letter-spacing:.08em;color:#5A6472">RESEARCHERS</div>
+</div>
+<div style="padding:24px 16px;border-left:1px solid #E8ECF1;border-bottom:1px solid #E8ECF1">
+<div style="width:28px;height:3px;background:#E38C07;margin-bottom:14px"></div>
+<div style="font:600 34px/1 'IBM Plex Mono',monospace;color:#004B8C;letter-spacing:-.03em">412</div>
+<div style="margin-top:9px;font:500 10.5px/1.35 Inter,sans-serif;letter-spacing:.08em;color:#5A6472">PUBLICATIONS<br>5 YEARS</div>
+</div>
+<div style="padding:24px 16px">
+<div style="width:28px;height:3px;background:#E38C07;margin-bottom:14px"></div>
+<div style="font:600 30px/1 'IBM Plex Mono',monospace;color:#004B8C;letter-spacing:-.03em">RM 24.6M</div>
+<div style="margin-top:9px;font:500 10.5px/1.35 Inter,sans-serif;letter-spacing:.08em;color:#5A6472">ACTIVE GRANT VALUE</div>
+</div>
+<div style="padding:24px 16px;border-left:1px solid #E8ECF1">
+<div style="width:28px;height:3px;background:#E38C07;margin-bottom:14px"></div>
+<div style="font:600 34px/1 'IBM Plex Mono',monospace;color:#004B8C;letter-spacing:-.03em">31</div>
+<div style="margin-top:9px;font:500 10.5px/1.35 Inter,sans-serif;letter-spacing:.08em;color:#5A6472">INDUSTRY PARTNERS</div>
+</div>
+</div>
+</section>
+
+<section style="background:#FAFAF8;padding:38px 16px 42px">
+<div style="width:38px;height:3px;background:#E38C07;margin-bottom:18px"></div>
+<h2 style="margin:0 0 10px;font:700 27px/1.14 'Inter Tight',sans-serif;letter-spacing:-.018em;color:#14181D">Four research groups</h2>
+<p style="margin:0 0 26px;font:400 15px/1.6 Inter,sans-serif;color:#5A6472;text-wrap:pretty">The scientific backbone of the centre. Every project, publication and researcher sits under one of these four.</p>
+
+<div style="display:flex;flex-direction:column;gap:14px">
+
+<a href="CERDAS Theme.dc.html" style="display:block;background:#FFFFFF;border:1px solid #D8DEE5;border-radius:8px;box-shadow:0 1px 3px rgba(20,24,29,.05);overflow:hidden">
+<div style="height:4px;background:#004B8C"></div>
+<div style="padding:20px 18px 22px">
+<div style="display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:16px">
+<div style="width:44px;height:44px;flex:none;border-radius:8px;background:rgba(0,75,140,.1);display:flex;align-items:center;justify-content:center;color:#004B8C">
+<svg width="23" height="23" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 6.5 L12 12.5 M12 12.5 L18.5 5.5 M12 12.5 L5.5 18.5 M12 12.5 L19 18" stroke="currentColor" stroke-width="1.4"></path><circle cx="5" cy="6.5" r="2.2" fill="currentColor"></circle><circle cx="18.5" cy="5.5" r="1.8" fill="currentColor"></circle><circle cx="12" cy="12.5" r="2.7" fill="currentColor"></circle><circle cx="5.5" cy="18.5" r="1.8" fill="currentColor"></circle><circle cx="19" cy="18" r="2.2" fill="currentColor"></circle></svg>
+</div>
+<div style="font:500 10.5px 'IBM Plex Mono',monospace;color:#5A6472;letter-spacing:.08em;text-align:right">T1 · 24 RESEARCHERS</div>
+</div>
+<h3 style="margin:0 0 10px;font:600 20px/1.24 'Inter Tight',sans-serif;color:#14181D;text-wrap:pretty">Data Science &amp; Analytics</h3>
+<p style="margin:0 0 16px;font:400 14.5px/1.58 Inter,sans-serif;color:#5A6472;text-wrap:pretty">Learning systems that stay reliable when the data is noisy, partial or arriving from a hundred places at once.</p>
+<div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:18px">
+<span style="font:500 12px Inter,sans-serif;color:#14181D;background:#E6EEF5;padding:6px 10px;border-radius:4px">Data Science</span>
+<span style="font:500 12px Inter,sans-serif;color:#14181D;background:#E6EEF5;padding:6px 10px;border-radius:4px">Machine Learning</span>
+<span style="font:500 12px Inter,sans-serif;color:#14181D;background:#E6EEF5;padding:6px 10px;border-radius:4px">Generative AI</span>
+</div>
+<div style="font:600 14px Inter,sans-serif;color:#004B8C">Explore theme →</div>
+</div>
+</a>
+
+<a href="CERDAS Theme.dc.html" style="display:block;background:#FFFFFF;border:1px solid #D8DEE5;border-radius:8px;box-shadow:0 1px 3px rgba(20,24,29,.05);overflow:hidden">
+<div style="height:4px;background:#1A6BAE"></div>
+<div style="padding:20px 18px 22px">
+<div style="display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:16px">
+<div style="width:44px;height:44px;flex:none;border-radius:8px;background:rgba(26,107,174,.1);display:flex;align-items:center;justify-content:center;color:#1A6BAE">
+<svg width="23" height="23" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M2.5 15.5 C6 15.5 6 8 9.5 8 C13 8 13 15.5 16.5 15.5 C20 15.5 20 8 21.5 8" stroke="currentColor" stroke-width="1.7"></path><path d="M2.5 20 H21.5 M2.5 4 H21.5" stroke="currentColor" stroke-width="1.2" stroke-dasharray="2 3"></path></svg>
+</div>
+<div style="font:500 10.5px 'IBM Plex Mono',monospace;color:#5A6472;letter-spacing:.08em;text-align:right">T2 · 17 RESEARCHERS</div>
+</div>
+<h3 style="margin:0 0 10px;font:600 20px/1.24 'Inter Tight',sans-serif;color:#14181D;text-wrap:pretty">Computational Modelling, Simulation &amp; Optimisation</h3>
+<p style="margin:0 0 16px;font:400 14.5px/1.58 Inter,sans-serif;color:#5A6472;text-wrap:pretty">Physics-grounded models and solvers that turn expensive simulation into decisions engineers can act on.</p>
+<div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:18px">
+<span style="font:500 12px Inter,sans-serif;color:#14181D;background:#E6EEF5;padding:6px 10px;border-radius:4px">Computational Modelling</span>
+<span style="font:500 12px Inter,sans-serif;color:#14181D;background:#E6EEF5;padding:6px 10px;border-radius:4px">Simulation</span>
+<span style="font:500 12px Inter,sans-serif;color:#14181D;background:#E6EEF5;padding:6px 10px;border-radius:4px">Scientific Computing</span>
+</div>
+<div style="font:600 14px Inter,sans-serif;color:#004B8C">Explore theme →</div>
+</div>
+</a>
+
+<a href="CERDAS Theme.dc.html" style="display:block;background:#FFFFFF;border:1px solid #D8DEE5;border-radius:8px;box-shadow:0 1px 3px rgba(20,24,29,.05);overflow:hidden">
+<div style="height:4px;background:#4A8CC4"></div>
+<div style="padding:20px 18px 22px">
+<div style="display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:16px">
+<div style="width:44px;height:44px;flex:none;border-radius:8px;background:rgba(74,140,196,.1);display:flex;align-items:center;justify-content:center;color:#4A8CC4">
+<svg width="23" height="23" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="7.5" stroke="currentColor" stroke-width="1.3" stroke-dasharray="3 3"></circle><circle cx="12" cy="4.5" r="2.3" fill="currentColor"></circle><circle cx="18.5" cy="15.8" r="2.3" fill="currentColor"></circle><circle cx="5.5" cy="15.8" r="2.3" fill="currentColor"></circle><circle cx="12" cy="12" r="1.5" fill="currentColor"></circle></svg>
+</div>
+<div style="font:500 10.5px 'IBM Plex Mono',monospace;color:#5A6472;letter-spacing:.08em;text-align:right">T3 · 15 RESEARCHERS</div>
+</div>
+<h3 style="margin:0 0 10px;font:600 20px/1.24 'Inter Tight',sans-serif;color:#14181D;text-wrap:pretty">Edge Computing</h3>
+<p style="margin:0 0 16px;font:400 14.5px/1.58 Inter,sans-serif;color:#5A6472;text-wrap:pretty">Intelligence pushed to the edge — inference on constrained hardware, in real time, where the sensors are.</p>
+<div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:18px">
+<span style="font:500 12px Inter,sans-serif;color:#14181D;background:#E6EEF5;padding:6px 10px;border-radius:4px">Edge Computing</span>
+<span style="font:500 12px Inter,sans-serif;color:#14181D;background:#E6EEF5;padding:6px 10px;border-radius:4px">Cyber-Physical Systems</span>
+<span style="font:500 12px Inter,sans-serif;color:#14181D;background:#E6EEF5;padding:6px 10px;border-radius:4px">Real-Time AI</span>
+</div>
+<div style="font:600 14px Inter,sans-serif;color:#004B8C">Explore theme →</div>
+</div>
+</a>
+
+<a href="CERDAS Theme.dc.html" style="display:block;background:#FFFFFF;border:1px solid #D8DEE5;border-radius:8px;box-shadow:0 1px 3px rgba(20,24,29,.05);overflow:hidden">
+<div style="height:4px;background:#7FAED9"></div>
+<div style="padding:20px 18px 22px">
+<div style="display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:16px">
+<div style="width:44px;height:44px;flex:none;border-radius:8px;background:rgba(127,174,217,.18);display:flex;align-items:center;justify-content:center;color:#4A8CC4">
+<svg width="23" height="23" viewBox="0 0 24 24" fill="none" aria-hidden="true"><ellipse cx="12" cy="12" rx="10" ry="4.4" stroke="currentColor" stroke-width="1.4"></ellipse><ellipse cx="12" cy="12" rx="10" ry="4.4" stroke="currentColor" stroke-width="1.4" transform="rotate(60 12 12)"></ellipse><ellipse cx="12" cy="12" rx="10" ry="4.4" stroke="currentColor" stroke-width="1.4" transform="rotate(120 12 12)"></ellipse><circle cx="12" cy="12" r="2.4" fill="currentColor"></circle></svg>
+</div>
+<div style="font:500 10.5px 'IBM Plex Mono',monospace;color:#5A6472;letter-spacing:.08em;text-align:right">T4 · 12 RESEARCHERS</div>
+</div>
+<h3 style="margin:0 0 10px;font:600 20px/1.24 'Inter Tight',sans-serif;color:#14181D;text-wrap:pretty">Next-Generation &amp; Quantum Computing</h3>
+<p style="margin:0 0 16px;font:400 14.5px/1.58 Inter,sans-serif;color:#5A6472;text-wrap:pretty">The compute layer underneath everything else — quantum methods, new architectures and high-performance systems.</p>
+<div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:18px">
+<span style="font:500 12px Inter,sans-serif;color:#14181D;background:#E6EEF5;padding:6px 10px;border-radius:4px">Quantum Computing</span>
+<span style="font:500 12px Inter,sans-serif;color:#14181D;background:#E6EEF5;padding:6px 10px;border-radius:4px">Advanced Architectures</span>
+<span style="font:500 12px Inter,sans-serif;color:#14181D;background:#E6EEF5;padding:6px 10px;border-radius:4px">HPC</span>
+</div>
+<div style="font:600 14px Inter,sans-serif;color:#004B8C">Explore theme →</div>
+</div>
+</a>
+
+</div>
+</section>
+
+<section style="background:#E6EEF5;padding:22px 0 24px;border-top:1px solid #C3D4E4;border-bottom:1px solid #C3D4E4">
+<div style="font:500 10.5px 'IBM Plex Mono',monospace;letter-spacing:.13em;color:#004B8C;padding:0 16px;margin-bottom:14px">HOW WE WORK</div>
+<div data-hscroll="1" style="display:flex;gap:8px;overflow-x:auto;-webkit-overflow-scrolling:touch;padding:0 16px 4px">
+<sc-for list="{{ chain }}" as="s" hint-placeholder-count="5">
+<div style="flex:none;display:flex;align-items:center;gap:9px;background:#FFFFFF;border:1px solid #C3D4E4;border-radius:6px;padding:11px 14px">
+<span style="font:600 12.5px 'IBM Plex Mono',monospace;color:#004B8C">{{ s.n }}</span>
+<span style="font:600 15px 'Inter Tight',sans-serif;color:#14181D;white-space:nowrap">{{ s.label }}</span>
+</div>
+</sc-for>
+</div>
+</section>
+
+<section style="background:#FFFFFF;padding:38px 16px 42px">
+<div style="width:38px;height:3px;background:#E38C07;margin-bottom:18px"></div>
+<h2 style="margin:0 0 20px;font:700 27px/1.14 'Inter Tight',sans-serif;letter-spacing:-.018em;color:#14181D">Flagship project</h2>
+<div style="position:relative;border-radius:8px;overflow:hidden;margin-bottom:20px">
+<image-slot id="m-home-flagship" style="width:100%;height:210px;display:block" shape="rect" placeholder="Flagship project photo — 16:9"></image-slot>
+<div style="position:absolute;left:12px;top:12px;display:flex;gap:6px">
+<span style="font:600 10.5px 'IBM Plex Mono',monospace;letter-spacing:.08em;color:#14181D;background:#E38C07;padding:6px 10px;border-radius:4px">TRL 5</span>
+<span style="font:600 10.5px 'IBM Plex Mono',monospace;letter-spacing:.08em;color:#FFFFFF;background:rgba(0,51,95,.82);padding:6px 10px;border-radius:4px">ACTIVE</span>
+</div>
+</div>
+<div style="font:500 10.5px/1.5 'IBM Plex Mono',monospace;letter-spacing:.1em;color:#1A6BAE;margin-bottom:12px">RG04 · COMPUTATIONAL MODELLING, SIMULATION &amp; OPTIMISATION</div>
+<h3 style="margin:0 0 14px;font:700 23px/1.22 'Inter Tight',sans-serif;letter-spacing:-.012em;color:#14181D;text-wrap:pretty">SIGMA-Flow: physics-informed digital twins for offshore flow assurance</h3>
+<p style="margin:0 0 22px;font:400 15px/1.62 Inter,sans-serif;color:#5A6472;text-wrap:pretty">A surrogate modelling framework that predicts hydrate and wax formation risk across subsea gathering networks in seconds rather than hours — now running against live production data on two operator fields.</p>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:18px 16px;padding:20px 0;border-top:1px solid #D8DEE5;border-bottom:1px solid #D8DEE5;margin-bottom:22px">
+<div><div style="font:500 10px 'IBM Plex Mono',monospace;letter-spacing:.12em;color:#5A6472;margin-bottom:7px">GRANT VALUE</div><div style="font:600 14.5px 'IBM Plex Mono',monospace;color:#14181D">RM 4.20M</div></div>
+<div><div style="font:500 10px 'IBM Plex Mono',monospace;letter-spacing:.12em;color:#5A6472;margin-bottom:7px">DURATION</div><div style="font:600 14.5px 'IBM Plex Mono',monospace;color:#14181D">2024 — 2027</div></div>
+<div style="grid-column:1 / -1"><div style="font:500 10px 'IBM Plex Mono',monospace;letter-spacing:.12em;color:#5A6472;margin-bottom:7px">PRINCIPAL INVESTIGATOR</div><div style="font:600 14.5px Inter,sans-serif;color:#14181D">Assoc. Prof. Ts. Dr. Izzatdin Abdul Aziz</div></div>
+<div style="grid-column:1 / -1"><div style="font:500 10px 'IBM Plex Mono',monospace;letter-spacing:.12em;color:#5A6472;margin-bottom:7px">FUNDERS</div><div style="font:600 14.5px Inter,sans-serif;color:#14181D">MOHE FRGS · Selat Energy Berhad</div></div>
+</div>
+<a href="CERDAS Project Detail.dc.html" style="display:flex;align-items:center;justify-content:center;height:52px;font:600 15.5px Inter,sans-serif;color:#FFFFFF;background:#004B8C;border-radius:6px">View project</a>
+</section>
+
+<section style="background:#FAFAF8;padding:38px 16px 42px;border-top:1px solid #D8DEE5">
+<div style="width:38px;height:3px;background:#E38C07;margin-bottom:18px"></div>
+<div style="display:flex;align-items:baseline;justify-content:space-between;gap:16px;margin-bottom:6px">
+<h2 style="margin:0;font:700 25px/1.16 'Inter Tight',sans-serif;letter-spacing:-.018em;color:#14181D">Latest publications</h2>
+</div>
+<a href="CERDAS Publications.dc.html" style="display:inline-block;margin-bottom:20px;font:600 13.5px Inter,sans-serif;color:#004B8C">View all 412 →</a>
+<div style="display:flex;flex-direction:column">
+<sc-for list="{{ pubs }}" as="p" hint-placeholder-count="3">
+<a href="CERDAS Publications.dc.html" style="display:block;padding:20px 0;border-top:1px solid #D8DEE5">
+<div style="display:flex;gap:6px;margin-bottom:11px">
+<span style="font:600 10px 'IBM Plex Mono',monospace;letter-spacing:.07em;color:#004B8C;background:#E6EEF5;padding:4px 8px;border-radius:3px">{{ p.type }}</span>
+<span style="font:600 10px 'IBM Plex Mono',monospace;letter-spacing:.07em;color:#14181D;background:#F5C46B;padding:4px 8px;border-radius:3px">{{ p.q }}</span>
+</div>
+<div style="font:600 15.5px/1.4 Inter,sans-serif;color:#14181D;margin-bottom:9px;text-wrap:pretty">{{ p.title }}</div>
+<div style="font:400 13.5px/1.5 Inter,sans-serif;color:#5A6472;margin-bottom:10px">{{ p.authors }}</div>
+<div style="font:400 12.5px/1.5 'IBM Plex Mono',monospace;color:#5A6472">{{ p.venue }}</div>
+</a>
+</sc-for>
+</div>
+</section>
+
+<section style="background:#FFFFFF;padding:38px 16px 42px;border-top:1px solid #D8DEE5">
+<div style="width:38px;height:3px;background:#E38C07;margin-bottom:18px"></div>
+<h2 style="margin:0 0 6px;font:700 25px/1.16 'Inter Tight',sans-serif;letter-spacing:-.018em;color:#14181D">News &amp; events</h2>
+<a href="CERDAS News and Events.dc.html" style="display:inline-block;margin-bottom:20px;font:600 13.5px Inter,sans-serif;color:#004B8C">View all →</a>
+
+<div style="display:flex;flex-direction:column;gap:14px">
+<a href="CERDAS News Article.dc.html" style="display:block;background:#FFFFFF;border:1px solid #D8DEE5;border-radius:8px;overflow:hidden">
+<image-slot id="m-home-news-1" style="width:100%;height:150px;display:block" shape="rect" placeholder="News photo — 16:9"></image-slot>
+<div style="padding:16px 16px 18px">
+<div style="display:flex;gap:10px;align-items:center;margin-bottom:10px"><span style="font:600 10.5px 'IBM Plex Mono',monospace;letter-spacing:.09em;color:#004B8C">NEWS</span><span style="font:400 11.5px 'IBM Plex Mono',monospace;color:#5A6472">22 AUG 2026</span></div>
+<div style="font:600 16px/1.38 Inter,sans-serif;color:#14181D;text-wrap:pretty">CERDAS and Selat Energy sign a three-year agreement on grid resilience analytics</div>
+</div>
+</a>
+
+<a href="CERDAS News and Events.dc.html" style="display:grid;grid-template-columns:72px 1fr;gap:16px;background:#FFFFFF;border:1px solid #D8DEE5;border-radius:8px;padding:16px;align-items:start">
+<div style="height:82px;border-radius:6px;background:#00335F;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#FFFFFF"><span style="font:600 27px/1 'IBM Plex Mono',monospace;color:#F5C46B">18</span><span style="font:500 10px 'IBM Plex Mono',monospace;letter-spacing:.1em;margin-top:5px">SEP</span></div>
+<div>
+<div style="font:600 10.5px 'IBM Plex Mono',monospace;letter-spacing:.09em;color:#004B8C;margin-bottom:8px">EVENT · COLLOQUIUM</div>
+<div style="font:600 15.5px/1.38 Inter,sans-serif;color:#14181D;text-wrap:pretty">Quantum algorithms for combinatorial optimisation in energy systems</div>
+<div style="margin-top:9px;font:400 12.5px Inter,sans-serif;color:#5A6472">Chancellor Hall, UTP · 14:30</div>
+</div>
+</a>
+
+<a href="CERDAS News Article.dc.html" style="display:grid;grid-template-columns:72px 1fr;gap:16px;background:#FFFFFF;border:1px solid #D8DEE5;border-radius:8px;padding:16px;align-items:start">
+<image-slot id="m-home-news-3" style="width:72px;height:82px;display:block;border-radius:6px;overflow:hidden" shape="rounded" radius="6" placeholder="Photo"></image-slot>
+<div>
+<div style="display:flex;gap:10px;align-items:center;margin-bottom:8px"><span style="font:600 10.5px 'IBM Plex Mono',monospace;letter-spacing:.09em;color:#004B8C">NEWS</span><span style="font:400 11.5px 'IBM Plex Mono',monospace;color:#5A6472">05 AUG 2026</span></div>
+<div style="font:600 15.5px/1.38 Inter,sans-serif;color:#14181D;text-wrap:pretty">Two CERDAS patents granted in Malaysia and Singapore for an adaptive sensor-fusion method</div>
+</div>
+</a>
+</div>
+</section>
+
+<sc-if value="{{ showPartners }}" hint-placeholder-val="{{ true }}">
+<section style="background:#FFFFFF;padding:30px 16px 34px;border-top:1px solid #D8DEE5">
+<div style="font:500 10.5px 'IBM Plex Mono',monospace;letter-spacing:.12em;color:#5A6472;margin-bottom:16px">WORKING WITH US</div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+<sc-for list="{{ partners }}" as="p" hint-placeholder-count="6">
+<div style="height:52px;background:#F1F3F5;border-radius:5px;display:flex;align-items:center;justify-content:center;font:600 10.5px Inter,sans-serif;letter-spacing:.04em;color:#9AA5B1;text-align:center;padding:0 8px">{{ p }}</div>
+</sc-for>
+</div>
+</section>
+</sc-if>
+
+<sc-if value="{{ showValues }}" hint-placeholder-val="{{ true }}">
+<section style="background:#FAFAF8;padding:36px 16px 40px;border-top:1px solid #D8DEE5">
+<div style="width:38px;height:3px;background:#E38C07;margin-bottom:18px"></div>
+<h2 style="margin:0 0 20px;font:700 25px/1.16 'Inter Tight',sans-serif;letter-spacing:-.018em;color:#14181D">What we hold ourselves to</h2>
+<div style="display:grid;grid-template-columns:1fr;gap:1px;background:#D8DEE5;border:1px solid #D8DEE5;border-radius:8px;overflow:hidden">
+<sc-for list="{{ values }}" as="v" hint-placeholder-count="6">
+<div style="background:#FFFFFF;padding:18px 18px;display:flex;align-items:center;gap:12px;min-height:56px;box-sizing:border-box">
+<span style="width:6px;height:6px;flex:none;background:#E38C07;display:block"></span>
+<span style="font:600 15px/1.35 Inter,sans-serif;color:#14181D">{{ v }}</span>
+</div>
+</sc-for>
+</div>
+</section>
+</sc-if>
+
+<section style="background:#004B8C;padding:36px 16px 40px">
+<div style="width:38px;height:3px;background:#F5C46B;margin-bottom:18px"></div>
+<h2 style="margin:0 0 12px;font:700 26px/1.18 'Inter Tight',sans-serif;letter-spacing:-.018em;color:#FFFFFF;text-wrap:pretty">Build something with CERDAS</h2>
+<p style="margin:0 0 24px;font:400 15px/1.6 Inter,sans-serif;color:#C7DAEB;text-wrap:pretty">Joint research, consultancy, adjunct fellowship or lab access — tell us what you need and we will route you to the right team.</p>
+<a href="CERDAS Join.dc.html" style="display:flex;align-items:center;justify-content:center;height:52px;font:600 15.5px Inter,sans-serif;color:#14181D;background:#E38C07;border-radius:6px">Collaborate with us</a>
+</section>
+
+<dc-import name="MobileFooter" hint-size="100%,760px"></dc-import>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:390},&quot;heroMotif&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Network&quot;,&quot;Dots&quot;,&quot;None&quot;],&quot;default&quot;:&quot;Network&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Mobile home&quot;},&quot;showPartners&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Mobile home&quot;},&quot;showValues&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Mobile home&quot;}}">
+const PUBS = [
+  { type: 'JOURNAL', q: 'Q1', title: 'Federated anomaly detection for distributed pipeline monitoring under intermittent connectivity',
+    authors: 'Iskandar, S., Rahim, A. N., Verma, P.', venue: 'IEEE Trans. Industrial Informatics · 2026' },
+  { type: 'JOURNAL', q: 'Q1', title: 'A physics-informed surrogate model for multiphase flow assurance in subsea gathering networks',
+    authors: 'Tengku Zainal, M. F., Ooi, L. W., Haryono, D.', venue: 'Computers & Chemical Engineering · 2026' },
+  { type: 'JOURNAL', q: 'Q1', title: 'Edge-scheduled inference for real-time structural health monitoring on constrained hardware',
+    authors: 'Devaraj, K., Noor Azmi, S., Whitfield, J. R.', venue: 'ACM Trans. Cyber-Physical Systems · 2025' }
+];
+
+class Component extends DCLogic {
+  state = { menu: false };
+
+  renderVals() {
+    const motif = this.props.heroMotif ?? 'Network';
+    return {
+      menuOpen: this.state.menu,
+      openMenu: () => this.setState({ menu: true }),
+      closeMenu: () => this.setState({ menu: false }),
+      motifNet: motif === 'Network',
+      motifDots: motif === 'Dots',
+      showPartners: this.props.showPartners ?? true,
+      showValues: this.props.showValues ?? true,
+      chain: [['01', 'Research'], ['02', 'Talent'], ['03', 'Innovation'], ['04', 'Partnership'], ['05', 'Impact']]
+        .map(([n, label]) => ({ n, label })),
+      pubs: PUBS,
+      partners: ['SELAT ENERGY', 'MERIDIAN SEMI', 'KL HEALTH DATA', 'BINA LOGISTIK', 'PERAK WATER', 'NUSANTARA CLOUD'],
+      values: ['Excellence in Research', 'Collaboration & Inclusivity', 'Data-Driven Decision Making', 'Sustainability & Responsibility', 'Continuous Improvement', 'Integrity & Accountability']
+    };
+  }
+}
+
+</script>
+</body>
+</html>

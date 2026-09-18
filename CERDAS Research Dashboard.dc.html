@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""><link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&amp;family=Inter:wght@400;500;600;700&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#FAFAF8;font-family:Inter,system-ui,sans-serif}
+a{color:#004B8C;text-decoration:none}a:hover{color:#00335F}
+</style></helmet>
+
+<div data-screen-label="E5 Research dashboard" style="width:1440px;margin:0 auto;background:#FFFFFF">
+
+<dc-import name="SiteHeader" active="Impact" hint-size="100%,78px"></dc-import>
+
+<section style="background:#00335F;padding:52px 0 0;position:relative;overflow:hidden">
+<svg viewBox="0 0 1440 420" preserveAspectRatio="none" style="position:absolute;inset:0;width:100%;height:100%;opacity:.22" aria-hidden="true">
+<g stroke="#7FAED9" stroke-width="1" fill="none">
+<polyline points="1000,330 1070,240 1140,265 1210,150 1280,180 1350,90 1420,110"></polyline>
+</g>
+<g fill="#7FAED9">
+<circle cx="1000" cy="330" r="3"></circle><circle cx="1070" cy="240" r="3"></circle><circle cx="1140" cy="265" r="3"></circle><circle cx="1210" cy="150" r="3"></circle><circle cx="1280" cy="180" r="3"></circle><circle cx="1350" cy="90" r="3"></circle><circle cx="1420" cy="110" r="3"></circle>
+</g>
+</svg>
+<div style="width:1320px;margin:0 auto;position:relative">
+<div style="font:500 11px 'IBM Plex Mono',monospace;letter-spacing:.13em;color:#7FAED9;margin-bottom:28px"><a href="CERDAS Home.dc.html" style="color:#7FAED9">HOME</a> <span style="color:#E38C07">/</span> <a href="CERDAS Industry.dc.html" style="color:#7FAED9">IMPACT</a> <span style="color:#E38C07">/</span> RESEARCH DASHBOARD</div>
+<div style="display:flex;align-items:flex-start;justify-content:space-between;gap:64px">
+<div style="max-width:720px">
+<h1 style="margin:0 0 20px;font:700 50px/1.08 'Inter Tight',sans-serif;letter-spacing:-.02em;color:#FFFFFF;text-wrap:pretty">Research dashboard</h1>
+<p style="margin:0;font:400 18px/1.6 Inter,sans-serif;color:#BFD2E4;text-wrap:pretty">The performance position CERDAS reports to HiCoE, published as it stands. Nine performance areas, each with a target, a named owner and the functional arm that monitors it.</p>
+</div>
+<div style="flex:none;width:300px;border-left:1px solid rgba(127,174,217,.34);padding-left:28px">
+<div style="font:500 10px 'IBM Plex Mono',monospace;letter-spacing:.14em;color:#7FAED9;margin-bottom:8px">LAST UPDATED</div>
+<div style="font:500 14px 'IBM Plex Mono',monospace;color:#FFFFFF;margin-bottom:22px">28 AUG 2026 · 09:40 MYT</div>
+<div style="font:500 10px 'IBM Plex Mono',monospace;letter-spacing:.14em;color:#7FAED9;margin-bottom:8px">SOURCE SYSTEMS</div>
+<div style="font:400 13px/1.55 Inter,sans-serif;color:#BFD2E4;margin-bottom:22px">Scopus · UTP RIMS · CERDAS quarterly returns</div>
+<div style="font:500 10px 'IBM Plex Mono',monospace;letter-spacing:.14em;color:#7FAED9;margin-bottom:8px">NEXT UPDATE</div>
+<div style="font:500 13px 'IBM Plex Mono',monospace;color:#FFFFFF">15 OCT 2026</div>
+</div>
+</div>
+
+<div style="margin-top:44px;padding:22px 0 24px;border-top:1px solid rgba(127,174,217,.28);display:flex;align-items:center;justify-content:space-between;gap:40px">
+<div style="display:flex;align-items:center;gap:20px">
+<div style="font:500 10px 'IBM Plex Mono',monospace;letter-spacing:.14em;color:#7FAED9;white-space:nowrap">REPORTING PERIOD</div>
+<div style="display:flex;gap:8px">
+<sc-for list="{{ periodOpts }}" as="p" hint-placeholder-count="4">
+<sc-if value="{{ p.on }}" hint-placeholder-val="{{ false }}"><button type="button" onClick="{{ p.pick }}" style="border:1px solid #FFFFFF;background:#FFFFFF;color:#00335F;font:600 12.5px 'IBM Plex Mono',monospace;letter-spacing:.04em;padding:9px 16px;border-radius:5px;cursor:pointer;white-space:nowrap">{{ p.label }}</button></sc-if>
+<sc-if value="{{ p.off }}" hint-placeholder-val="{{ true }}"><button type="button" onClick="{{ p.pick }}" style="border:1px solid rgba(127,174,217,.5);background:transparent;color:#BFD2E4;font:500 12.5px 'IBM Plex Mono',monospace;letter-spacing:.04em;padding:9px 16px;border-radius:5px;cursor:pointer;white-space:nowrap" style-hover="border-color:#FFFFFF;color:#FFFFFF">{{ p.label }}</button></sc-if>
+</sc-for>
+</div>
+</div>
+<div style="font:500 10.5px 'IBM Plex Mono',monospace;letter-spacing:.1em;color:#7FAED9;text-align:right;white-space:nowrap">{{ periodRange }}<br><span style="color:#F5C46B">{{ provisionalNote }}</span></div>
+</div>
+</div>
+</section>
+
+<section style="background:#FFFFFF;border-bottom:1px solid #D8DEE5">
+<div style="width:1320px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr)">
+<div style="padding:38px 32px 38px 0">
+<div style="width:34px;height:3px;background:#E38C07;margin-bottom:18px"></div>
+<div style="font:600 40px/1 'IBM Plex Mono',monospace;color:#004B8C;letter-spacing:-.02em;white-space:nowrap">{{ periodLabel }}</div>
+<div style="margin-top:10px;font:500 12px Inter,sans-serif;letter-spacing:.09em;color:#5A6472">PERIOD ON SHOW</div>
+</div>
+<div style="padding:38px 32px;border-left:1px solid #D8DEE5">
+<div style="width:34px;height:3px;background:#E38C07;margin-bottom:18px"></div>
+<div style="font:600 40px/1 'IBM Plex Mono',monospace;color:#004B8C;letter-spacing:-.02em">9</div>
+<div style="margin-top:10px;font:500 12px Inter,sans-serif;letter-spacing:.09em;color:#5A6472">PERFORMANCE AREAS</div>
+</div>
+<div style="padding:38px 32px;border-left:1px solid #D8DEE5">
+<div style="width:34px;height:3px;background:#E38C07;margin-bottom:18px"></div>
+<div style="font:600 40px/1 'IBM Plex Mono',monospace;color:#004B8C;letter-spacing:-.02em">{{ nOnOrAbove }}</div>
+<div style="margin-top:10px;font:500 12px Inter,sans-serif;letter-spacing:.09em;color:#5A6472">ON OR ABOVE TARGET</div>
+</div>
+<div style="padding:38px 0 38px 32px;border-left:1px solid #D8DEE5">
+<div style="width:34px;height:3px;background:#E38C07;margin-bottom:18px"></div>
+<div style="font:600 40px/1 'IBM Plex Mono',monospace;color:#E38C07;letter-spacing:-.02em">{{ nBelow }}</div>
+<div style="margin-top:10px;font:500 12px Inter,sans-serif;letter-spacing:.09em;color:#5A6472">BELOW TARGET</div>
+</div>
+</div>
+</section>
+
+<section style="background:#FAFAF8;padding:64px 0 80px">
+<div style="width:1320px;margin:0 auto">
+<div style="width:44px;height:3px;background:#E38C07;margin-bottom:22px"></div>
+<div style="display:flex;align-items:flex-end;justify-content:space-between;gap:40px;margin-bottom:34px">
+<div>
+<h2 style="margin:0 0 12px;font:700 32px/1.16 'Inter Tight',sans-serif;letter-spacing:-.015em;color:#14181D">Performance areas</h2>
+<p style="margin:0;font:400 16px/1.6 Inter,sans-serif;color:#5A6472;max-width:640px">Every area carries one headline measure. The rail under each figure reads against the period target — the gold notch is the target line.</p>
+</div>
+<div style="font:500 11.5px 'IBM Plex Mono',monospace;letter-spacing:.1em;color:#5A6472;white-space:nowrap;text-align:right">9 AREAS · 9 REPORTING<br>KPI-01 — KPI-09</div>
+</div>
+
+<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px">
+<sc-for list="{{ tiles }}" as="t" hint-placeholder-count="9">
+<div style="background:#FFFFFF;border:1px solid #D8DEE5;border-radius:8px;padding:24px 24px 20px;display:flex;flex-direction:column">
+<div style="display:flex;align-items:flex-start;justify-content:space-between;gap:14px;margin-bottom:16px">
+<div>
+<div style="font:500 10.5px 'IBM Plex Mono',monospace;letter-spacing:.13em;color:#5A6472;margin-bottom:8px">{{ t.code }}</div>
+<div style="font:600 17.5px/1.24 'Inter Tight',sans-serif;color:#14181D;letter-spacing:-.008em">{{ t.area }}</div>
+</div>
+<sc-if value="{{ t.above }}" hint-placeholder-val="{{ false }}"><div style="flex:none;background:rgba(0,75,140,.08);color:#004B8C;font:600 10.5px 'IBM Plex Mono',monospace;letter-spacing:.06em;padding:6px 9px;border-radius:4px;white-space:nowrap">▲ {{ t.delta }}</div></sc-if>
+<sc-if value="{{ t.on }}" hint-placeholder-val="{{ false }}"><div style="flex:none;background:#F1F3F5;color:#5A6472;font:600 10.5px 'IBM Plex Mono',monospace;letter-spacing:.06em;padding:6px 9px;border-radius:4px;white-space:nowrap">— {{ t.delta }}</div></sc-if>
+<sc-if value="{{ t.below }}" hint-placeholder-val="{{ true }}"><div style="flex:none;background:#E38C07;color:#14181D;font:600 10.5px 'IBM Plex Mono',monospace;letter-spacing:.06em;padding:6px 9px;border-radius:4px;white-space:nowrap">▼ {{ t.delta }}</div></sc-if>
+</div>
+
+<div style="font:400 12.5px/1.4 Inter,sans-serif;color:#5A6472;margin-bottom:14px;min-height:35px">{{ t.metric }}</div>
+<div style="display:flex;align-items:baseline;gap:12px">
+<div style="font:600 38px/1 'IBM Plex Mono',monospace;color:#004B8C;letter-spacing:-.025em;white-space:nowrap">{{ t.value }}</div>
+</div>
+
+<sc-if value="{{ showTargets }}" hint-placeholder-val="{{ true }}">
+<div style="margin-top:16px">
+<div style="position:relative;height:4px;background:#E8ECF1;border-radius:2px">
+<div style="position:absolute;left:0;top:0;bottom:0;background:#1A6BAE;border-radius:2px;width:{{ t.railPct }}%"></div>
+<div style="position:absolute;left:76%;top:-3px;bottom:-3px;width:2px;background:#E38C07"></div>
+</div>
+<div style="margin-top:9px;display:flex;align-items:center;justify-content:space-between;font:500 10.5px 'IBM Plex Mono',monospace;letter-spacing:.08em;color:#5A6472">
+<span style="white-space:nowrap">TARGET {{ t.target }}</span><span style="white-space:nowrap">{{ t.attain }} OF TARGET</span>
+</div>
+</div>
+</sc-if>
+
+<sc-if value="{{ full }}" hint-placeholder-val="{{ true }}">
+<div style="margin-top:20px;padding-top:18px;border-top:1px solid #E8ECF1;display:grid;grid-template-columns:1fr 1fr;gap:18px">
+<div>
+<div style="font:400 11.5px/1.35 Inter,sans-serif;color:#5A6472;margin-bottom:6px">{{ t.sub1Label }}</div>
+<div style="font:500 15px 'IBM Plex Mono',monospace;color:#14181D">{{ t.sub1Val }}</div>
+</div>
+<div>
+<div style="font:400 11.5px/1.35 Inter,sans-serif;color:#5A6472;margin-bottom:6px">{{ t.sub2Label }}</div>
+<div style="font:500 15px 'IBM Plex Mono',monospace;color:#14181D">{{ t.sub2Val }}</div>
+</div>
+</div>
+<div style="margin-top:18px;padding-top:16px;border-top:1px solid #E8ECF1;display:flex;flex-direction:column;gap:10px">
+<div>
+<div style="font:500 9.5px 'IBM Plex Mono',monospace;letter-spacing:.14em;color:#5A6472;margin-bottom:4px">OWNER</div>
+<div style="font:500 13px/1.35 Inter,sans-serif;color:#14181D">{{ t.owner }}</div>
+</div>
+<div>
+<div style="font:500 9.5px 'IBM Plex Mono',monospace;letter-spacing:.14em;color:#5A6472;margin-bottom:4px">MONITORED BY</div>
+<div style="font:400 13px/1.35 Inter,sans-serif;color:#5A6472">{{ t.arm }}</div>
+</div>
+</div>
+</sc-if>
+</div>
+</sc-for>
+</div>
+</div>
+</section>
+
+<section style="background:#FFFFFF;padding:72px 0 84px;border-top:1px solid #D8DEE5">
+<div style="width:1320px;margin:0 auto">
+<div style="width:44px;height:3px;background:#E38C07;margin-bottom:22px"></div>
+<div style="display:flex;align-items:flex-end;justify-content:space-between;gap:40px;margin-bottom:36px">
+<div>
+<h2 style="margin:0 0 12px;font:700 32px/1.16 'Inter Tight',sans-serif;letter-spacing:-.015em;color:#14181D">Trend</h2>
+<p style="margin:0;font:400 16px/1.6 Inter,sans-serif;color:#5A6472;max-width:640px">Six reporting years. The gold rule under the axis marks the period selected above; dashed gold is the annual target.</p>
+</div>
+<div style="font:500 11.5px 'IBM Plex Mono',monospace;letter-spacing:.1em;color:#5A6472;white-space:nowrap;text-align:right">2021 — 2026 H1<br>ANNUAL RETURNS</div>
+</div>
+
+<div style="display:grid;grid-template-columns:repeat(2,1fr);gap:24px">
+
+<div style="background:#FFFFFF;border:1px solid #D8DEE5;border-radius:8px;padding:26px 26px 20px">
+<div style="font:500 10.5px 'IBM Plex Mono',monospace;letter-spacing:.13em;color:#5A6472;margin-bottom:10px">CHART 01</div>
+<h3 style="margin:0 0 6px;font:600 19px/1.25 'Inter Tight',sans-serif;color:#14181D">Publications by year</h3>
+<p style="margin:0 0 16px;font:400 13.5px/1.5 Inter,sans-serif;color:#5A6472">Indexed output split by journal quartile.</p>
+<div style="display:flex;flex-wrap:wrap;gap:16px;margin-bottom:12px">
+<div style="display:flex;align-items:center;gap:7px"><span style="width:11px;height:11px;background:#004B8C;border-radius:2px;display:block"></span><span style="font:500 11px 'IBM Plex Mono',monospace;color:#5A6472">Q1</span></div>
+<div style="display:flex;align-items:center;gap:7px"><span style="width:11px;height:11px;background:#1A6BAE;border-radius:2px;display:block"></span><span style="font:500 11px 'IBM Plex Mono',monospace;color:#5A6472">Q2</span></div>
+<div style="display:flex;align-items:center;gap:7px"><span style="width:11px;height:11px;background:#4A8CC4;border-radius:2px;display:block"></span><span style="font:500 11px 'IBM Plex Mono',monospace;color:#5A6472">Q3</span></div>
+<div style="display:flex;align-items:center;gap:7px"><span style="width:11px;height:11px;background:#7FAED9;border-radius:2px;display:block"></span><span style="font:500 11px 'IBM Plex Mono',monospace;color:#5A6472">Q4</span></div>
+</div>
+<svg viewBox="0 0 640 224" style="width:100%;height:auto;display:block" aria-label="Publications by year by journal quartile">
+<sc-for list="{{ pubTicks }}" as="k" hint-placeholder-count="3"><line x1="46" y1="{{ k.y }}" x2="626" y2="{{ k.y }}" stroke="#EDF0F3" stroke-width="1"></line><text x="38" y="{{ k.ty }}" text-anchor="end" fill="#5A6472" style="font:500 9.5px 'IBM Plex Mono',monospace">{{ k.label }}</text></sc-for>
+<sc-for list="{{ pubBars }}" as="b" hint-placeholder-count="24"><rect x="{{ b.x }}" y="{{ b.y }}" width="{{ b.w }}" height="{{ b.h }}" fill="{{ b.fill }}"></rect></sc-for>
+<sc-for list="{{ pubVals }}" as="v" hint-placeholder-count="6"><text x="{{ v.x }}" y="{{ v.y }}" text-anchor="middle" fill="{{ v.col }}" style="font:500 10.5px 'IBM Plex Mono',monospace">{{ v.text }}</text></sc-for>
+<line x1="46" y1="186" x2="626" y2="186" stroke="#D8DEE5" stroke-width="1"></line>
+<sc-for list="{{ marks }}" as="m" hint-placeholder-count="1"><rect x="{{ m.x }}" y="{{ m.y }}" width="{{ m.w }}" height="{{ m.h }}" fill="#E38C07"></rect></sc-for>
+<sc-for list="{{ xLabels }}" as="x" hint-placeholder-count="6"><text x="{{ x.x }}" y="208" text-anchor="middle" fill="{{ x.col }}" style="font:500 10.5px 'IBM Plex Mono',monospace">{{ x.text }}</text></sc-for>
+</svg>
+<div style="margin-top:12px;font:500 10px 'IBM Plex Mono',monospace;letter-spacing:.08em;color:#5A6472">2026 IS HALF-YEAR TO 30 JUN · 412 PUBLICATIONS 2021–2025 · Q1 SHARE 42%</div>
+</div>
+
+<div style="background:#FFFFFF;border:1px solid #D8DEE5;border-radius:8px;padding:26px 26px 20px">
+<div style="font:500 10.5px 'IBM Plex Mono',monospace;letter-spacing:.13em;color:#5A6472;margin-bottom:10px">CHART 02</div>
+<h3 style="margin:0 0 6px;font:600 19px/1.25 'Inter Tight',sans-serif;color:#14181D">Grant value by year</h3>
+<p style="margin:0 0 16px;font:400 13.5px/1.5 Inter,sans-serif;color:#5A6472">New grant value secured, RM million.</p>
+<div style="display:flex;flex-wrap:wrap;gap:16px;margin-bottom:12px">
+<div style="display:flex;align-items:center;gap:7px"><span style="width:11px;height:11px;background:#4A8CC4;border-radius:2px;display:block"></span><span style="font:500 11px 'IBM Plex Mono',monospace;color:#5A6472">Secured</span></div>
+<sc-if value="{{ showTargets }}" hint-placeholder-val="{{ true }}"><div style="display:flex;align-items:center;gap:7px"><span style="width:14px;height:0;border-top:2px dashed #E38C07;display:block"></span><span style="font:500 11px 'IBM Plex Mono',monospace;color:#5A6472">Target RM 7.5M</span></div></sc-if>
+</div>
+<svg viewBox="0 0 640 224" style="width:100%;height:auto;display:block" aria-label="New grant value secured by year">
+<sc-for list="{{ grantTicks }}" as="k" hint-placeholder-count="4"><line x1="46" y1="{{ k.y }}" x2="626" y2="{{ k.y }}" stroke="#EDF0F3" stroke-width="1"></line><text x="38" y="{{ k.ty }}" text-anchor="end" fill="#5A6472" style="font:500 9.5px 'IBM Plex Mono',monospace">{{ k.label }}</text></sc-for>
+<sc-for list="{{ grantBars }}" as="b" hint-placeholder-count="6"><rect x="{{ b.x }}" y="{{ b.y }}" width="{{ b.w }}" height="{{ b.h }}" fill="{{ b.fill }}"></rect></sc-for>
+<sc-if value="{{ showTargets }}" hint-placeholder-val="{{ true }}"><line x1="46" y1="{{ grantTargetY }}" x2="626" y2="{{ grantTargetY }}" stroke="#E38C07" stroke-width="1.5" stroke-dasharray="6 4"></line></sc-if>
+<sc-for list="{{ grantVals }}" as="v" hint-placeholder-count="6"><text x="{{ v.x }}" y="{{ v.y }}" text-anchor="middle" fill="{{ v.col }}" style="font:500 10.5px 'IBM Plex Mono',monospace">{{ v.text }}</text></sc-for>
+<line x1="46" y1="186" x2="626" y2="186" stroke="#D8DEE5" stroke-width="1"></line>
+<sc-for list="{{ marks }}" as="m" hint-placeholder-count="1"><rect x="{{ m.x }}" y="{{ m.y }}" width="{{ m.w }}" height="{{ m.h }}" fill="#E38C07"></rect></sc-for>
+<sc-for list="{{ xLabels }}" as="x" hint-placeholder-count="6"><text x="{{ x.x }}" y="208" text-anchor="middle" fill="{{ x.col }}" style="font:500 10.5px 'IBM Plex Mono',monospace">{{ x.text }}</text></sc-for>
+</svg>
+<div style="margin-top:12px;font:500 10px 'IBM Plex Mono',monospace;letter-spacing:.08em;color:#5A6472">2026 IS HALF-YEAR TO 30 JUN · RM 32.8M SECURED 2021–2025 · RM 24.6M ACTIVE</div>
+</div>
+
+<div style="background:#FFFFFF;border:1px solid #D8DEE5;border-radius:8px;padding:26px 26px 20px">
+<div style="font:500 10.5px 'IBM Plex Mono',monospace;letter-spacing:.13em;color:#5A6472;margin-bottom:10px">CHART 03</div>
+<h3 style="margin:0 0 6px;font:600 19px/1.25 'Inter Tight',sans-serif;color:#14181D">Postgraduate completions</h3>
+<p style="margin:0 0 16px;font:400 13.5px/1.5 Inter,sans-serif;color:#5A6472">Graduated under CERDAS supervision.</p>
+<div style="display:flex;flex-wrap:wrap;gap:16px;margin-bottom:12px">
+<div style="display:flex;align-items:center;gap:7px"><span style="width:11px;height:11px;background:#004B8C;border-radius:2px;display:block"></span><span style="font:500 11px 'IBM Plex Mono',monospace;color:#5A6472">PhD</span></div>
+<div style="display:flex;align-items:center;gap:7px"><span style="width:11px;height:11px;background:#7FAED9;border-radius:2px;display:block"></span><span style="font:500 11px 'IBM Plex Mono',monospace;color:#5A6472">MSc</span></div>
+<sc-if value="{{ showTargets }}" hint-placeholder-val="{{ true }}"><div style="display:flex;align-items:center;gap:7px"><span style="width:14px;height:0;border-top:2px dashed #E38C07;display:block"></span><span style="font:500 11px 'IBM Plex Mono',monospace;color:#5A6472">Target 22 / yr</span></div></sc-if>
+</div>
+<svg viewBox="0 0 640 224" style="width:100%;height:auto;display:block" aria-label="Postgraduate completions by year">
+<sc-for list="{{ pgTicks }}" as="k" hint-placeholder-count="3"><line x1="46" y1="{{ k.y }}" x2="626" y2="{{ k.y }}" stroke="#EDF0F3" stroke-width="1"></line><text x="38" y="{{ k.ty }}" text-anchor="end" fill="#5A6472" style="font:500 9.5px 'IBM Plex Mono',monospace">{{ k.label }}</text></sc-for>
+<sc-for list="{{ pgBars }}" as="b" hint-placeholder-count="12"><rect x="{{ b.x }}" y="{{ b.y }}" width="{{ b.w }}" height="{{ b.h }}" fill="{{ b.fill }}"></rect></sc-for>
+<sc-if value="{{ showTargets }}" hint-placeholder-val="{{ true }}"><line x1="46" y1="{{ pgTargetY }}" x2="626" y2="{{ pgTargetY }}" stroke="#E38C07" stroke-width="1.5" stroke-dasharray="6 4"></line></sc-if>
+<sc-for list="{{ pgVals }}" as="v" hint-placeholder-count="6"><text x="{{ v.x }}" y="{{ v.y }}" text-anchor="middle" fill="{{ v.col }}" style="font:500 10.5px 'IBM Plex Mono',monospace">{{ v.text }}</text></sc-for>
+<line x1="46" y1="186" x2="626" y2="186" stroke="#D8DEE5" stroke-width="1"></line>
+<sc-for list="{{ marks }}" as="m" hint-placeholder-count="1"><rect x="{{ m.x }}" y="{{ m.y }}" width="{{ m.w }}" height="{{ m.h }}" fill="#E38C07"></rect></sc-for>
+<sc-for list="{{ xLabels }}" as="x" hint-placeholder-count="6"><text x="{{ x.x }}" y="208" text-anchor="middle" fill="{{ x.col }}" style="font:500 10.5px 'IBM Plex Mono',monospace">{{ x.text }}</text></sc-for>
+</svg>
+<div style="margin-top:12px;font:500 10px 'IBM Plex Mono',monospace;letter-spacing:.08em;color:#5A6472">2026 IS HALF-YEAR TO 30 JUN · 88 COMPLETIONS 2021–2025 · 60 CURRENTLY ENROLLED</div>
+</div>
+
+<div style="background:#FFFFFF;border:1px solid #D8DEE5;border-radius:8px;padding:26px 26px 20px">
+<div style="font:500 10.5px 'IBM Plex Mono',monospace;letter-spacing:.13em;color:#5A6472;margin-bottom:10px">CHART 04</div>
+<h3 style="margin:0 0 6px;font:600 19px/1.25 'Inter Tight',sans-serif;color:#14181D">IP filings</h3>
+<p style="margin:0 0 16px;font:400 13.5px/1.5 Inter,sans-serif;color:#5A6472">Filed in the year, and grants awarded in the year.</p>
+<div style="display:flex;flex-wrap:wrap;gap:16px;margin-bottom:12px">
+<div style="display:flex;align-items:center;gap:7px"><span style="width:11px;height:11px;background:#4A8CC4;border-radius:2px;display:block"></span><span style="font:500 11px 'IBM Plex Mono',monospace;color:#5A6472">Filed</span></div>
+<div style="display:flex;align-items:center;gap:7px"><span style="width:11px;height:11px;background:#004B8C;border-radius:2px;display:block"></span><span style="font:500 11px 'IBM Plex Mono',monospace;color:#5A6472">Granted</span></div>
+<sc-if value="{{ showTargets }}" hint-placeholder-val="{{ true }}"><div style="display:flex;align-items:center;gap:7px"><span style="width:14px;height:0;border-top:2px dashed #E38C07;display:block"></span><span style="font:500 11px 'IBM Plex Mono',monospace;color:#5A6472">Target 6 / yr</span></div></sc-if>
+</div>
+<svg viewBox="0 0 640 224" style="width:100%;height:auto;display:block" aria-label="IP filings and grants by year">
+<sc-for list="{{ ipTicks }}" as="k" hint-placeholder-count="3"><line x1="46" y1="{{ k.y }}" x2="626" y2="{{ k.y }}" stroke="#EDF0F3" stroke-width="1"></line><text x="38" y="{{ k.ty }}" text-anchor="end" fill="#5A6472" style="font:500 9.5px 'IBM Plex Mono',monospace">{{ k.label }}</text></sc-for>
+<sc-for list="{{ ipBars }}" as="b" hint-placeholder-count="12"><rect x="{{ b.x }}" y="{{ b.y }}" width="{{ b.w }}" height="{{ b.h }}" fill="{{ b.fill }}"></rect></sc-for>
+<sc-if value="{{ showTargets }}" hint-placeholder-val="{{ true }}"><line x1="46" y1="{{ ipTargetY }}" x2="626" y2="{{ ipTargetY }}" stroke="#E38C07" stroke-width="1.5" stroke-dasharray="6 4"></line></sc-if>
+<sc-for list="{{ ipVals }}" as="v" hint-placeholder-count="6"><text x="{{ v.x }}" y="{{ v.y }}" text-anchor="middle" fill="{{ v.col }}" style="font:500 10.5px 'IBM Plex Mono',monospace">{{ v.text }}</text></sc-for>
+<line x1="46" y1="186" x2="626" y2="186" stroke="#D8DEE5" stroke-width="1"></line>
+<sc-for list="{{ marks }}" as="m" hint-placeholder-count="1"><rect x="{{ m.x }}" y="{{ m.y }}" width="{{ m.w }}" height="{{ m.h }}" fill="#E38C07"></rect></sc-for>
+<sc-for list="{{ xLabels }}" as="x" hint-placeholder-count="6"><text x="{{ x.x }}" y="208" text-anchor="middle" fill="{{ x.col }}" style="font:500 10.5px 'IBM Plex Mono',monospace">{{ x.text }}</text></sc-for>
+</svg>
+<div style="margin-top:12px;font:500 10px 'IBM Plex Mono',monospace;letter-spacing:.08em;color:#5A6472">2026 IS HALF-YEAR TO 30 JUN · 19 FILED 2021–2025 · 7 GRANTED · 12 PROOF-OF-CONCEPTS</div>
+</div>
+
+</div>
+</div>
+</section>
+
+<section style="background:#00335F;padding:64px 0 68px">
+<div style="width:1320px;margin:0 auto">
+<div style="width:44px;height:3px;background:#E38C07;margin-bottom:22px"></div>
+<div style="display:flex;align-items:flex-end;justify-content:space-between;gap:40px;margin-bottom:44px">
+<div>
+<h2 style="margin:0 0 12px;font:700 32px/1.16 'Inter Tight',sans-serif;letter-spacing:-.015em;color:#FFFFFF">How the numbers move</h2>
+<p style="margin:0;font:400 16px/1.6 Inter,sans-serif;color:#BFD2E4;max-width:660px">Five stages tie every figure above back to a decision. Nothing on this page is collected for its own sake.</p>
+</div>
+<div style="font:500 11.5px 'IBM Plex Mono',monospace;letter-spacing:.1em;color:#7FAED9;white-space:nowrap;text-align:right">VALUE CHAIN<br>QUARTERLY CYCLE</div>
+</div>
+
+<div style="position:relative">
+<div style="position:absolute;left:0;right:0;top:9px;height:1px;background:#1A6BAE"></div>
+<div style="position:relative;display:grid;grid-template-columns:repeat(5,1fr);gap:0">
+<div style="padding-right:32px">
+<div style="width:19px;height:19px;border-radius:50%;background:#E38C07;margin-bottom:22px"></div>
+<div style="font:600 22px/1 'IBM Plex Mono',monospace;color:#7FAED9;letter-spacing:-.02em;margin-bottom:16px">01</div>
+<div style="font:600 19px/1.26 'Inter Tight',sans-serif;color:#FFFFFF;margin-bottom:10px">Generate &amp; Deliver</div>
+<div style="font:500 10px 'IBM Plex Mono',monospace;letter-spacing:.12em;color:#7FAED9;margin-bottom:10px">GROUP HEADS &amp; PROJECT TEAMS</div>
+<div style="font:400 14px/1.6 Inter,sans-serif;color:#BFD2E4">The six research groups produce the output — papers, graduates, prototypes, project milestones. This is where the targets are actually met or missed.</div>
+</div>
+<div style="padding:0 32px;border-left:1px solid rgba(127,174,217,.3)">
+<div style="width:19px;height:19px;border-radius:50%;background:#E38C07;margin-bottom:22px"></div>
+<div style="font:600 22px/1 'IBM Plex Mono',monospace;color:#7FAED9;letter-spacing:-.02em;margin-bottom:16px">02</div>
+<div style="font:600 19px/1.26 'Inter Tight',sans-serif;color:#FFFFFF;margin-bottom:10px">Enable &amp; Accelerate</div>
+<div style="font:500 10px 'IBM Plex Mono',monospace;letter-spacing:.12em;color:#7FAED9;margin-bottom:10px">FUNCTIONAL ARMS</div>
+<div style="font:400 14px/1.6 Inter,sans-serif;color:#BFD2E4">Grants, innovation, industry, international and facilities offices clear the path — proposals, agreements, filings, compute allocation.</div>
+</div>
+<div style="padding:0 32px;border-left:1px solid rgba(127,174,217,.3)">
+<div style="width:19px;height:19px;border-radius:50%;background:#E38C07;margin-bottom:22px"></div>
+<div style="font:600 22px/1 'IBM Plex Mono',monospace;color:#7FAED9;letter-spacing:-.02em;margin-bottom:16px">03</div>
+<div style="font:600 19px/1.26 'Inter Tight',sans-serif;color:#FFFFFF;margin-bottom:10px">Monitor &amp; Report</div>
+<div style="font:500 10px 'IBM Plex Mono',monospace;letter-spacing:.12em;color:#7FAED9;margin-bottom:10px">STRATEGY, PLANNING &amp; REPORTING</div>
+<div style="font:400 14px/1.6 Inter,sans-serif;color:#BFD2E4">Each KPI line is collected quarterly against a named evidence file. Unevidenced lines are reported as unevidenced, not as zero.</div>
+</div>
+<div style="padding:0 32px;border-left:1px solid rgba(127,174,217,.3)">
+<div style="width:19px;height:19px;border-radius:50%;background:#E38C07;margin-bottom:22px"></div>
+<div style="font:600 22px/1 'IBM Plex Mono',monospace;color:#7FAED9;letter-spacing:-.02em;margin-bottom:16px">04</div>
+<div style="font:600 19px/1.26 'Inter Tight',sans-serif;color:#FFFFFF;margin-bottom:10px">Review &amp; Decide</div>
+<div style="font:500 10px 'IBM Plex Mono',monospace;letter-spacing:.12em;color:#7FAED9;margin-bottom:10px">DIRECTOR &amp; MANAGEMENT COMMITTEE</div>
+<div style="font:400 14px/1.6 Inter,sans-serif;color:#BFD2E4">Quarterly review moves effort, budget and facility time towards the areas that are slipping. Below-target areas carry a written action.</div>
+</div>
+<div style="padding-left:32px;border-left:1px solid rgba(127,174,217,.3)">
+<div style="width:19px;height:19px;border-radius:50%;background:#E38C07;margin-bottom:22px"></div>
+<div style="font:600 22px/1 'IBM Plex Mono',monospace;color:#7FAED9;letter-spacing:-.02em;margin-bottom:16px">05</div>
+<div style="font:600 19px/1.26 'Inter Tight',sans-serif;color:#FFFFFF;margin-bottom:10px">Deliver Impact</div>
+<div style="font:500 10px 'IBM Plex Mono',monospace;letter-spacing:.12em;color:#7FAED9;margin-bottom:10px">CENTRE, WITH PARTNERS</div>
+<div style="font:400 14px/1.6 Inter,sans-serif;color:#BFD2E4">Adopted technology, trained talent and published evidence go back to industry, to the university, and into the HiCoE return.</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<section style="background:#FAFAF8;padding:72px 0 84px">
+<div style="width:1320px;margin:0 auto">
+<div style="width:44px;height:3px;background:#E38C07;margin-bottom:22px"></div>
+<h2 style="margin:0 0 12px;font:700 32px/1.16 'Inter Tight',sans-serif;letter-spacing:-.015em;color:#14181D">Who is accountable</h2>
+<p style="margin:0 0 40px;font:400 16px/1.6 Inter,sans-serif;color:#5A6472;max-width:660px">Three lines of accountability, and they do not overlap.</p>
+
+<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:#D8DEE5;border:1px solid #D8DEE5;border-radius:8px;overflow:hidden">
+<div style="background:#FFFFFF;padding:32px 30px 34px">
+<div style="font:500 10px 'IBM Plex Mono',monospace;letter-spacing:.14em;color:#5A6472;margin-bottom:16px">OWNS PERFORMANCE</div>
+<div style="font:600 20px/1.26 'Inter Tight',sans-serif;color:#14181D;margin-bottom:12px">Group Heads own research performance</div>
+<div style="font:400 14.5px/1.62 Inter,sans-serif;color:#5A6472">Publications, postgraduate completions, project delivery and translation readiness sit with the six Group Heads. Where an area on this page is below target, a Group Head carries the action — not the office that reported it.</div>
+</div>
+<div style="background:#FFFFFF;padding:32px 30px 34px">
+<div style="font:500 10px 'IBM Plex Mono',monospace;letter-spacing:.14em;color:#5A6472;margin-bottom:16px">ENABLES AND MONITORS</div>
+<div style="font:600 20px/1.26 'Inter Tight',sans-serif;color:#14181D;margin-bottom:12px">Functional arms enable and monitor</div>
+<div style="font:400 14.5px/1.62 Inter,sans-serif;color:#5A6472">The grants, innovation, industry, international, talent and facilities offices open doors, run the process and collect the evidence. They do not hold the targets, and they do not set them.</div>
+</div>
+<div style="background:#FFFFFF;padding:32px 30px 34px">
+<div style="font:500 10px 'IBM Plex Mono',monospace;letter-spacing:.14em;color:#5A6472;margin-bottom:16px">ACCOUNTABLE OVERALL</div>
+<div style="font:600 20px/1.26 'Inter Tight',sans-serif;color:#14181D;margin-bottom:12px">The Director owns overall performance</div>
+<div style="font:400 14.5px/1.62 Inter,sans-serif;color:#5A6472">The Director is accountable to the university and to HiCoE for the centre's position as a whole, including the balance between areas and the decision to publish these figures.</div>
+</div>
+</div>
+
+<div style="margin-top:24px;background:#FFFFFF;border:1px solid #D8DEE5;border-radius:8px;padding:30px 32px;display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px">
+<div>
+<div style="font:500 10px 'IBM Plex Mono',monospace;letter-spacing:.14em;color:#5A6472;margin-bottom:12px">METHOD</div>
+<div style="font:400 14.5px/1.62 Inter,sans-serif;color:#5A6472">Figures are compiled from Scopus, UTP RIMS and the centre's quarterly returns, and are stated against the target set for that period. Current-period figures are provisional until the quarterly review signs them off. Where a KPI line has no evidence file, it is counted as unevidenced.</div>
+</div>
+<div>
+<div style="font:500 10px 'IBM Plex Mono',monospace;letter-spacing:.14em;color:#5A6472;margin-bottom:12px">PUBLISHING CADENCE</div>
+<div style="font:400 14.5px/1.62 Inter,sans-serif;color:#5A6472">Refreshed quarterly, within two weeks of the management review. Annual HiCoE return filed each January.</div>
+</div>
+<div>
+<div style="font:500 10px 'IBM Plex Mono',monospace;letter-spacing:.14em;color:#5A6472;margin-bottom:12px">DATA QUERIES</div>
+<div style="font:400 14.5px/1.62 Inter,sans-serif;color:#5A6472;margin-bottom:14px">Strategy, Planning &amp; Reporting Unit, CERDAS.</div>
+<div style="display:flex;flex-direction:column;gap:8px">
+<a href="#" style="font:500 14px Inter,sans-serif;color:#004B8C">Download the KPI evidence pack →</a>
+<a href="#" style="font:500 14px Inter,sans-serif;color:#004B8C">Definitions for every measure →</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<dc-import name="SiteFooter" hint-size="100%,340px"></dc-import>
+
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;period&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;2026 H1&quot;,&quot;2025&quot;,&quot;2024&quot;,&quot;2021–2025&quot;],&quot;default&quot;:&quot;2026 H1&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Reporting&quot;},&quot;showTargets&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Reporting&quot;},&quot;tileDetail&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Full&quot;,&quot;Compact&quot;],&quot;default&quot;:&quot;Full&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Display&quot;}}">
+const PERIODS = [
+  { id: '2026 H1', label: '2026 H1', range: '1 JAN – 30 JUN 2026 · YEAR TO DATE', prov: 'PROVISIONAL — NOT YET REVIEWED', sel: [5] },
+  { id: '2025', label: '2025', range: 'FULL YEAR 2025', prov: 'SIGNED OFF 20 JAN 2026', sel: [4] },
+  { id: '2024', label: '2024', range: 'FULL YEAR 2024', prov: 'SIGNED OFF 22 JAN 2025', sel: [3] },
+  { id: '2021–2025', label: '2021–2025', range: 'FIVE-YEAR CUMULATIVE', prov: 'FIVE ANNUAL RETURNS FILED', sel: [0, 1, 2, 3, 4] }
+];
+
+const YEARS = ['2021', '2022', '2023', '2024', '2025', '2026 H1'];
+const PUBS = [[26, 20, 15, 7], [30, 21, 15, 8], [39, 27, 18, 9], [35, 24, 14, 8], [44, 27, 16, 9], [28, 17, 9, 4]];
+const GRANTS = [5.2, 5.8, 6.5, 6.9, 8.4, 5.1];
+const PG = [[7, 5], [9, 6], [11, 8], [12, 7], [14, 9], [7, 5]];
+const IPF = [[2, 0], [3, 1], [3, 1], [5, 2], [6, 3], [5, 2]];
+
+const TILES = [
+  { code: 'KPI-01', area: 'Publications & Citations', metric: 'Q1–Q2 indexed publications in the period', fmt: 'int',
+    owner: 'Group Heads (RG01–RG06)', arm: 'Publications & Bibliometrics Desk',
+    d: [[45, 40, ['All publications', '58'], ['Citations, Scopus', '3,140']],
+        [71, 66, ['All publications', '96'], ['Citations, Scopus', '5,820']],
+        [59, 60, ['All publications', '81'], ['Citations, Scopus', '4,310']],
+        [293, 280, ['All publications', '412'], ['Citations, Scopus', '18,940']]] },
+  { code: 'KPI-02', area: 'Research Grants', metric: 'New grant value secured in the period', fmt: 'money',
+    owner: 'Principal Investigators', arm: 'Research Management & Grants Office',
+    d: [[5.1, 4.2, ['Active portfolio', 'RM 24.6M'], ['Funded projects', '37']],
+        [8.4, 7.5, ['Active portfolio', 'RM 22.1M'], ['Funded projects', '34']],
+        [6.9, 7.0, ['Active portfolio', 'RM 18.4M'], ['Funded projects', '29']],
+        [32.8, 30.0, ['Active portfolio', 'RM 24.6M'], ['Funded projects', '37']]] },
+  { code: 'KPI-03', area: 'Postgraduate & Talent', metric: 'Postgraduate completions under supervision', fmt: 'int',
+    owner: 'Supervisors & Group Heads', arm: 'Postgraduate & Talent Office',
+    d: [[12, 12, ['PhD / MSc', '7 / 5'], ['Currently enrolled', '60']],
+        [23, 22, ['PhD / MSc', '14 / 9'], ['Currently enrolled', '58']],
+        [19, 20, ['PhD / MSc', '12 / 7'], ['Currently enrolled', '51']],
+        [88, 85, ['PhD / MSc', '53 / 35'], ['Currently enrolled', '60']]] },
+  { code: 'KPI-04', area: 'IP, Patents & PoCs', metric: 'IP filings made in the period', fmt: 'int',
+    owner: 'Inventor teams', arm: 'Innovation & Commercialisation Unit',
+    d: [[5, 4, ['Granted, cumulative', '9'], ['Proof-of-concepts', '3']],
+        [6, 6, ['Granted, cumulative', '7'], ['Proof-of-concepts', '4']],
+        [5, 5, ['Granted, cumulative', '4'], ['Proof-of-concepts', '3']],
+        [19, 18, ['Granted, cumulative', '7'], ['Proof-of-concepts', '12']]] },
+  { code: 'KPI-05', area: 'Technology Translation', metric: 'Technologies advanced to TRL 6 or above', fmt: 'int',
+    owner: 'Project leads, TRL 6+', arm: 'Innovation & Commercialisation Unit',
+    d: [[2, 3, ['Licences signed', '1'], ['Licensing income', 'RM 0.5M']],
+        [5, 5, ['Licences signed', '2'], ['Licensing income', 'RM 0.9M']],
+        [3, 4, ['Licences signed', '1'], ['Licensing income', 'RM 0.4M']],
+        [14, 15, ['Licences signed', '6'], ['Licensing income', 'RM 2.8M']]] },
+  { code: 'KPI-06', area: 'Industry Projects & Consultancy', metric: 'Contract research & consultancy value', fmt: 'money',
+    owner: 'Group Heads', arm: 'Industry & Partnership Office',
+    d: [[1.4, 1.8, ['Active industry projects', '14'], ['Partner organisations', '31']],
+        [3.2, 3.0, ['Active industry projects', '14'], ['Partner organisations', '31']],
+        [2.4, 2.6, ['Active industry projects', '11'], ['Partner organisations', '26']],
+        [11.6, 12.0, ['Active industry projects', '14'], ['Partner organisations', '31']]] },
+  { code: 'KPI-07', area: 'International Collaboration', metric: 'Publications with an international co-author', fmt: 'pct',
+    owner: 'Group Heads', arm: 'International Relations Office',
+    d: [[36, 32, ['Active MoUs', '9'], ['Visiting researchers', '4']],
+        [34, 30, ['Active MoUs', '9'], ['Visiting researchers', '6']],
+        [29, 28, ['Active MoUs', '7'], ['Visiting researchers', '5']],
+        [31, 30, ['Active MoUs', '9'], ['Visiting researchers', '21']]] },
+  { code: 'KPI-08', area: 'Facilities & Resources', metric: 'PETRA-1 cluster utilisation', fmt: 'pct',
+    owner: 'Facility Managers', arm: 'Facilities & Computing Services',
+    d: [[83, 75, ['Shared facilities', '6'], ['External users', '27']],
+        [78, 75, ['Shared facilities', '6'], ['External users', '41']],
+        [71, 70, ['Shared facilities', '6'], ['External users', '33']],
+        [74, 72, ['Shared facilities', '6'], ['External users', '138']]] },
+  { code: 'KPI-09', area: 'HiCoE KPI & Evidence', metric: 'KPI lines with an evidence file attached', fmt: 'pct',
+    owner: 'Director, CERDAS', arm: 'Strategy, Planning & Reporting Unit',
+    d: [[82, 90, ['Lines evidenced', '31 / 38'], ['Next submission', '15 Oct 2026']],
+        [89, 90, ['Lines evidenced', '34 / 38'], ['Return filed', '20 Jan 2026']],
+        [81, 85, ['Lines evidenced', '29 / 36'], ['Return filed', '22 Jan 2025']],
+        [86, 88, ['Returns filed', '5 of 5'], ['Cadence', 'Annual, Jan']]] }
+];
+
+const L = 46, R = 626, TOP = 14, BOT = 186, SW = (R - L) / 6, H = BOT - TOP;
+
+function fmtV(v, f) {
+  if (f === 'money') return 'RM ' + v.toFixed(1) + 'M';
+  if (f === 'pct') return v + '%';
+  return v.toLocaleString('en-US');
+}
+function statusOf(v, t, f) {
+  if (f === 'pct') { const d = v - t; return d > 1 ? 'above' : (d >= -1 ? 'on' : 'below'); }
+  const p = (v / t - 1) * 100;
+  return p > 2 ? 'above' : (p >= -2 ? 'on' : 'below');
+}
+function deltaOf(v, t, f) {
+  if (f === 'pct') { const d = v - t; return (d > 0 ? '+' : '') + d.toFixed(1) + ' pp'; }
+  const p = (v / t - 1) * 100;
+  return (p > 0 ? '+' : '') + p.toFixed(1) + '%';
+}
+function bandX(i) { return L + SW * i; }
+function ticksOf(vals, fmt) {
+  const max = vals[vals.length - 1];
+  return vals.map(v => { const y = BOT - (v / max) * H; return { y, ty: y + 3.5, label: fmt(v) }; });
+}
+function stacked(rows, max, fills, sel) {
+  const bars = [], vals = [], bw = 46;
+  rows.forEach((row, i) => {
+    const x = bandX(i) + (SW - bw) / 2;
+    let acc = 0;
+    row.forEach((v, k) => { const h = (v / max) * H; acc += h; bars.push({ x, y: BOT - acc, w: bw, h, fill: fills[k] }); });
+    const total = row.reduce((a, b) => a + b, 0);
+    vals.push({ x: x + bw / 2, y: BOT - acc - 8, text: String(total), col: sel.indexOf(i) > -1 ? '#14181D' : '#5A6472' });
+  });
+  return { bars, vals };
+}
+function single(series, max, sel, fmt) {
+  const bars = [], vals = [], bw = 46;
+  series.forEach((v, i) => {
+    const x = bandX(i) + (SW - bw) / 2, h = (v / max) * H, s = sel.indexOf(i) > -1;
+    bars.push({ x, y: BOT - h, w: bw, h, fill: s ? '#004B8C' : '#4A8CC4' });
+    vals.push({ x: x + bw / 2, y: BOT - h - 8, text: fmt(v), col: s ? '#14181D' : '#5A6472' });
+  });
+  return { bars, vals };
+}
+function grouped(pairs, max, fills, sel) {
+  const bars = [], vals = [], bw = 20, gap = 6, tot = bw * 2 + gap;
+  pairs.forEach((p, i) => {
+    const x0 = bandX(i) + (SW - tot) / 2;
+    p.forEach((v, k) => { const h = (v / max) * H; bars.push({ x: x0 + k * (bw + gap), y: BOT - h, w: bw, h, fill: fills[k] }); });
+    const h = (p[0] / max) * H;
+    vals.push({ x: x0 + bw / 2, y: BOT - h - 8, text: String(p[0]), col: sel.indexOf(i) > -1 ? '#14181D' : '#5A6472' });
+  });
+  return { bars, vals };
+}
+function markers(sel) {
+  const a = sel.slice().sort((x, y) => x - y), runs = [];
+  let s = a[0], p = a[0];
+  for (let i = 1; i < a.length; i++) { if (a[i] === p + 1) { p = a[i]; } else { runs.push([s, p]); s = a[i]; p = a[i]; } }
+  runs.push([s, p]);
+  return runs.map(r => ({ x: bandX(r[0]) + 8, y: BOT + 3, w: SW * (r[1] - r[0] + 1) - 16, h: 3 }));
+}
+
+class Component extends DCLogic {
+  state = { period: null };
+
+  componentDidUpdate(prev) {
+    if (prev.period !== this.props.period && this.state.period !== null) this.setState({ period: null });
+  }
+
+  renderVals() {
+    const pid = this.state.period ?? this.props.period ?? '2026 H1';
+    const pIdx = Math.max(0, PERIODS.findIndex(p => p.id === pid));
+    const P = PERIODS[pIdx];
+    const sel = P.sel;
+    const showTargets = this.props.showTargets ?? true;
+    const full = (this.props.tileDetail ?? 'Full') === 'Full';
+
+    const tiles = TILES.map(t => {
+      const row = t.d[pIdx];
+      const v = row[0], tgt = row[1], st = statusOf(v, tgt, t.fmt);
+      return {
+        code: t.code, area: t.area, metric: t.metric, owner: t.owner, arm: t.arm,
+        value: fmtV(v, t.fmt), target: fmtV(tgt, t.fmt), delta: deltaOf(v, tgt, t.fmt),
+        attain: Math.round((v / tgt) * 100) + '%',
+        railPct: Math.min((v / tgt) * 76, 100).toFixed(1),
+        above: st === 'above', on: st === 'on', below: st === 'below',
+        sub1Label: row[2][0], sub1Val: row[2][1], sub2Label: row[3][0], sub2Val: row[3][1]
+      };
+    });
+
+    const pub = stacked(PUBS, 100, ['#004B8C', '#1A6BAE', '#4A8CC4', '#7FAED9'], sel);
+    const grant = single(GRANTS, 9, sel, v => v.toFixed(1));
+    const pg = stacked(PG, 24, ['#004B8C', '#7FAED9'], sel);
+    const ip = grouped(IPF, 8, ['#4A8CC4', '#004B8C'], sel);
+
+    return {
+      periodOpts: PERIODS.map(p => ({
+        label: p.label, on: p.id === pid, off: p.id !== pid,
+        pick: () => this.setState({ period: p.id })
+      })),
+      periodLabel: P.label, periodRange: P.range, provisionalNote: P.prov,
+      nOnOrAbove: tiles.filter(t => !t.below).length,
+      nBelow: tiles.filter(t => t.below).length,
+      tiles, showTargets, full,
+      marks: markers(sel),
+      xLabels: YEARS.map((y, i) => ({ x: bandX(i) + SW / 2, text: y, col: sel.indexOf(i) > -1 ? '#14181D' : '#5A6472' })),
+      pubTicks: ticksOf([0, 50, 100], v => String(v)), pubBars: pub.bars, pubVals: pub.vals,
+      grantTicks: ticksOf([0, 3, 6, 9], v => v.toFixed(0)), grantBars: grant.bars, grantVals: grant.vals,
+      grantTargetY: BOT - (7.5 / 9) * H,
+      pgTicks: ticksOf([0, 12, 24], v => String(v)), pgBars: pg.bars, pgVals: pg.vals,
+      pgTargetY: BOT - (22 / 24) * H,
+      ipTicks: ticksOf([0, 4, 8], v => String(v)), ipBars: ip.bars, ipVals: ip.vals,
+      ipTargetY: BOT - (6 / 8) * H
+    };
+  }
+}
+
+</script>
+</body>
+</html>

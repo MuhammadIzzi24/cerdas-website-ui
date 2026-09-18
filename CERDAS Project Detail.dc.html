@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""><link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&amp;family=Inter:wght@400;500;600;700&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#FAFAF8;font-family:Inter,system-ui,sans-serif}
+a{color:#004B8C;text-decoration:none}a:hover{color:#00335F}
+</style></helmet>
+
+<div data-screen-label="B6 Project detail" style="width:1440px;margin:0 auto;background:#FFFFFF">
+
+<dc-import name="SiteHeader" active="Research" hint-size="100%,78px"></dc-import>
+
+<section style="background:#00335F;padding:56px 0 60px;position:relative;overflow:hidden">
+<svg viewBox="0 0 1440 400" preserveAspectRatio="none" style="position:absolute;inset:0;width:100%;height:100%;opacity:.2" aria-hidden="true">
+<g stroke="#7FAED9" stroke-width="1" fill="none">
+<path d="M1080 90 V310 M1180 90 V310 M1280 90 V310 M1380 90 V310"></path>
+<path d="M1040 140 H1220 M1040 190 H1320 M1040 240 H1160 M1040 290 H1400"></path>
+</g>
+<g fill="#E38C07"><rect x="1036" y="185" width="10" height="10" rx="2"></rect><rect x="1036" y="285" width="10" height="10" rx="2"></rect></g>
+</svg>
+<div style="width:1320px;margin:0 auto;position:relative">
+<div style="font:500 11px 'IBM Plex Mono',monospace;letter-spacing:.13em;color:#7FAED9;margin-bottom:28px"><a href="CERDAS Home.dc.html" style="color:#7FAED9">HOME</a> <span style="color:#E38C07">/</span> <a href="CERDAS Research.dc.html" style="color:#7FAED9">RESEARCH</a> <span style="color:#E38C07">/</span> <a href="CERDAS Projects.dc.html" style="color:#7FAED9">PROJECTS</a> <span style="color:#E38C07">/</span> SENTINEL-GRID</div>
+<div style="display:grid;grid-template-columns:1fr 320px;gap:64px;align-items:start">
+<div>
+<div style="display:flex;align-items:center;gap:12px;margin-bottom:20px">
+<span style="background:#E38C07;color:#14181D;font:600 10px 'IBM Plex Mono',monospace;letter-spacing:.1em;padding:6px 10px;border-radius:4px">ACTIVE</span>
+<span style="font:500 10.5px 'IBM Plex Mono',monospace;letter-spacing:.13em;color:#7FAED9">RG01 · DATA SCIENCE &amp; ANALYTICS</span>
+<span style="width:4px;height:4px;border-radius:50%;background:#7FAED9;display:block"></span>
+<span style="font:500 10.5px 'IBM Plex Mono',monospace;letter-spacing:.13em;color:#7FAED9">FLAGSHIP</span>
+</div>
+<div style="font:600 15px 'IBM Plex Mono',monospace;letter-spacing:.06em;color:#F5C46B;margin-bottom:16px">SENTINEL-GRID</div>
+<h1 style="margin:0 0 22px;font:700 46px/1.1 'Inter Tight',sans-serif;letter-spacing:-.02em;color:#FFFFFF;max-width:800px;text-wrap:pretty">Fault localisation and prediction across medium-voltage distribution networks</h1>
+<p style="margin:0;font:400 18.5px/1.62 Inter,sans-serif;color:#BFD2E4;max-width:700px;text-wrap:pretty">Learning where a fault is from records that were never collected for the purpose — and presenting the answer in a form a control room engineer will act on at three in the morning.</p>
+</div>
+<div style="background:rgba(255,255,255,.08);border-radius:8px;padding:26px 26px 28px">
+<div style="display:flex;flex-direction:column;gap:18px">
+<div>
+<div style="font:500 9.5px 'IBM Plex Mono',monospace;letter-spacing:.14em;color:#7FAED9;margin-bottom:6px">PERIOD</div>
+<div style="font:500 15px 'IBM Plex Mono',monospace;color:#FFFFFF">2023 — 2027</div>
+</div>
+<div>
+<div style="font:500 9.5px 'IBM Plex Mono',monospace;letter-spacing:.14em;color:#7FAED9;margin-bottom:6px">TOTAL VALUE</div>
+<div style="font:500 15px 'IBM Plex Mono',monospace;color:#FFFFFF">RM 2.40M</div>
+</div>
+<div>
+<div style="font:500 9.5px 'IBM Plex Mono',monospace;letter-spacing:.14em;color:#7FAED9;margin-bottom:6px">PROGRESS</div>
+<div style="height:5px;background:rgba(255,255,255,.2);border-radius:3px;margin-top:8px;margin-bottom:8px"><div style="width:68%;height:5px;background:#E38C07;border-radius:3px"></div></div>
+<div style="font:500 12px 'IBM Plex Mono',monospace;color:#BFD2E4">68% ELAPSED · ON SCHEDULE</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<section style="background:#FFFFFF;border-bottom:1px solid #D8DEE5">
+<div style="width:1320px;margin:0 auto;display:grid;grid-template-columns:repeat(5,1fr)">
+<sc-for list="{{ glance }}" as="g" hint-placeholder-count="5">
+<sc-if value="{{ g.first }}" hint-placeholder-val="{{ false }}">
+<div style="padding:34px 28px 34px 0">
+<div style="font:500 9.5px 'IBM Plex Mono',monospace;letter-spacing:.14em;color:#5A6472;margin-bottom:12px">{{ g.label }}</div>
+<div style="font:600 17px/1.35 'Inter Tight',sans-serif;color:#14181D">{{ g.value }}</div>
+</div>
+</sc-if>
+<sc-if value="{{ g.mid }}" hint-placeholder-val="{{ true }}">
+<div style="padding:34px 28px;border-left:1px solid #D8DEE5">
+<div style="font:500 9.5px 'IBM Plex Mono',monospace;letter-spacing:.14em;color:#5A6472;margin-bottom:12px">{{ g.label }}</div>
+<div style="font:600 17px/1.35 'Inter Tight',sans-serif;color:#14181D">{{ g.value }}</div>
+</div>
+</sc-if>
+<sc-if value="{{ g.last }}" hint-placeholder-val="{{ false }}">
+<div style="padding:34px 0 34px 28px;border-left:1px solid #D8DEE5">
+<div style="font:500 9.5px 'IBM Plex Mono',monospace;letter-spacing:.14em;color:#5A6472;margin-bottom:12px">{{ g.label }}</div>
+<div style="font:600 17px/1.35 'Inter Tight',sans-serif;color:#14181D">{{ g.value }}</div>
+</div>
+</sc-if>
+</sc-for>
+</div>
+</section>
+
+<section style="background:#FAFAF8;padding:64px 0 76px">
+<div style="width:1320px;margin:0 auto;display:grid;grid-template-columns:1fr 360px;gap:40px;align-items:start">
+
+<div style="display:flex;flex-direction:column;gap:24px">
+
+<div style="background:#FFFFFF;border:1px solid #D8DEE5;border-radius:8px;padding:40px 44px 44px">
+<div style="width:44px;height:3px;background:#E38C07;margin-bottom:22px"></div>
+<h2 style="margin:0 0 22px;font:700 30px/1.16 'Inter Tight',sans-serif;letter-spacing:-.015em;color:#14181D">The problem</h2>
+<p style="margin:0 0 20px;font:400 16.5px/1.7 Inter,sans-serif;color:#14181D;max-width:720px;text-wrap:pretty">When a fault occurs on a medium-voltage feeder, the control room sees a cascade of alarms and a rough indication that something is wrong somewhere on a twelve-kilometre run. Locating it means dispatching a crew to drive the line. On the partner network that took forty-seven minutes on average, and the customers at the far end of the feeder waited the whole time.</p>
+<p style="margin:0 0 20px;font:400 16.5px/1.7 Inter,sans-serif;color:#14181D;max-width:720px;text-wrap:pretty">The data to do better already existed — nine years of fault records, topology that was mostly accurate, and SCADA telemetry from the substations. What did not exist was a method that could work with it. Published approaches assume dense sensing along the feeder and a clean network model. A real distribution network has neither, and the records themselves carry mislabelled causes and missing restoration times.</p>
+<p style="margin:0;font:400 16.5px/1.7 Inter,sans-serif;color:#14181D;max-width:720px;text-wrap:pretty">SENTINEL-GRID set out to learn the structure that matters from what is actually recorded, and to hand the result to an engineer in a form they can challenge.</p>
+</div>
+
+<div style="background:#FFFFFF;border:1px solid #D8DEE5;border-radius:8px;padding:40px 44px 44px">
+<div style="width:44px;height:3px;background:#E38C07;margin-bottom:22px"></div>
+<h2 style="margin:0 0 14px;font:700 30px/1.16 'Inter Tight',sans-serif;letter-spacing:-.015em;color:#14181D">Objectives</h2>
+<p style="margin:0 0 28px;font:400 16px/1.62 Inter,sans-serif;color:#5A6472;max-width:700px">Four, agreed with the partner at the start and unchanged since. Each one has a test that decides whether it was met.</p>
+<div style="display:flex;flex-direction:column;gap:0">
+<sc-for list="{{ objectives }}" as="o" hint-placeholder-count="4">
+<div style="display:grid;grid-template-columns:56px 1fr 130px;gap:24px;padding:22px 0;border-bottom:1px solid #E8ECF1;align-items:start">
+<div style="font:600 22px/1 'IBM Plex Mono',monospace;color:#004B8C;letter-spacing:-.02em">{{ o.n }}</div>
+<div>
+<div style="font:600 17px/1.32 'Inter Tight',sans-serif;color:#14181D;margin-bottom:8px">{{ o.title }}</div>
+<div style="font:400 14.5px/1.6 Inter,sans-serif;color:#5A6472">{{ o.test }}</div>
+</div>
+<div style="text-align:right">
+<sc-if value="{{ o.met }}" hint-placeholder-val="{{ true }}"><span style="background:rgba(0,75,140,.08);color:#004B8C;font:600 10px 'IBM Plex Mono',monospace;letter-spacing:.08em;padding:5px 9px;border-radius:4px;white-space:nowrap">MET</span></sc-if>
+<sc-if value="{{ o.progress }}" hint-placeholder-val="{{ false }}"><span style="background:#FAFAF8;border:1px solid #E8ECF1;color:#5A6472;font:600 10px 'IBM Plex Mono',monospace;letter-spacing:.08em;padding:4px 9px;border-radius:4px;white-space:nowrap">IN PROGRESS</span></sc-if>
+</div>
+</div>
+</sc-for>
+</div>
+</div>
+
+<div style="background:#FFFFFF;border:1px solid #D8DEE5;border-radius:8px;padding:40px 44px 44px">
+<div style="width:44px;height:3px;background:#E38C07;margin-bottom:22px"></div>
+<h2 style="margin:0 0 14px;font:700 30px/1.16 'Inter Tight',sans-serif;letter-spacing:-.015em;color:#14181D">Workstreams</h2>
+<p style="margin:0 0 30px;font:400 16px/1.62 Inter,sans-serif;color:#5A6472;max-width:700px">Four packages across four years. The gold band marks where the project is now.</p>
+<div style="display:flex;flex-direction:column;gap:20px;margin-bottom:30px">
+<sc-for list="{{ workstreams }}" as="w" hint-placeholder-count="4">
+<div>
+<div style="display:flex;align-items:baseline;justify-content:space-between;gap:20px;margin-bottom:10px">
+<div style="display:flex;align-items:baseline;gap:12px">
+<span style="font:500 11.5px 'IBM Plex Mono',monospace;color:#004B8C">{{ w.code }}</span>
+<span style="font:600 16px/1.35 'Inter Tight',sans-serif;color:#14181D">{{ w.title }}</span>
+</div>
+<span style="flex:none;font:500 11.5px 'IBM Plex Mono',monospace;color:#5A6472">{{ w.lead }}</span>
+</div>
+<div style="position:relative;height:26px;background:#F1F3F5;border-radius:4px">
+<div style="position:absolute;top:0;bottom:0;background:#4A8CC4;border-radius:4px;left:{{ w.left }}%;width:{{ w.width }}%"></div>
+<div style="position:absolute;top:-4px;bottom:-4px;left:68%;width:2px;background:#E38C07"></div>
+</div>
+<div style="margin-top:8px;font:400 13.5px/1.55 Inter,sans-serif;color:#5A6472">{{ w.body }}</div>
+</div>
+</sc-for>
+</div>
+<div style="display:flex;align-items:center;justify-content:space-between;padding-top:18px;border-top:1px solid #E8ECF1;font:500 10.5px 'IBM Plex Mono',monospace;letter-spacing:.09em;color:#5A6472">
+<span>2023</span><span>2024</span><span>2025</span><span>2026</span><span>2027</span>
+</div>
+</div>
+
+<div style="background:#FFFFFF;border:1px solid #D8DEE5;border-radius:8px;padding:40px 44px 44px">
+<div style="width:44px;height:3px;background:#E38C07;margin-bottom:22px"></div>
+<h2 style="margin:0 0 14px;font:700 30px/1.16 'Inter Tight',sans-serif;letter-spacing:-.015em;color:#14181D">Outputs so far</h2>
+<p style="margin:0 0 28px;font:400 16px/1.62 Inter,sans-serif;color:#5A6472;max-width:700px">Everything the project has produced that someone outside it can use.</p>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:1px;background:#E8ECF1;border:1px solid #E8ECF1;border-radius:7px;overflow:hidden">
+<sc-for list="{{ outputs }}" as="o" hint-placeholder-count="6">
+<div style="background:#FFFFFF;padding:22px 24px">
+<div style="font:500 9.5px 'IBM Plex Mono',monospace;letter-spacing:.14em;color:#5A6472;margin-bottom:10px">{{ o.kind }}</div>
+<a href="{{ o.href }}" style="display:block;font:600 15.5px/1.4 'Inter Tight',sans-serif;color:#14181D;margin-bottom:7px" style-hover="color:#004B8C">{{ o.title }}</a>
+<div style="font:400 13px/1.5 Inter,sans-serif;color:#5A6472">{{ o.note }}</div>
+</div>
+</sc-for>
+</div>
+</div>
+
+<div style="background:#004B8C;border-radius:8px;padding:40px 44px 44px">
+<div style="width:44px;height:3px;background:#E38C07;margin-bottom:22px"></div>
+<h2 style="margin:0 0 14px;font:700 30px/1.16 'Inter Tight',sans-serif;letter-spacing:-.015em;color:#FFFFFF">What changed in the partner's operation</h2>
+<p style="margin:0 0 32px;font:400 16px/1.62 Inter,sans-serif;color:#BFD2E4;max-width:700px">Measured by the partner across 240 substations in the twelve months after deployment.</p>
+<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(127,174,217,.28);border-radius:7px;overflow:hidden">
+<sc-for list="{{ impact }}" as="i" hint-placeholder-count="3">
+<div style="background:#00335F;padding:28px 26px 30px">
+<div style="font:600 32px/1 'IBM Plex Mono',monospace;color:#FFFFFF;letter-spacing:-.025em;margin-bottom:12px">{{ i.value }}</div>
+<div style="font:400 13.5px/1.55 Inter,sans-serif;color:#BFD2E4">{{ i.label }}</div>
+</div>
+</sc-for>
+</div>
+</div>
+
+</div>
+
+<div style="position:sticky;top:24px;display:flex;flex-direction:column;gap:20px">
+
+<div style="background:#FFFFFF;border:1px solid #D8DEE5;border-radius:8px;padding:26px 28px 28px">
+<div style="font:500 10px 'IBM Plex Mono',monospace;letter-spacing:.14em;color:#5A6472;margin-bottom:20px">PROJECT TEAM</div>
+<div style="display:flex;flex-direction:column;gap:1px;background:#E8ECF1;border-radius:6px;overflow:hidden">
+<sc-for list="{{ team }}" as="t" hint-placeholder-count="6">
+<a href="CERDAS Researcher Profile.dc.html" style="background:#FFFFFF;padding:14px 16px;display:block" style-hover="background:#FAFAF8">
+<div style="font:500 14px/1.35 Inter,sans-serif;color:#14181D;margin-bottom:4px">{{ t.name }}</div>
+<div style="font:400 11.5px Inter,sans-serif;color:#5A6472">{{ t.role }}</div>
+</a>
+</sc-for>
+</div>
+<div style="margin-top:18px;padding-top:16px;border-top:1px solid #E8ECF1;font:400 13px/1.55 Inter,sans-serif;color:#5A6472">Plus four postgraduate researchers and one research officer.</div>
+</div>
+
+<div style="background:#FFFFFF;border:1px solid #D8DEE5;border-radius:8px;padding:26px 28px 28px">
+<div style="font:500 10px 'IBM Plex Mono',monospace;letter-spacing:.14em;color:#5A6472;margin-bottom:20px">FUNDING</div>
+<div style="display:flex;flex-direction:column;gap:16px">
+<sc-for list="{{ funding }}" as="f" hint-placeholder-count="3">
+<div>
+<div style="display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin-bottom:8px">
+<span style="font:500 13.5px Inter,sans-serif;color:#14181D">{{ f.source }}</span>
+<span style="flex:none;font:600 13.5px 'IBM Plex Mono',monospace;color:#004B8C">{{ f.value }}</span>
+</div>
+<div style="height:5px;background:#E8ECF1;border-radius:3px"><div style="height:5px;background:#4A8CC4;border-radius:3px;width:{{ f.pct }}%"></div></div>
+</div>
+</sc-for>
+</div>
+<div style="margin-top:20px;padding-top:16px;border-top:1px solid #E8ECF1;display:flex;align-items:baseline;justify-content:space-between">
+<span style="font:500 10px 'IBM Plex Mono',monospace;letter-spacing:.12em;color:#5A6472">TOTAL</span>
+<span style="font:600 16px 'IBM Plex Mono',monospace;color:#14181D">RM 2.40M</span>
+</div>
+</div>
+
+<div style="background:#FAFAF8;border:1px solid #D8DEE5;border-radius:8px;padding:26px 28px 28px">
+<div style="font:500 10px 'IBM Plex Mono',monospace;letter-spacing:.14em;color:#5A6472;margin-bottom:18px">PARTNERS</div>
+<div style="display:flex;flex-direction:column;gap:14px">
+<div>
+<div style="font:600 15px/1.3 'Inter Tight',sans-serif;color:#14181D;margin-bottom:4px">Tenaga Nusantara</div>
+<div style="font:400 13px/1.5 Inter,sans-serif;color:#5A6472">Industry partner · data, deployment and co-funding</div>
+</div>
+<div>
+<div style="font:600 15px/1.3 'Inter Tight',sans-serif;color:#14181D;margin-bottom:4px">Zuiderzee Institute for Data Systems</div>
+<div style="font:400 13px/1.5 Inter,sans-serif;color:#5A6472">Academic partner · graph methods, MoU since 2023</div>
+</div>
+</div>
+<div style="margin-top:18px;padding-top:16px;border-top:1px solid #D8DEE5">
+<a href="CERDAS Partnerships.dc.html" style="font:500 13.5px Inter,sans-serif;color:#004B8C">Partnership register →</a>
+</div>
+</div>
+
+<div style="background:#FFFFFF;border:1px solid #D8DEE5;border-radius:8px;padding:26px 28px 28px">
+<div style="font:500 10px 'IBM Plex Mono',monospace;letter-spacing:.14em;color:#5A6472;margin-bottom:18px">FACILITIES USED</div>
+<div style="display:flex;flex-direction:column;gap:12px">
+<a href="CERDAS Facility Detail.dc.html" style="font:500 14px Inter,sans-serif;color:#004B8C">PETRA-1 HPC cluster →</a>
+<a href="CERDAS Laboratories.dc.html" style="font:500 14px Inter,sans-serif;color:#004B8C">Applied Machine Learning Lab →</a>
+</div>
+</div>
+
+<div style="background:#004B8C;border-radius:8px;padding:28px 28px 30px">
+<div style="width:34px;height:3px;background:#E38C07;margin-bottom:18px"></div>
+<h3 style="margin:0 0 12px;font:600 19px/1.26 'Inter Tight',sans-serif;color:#FFFFFF">Similar problem?</h3>
+<p style="margin:0 0 20px;font:400 13.5px/1.6 Inter,sans-serif;color:#BFD2E4">If you operate a network with the same data and the same blind spots, the method transfers. The licence is non-exclusive.</p>
+<a href="CERDAS Join.dc.html" style="display:block;text-align:center;font:600 14px Inter,sans-serif;color:#14181D;background:#E38C07;padding:13px 18px;border-radius:6px" style-hover="background:#F5C46B">Talk to us</a>
+</div>
+
+</div>
+</div>
+</section>
+
+<section style="background:#FFFFFF;padding:64px 0 76px;border-top:1px solid #D8DEE5">
+<div style="width:1320px;margin:0 auto">
+<div style="width:44px;height:3px;background:#E38C07;margin-bottom:22px"></div>
+<h2 style="margin:0 0 30px;font:700 26px/1.2 'Inter Tight',sans-serif;letter-spacing:-.015em;color:#14181D">Related projects</h2>
+<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px">
+<sc-for list="{{ related }}" as="r" hint-placeholder-count="3">
+<a href="CERDAS Project Detail.dc.html" style="background:#FAFAF8;border:1px solid #D8DEE5;border-radius:8px;padding:26px 26px 28px;display:block" style-hover="border-color:#004B8C">
+<div style="display:flex;align-items:center;gap:10px;margin-bottom:14px">
+<span style="font:500 10px 'IBM Plex Mono',monospace;letter-spacing:.13em;color:#004B8C">{{ r.code }}</span>
+<span style="font:500 10px 'IBM Plex Mono',monospace;letter-spacing:.13em;color:#5A6472">{{ r.theme }}</span>
+</div>
+<div style="font:600 18px/1.28 'Inter Tight',sans-serif;color:#14181D;margin-bottom:8px">{{ r.title }}</div>
+<div style="font:400 13.5px/1.5 Inter,sans-serif;color:#5A6472">{{ r.note }}</div>
+</a>
+</sc-for>
+</div>
+</div>
+</section>
+
+<dc-import name="SiteFooter" hint-size="100%,340px"></dc-import>
+
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1440}}">
+const GLANCE = [
+  { label: 'PRINCIPAL INVESTIGATOR', value: 'Assoc. Prof. Ts. Dr. Hitham Seddig Alhassan Alhussian' },
+  { label: 'THEME', value: 'Data Science & Analytics' },
+  { label: 'INDUSTRY PARTNER', value: 'Tenaga Nusantara' },
+  { label: 'FUNDING', value: 'Industry + FRGS' },
+  { label: 'TRL', value: 'TRL 4 → 7' }
+];
+
+const OBJECTIVES = [
+  { n: '01', title: 'Localise a fault to within 500 metres from substation telemetry alone', test: 'Tested against 340 held-out fault events with surveyed ground truth. Achieved a median error of 310 metres.', met: true },
+  { n: '02', title: 'Produce an explanation an engineer can challenge', test: 'Assessed by a structured review with twelve control room engineers, published at CHI 2024.', met: true },
+  { n: '03', title: 'Run inside the partner\u2019s existing SCADA environment', test: 'Deployed across 240 substations without new hardware or a new control room system.', met: true },
+  { n: '04', title: 'Predict incipient faults 48 hours ahead', test: 'The hard one. Current precision is not yet good enough to justify a dispatch; work continues through 2027.', met: false }
+];
+
+const WORKSTREAMS = [
+  { code: 'WP1', title: 'Data reconstruction and labelling', lead: 'H. DAUD', left: 0, width: 30,
+    body: 'Nine years of fault records reconciled against topology and weather, with mislabelled causes corrected by hand where possible.' },
+  { code: 'WP2', title: 'Sparse graph learning', lead: 'N. I. KAMAL', left: 18, width: 42,
+    body: 'The core method: learning fault propagation structure from partially observed feeders.' },
+  { code: 'WP3', title: 'Explanation layer and control room trial', lead: 'K. DEVARAJ', left: 45, width: 30,
+    body: 'What the engineer sees, tested with the people who see it. Produced the CHI paper and reshaped the interface twice.' },
+  { code: 'WP4', title: 'Incipient fault prediction', lead: 'N. I. KAMAL', left: 62, width: 38,
+    body: 'Moving from locating a fault that has happened to anticipating one that has not. Ongoing.' }
+];
+
+const OUTPUTS = [
+  { kind: 'PUBLICATION · Q1', title: 'Sparse graph learning for fault localisation in medium-voltage distribution networks', note: 'IEEE Transactions on Smart Grid, 2024 · 41 citations', href: 'CERDAS Publications.dc.html' },
+  { kind: 'PUBLICATION · CONFERENCE', title: 'What the control room actually needs: an audit of explanation formats', note: 'ACM CHI, 2024 · 14 citations', href: 'CERDAS Publications.dc.html' },
+  { kind: 'PATENT · GRANTED', title: 'Graph-based fault localisation apparatus for distribution networks', note: 'MY-196072, granted · available to license', href: 'CERDAS Patents.dc.html' },
+  { kind: 'SOFTWARE', title: 'gridloc v1.6.0', note: 'MIT licence · 8.6k downloads · SCADA import adapters', href: 'CERDAS Software.dc.html' },
+  { kind: 'DATASET · ON REQUEST', title: 'Medium-voltage distribution network fault archive', note: 'Nine years of records · CC BY-NC 4.0', href: 'CERDAS Datasets.dc.html' },
+  { kind: 'PEOPLE', title: 'Two doctorates awarded, four candidates in progress', note: 'Both graduates now in research posts', href: 'CERDAS People.dc.html' }
+];
+
+const IMPACT = [
+  { value: '47 → 6 min', label: 'average time to locate a fault, replacing manual alarm triage' },
+  { value: '240', label: 'substations running the system in production' },
+  { value: 'RM 0.6M', label: 'licence fee to date, plus royalty on measured savings' }
+];
+
+const TEAM = [
+  { name: 'Assoc. Prof. Ts. Dr. Hitham Seddig Alhassan Alhussian', role: 'Principal investigator · Group Head T1' },
+  { name: 'Assoc. Prof. Ts. Dr. Hanita Daud', role: 'Co-investigator · WP1 lead' },
+  { name: 'Dr. Aliza Sarlan', role: 'Co-investigator · WP3 lead' },
+  { name: 'Assoc. Prof. Ts. Dr. Said Jadid Abdulkadir', role: 'Co-investigator · forecasting' },
+  { name: 'Dr. Emelia Akashah Patah Akhir', role: 'IP and licensing' },
+  { name: 'Amirul Hakim bin Roslan', role: 'Doctoral researcher · explanation layer' }
+];
+
+const FUNDING = [
+  { source: 'Tenaga Nusantara', value: 'RM 1.45M', pct: 60 },
+  { source: 'FRGS · MOHE', value: 'RM 0.72M', pct: 30 },
+  { source: 'UTP internal match', value: 'RM 0.23M', pct: 10 }
+];
+
+const RELATED = [
+  { code: 'AQUA-SENSE', theme: 'T1', title: 'Demand forecasting under drought stress', note: 'Same regime-change methods, applied to a state water system.' },
+  { code: 'CLARA', theme: 'T1', title: 'Provenance-preserving data sharing', note: 'The governance layer that makes cross-utility work possible.' },
+  { code: 'EDGE-SENSE', theme: 'T3', title: 'Real-time inference on constrained hardware', note: 'Where the models go when they have to run at the substation.' }
+];
+
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      glance: GLANCE.map((g, i) => ({
+        label: g.label, value: g.value,
+        first: i === 0, last: i === GLANCE.length - 1, mid: i > 0 && i < GLANCE.length - 1
+      })),
+      objectives: OBJECTIVES.map(o => Object.assign({}, o, { progress: !o.met })),
+      workstreams: WORKSTREAMS, outputs: OUTPUTS, impact: IMPACT,
+      team: TEAM, funding: FUNDING, related: RELATED
+    };
+  }
+}
+
+</script>
+</body>
+</html>

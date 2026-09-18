@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""><link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&amp;family=Inter:wght@400;500;600;700&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#FAFAF8;font-family:Inter,system-ui,sans-serif}
+a{color:#004B8C;text-decoration:none}a:hover{color:#00335F}
+</style></helmet>
+
+<div data-screen-label="D4 Datasets" style="width:1440px;margin:0 auto;background:#FFFFFF">
+
+<dc-import name="SiteHeader" active="Publications &amp; Innovation" hint-size="100%,78px"></dc-import>
+
+<section style="background:#00335F;padding:56px 0 66px;position:relative;overflow:hidden">
+<svg viewBox="0 0 1440 400" preserveAspectRatio="none" style="position:absolute;inset:0;width:100%;height:100%;opacity:.2" aria-hidden="true">
+<g fill="#7FAED9">
+<rect x="1030" y="60" width="330" height="22" rx="3"></rect>
+<rect x="1030" y="92" width="330" height="22" rx="3"></rect>
+<rect x="1030" y="124" width="330" height="22" rx="3"></rect>
+<rect x="1030" y="186" width="330" height="22" rx="3"></rect>
+<rect x="1030" y="218" width="330" height="22" rx="3"></rect>
+<rect x="1030" y="280" width="330" height="22" rx="3"></rect>
+</g>
+<g fill="#E38C07"><rect x="1030" y="60" width="8" height="22" rx="2"></rect><rect x="1030" y="124" width="8" height="22" rx="2"></rect><rect x="1030" y="218" width="8" height="22" rx="2"></rect></g>
+</svg>
+<div style="width:1320px;margin:0 auto;position:relative">
+<div style="font:500 11px 'IBM Plex Mono',monospace;letter-spacing:.13em;color:#7FAED9;margin-bottom:28px"><a href="CERDAS Home.dc.html" style="color:#7FAED9">HOME</a> <span style="color:#E38C07">/</span> <a href="CERDAS Publications.dc.html" style="color:#7FAED9">PUBLICATIONS &amp; INNOVATION</a> <span style="color:#E38C07">/</span> DATASETS</div>
+<h1 style="margin:0 0 22px;font:700 52px/1.07 'Inter Tight',sans-serif;letter-spacing:-.02em;color:#FFFFFF;max-width:840px;text-wrap:pretty">Datasets</h1>
+<p style="margin:0;font:400 18.5px/1.62 Inter,sans-serif;color:#BFD2E4;max-width:720px;text-wrap:pretty">Research data the centre has curated and published. Access level, licence and contact are stated on every entry — including where we cannot open the data and why.</p>
+</div>
+</section>
+
+<section style="background:#FFFFFF;border-bottom:1px solid #D8DEE5">
+<div style="width:1320px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr)">
+<div style="padding:40px 32px 40px 0"><dc-import name="StatCounter" count="6" suffix="" label="PUBLISHED DATASETS" hint-size="100%,130px"></dc-import></div>
+<div style="padding:40px 32px;border-left:1px solid #D8DEE5"><dc-import name="StatCounter" count="3.1" suffix="TB" label="CURATED DATA" hint-size="100%,130px"></dc-import></div>
+<div style="padding:40px 32px;border-left:1px solid #D8DEE5"><dc-import name="StatCounter" count="3" suffix="" label="OPENLY LICENSED" hint-size="100%,130px"></dc-import></div>
+<div style="padding:40px 0 40px 32px;border-left:1px solid #D8DEE5"><dc-import name="StatCounter" count="22" suffix="" label="PUBLICATIONS BUILT ON THEM" hint-size="100%,130px"></dc-import></div>
+</div>
+</section>
+
+<section style="background:#FAFAF8;padding:60px 0 84px">
+<div style="width:1320px;margin:0 auto">
+<div style="display:flex;align-items:flex-end;justify-content:space-between;gap:40px;margin-bottom:32px">
+<div>
+<div style="width:44px;height:3px;background:#E38C07;margin-bottom:20px"></div>
+<h2 style="margin:0 0 10px;font:700 32px/1.16 'Inter Tight',sans-serif;letter-spacing:-.015em;color:#14181D">Available data</h2>
+<p style="margin:0;font:400 16px/1.6 Inter,sans-serif;color:#5A6472;max-width:620px">Three access levels. Open means download now; on request means a short form; restricted means the data cannot leave the centre's environment.</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:9px;flex:none">
+<div style="display:flex;align-items:center;gap:9px"><span style="width:11px;height:11px;background:#004B8C;border-radius:2px;display:block"></span><span style="font:500 10.5px 'IBM Plex Mono',monospace;letter-spacing:.09em;color:#5A6472">OPEN — DOWNLOAD DIRECTLY</span></div>
+<div style="display:flex;align-items:center;gap:9px"><span style="width:11px;height:11px;background:#7FAED9;border-radius:2px;display:block"></span><span style="font:500 10.5px 'IBM Plex Mono',monospace;letter-spacing:.09em;color:#5A6472">ON REQUEST — SHORT APPLICATION</span></div>
+<div style="display:flex;align-items:center;gap:9px"><span style="width:11px;height:11px;background:#E38C07;border-radius:2px;display:block"></span><span style="font:500 10.5px 'IBM Plex Mono',monospace;letter-spacing:.09em;color:#5A6472">RESTRICTED — ANALYSE IN PLACE</span></div>
+</div>
+</div>
+
+<div style="display:flex;flex-direction:column;gap:16px">
+<sc-for list="{{ sets }}" as="d" hint-placeholder-count="6">
+<div style="background:#FFFFFF;border:1px solid #D8DEE5;border-radius:8px;padding:28px 30px 30px">
+<div style="display:grid;grid-template-columns:1fr 300px;gap:36px;align-items:start">
+<div>
+<div style="display:flex;align-items:center;gap:10px;margin-bottom:14px">
+<sc-if value="{{ d.open }}" hint-placeholder-val="{{ true }}"><span style="background:rgba(0,75,140,.08);color:#004B8C;font:600 10px 'IBM Plex Mono',monospace;letter-spacing:.08em;padding:5px 9px;border-radius:4px">OPEN</span></sc-if>
+<sc-if value="{{ d.onRequest }}" hint-placeholder-val="{{ false }}"><span style="background:rgba(127,174,217,.22);color:#00335F;font:600 10px 'IBM Plex Mono',monospace;letter-spacing:.08em;padding:5px 9px;border-radius:4px">ON REQUEST</span></sc-if>
+<sc-if value="{{ d.restricted }}" hint-placeholder-val="{{ false }}"><span style="background:#E38C07;color:#14181D;font:600 10px 'IBM Plex Mono',monospace;letter-spacing:.08em;padding:5px 9px;border-radius:4px">RESTRICTED</span></sc-if>
+<span style="font:500 10.5px 'IBM Plex Mono',monospace;letter-spacing:.1em;color:#5A6472">{{ d.themeLabel }}</span>
+</div>
+<a href="#" style="display:block;font:600 21px/1.28 'Inter Tight',sans-serif;letter-spacing:-.01em;color:#14181D;margin-bottom:12px;text-wrap:pretty" style-hover="color:#004B8C">{{ d.title }}</a>
+<p style="margin:0 0 20px;font:400 15px/1.62 Inter,sans-serif;color:#5A6472;max-width:720px;text-wrap:pretty">{{ d.description }}</p>
+<div style="display:flex;align-items:center;gap:24px;flex-wrap:wrap">
+<a href="#" style="font:600 13.5px Inter,sans-serif;color:#004B8C">{{ d.action }} →</a>
+<a href="#" style="font:600 13.5px Inter,sans-serif;color:#004B8C">Data dictionary →</a>
+<a href="#" style="font:600 13.5px Inter,sans-serif;color:#004B8C">{{ d.pubCount }} publications →</a>
+</div>
+</div>
+<div style="background:#FAFAF8;border:1px solid #E8ECF1;border-radius:7px;padding:20px 22px;display:flex;flex-direction:column;gap:16px">
+<div>
+<div style="font:500 9.5px 'IBM Plex Mono',monospace;letter-spacing:.14em;color:#5A6472;margin-bottom:5px">SIZE · FORMAT</div>
+<div style="font:500 13.5px 'IBM Plex Mono',monospace;color:#14181D">{{ d.size }} · {{ d.format }}</div>
+</div>
+<div>
+<div style="font:500 9.5px 'IBM Plex Mono',monospace;letter-spacing:.14em;color:#5A6472;margin-bottom:5px">LICENCE</div>
+<div style="font:500 13.5px 'IBM Plex Mono',monospace;color:#14181D">{{ d.licence }}</div>
+</div>
+<div>
+<div style="font:500 9.5px 'IBM Plex Mono',monospace;letter-spacing:.14em;color:#5A6472;margin-bottom:5px">DOI</div>
+<div style="font:500 13px 'IBM Plex Mono',monospace;color:#14181D">{{ d.doi }}</div>
+</div>
+<div style="padding-top:14px;border-top:1px solid #E8ECF1">
+<div style="font:500 9.5px 'IBM Plex Mono',monospace;letter-spacing:.14em;color:#5A6472;margin-bottom:5px">CONTACT</div>
+<div style="font:500 13.5px/1.4 Inter,sans-serif;color:#14181D">{{ d.contact }}</div>
+</div>
+</div>
+</div>
+</div>
+</sc-for>
+</div>
+</div>
+</section>
+
+<section style="background:#00335F;padding:72px 0 80px">
+<div style="width:1320px;margin:0 auto">
+<div style="width:44px;height:3px;background:#E38C07;margin-bottom:22px"></div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start">
+<div>
+<h2 style="margin:0 0 16px;font:700 32px/1.16 'Inter Tight',sans-serif;letter-spacing:-.015em;color:#FFFFFF">Data governance</h2>
+<p style="margin:0 0 18px;font:400 17px/1.62 Inter,sans-serif;color:#BFD2E4">Resilient data is in the centre's name, so it should be visible in how we handle it. Four commitments apply to every dataset above.</p>
+<p style="margin:0;font:400 15px/1.65 Inter,sans-serif;color:#7FAED9">Questions about a specific dataset go to its named contact. Questions about the policy go to the Operations, Resources &amp; Performance arm.</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:1px;background:rgba(127,174,217,.28);border-radius:8px;overflow:hidden">
+<div style="background:#00335F;padding:24px 26px">
+<div style="font:500 10px 'IBM Plex Mono',monospace;letter-spacing:.14em;color:#E38C07;margin-bottom:10px">01 · PROVENANCE</div>
+<div style="font:400 14.5px/1.6 Inter,sans-serif;color:#BFD2E4">Every record carries its source, collection method and processing history. If we cannot say where a value came from, it does not go in the dataset.</div>
+</div>
+<div style="background:#00335F;padding:24px 26px">
+<div style="font:500 10px 'IBM Plex Mono',monospace;letter-spacing:.14em;color:#E38C07;margin-bottom:10px">02 · PARTNER DATA STAYS PARTNER DATA</div>
+<div style="font:400 14.5px/1.6 Inter,sans-serif;color:#BFD2E4">Industrial data is released only within the terms of the agreement that produced it. Where a partner cannot open the data, we publish the method and the benchmark instead.</div>
+</div>
+<div style="background:#00335F;padding:24px 26px">
+<div style="font:500 10px 'IBM Plex Mono',monospace;letter-spacing:.14em;color:#E38C07;margin-bottom:10px">03 · HONEST ABOUT ANONYMISATION</div>
+<div style="font:400 14.5px/1.6 Inter,sans-serif;color:#BFD2E4">Operational telemetry can often be re-identified. Where that risk exists we say so and use the restricted level rather than claiming the data is anonymous.</div>
+</div>
+<div style="background:#00335F;padding:24px 26px">
+<div style="font:500 10px 'IBM Plex Mono',monospace;letter-spacing:.14em;color:#E38C07;margin-bottom:10px">04 · RETENTION AND WITHDRAWAL</div>
+<div style="font:400 14.5px/1.6 Inter,sans-serif;color:#BFD2E4">Datasets are kept for at least ten years after publication. If one is withdrawn, the DOI resolves to a notice explaining why — it is never silently removed.</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<dc-import name="CTABand" heading="Need data we haven't published?" body="If your question needs data we hold under a partner agreement, there is usually a route — a joint project, a restricted analysis, or a synthetic release." cta-label="Ask about data access" secondary-label="Contact the centre" href="CERDAS Join.dc.html" hint-size="100%,220px"></dc-import>
+
+<dc-import name="SiteFooter" hint-size="100%,340px"></dc-import>
+
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1440}}">
+const T = {
+  t1: 'T1 AI & DATA INTELLIGENCE',
+  t2: 'T2 COMPUTATIONAL SCIENCE & OPTIMISATION',
+  t3: 'T3 INTELLIGENT & DISTRIBUTED SYSTEMS',
+  t4: 'T4 NEXT-GENERATION COMPUTING'
+};
+
+const SETS = [
+  { access: 'open', theme: 't3', title: 'Industrial telemetry with labelled fault injection (ITFI-2025)',
+    description: 'Eighteen months of multi-channel telemetry from three test rigs, with 1,240 injected faults labelled by type, severity and onset time. Built as a benchmark so anomaly detectors can be compared on the same ground truth.',
+    size: '1.8 TB', format: 'Parquet + JSON', licence: 'CC BY 4.0', doi: '10.5281/zenodo.15118240',
+    contact: 'Dr. Siti Nurlaili Karim', pubCount: '6' },
+  { access: 'request', theme: 't1', title: 'Medium-voltage distribution network fault archive',
+    description: 'Nine years of recorded faults across a regional distribution network, with topology, weather at time of fault and restoration times. Network topology is generalised to protect asset detail.',
+    size: '240 GB', format: 'CSV + GeoJSON', licence: 'CC BY-NC 4.0', doi: '10.5281/zenodo.14903771',
+    contact: 'Assoc. Prof. Ts. Dr. Hitham Seddig Alhassan Alhussian', pubCount: '4' },
+  { access: 'open', theme: 't2', title: 'Subsea gathering network flow assurance simulations',
+    description: 'A simulation corpus of 42,000 multiphase flow cases spanning pressure, temperature and composition ranges, generated for surrogate-model training and validation.',
+    size: '620 GB', format: 'HDF5', licence: 'CC BY 4.0', doi: '10.5281/zenodo.15044119',
+    contact: 'Ts. Dr. Hamzah Sakidin', pubCount: '3' },
+  { access: 'request', theme: 't1', title: 'Regional water demand and drought stress records, 2015–2025',
+    description: 'Daily demand, reservoir level and rainfall records for a state-level water system, aligned to a common calendar with quality flags for sensor outages.',
+    size: '78 GB', format: 'CSV + NetCDF', licence: 'CC BY 4.0', doi: '10.5281/zenodo.14688305',
+    contact: 'Dr. Noureen Talpur', pubCount: '2' },
+  { access: 'restricted', theme: 't3', title: 'Structural health monitoring vibration corpus',
+    description: 'High-rate vibration and strain records from instrumented industrial structures. Held under partner agreement — analysis runs inside the centre\u2019s governed environment, with results reviewed before release.',
+    size: '410 GB', format: 'TDMS + Parquet', licence: 'Partner agreement', doi: '10.5281/zenodo.15207733',
+    contact: 'Dr. Ahmad Bukhari bin Aujih', pubCount: '5' },
+  { access: 'open', theme: 't4', title: 'Unit commitment benchmark instances for quantum solvers',
+    description: 'A graded set of 900 unit-commitment instances with known optima, sized for both classical solvers and current quantum hardware, plus classical baseline results.',
+    size: '12 GB', format: 'JSON + LP', licence: 'CC0 1.0', doi: '10.5281/zenodo.15290118',
+    contact: 'Assoc. Prof. Dr. Ibrahim Venkat Krishnamurthy', pubCount: '2' }
+];
+
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      sets: SETS.map(d => Object.assign({}, d, {
+        themeLabel: T[d.theme],
+        open: d.access === 'open',
+        onRequest: d.access === 'request',
+        restricted: d.access === 'restricted',
+        action: d.access === 'open' ? 'Download' : (d.access === 'request' ? 'Request access' : 'Apply for in-place analysis')
+      }))
+    };
+  }
+}
+
+</script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<div style="background:#FFFFFF;border:1px solid #D8DEE5;border-radius:8px;box-shadow:0 1px 3px rgba(20,24,29,.05);padding:24px">
+<div style="display:flex;gap:16px;align-items:center">
+<div style="flex:1;position:relative;display:flex;align-items:center">
+<svg width="17" height="17" viewBox="0 0 18 18" fill="none" style="position:absolute;left:15px;pointer-events:none" aria-hidden="true"><circle cx="8" cy="8" r="6" stroke="#5A6472" stroke-width="1.6"></circle><path d="M12.4 12.4 L16 16" stroke="#5A6472" stroke-width="1.6"></path></svg>
+<input type="text" value="{{ query }}" onChange="{{ onQueryChange }}" placeholder="{{ placeholder }}" style="width:100%;box-sizing:border-box;font:400 14.5px Inter,sans-serif;color:#14181D;background:#FFFFFF;border:1px solid #D8DEE5;border-radius:6px;padding:13px 16px 13px 42px;outline:none">
+</div>
+<button type="button" onClick="{{ onReset }}" style="font:600 13.5px Inter,sans-serif;color:#004B8C;background:#FFFFFF;border:1px solid #C3D4E4;border-radius:6px;padding:13px 20px;cursor:pointer;white-space:nowrap" style-hover="background:#E6EEF5">↺ Reset all</button>
+</div>
+<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:20px">
+<div>
+<div style="font:500 11px 'IBM Plex Mono',monospace;letter-spacing:.1em;color:#5A6472;margin-bottom:8px">{{ label1 }}</div>
+<div style="position:relative;display:flex">
+<select value="{{ role }}" onChange="{{ onRoleChange }}" style="width:100%;appearance:none;font:400 14px Inter,sans-serif;color:#14181D;background:#FAFAF8;border:1px solid #D8DEE5;border-radius:6px;padding:12px 38px 12px 14px;cursor:pointer;outline:none">
+<sc-for list="{{ roleOptions }}" as="opt" hint-placeholder-count="3"><option value="{{ opt }}">{{ opt }}</option></sc-for>
+</select>
+<span style="position:absolute;right:14px;top:13px;font:400 12px Inter,sans-serif;color:#5A6472;pointer-events:none">▾</span>
+</div>
+</div>
+<div>
+<div style="font:500 11px 'IBM Plex Mono',monospace;letter-spacing:.1em;color:#5A6472;margin-bottom:8px">{{ label2 }}</div>
+<div style="position:relative;display:flex">
+<select value="{{ theme }}" onChange="{{ onThemeChange }}" style="width:100%;appearance:none;font:400 14px Inter,sans-serif;color:#14181D;background:#FAFAF8;border:1px solid #D8DEE5;border-radius:6px;padding:12px 38px 12px 14px;cursor:pointer;outline:none">
+<sc-for list="{{ themeOptions }}" as="opt" hint-placeholder-count="5"><option value="{{ opt }}">{{ opt }}</option></sc-for>
+</select>
+<span style="position:absolute;right:14px;top:13px;font:400 12px Inter,sans-serif;color:#5A6472;pointer-events:none">▾</span>
+</div>
+</div>
+<div>
+<div style="font:500 11px 'IBM Plex Mono',monospace;letter-spacing:.1em;color:#5A6472;margin-bottom:8px">{{ label3 }}</div>
+<div style="position:relative;display:flex">
+<select value="{{ expertise }}" onChange="{{ onExpertiseChange }}" style="width:100%;appearance:none;font:400 14px Inter,sans-serif;color:#14181D;background:#FAFAF8;border:1px solid #D8DEE5;border-radius:6px;padding:12px 38px 12px 14px;cursor:pointer;outline:none">
+<sc-for list="{{ expertiseOptions }}" as="opt" hint-placeholder-count="6"><option value="{{ opt }}">{{ opt }}</option></sc-for>
+</select>
+<span style="position:absolute;right:14px;top:13px;font:400 12px Inter,sans-serif;color:#5A6472;pointer-events:none">▾</span>
+</div>
+</div>
+</div>
+<div style="margin-top:20px;padding-top:18px;border-top:1px solid #E6EEF5;font:500 12.5px 'IBM Plex Mono',monospace;color:#5A6472">{{ resultLine }}</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:960,&quot;height&quot;:260},&quot;placeholder&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;Search by name, expertise or keyword…&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;label1&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;FILTER BY ROLE&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;label2&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;FILTER BY RESEARCH GROUP&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;label3&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;FILTER BY EXPERTISE&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;query&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;onQueryChange&quot;:{&quot;editor&quot;:null,&quot;tsType&quot;:&quot;(e:Event)=&gt;void&quot;},&quot;role&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;All roles&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;roleOptions&quot;:{&quot;editor&quot;:null,&quot;default&quot;:[&quot;All roles&quot;],&quot;tsType&quot;:&quot;string[]&quot;},&quot;onRoleChange&quot;:{&quot;editor&quot;:null,&quot;tsType&quot;:&quot;(e:Event)=&gt;void&quot;},&quot;theme&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;All themes&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;themeOptions&quot;:{&quot;editor&quot;:null,&quot;default&quot;:[&quot;All themes&quot;],&quot;tsType&quot;:&quot;string[]&quot;},&quot;onThemeChange&quot;:{&quot;editor&quot;:null,&quot;tsType&quot;:&quot;(e:Event)=&gt;void&quot;},&quot;expertise&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;All expertise&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;expertiseOptions&quot;:{&quot;editor&quot;:null,&quot;default&quot;:[&quot;All expertise&quot;],&quot;tsType&quot;:&quot;string[]&quot;},&quot;onExpertiseChange&quot;:{&quot;editor&quot;:null,&quot;tsType&quot;:&quot;(e:Event)=&gt;void&quot;},&quot;onReset&quot;:{&quot;editor&quot;:null,&quot;tsType&quot;:&quot;()=&gt;void&quot;},&quot;resultLine&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;SHOWING 12 OF 68 RESEARCHERS&quot;,&quot;tsType&quot;:&quot;string&quot;}}"></script>
+</body>
+</html>

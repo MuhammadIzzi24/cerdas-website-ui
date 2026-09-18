@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""><link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&amp;family=Inter:wght@400;500;600;700&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#FAFAF8;font-family:Inter,system-ui,sans-serif}
+a{color:#004B8C;text-decoration:none}a:hover{color:#00335F}
+</style></helmet>
+
+<div data-screen-label="B6 Flagship projects" style="width:1440px;margin:0 auto;background:#FFFFFF">
+
+<dc-import name="SiteHeader" active="Research" hint-size="100%,78px"></dc-import>
+
+<section style="background:#00335F;padding:56px 0 72px;position:relative;overflow:hidden">
+<svg viewBox="0 0 1440 400" preserveAspectRatio="none" style="position:absolute;inset:0;width:100%;height:100%;opacity:.26" aria-hidden="true">
+<g stroke="#7FAED9" stroke-width="1" fill="none">
+<polyline points="1020,40 1110,130 1040,280 1190,350"></polyline>
+<polyline points="1190,350 1330,280 1270,120 1400,50"></polyline>
+</g>
+<g fill="#7FAED9">
+<circle cx="1020" cy="40" r="4"></circle><circle cx="1110" cy="130" r="5"></circle><circle cx="1040" cy="280" r="3"></circle><circle cx="1190" cy="350" r="4"></circle><circle cx="1330" cy="280" r="4"></circle><circle cx="1270" cy="120" r="3"></circle><circle cx="1400" cy="50" r="4"></circle>
+</g>
+</svg>
+<div style="width:1320px;margin:0 auto;position:relative">
+<div style="font:500 11px 'IBM Plex Mono',monospace;letter-spacing:.13em;color:#7FAED9;margin-bottom:30px"><a href="CERDAS Home.dc.html" style="color:#7FAED9">HOME</a> <span style="color:#E38C07">/</span> <a href="CERDAS Research.dc.html" style="color:#7FAED9">RESEARCH</a> <span style="color:#E38C07">/</span> FLAGSHIP PROJECTS</div>
+<h1 style="margin:0 0 24px;font:700 54px/1.07 'Inter Tight',sans-serif;letter-spacing:-.02em;color:#FFFFFF;max-width:820px;text-wrap:pretty">Flagship projects</h1>
+<p style="margin:0;font:400 18.5px/1.62 Inter,sans-serif;color:#BFD2E4;max-width:700px;text-wrap:pretty">Funded work in flight. Every entry carries its grant value, funder, lead partner, principal investigator and technology readiness level — so the portfolio can be judged rather than admired.</p>
+</div>
+</section>
+
+<section style="background:#FFFFFF;border-bottom:1px solid #D8DEE5">
+<div style="width:1320px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr)">
+<div style="padding:40px 32px 40px 0"><dc-import name="StatCounter" count="37" suffix="" label="ACTIVE PROJECTS" hint-size="100%,130px"></dc-import></div>
+<div style="padding:40px 32px;border-left:1px solid #D8DEE5"><dc-import name="StatCounter" count="24.6" suffix="M" label="ACTIVE GRANT VALUE (RM)" hint-size="100%,130px"></dc-import></div>
+<div style="padding:40px 32px;border-left:1px solid #D8DEE5"><dc-import name="StatCounter" count="19" suffix="" label="PATENTS FILED" hint-size="100%,130px"></dc-import></div>
+<div style="padding:40px 0 40px 32px;border-left:1px solid #D8DEE5"><dc-import name="StatCounter" count="31" suffix="" label="INDUSTRY PARTNERS" hint-size="100%,130px"></dc-import></div>
+</div>
+</section>
+
+<section style="background:#FAFAF8;padding:56px 0 88px">
+<div style="width:1320px;margin:0 auto">
+
+<dc-import name="FilterBar" placeholder="Search projects, partners or principal investigator…" label1="FILTER BY RESEARCH GROUP" label2="FILTER BY STATUS" label3="FILTER BY PARTNER TYPE" query="" role="All research groups" roleOptions="{{ themeOptions }}" theme="All statuses" themeOptions="{{ statusOptions }}" expertise="All partner types" expertiseOptions="{{ partnerOptions }}" resultLine="SHOWING 6 FEATURED PROJECTS OF 37" hint-size="100%,270px"></dc-import>
+
+<div style="margin-top:44px;display:grid;grid-template-columns:1fr 1fr;gap:28px">
+<sc-for list="{{ projects }}" as="pr" hint-placeholder-count="6">
+<dc-import name="ProjectCard" slot-id="{{ pr.slotId }}" theme="{{ pr.theme }}" title="{{ pr.title }}" summary="{{ pr.summary }}" trl="{{ pr.trl }}" status="{{ pr.status }}" grant="{{ pr.grant }}" period="{{ pr.period }}" partner="{{ pr.partner }}" pi="{{ pr.pi }}" chips="{{ pr.chips }}" href="CERDAS Project Detail.dc.html" hint-size="100%,620px"></dc-import>
+</sc-for>
+</div>
+
+<div style="margin-top:32px;display:flex;justify-content:center">
+<a href="CERDAS Project Detail.dc.html" style="font:600 14px Inter,sans-serif;color:#004B8C;background:#FFFFFF;border:1px solid #C3D4E4;border-radius:6px;padding:14px 28px" style-hover="background:#E6EEF5">Load the remaining 31 projects</a>
+</div>
+
+</div>
+</section>
+
+<section style="background:#FFFFFF;padding:80px 0 88px;border-top:1px solid #D8DEE5">
+<div style="width:1320px;margin:0 auto">
+<div style="width:44px;height:3px;background:#E38C07;margin-bottom:22px"></div>
+<div style="display:flex;align-items:flex-end;justify-content:space-between;gap:40px;margin-bottom:40px">
+<div>
+<h2 style="margin:0 0 12px;font:700 32px/1.16 'Inter Tight',sans-serif;letter-spacing:-.015em;color:#14181D">Portfolio by research group</h2>
+<p style="margin:0;font:400 16px/1.6 Inter,sans-serif;color:#5A6472;max-width:620px">Where the money and the effort actually sit, as of the current reporting period.</p>
+</div>
+<div style="font:500 11.5px 'IBM Plex Mono',monospace;letter-spacing:.1em;color:#5A6472;white-space:nowrap;text-align:right">37 PROJECTS<br>RM 24.6M TOTAL</div>
+</div>
+<div style="border-top:1px solid #D8DEE5">
+
+<div style="display:grid;grid-template-columns:70px 1fr 300px 120px 110px;gap:28px;align-items:center;padding:22px 0;border-bottom:1px solid #D8DEE5">
+<div style="font:500 13px 'IBM Plex Mono',monospace;color:#004B8C">RG01</div>
+<div style="font:600 16px/1.35 Inter,sans-serif;color:#14181D;text-wrap:pretty">Data Science &amp; Analytics</div>
+<div style="height:10px;background:#E6EEF5;border-radius:2px;overflow:hidden"><div style="width:26%;height:100%;background:#00335F"></div></div>
+<div style="font:500 13.5px 'IBM Plex Mono',monospace;color:#14181D;text-align:right">10 projects</div>
+<div style="font:500 13.5px 'IBM Plex Mono',monospace;color:#5A6472;text-align:right">RM 6.4M</div>
+</div>
+
+<div style="display:grid;grid-template-columns:70px 1fr 300px 120px 110px;gap:28px;align-items:center;padding:22px 0;border-bottom:1px solid #D8DEE5">
+<div style="font:500 13px 'IBM Plex Mono',monospace;color:#004B8C">RG02</div>
+<div style="font:600 16px/1.35 Inter,sans-serif;color:#14181D;text-wrap:pretty">Machine Learning &amp; Intelligent Systems</div>
+<div style="height:10px;background:#E6EEF5;border-radius:2px;overflow:hidden"><div style="width:19%;height:100%;background:#004B8C"></div></div>
+<div style="font:500 13.5px 'IBM Plex Mono',monospace;color:#14181D;text-align:right">7 projects</div>
+<div style="font:500 13.5px 'IBM Plex Mono',monospace;color:#5A6472;text-align:right">RM 4.9M</div>
+</div>
+
+<div style="display:grid;grid-template-columns:70px 1fr 300px 120px 110px;gap:28px;align-items:center;padding:22px 0;border-bottom:1px solid #D8DEE5">
+<div style="font:500 13px 'IBM Plex Mono',monospace;color:#004B8C">RG03</div>
+<div style="font:600 16px/1.35 Inter,sans-serif;color:#14181D;text-wrap:pretty">Generative AI</div>
+<div style="height:10px;background:#E6EEF5;border-radius:2px;overflow:hidden"><div style="width:11%;height:100%;background:#1A6BAE"></div></div>
+<div style="font:500 13.5px 'IBM Plex Mono',monospace;color:#14181D;text-align:right">4 projects</div>
+<div style="font:500 13.5px 'IBM Plex Mono',monospace;color:#5A6472;text-align:right">RM 2.1M</div>
+</div>
+
+<div style="display:grid;grid-template-columns:70px 1fr 300px 120px 110px;gap:28px;align-items:center;padding:22px 0;border-bottom:1px solid #D8DEE5">
+<div style="font:500 13px 'IBM Plex Mono',monospace;color:#004B8C">RG04</div>
+<div style="font:600 16px/1.35 Inter,sans-serif;color:#14181D;text-wrap:pretty">Computational Modelling, Simulation &amp; Optimisation</div>
+<div style="height:10px;background:#E6EEF5;border-radius:2px;overflow:hidden"><div style="width:24%;height:100%;background:#2F7CB8"></div></div>
+<div style="font:500 13.5px 'IBM Plex Mono',monospace;color:#14181D;text-align:right">9 projects</div>
+<div style="font:500 13.5px 'IBM Plex Mono',monospace;color:#5A6472;text-align:right">RM 6.0M</div>
+</div>
+
+<div style="display:grid;grid-template-columns:70px 1fr 300px 120px 110px;gap:28px;align-items:center;padding:22px 0;border-bottom:1px solid #D8DEE5">
+<div style="font:500 13px 'IBM Plex Mono',monospace;color:#004B8C">RG05</div>
+<div style="font:600 16px/1.35 Inter,sans-serif;color:#14181D;text-wrap:pretty">Edge Computing</div>
+<div style="height:10px;background:#E6EEF5;border-radius:2px;overflow:hidden"><div style="width:14%;height:100%;background:#4A8CC4"></div></div>
+<div style="font:500 13.5px 'IBM Plex Mono',monospace;color:#14181D;text-align:right">5 projects</div>
+<div style="font:500 13.5px 'IBM Plex Mono',monospace;color:#5A6472;text-align:right">RM 3.4M</div>
+</div>
+
+<div style="display:grid;grid-template-columns:70px 1fr 300px 120px 110px;gap:28px;align-items:center;padding:22px 0;border-bottom:1px solid #D8DEE5">
+<div style="font:500 13px 'IBM Plex Mono',monospace;color:#004B8C">RG06</div>
+<div style="font:600 16px/1.35 Inter,sans-serif;color:#14181D;text-wrap:pretty">Next-Generation &amp; Quantum Computing</div>
+<div style="height:10px;background:#E6EEF5;border-radius:2px;overflow:hidden"><div style="width:6%;height:100%;background:#7FAED9"></div></div>
+<div style="font:500 13.5px 'IBM Plex Mono',monospace;color:#14181D;text-align:right">2 projects</div>
+<div style="font:500 13.5px 'IBM Plex Mono',monospace;color:#5A6472;text-align:right">RM 1.8M</div>
+</div>
+</div>
+</div>
+</section>
+
+<dc-import name="CTABand" heading="Fund a project, or bring one" body="Grant co-application, contract research or a jointly supervised studentship — all three start the same way, with a scoping conversation." ctaLabel="Discuss a project" secondaryLabel="Download portfolio summary" href="CERDAS Project Detail.dc.html" hint-size="100%,220px"></dc-import>
+
+<dc-import name="SiteFooter" hint-size="100%,340px"></dc-import>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;animateStats&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Page structure&quot;}}">
+const PROJECTS = [
+  { slotId:'pj-1', theme:'RG04 · COMPUTATIONAL MODELLING, SIMULATION & OPTIMISATION', title:'SIGMA-Flow: physics-informed digital twins for offshore flow assurance', summary:'A surrogate modelling framework that predicts hydrate and wax formation risk across subsea gathering networks, fast enough to sit inside an operating decision.', trl:'TRL 5', status:'ACTIVE', grant:'RM 4.2M', period:'2024–2027', partner:'Sepang Energy Bhd', pi:'Ts. Dr. Shakirah Mohd Taib', chips:['Digital Twin','Optimisation'] },
+  { slotId:'pj-2', theme:'RG01 · DATA SCIENCE & ANALYTICS', title:'SENTINEL-Grid: anomaly detection for national grid telemetry', summary:'Streaming anomaly detection across 4,200 substation sensors, tuned so control-room operators receive fewer than five actionable alerts a day.', trl:'TRL 4', status:'ACTIVE', grant:'RM 3.8M', period:'2024–2027', partner:'Tenaga Nusantara Bhd', pi:'Assoc. Prof. Ts. Dr. Said Jadid Abdulkadir', chips:['Machine Learning','Anomaly Detection'] },
+  { slotId:'pj-3', theme:'RG05 · EDGE COMPUTING', title:'EDGE-Sense: real-time inference for pipeline integrity monitoring', summary:'On-device acoustic classification along 180 km of transmission pipeline, running on solar-powered nodes with intermittent backhaul.', trl:'TRL 6', status:'ACTIVE', grant:'RM 2.6M', period:'2025–2028', partner:'Perak Water Consortium', pi:'Assoc. Prof. Ts. Dr. Mohd Anuaruddin bin Ahmadon', chips:['Edge AI','Cyber-Physical Systems'] },
+  { slotId:'pj-4', theme:'RG04 · COMPUTATIONAL MODELLING, SIMULATION & OPTIMISATION', title:'MESH-Opt: surrogate solvers for structural fatigue assessment', summary:'Replacing overnight finite-element runs with a validated surrogate that fits inside an inspection planning meeting.', trl:'TRL 5', status:'ACTIVE', grant:'RM 2.2M', period:'2023–2026', partner:'Marina Fabrication Bhd', pi:'Dr. Rajalingam Sokkalingam', chips:['Simulation','Scientific Computing'] },
+  { slotId:'pj-5', theme:'RG06 · NEXT-GENERATION & QUANTUM COMPUTING', title:'QOPT: quantum-assisted optimisation for refinery scheduling', summary:'A variational solver for unit-commitment style scheduling, reported alongside the classical baseline it has to beat.', trl:'TRL 2', status:'ACTIVE', grant:'RM 1.9M', period:'2025–2027', partner:'Kilang Selatan Sdn Bhd', pi:'Assoc. Prof. Dr. Ibrahim Venkat Krishnamurthy', chips:['Quantum Computing','Scheduling'] },
+  { slotId:'pj-6', theme:'RG01 · DATA SCIENCE & ANALYTICS', title:'CLARA: clinical language models for low-resource settings', summary:'A domain-adapted language model for triage summaries in Bahasa Malaysia and English, evaluated against blinded clinician review.', trl:'TRL 3', status:'IN REVIEW', grant:'RM 1.4M', period:'2024–2026', partner:'Hospital Bandar Baru', pi:'Dr. Noureen Talpur', chips:['Generative AI','Evaluation'] }
+];
+
+class Component extends DCLogic {
+  get root() { return { current: document }; }
+
+  runCounters() {
+    const el = this.root.current;
+    if (!el) return;
+    const nodes = [...el.querySelectorAll('[data-count]')].filter(n => !n.dataset.obs);
+    nodes.forEach(n => { n.dataset.obs = '1'; });
+    if (!nodes.length) return;
+    if ((this.props.animateStats ?? true) === false) {
+      nodes.forEach(n => { n.textContent = n.getAttribute('data-count'); });
+      return;
+    }
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (!e.isIntersecting || e.target.dataset.ran) return;
+        e.target.dataset.ran = '1';
+        const target = parseFloat(e.target.getAttribute('data-count'));
+        const dec = (e.target.getAttribute('data-count').split('.')[1] || '').length;
+        const t0 = performance.now(), dur = 1100;
+        const tick = t => {
+          const k = Math.min(1, (t - t0) / dur);
+          e.target.textContent = (target * (1 - Math.pow(1 - k, 3))).toFixed(dec);
+          if (k < 1) requestAnimationFrame(tick);
+        };
+        requestAnimationFrame(tick);
+      });
+    }, { threshold: 0.4 });
+    nodes.forEach(n => io.observe(n));
+    (this.ios = this.ios || []).push(io);
+  }
+
+  componentDidMount() {
+    this.runCounters();
+    this.timers = [setTimeout(() => this.runCounters(), 500), setTimeout(() => this.runCounters(), 1600)];
+  }
+  componentDidUpdate() { this.runCounters(); }
+  componentWillUnmount() {
+    (this.ios || []).forEach(o => o.disconnect());
+    (this.timers || []).forEach(t => clearTimeout(t));
+  }
+
+  renderVals() {
+    return {
+      rootRef: this.root,
+      projects: PROJECTS,
+      themeOptions: ['All research groups', 'RG01 Data Science & Analytics', 'RG02 Machine Learning & Intelligent Systems', 'RG03 Generative AI', 'RG04 Computational Modelling, Simulation & Optimisation', 'RG05 Edge Computing', 'RG06 Next-Generation & Quantum Computing'],
+      statusOptions: ['All statuses', 'Active', 'In review', 'Completed'],
+      partnerOptions: ['All partner types', 'Industry', 'Government agency', 'University', 'Hospital / clinical']
+    };
+  }
+}
+</script>
+</body>
+</html>

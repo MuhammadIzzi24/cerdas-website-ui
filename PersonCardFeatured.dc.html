@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet><script src="./image-slot.js"></script></helmet>
+<div style="background:#FFFFFF;border:1px solid #D8DEE5;border-radius:8px;box-shadow:0 2px 8px rgba(20,24,29,.07);height:100%;box-sizing:border-box;display:flex;flex-direction:column;overflow:hidden">
+<div style="height:4px;background:#004B8C;flex:none"></div>
+<div style="padding:26px;display:flex;flex-direction:column;flex:1">
+<div style="display:flex;align-items:flex-start;justify-content:space-between;gap:14px">
+<image-slot id="{{ slotId }}" style="width:88px;height:88px;flex:none" shape="circle" placeholder="Photo"></image-slot>
+<span style="font:600 10.5px 'IBM Plex Mono',monospace;letter-spacing:.09em;color:#14181D;background:#E38C07;padding:6px 10px;border-radius:4px;white-space:nowrap">{{ badge }}</span>
+</div>
+<div style="margin-top:20px;font:400 13px/1.35 Inter,sans-serif;color:#5A6472">{{ prefix }}</div>
+<div style="margin-top:3px;font:700 20px/1.24 'Inter Tight',sans-serif;letter-spacing:-.012em;color:#14181D;text-wrap:pretty">{{ personName }}</div>
+<div style="margin-top:10px;font:500 13.5px/1.4 Inter,sans-serif;color:#004B8C">{{ role }}</div>
+<div style="margin-top:16px"><span style="display:inline-flex;font:500 11.5px 'IBM Plex Mono',monospace;letter-spacing:.06em;color:#004B8C;border:1px solid #C3D4E4;background:#F4F8FB;padding:5px 10px;border-radius:4px">{{ tier }}</span></div>
+<div style="margin-top:20px;padding-top:18px;border-top:1px solid #E6EEF5;font:500 10.5px 'IBM Plex Mono',monospace;letter-spacing:.1em;color:#5A6472">RESEARCH GROUP</div>
+<div style="margin-top:5px;font:400 14px/1.45 Inter,sans-serif;color:#14181D">{{ theme }}</div>
+<div style="margin-top:auto;padding-top:22px;display:flex;align-items:center;justify-content:space-between;gap:12px">
+<div style="display:flex;gap:8px">
+<a href="{{ href }}" aria-label="Email" style="width:32px;height:32px;border:1px solid #D8DEE5;border-radius:6px;display:flex;align-items:center;justify-content:center;color:#5A6472" style-hover="border-color:#004B8C;color:#004B8C"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="2.5" y="5" width="19" height="14" rx="1.5" stroke="currentColor" stroke-width="1.6"></rect><path d="M3.2 6.6 L12 13 L20.8 6.6" stroke="currentColor" stroke-width="1.6"></path></svg></a>
+<a href="{{ href }}" aria-label="Publications" style="width:32px;height:32px;border:1px solid #D8DEE5;border-radius:6px;display:flex;align-items:center;justify-content:center;color:#5A6472" style-hover="border-color:#004B8C;color:#004B8C"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M2.5 8.6 L12 4 L21.5 8.6 L12 13.2 Z" stroke="currentColor" stroke-width="1.6"></path><path d="M6.4 10.6 V15.6 C6.4 15.6 8.8 17.6 12 17.6 C15.2 17.6 17.6 15.6 17.6 15.6 V10.6" stroke="currentColor" stroke-width="1.6"></path></svg></a>
+<a href="{{ href }}" aria-label="Profile" style="width:32px;height:32px;border:1px solid #D8DEE5;border-radius:6px;display:flex;align-items:center;justify-content:center;color:#5A6472" style-hover="border-color:#004B8C;color:#004B8C"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="8.4" r="3.7" stroke="currentColor" stroke-width="1.6"></circle><path d="M4.8 19.6 C5.6 15.9 8.5 14.2 12 14.2 C15.5 14.2 18.4 15.9 19.2 19.6" stroke="currentColor" stroke-width="1.6"></path></svg></a>
+</div>
+<a href="{{ href }}" style="font:600 13px Inter,sans-serif;color:#004B8C;border-bottom:2px solid #E38C07;padding-bottom:2px">Full profile →</a>
+</div>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:340,&quot;height&quot;:470},&quot;slotId&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;lead-1&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;badge&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;DIRECTOR&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;prefix&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;Prof. Ts. Dr.&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;personName&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;Rashid Anuar&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;role&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;Director, CERDAS&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;tier&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Principal Fellow&quot;,&quot;Senior Fellow&quot;,&quot;Fellow&quot;],&quot;default&quot;:&quot;Principal Fellow&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;theme&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;Data Science &amp; Analytics&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;href&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;#&quot;,&quot;tsType&quot;:&quot;string&quot;}}"></script>
+</body>
+</html>

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""><link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&amp;family=Inter:wght@400;500;600;700&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#FAFAF8;font-family:Inter,system-ui,sans-serif}
+a{color:#004B8C;text-decoration:none}a:hover{color:#00335F}
+</style></helmet>
+
+<div data-screen-label="B8 Facilities" style="width:1440px;margin:0 auto;background:#FFFFFF">
+
+<dc-import name="SiteHeader" active="Research" hint-size="100%,78px"></dc-import>
+
+<section style="background:#00335F;padding:56px 0 72px;position:relative;overflow:hidden">
+<svg viewBox="0 0 1440 400" preserveAspectRatio="none" style="position:absolute;inset:0;width:100%;height:100%;opacity:.26" aria-hidden="true">
+<g stroke="#7FAED9" stroke-width="1" fill="none">
+<polyline points="1010,60 1100,150 1030,300 1180,370"></polyline>
+<polyline points="1180,370 1320,300 1260,140 1390,70"></polyline>
+</g>
+<g fill="#7FAED9">
+<circle cx="1010" cy="60" r="4"></circle><circle cx="1100" cy="150" r="5"></circle><circle cx="1030" cy="300" r="3"></circle><circle cx="1180" cy="370" r="4"></circle><circle cx="1320" cy="300" r="4"></circle><circle cx="1260" cy="140" r="3"></circle><circle cx="1390" cy="70" r="4"></circle>
+</g>
+</svg>
+<div style="width:1320px;margin:0 auto;position:relative">
+<div style="font:500 11px 'IBM Plex Mono',monospace;letter-spacing:.13em;color:#7FAED9;margin-bottom:30px"><a href="CERDAS Home.dc.html" style="color:#7FAED9">HOME</a> <span style="color:#E38C07">/</span> <a href="CERDAS Research.dc.html" style="color:#7FAED9">RESEARCH</a> <span style="color:#E38C07">/</span> FACILITIES</div>
+<h1 style="margin:0 0 24px;font:700 54px/1.07 'Inter Tight',sans-serif;letter-spacing:-.02em;color:#FFFFFF;max-width:820px;text-wrap:pretty">Facilities</h1>
+<p style="margin:0;font:400 18.5px/1.62 Inter,sans-serif;color:#BFD2E4;max-width:700px;text-wrap:pretty">Shared compute, instrumentation, data and visualisation platforms. Unlike the laboratories, these are cross-theme resources with a published access model and a written allocation review.</p>
+</div>
+</section>
+
+<section style="background:#FFFFFF;border-bottom:1px solid #D8DEE5">
+<div style="width:1320px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr)">
+<div style="padding:40px 32px 40px 0"><dc-import name="StatCounter" count="6" suffix="" label="SHARED FACILITIES" hint-size="100%,130px"></dc-import></div>
+<div style="padding:40px 32px;border-left:1px solid #D8DEE5"><dc-import name="StatCounter" count="512" suffix="" label="CPU CORES ON PETRA-1" hint-size="100%,130px"></dc-import></div>
+<div style="padding:40px 32px;border-left:1px solid #D8DEE5"><dc-import name="StatCounter" count="1.2" suffix="PB" label="GOVERNED DATA STORAGE" hint-size="100%,130px"></dc-import></div>
+<div style="padding:40px 0 40px 32px;border-left:1px solid #D8DEE5"><dc-import name="StatCounter" count="14" suffix="" label="ACTIVE PARTNER AGREEMENTS" hint-size="100%,130px"></dc-import></div>
+</div>
+</section>
+
+<section style="background:#FAFAF8;padding:64px 0 88px">
+<div style="width:1320px;margin:0 auto">
+<div style="width:44px;height:3px;background:#E38C07;margin-bottom:22px"></div>
+<div style="display:flex;align-items:flex-end;justify-content:space-between;gap:40px;margin-bottom:40px">
+<div>
+<h2 style="margin:0 0 12px;font:700 32px/1.16 'Inter Tight',sans-serif;letter-spacing:-.015em;color:#14181D">Platforms</h2>
+<p style="margin:0;font:400 16px/1.6 Inter,sans-serif;color:#5A6472;max-width:620px">Four categories — compute, instrumentation, data and visualisation. Specification and access model are stated on every entry.</p>
+</div>
+<div style="font:500 11.5px 'IBM Plex Mono',monospace;letter-spacing:.1em;color:#5A6472;white-space:nowrap;text-align:right">6 PLATFORMS<br>4 CATEGORIES</div>
+</div>
+
+<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:28px">
+<sc-for list="{{ facilities }}" as="f" hint-placeholder-count="6">
+<dc-import name="FacilityCard" slot-id="{{ f.slotId }}" placeholder="Facility photo" category="{{ f.category }}" title="{{ f.title }}" code="{{ f.code }}" summary="{{ f.summary }}" specs="{{ f.specs }}" link-label="Specification →" access="{{ f.access }}" href="CERDAS Facility Detail.dc.html" hint-size="100%,560px"></dc-import>
+</sc-for>
+</div>
+
+</div>
+</section>
+
+<section style="background:#FFFFFF;padding:80px 0 88px;border-top:1px solid #D8DEE5">
+<div style="width:1320px;margin:0 auto">
+<div style="width:44px;height:3px;background:#E38C07;margin-bottom:22px"></div>
+<div style="display:flex;align-items:flex-end;justify-content:space-between;gap:40px;margin-bottom:40px">
+<div>
+<h2 style="margin:0 0 12px;font:700 32px/1.16 'Inter Tight',sans-serif;letter-spacing:-.015em;color:#14181D">How access works</h2>
+<p style="margin:0;font:400 16px/1.6 Inter,sans-serif;color:#5A6472;max-width:620px">The same three steps whether you are an internal theme, another UTP centre or an industry partner.</p>
+</div>
+<div style="font:500 11.5px 'IBM Plex Mono',monospace;letter-spacing:.1em;color:#5A6472;white-space:nowrap;text-align:right">ALLOCATION REVIEW<br>EACH SEMESTER</div>
+</div>
+<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:#D8DEE5;border:1px solid #D8DEE5;border-radius:8px;overflow:hidden;margin-bottom:28px">
+<div style="background:#FAFAF8;padding:32px 30px">
+<div style="font:600 32px/1 'IBM Plex Mono',monospace;color:#004B8C;letter-spacing:-.02em;margin-bottom:20px">01</div>
+<div style="font:600 19px/1.28 'Inter Tight',sans-serif;color:#14181D;margin-bottom:10px">Scope the requirement</div>
+<div style="font:400 14.5px/1.6 Inter,sans-serif;color:#5A6472">Tell us the workload, not the machine you think you need. We will say which platform fits and whether the queue can absorb it.</div>
+</div>
+<div style="background:#FAFAF8;padding:32px 30px">
+<div style="font:600 32px/1 'IBM Plex Mono',monospace;color:#004B8C;letter-spacing:-.02em;margin-bottom:20px">02</div>
+<div style="font:600 19px/1.28 'Inter Tight',sans-serif;color:#14181D;margin-bottom:10px">Sign the access agreement</div>
+<div style="font:400 14.5px/1.6 Inter,sans-serif;color:#5A6472">One document covering allocation, data retention, publication rights and who is named on any resulting IP.</div>
+</div>
+<div style="background:#FAFAF8;padding:32px 30px">
+<div style="font:600 32px/1 'IBM Plex Mono',monospace;color:#004B8C;letter-spacing:-.02em;margin-bottom:20px">03</div>
+<div style="font:600 19px/1.28 'Inter Tight',sans-serif;color:#14181D;margin-bottom:10px">Book and run</div>
+<div style="font:400 14.5px/1.6 Inter,sans-serif;color:#5A6472">Allocated platforms run on a semester grant of hours; bookable ones open in half-day blocks. Usage is reported back to you.</div>
+</div>
+</div>
+<div style="background:#E6EEF5;border-radius:8px;padding:28px 30px;display:flex;align-items:center;justify-content:space-between;gap:40px">
+<div>
+<div style="font:600 17px/1.3 'Inter Tight',sans-serif;color:#14181D;margin-bottom:6px">Charging</div>
+<div style="font:400 14.5px/1.6 Inter,sans-serif;color:#5A6472;max-width:760px">Internal use is covered by the centre allocation. External use is charged at the published rate card, or waived where the work forms part of a joint grant with CERDAS named as a partner.</div>
+</div>
+<a href="CERDAS Facility Detail.dc.html" style="font:600 13.5px Inter,sans-serif;color:#004B8C;border-bottom:2px solid #E38C07;padding-bottom:2px;white-space:nowrap;flex:none">Rate card →</a>
+</div>
+</div>
+</section>
+
+<dc-import name="CTABand" heading="Request platform access" body="Send us the workload and the timeline. If we cannot fit it, we will say so and point you at a national facility that can." ctaLabel="Request access" secondaryLabel="See laboratories" href="CERDAS Laboratories.dc.html" hint-size="100%,220px"></dc-import>
+
+<dc-import name="SiteFooter" hint-size="100%,340px"></dc-import>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;animateStats&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Page structure&quot;}}">
+const FACILITIES = [
+  { slotId:'fac-1', category:'COMPUTE', title:'PETRA-1 High-Performance Cluster', code:'Shared · Block Q, Level 1', summary:'The centre cluster. Priority queues per theme, with an allocation review each semester.', access:'ALLOCATED', specs:[{label:'CORES',value:'512 CPU cores'},{label:'GPU',value:'8× A100 80GB'},{label:'STORAGE',value:'1.2 PB parallel FS'}] },
+  { slotId:'fac-2', category:'COMPUTE', title:'Quantum Simulation Sandbox', code:'Shared · Block Q, Level 4', summary:'Simulator access for variational and annealing experiments, with classical baselines run on the same queue.', access:'ALLOCATED', specs:[{label:'SCALE',value:'32-qubit simulator'},{label:'QUEUE',value:'Weekly allocation'},{label:'ROUTE',value:'Via T4 group head'}] },
+  { slotId:'fac-3', category:'INSTRUMENTATION', title:'Sensor & Telemetry Test Rig', code:'Shared · Block R, Ground', summary:'Bench for characterising sensing hardware and generating labelled fault data under controlled conditions.', access:'SUPERVISED', specs:[{label:'CHANNELS',value:'96 simultaneous'},{label:'SAMPLE RATE',value:'100 kHz per channel'},{label:'RIGS',value:'3 independent'}] },
+  { slotId:'fac-4', category:'DATA', title:'Industrial Data Vault', code:'Shared · Block N, Level 1', summary:'Governed storage for partner datasets — access logged, retention set by the signed agreement, no exceptions.', access:'PARTNERS ONLY', specs:[{label:'CAPACITY',value:'1.2 PB'},{label:'AGREEMENTS',value:'14 active'},{label:'RETENTION',value:'Per agreement'}] },
+  { slotId:'fac-5', category:'VISUALISATION', title:'Digital Twin Visualisation Suite', code:'Shared · Block P, Level 1', summary:'Twelve-panel wall for reviewing twin and simulation output with partner engineering teams in the room.', access:'BOOKABLE', specs:[{label:'CAPACITY',value:'14 seated'},{label:'DISPLAY',value:'12-panel, 4K'},{label:'BOOKING',value:'Half-day blocks'}] },
+  { slotId:'fac-6', category:'INSTRUMENTATION', title:'Edge Device Bench', code:'Shared · Block N, Level 3', summary:'Power and thermal profiling for constrained inference hardware, from development board to deployed node.', access:'BY ARRANGEMENT', specs:[{label:'BOARDS',value:'40 available'},{label:'POWER RIGS',value:'8 stations'},{label:'THERMAL',value:'1 environmental chamber'}] }
+];
+
+class Component extends DCLogic {
+  get root() { return { current: document }; }
+
+  runCounters() {
+    const el = this.root.current;
+    if (!el) return;
+    const nodes = [...el.querySelectorAll('[data-count]')].filter(n => !n.dataset.obs);
+    nodes.forEach(n => { n.dataset.obs = '1'; });
+    if (!nodes.length) return;
+    if ((this.props.animateStats ?? true) === false) {
+      nodes.forEach(n => { n.textContent = n.getAttribute('data-count'); });
+      return;
+    }
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (!e.isIntersecting || e.target.dataset.ran) return;
+        e.target.dataset.ran = '1';
+        const target = parseFloat(e.target.getAttribute('data-count'));
+        const dec = (e.target.getAttribute('data-count').split('.')[1] || '').length;
+        const t0 = performance.now(), dur = 1100;
+        const tick = t => {
+          const k = Math.min(1, (t - t0) / dur);
+          e.target.textContent = (target * (1 - Math.pow(1 - k, 3))).toFixed(dec);
+          if (k < 1) requestAnimationFrame(tick);
+        };
+        requestAnimationFrame(tick);
+      });
+    }, { threshold: 0.4 });
+    nodes.forEach(n => io.observe(n));
+    (this.ios = this.ios || []).push(io);
+  }
+
+  componentDidMount() {
+    this.runCounters();
+    this.timers = [setTimeout(() => this.runCounters(), 500), setTimeout(() => this.runCounters(), 1600)];
+  }
+  componentDidUpdate() { this.runCounters(); }
+  componentWillUnmount() {
+    (this.ios || []).forEach(o => o.disconnect());
+    (this.timers || []).forEach(t => clearTimeout(t));
+  }
+
+  renderVals() { return { rootRef: this.root, facilities: FACILITIES }; }
+}
+</script>
+</body>
+</html>

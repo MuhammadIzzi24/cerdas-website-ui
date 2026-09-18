@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>CERDAS collaboration map</title>
+<script src="https://unpkg.com/d3@7.9.0/dist/d3.min.js" integrity="sha384-CjloA8y00+1SDAUkjs099PVfnY2KmDC2BZnws9kh8D/lX1s46w6EPhpXdqMfjK6i" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/topojson-client@3.1.0/dist/topojson-client.min.js" integrity="sha384-Ukv1p/xTma6P4/2bY5KzWBw+ydSpXmhCMtyciIQVDJ1RmOxtCYNMF1uXT9T63H67" crossorigin="anonymous"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+html,body{margin:0;padding:0;background:#FFFFFF;font-family:Inter,system-ui,sans-serif;overflow:hidden}
+#wrap{position:relative;width:100%;height:100vh}
+svg{display:block;width:100%;height:100%}
+#tip{position:absolute;pointer-events:none;opacity:0;transition:opacity .12s;background:#14181D;color:#FFFFFF;border-radius:6px;padding:12px 14px;min-width:150px;box-shadow:0 6px 20px rgba(20,24,29,.22);z-index:3}
+#tip .c{font:600 14px Inter,sans-serif;margin-bottom:6px}
+#tip .r{font:500 11px 'IBM Plex Mono',monospace;color:#BFD2E4;letter-spacing:.06em}
+#tip .m{margin-top:8px;padding-top:8px;border-top:1px solid rgba(255,255,255,.18);font:500 10.5px 'IBM Plex Mono',monospace;color:#F5C46B;letter-spacing:.08em}
+#legend{position:absolute;left:0;bottom:0;display:flex;gap:26px;align-items:center;flex-wrap:wrap}
+.lg{display:flex;align-items:center;gap:8px;font:500 10.5px 'IBM Plex Mono',monospace;letter-spacing:.09em;color:#5A6472}
+</style>
+</head>
+<body>
+<div id="wrap">
+<svg id="map" viewBox="0 0 1280 560" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Map of CERDAS international research collaboration"></svg>
+<div id="legend">
+<div class="lg"><span style="width:13px;height:13px;background:#E38C07;border-radius:2px;display:block"></span>MALAYSIA — HOME</div>
+<div class="lg"><span style="width:13px;height:13px;background:#BFD2E4;border-radius:2px;display:block"></span>COLLABORATION COUNTRY</div>
+<div class="lg"><span style="width:13px;height:13px;border-radius:50%;background:rgba(0,75,140,.5);border:1.5px solid #004B8C;display:block"></span>JOINT PUBLICATIONS</div>
+<div class="lg"><span style="width:13px;height:13px;border-radius:50%;background:transparent;border:2px solid #E38C07;display:block"></span>ACTIVE MoU</div>
+</div>
+</div>
+<script>
+const PARTNERS = [
+  { country: 'Malaysia', lon: 101.7, lat: 3.1, pubs: 0, mou: 4, home: true },
+  { country: 'Singapore', lon: 103.8, lat: 1.35, pubs: 14, mou: 1 },
+  { country: 'Japan', lon: 139.7, lat: 35.7, pubs: 11, mou: 1 },
+  { country: 'United Kingdom', lon: -0.13, lat: 51.5, pubs: 9, mou: 0 },
+  { country: 'Netherlands', lon: 4.9, lat: 52.4, pubs: 8, mou: 1 },
+  { country: 'India', lon: 77.2, lat: 28.6, pubs: 7, mou: 1 },
+  { country: 'Australia', lon: 151.2, lat: -33.9, pubs: 6, mou: 1 },
+  { country: 'United States of America', label: 'United States', lon: -77.0, lat: 38.9, pubs: 6, mou: 0 },
+  { country: 'Germany', lon: 13.4, lat: 52.5, pubs: 5, mou: 0 },
+  { country: 'South Korea', lon: 127.0, lat: 37.5, pubs: 4, mou: 0 },
+  { country: 'Indonesia', lon: 106.8, lat: -6.2, pubs: 4, mou: 0 },
+  { country: 'Canada', lon: -79.4, lat: 43.7, pubs: 3, mou: 0 },
+  { country: 'Saudi Arabia', lon: 46.7, lat: 24.7, pubs: 2, mou: 0 }
+];
+const BY_NAME = new Map(PARTNERS.map(p => [p.country, p]));
+
+const svg = d3.select('#map');
+const W = 1280, H = 560;
+const projection = d3.geoNaturalEarth1();
+const path = d3.geoPath(projection);
+const tip = document.getElementById('tip') || (() => {
+  const d = document.createElement('div'); d.id = 'tip';
+  d.innerHTML = '<div class="c"></div><div class="r"></div><div class="m"></div>';
+  document.getElementById('wrap').appendChild(d); return d;
+})();
+
+d3.json('https://cdn.jsdelivr.net/npm/world-atlas@2.0.2/countries-110m.json').then(topo => {
+  const countries = topojson.feature(topo, topo.objects.countries);
+  projection.fitExtent([[10, 10], [W - 10, H - 60]], countries);
+
+  const g = svg.append('g');
+  g.append('g').selectAll('path')
+    .data(countries.features).join('path')
+    .attr('d', path)
+    .attr('fill', d => {
+      const p = BY_NAME.get(d.properties.name);
+      if (!p) return '#EDF0F3';
+      return p.home ? '#E38C07' : '#BFD2E4';
+    })
+    .attr('stroke', '#D8DEE5')
+    .attr('stroke-width', 0.7);
+
+  const r = d3.scaleSqrt().domain([0, 14]).range([0, 20]);
+  const pts = g.append('g');
+
+  PARTNERS.filter(p => p.pubs > 0).forEach(p => {
+    const [x, y] = projection([p.lon, p.lat]);
+    const node = pts.append('g').attr('transform', `translate(${x},${y})`).style('cursor', 'pointer');
+    if (p.mou > 0) {
+      node.append('circle').attr('r', r(p.pubs) + 5).attr('fill', 'none')
+        .attr('stroke', '#E38C07').attr('stroke-width', 2);
+    }
+    node.append('circle').attr('r', r(p.pubs))
+      .attr('fill', 'rgba(0,75,140,.5)').attr('stroke', '#004B8C').attr('stroke-width', 1.5);
+    node.on('mousemove', ev => {
+      tip.querySelector('.c').textContent = p.label || p.country;
+      tip.querySelector('.r').textContent = p.pubs + ' JOINT PUBLICATIONS';
+      const m = tip.querySelector('.m');
+      m.textContent = p.mou > 0 ? p.mou + ' ACTIVE MoU' : '';
+      m.style.display = p.mou > 0 ? 'block' : 'none';
+      tip.style.opacity = 1;
+      const wrap = document.getElementById('wrap').getBoundingClientRect();
+      tip.style.left = Math.min(ev.clientX - wrap.left + 16, wrap.width - 190) + 'px';
+      tip.style.top = Math.max(ev.clientY - wrap.top - 20, 6) + 'px';
+    }).on('mouseleave', () => { tip.style.opacity = 0; });
+  });
+
+  // Malaysia marker — home, gold
+  const [mx, my] = projection([101.7, 3.1]);
+  const home = pts.append('g').attr('transform', `translate(${mx},${my})`).style('cursor', 'pointer');
+  home.append('circle').attr('r', 8).attr('fill', '#E38C07').attr('stroke', '#14181D').attr('stroke-width', 1.5);
+  home.on('mousemove', ev => {
+    tip.querySelector('.c').textContent = 'Malaysia';
+    tip.querySelector('.r').textContent = 'CERDAS · UTP, SERI ISKANDAR';
+    const m = tip.querySelector('.m');
+    m.textContent = '4 NATIONAL MoU'; m.style.display = 'block';
+    tip.style.opacity = 1;
+    const wrap = document.getElementById('wrap').getBoundingClientRect();
+    tip.style.left = Math.min(ev.clientX - wrap.left + 16, wrap.width - 190) + 'px';
+    tip.style.top = Math.max(ev.clientY - wrap.top - 20, 6) + 'px';
+  }).on('mouseleave', () => { tip.style.opacity = 0; });
+}).catch(err => {
+  svg.append('text').attr('x', W / 2).attr('y', H / 2).attr('text-anchor', 'middle')
+    .attr('fill', '#5A6472').style('font', "500 14px 'IBM Plex Mono', monospace")
+    .text('Map data unavailable offline');
+  console.error(err);
+});
+</script>
+</body>
+</html>

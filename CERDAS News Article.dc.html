@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""><link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&amp;family=Inter:wght@400;500;600;700&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<script src="./image-slot.js"></script>
+<style>
+body{margin:0;background:#FAFAF8;font-family:Inter,system-ui,sans-serif}
+a{color:#004B8C;text-decoration:none}a:hover{color:#00335F}
+</style></helmet>
+
+<div data-screen-label="E4 News article" style="width:1440px;margin:0 auto;background:#FFFFFF">
+
+<dc-import name="SiteHeader" active="Impact" hint-size="100%,78px"></dc-import>
+
+<section style="background:#00335F;padding:52px 0 56px">
+<div style="width:1320px;margin:0 auto">
+<div style="font:500 11px 'IBM Plex Mono',monospace;letter-spacing:.13em;color:#7FAED9;margin-bottom:32px"><a href="CERDAS Home.dc.html" style="color:#7FAED9">HOME</a> <span style="color:#E38C07">/</span> <a href="CERDAS Industry.dc.html" style="color:#7FAED9">IMPACT</a> <span style="color:#E38C07">/</span> <a href="CERDAS News and Events.dc.html" style="color:#7FAED9">NEWS &amp; EVENTS</a> <span style="color:#E38C07">/</span> ARTICLE</div>
+<div style="max-width:860px">
+<div style="display:flex;align-items:center;gap:14px;margin-bottom:24px">
+<span style="background:#E38C07;color:#14181D;font:600 10px 'IBM Plex Mono',monospace;letter-spacing:.1em;padding:6px 10px;border-radius:4px">PARTNERSHIP</span>
+<span style="font:500 10.5px 'IBM Plex Mono',monospace;letter-spacing:.13em;color:#7FAED9">22 AUGUST 2026</span>
+<span style="width:4px;height:4px;border-radius:50%;background:#7FAED9;display:block"></span>
+<span style="font:500 10.5px 'IBM Plex Mono',monospace;letter-spacing:.13em;color:#7FAED9">4 MIN READ</span>
+</div>
+<h1 style="margin:0 0 24px;font:700 50px/1.1 'Inter Tight',sans-serif;letter-spacing:-.022em;color:#FFFFFF;text-wrap:pretty">CERDAS and Selat Energy sign a three-year agreement on grid resilience analytics</h1>
+<p style="margin:0;font:400 20px/1.6 Inter,sans-serif;color:#BFD2E4;text-wrap:pretty">The agreement funds two workstreams, two doctoral positions, and access to a decade of operational records under a governed data arrangement — the part that took longest to negotiate and matters most.</p>
+</div>
+</div>
+</section>
+
+<section style="background:#FFFFFF;padding:0">
+<div style="width:1320px;margin:0 auto">
+<image-slot id="article-hero" style="width:1320px;height:520px;display:block;margin-top:-1px" shape="rect" placeholder="Lead photograph — signing, site visit or control room, 1320 × 520"></image-slot>
+<div style="padding:16px 0 0;font:400 13px/1.6 Inter,sans-serif;color:#5A6472;max-width:860px">Caption to be supplied with the photograph — who is pictured, where, and on what date.</div>
+</div>
+</section>
+
+<section style="background:#FFFFFF;padding:56px 0 80px">
+<div style="width:1320px;margin:0 auto;display:grid;grid-template-columns:180px 1fr 300px;gap:60px;align-items:start">
+
+<div style="position:sticky;top:24px">
+<div style="font:500 10px 'IBM Plex Mono',monospace;letter-spacing:.14em;color:#5A6472;margin-bottom:16px">SHARE</div>
+<div style="display:flex;flex-direction:column;gap:10px;margin-bottom:32px">
+<a href="#" style="font:500 13.5px Inter,sans-serif;color:#004B8C">LinkedIn</a>
+<a href="#" style="font:500 13.5px Inter,sans-serif;color:#004B8C">Copy link</a>
+<a href="#" style="font:500 13.5px Inter,sans-serif;color:#004B8C">Email</a>
+</div>
+<div style="padding-top:24px;border-top:1px solid #E8ECF1">
+<div style="font:500 10px 'IBM Plex Mono',monospace;letter-spacing:.14em;color:#5A6472;margin-bottom:12px">FILED UNDER</div>
+<div style="display:flex;flex-wrap:wrap;gap:8px">
+<span style="font:500 10.5px 'IBM Plex Mono',monospace;letter-spacing:.06em;color:#5A6472;background:#FAFAF8;border:1px solid #E8ECF1;padding:5px 9px;border-radius:4px">RG01</span>
+<span style="font:500 10.5px 'IBM Plex Mono',monospace;letter-spacing:.06em;color:#5A6472;background:#FAFAF8;border:1px solid #E8ECF1;padding:5px 9px;border-radius:4px">INDUSTRY</span>
+<span style="font:500 10.5px 'IBM Plex Mono',monospace;letter-spacing:.06em;color:#5A6472;background:#FAFAF8;border:1px solid #E8ECF1;padding:5px 9px;border-radius:4px">ENERGY</span>
+</div>
+</div>
+</div>
+
+<article style="max-width:720px">
+<sc-for list="{{ body }}" as="b" hint-placeholder-count="10">
+<sc-if value="{{ b.isPara }}" hint-placeholder-val="{{ true }}">
+<p style="margin:0 0 26px;font:400 18px/1.72 Inter,sans-serif;color:#14181D;text-wrap:pretty">{{ b.text }}</p>
+</sc-if>
+<sc-if value="{{ b.isHead }}" hint-placeholder-val="{{ false }}">
+<h2 style="margin:44px 0 20px;font:700 27px/1.22 'Inter Tight',sans-serif;letter-spacing:-.015em;color:#14181D;text-wrap:pretty">{{ b.text }}</h2>
+</sc-if>
+<sc-if value="{{ b.isQuote }}" hint-placeholder-val="{{ false }}">
+<blockquote style="margin:40px 0;padding:0 0 0 30px;border-left:3px solid #E38C07">
+<p style="margin:0 0 18px;font:400 24px/1.48 'Inter Tight',sans-serif;letter-spacing:-.01em;color:#14181D;text-wrap:pretty">{{ b.text }}</p>
+<footer style="font:500 13px/1.5 Inter,sans-serif;color:#5A6472">{{ b.attribution }}</footer>
+</blockquote>
+</sc-if>
+<sc-if value="{{ b.isPull }}" hint-placeholder-val="{{ false }}">
+<div style="margin:40px 0;background:#FAFAF8;border:1px solid #D8DEE5;border-radius:8px;padding:30px 32px">
+<div style="font:500 10px 'IBM Plex Mono',monospace;letter-spacing:.14em;color:#5A6472;margin-bottom:16px">{{ b.label }}</div>
+<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px">
+<sc-for list="{{ b.figures }}" as="f" hint-placeholder-count="3">
+<div>
+<div style="font:600 30px/1 'IBM Plex Mono',monospace;color:#004B8C;letter-spacing:-.025em;margin-bottom:10px">{{ f.value }}</div>
+<div style="font:400 13px/1.5 Inter,sans-serif;color:#5A6472">{{ f.label }}</div>
+</div>
+</sc-for>
+</div>
+</div>
+</sc-if>
+</sc-for>
+
+<div style="margin-top:48px;padding-top:32px;border-top:1px solid #E8ECF1;display:flex;align-items:flex-start;justify-content:space-between;gap:40px">
+<div>
+<div style="font:500 10px 'IBM Plex Mono',monospace;letter-spacing:.14em;color:#5A6472;margin-bottom:12px">MEDIA ENQUIRIES</div>
+<div style="font:600 16px/1.3 'Inter Tight',sans-serif;color:#14181D;margin-bottom:5px">Latty Shazana Ismail</div>
+<div style="font:400 13.5px/1.5 Inter,sans-serif;color:#5A6472;margin-bottom:10px">Executive · Communications, CERDAS</div>
+<a href="#" style="font:500 13.5px 'IBM Plex Mono',monospace;color:#004B8C">media@cerdas.utp.edu.my</a>
+</div>
+<div style="flex:none;text-align:right">
+<div style="font:500 10px 'IBM Plex Mono',monospace;letter-spacing:.14em;color:#5A6472;margin-bottom:12px">PUBLISHED</div>
+<div style="font:500 13.5px 'IBM Plex Mono',monospace;color:#14181D">22 AUG 2026</div>
+</div>
+</div>
+</article>
+
+<div style="position:sticky;top:24px;display:flex;flex-direction:column;gap:20px">
+<div style="background:#FAFAF8;border:1px solid #D8DEE5;border-radius:8px;padding:26px 28px 28px">
+<div style="font:500 10px 'IBM Plex Mono',monospace;letter-spacing:.14em;color:#5A6472;margin-bottom:18px">IN THIS STORY</div>
+<div style="display:flex;flex-direction:column;gap:16px">
+<sc-for list="{{ mentioned }}" as="m" hint-placeholder-count="4">
+<a href="{{ m.href }}" style="display:block" style-hover="color:#00335F">
+<div style="font:500 9.5px 'IBM Plex Mono',monospace;letter-spacing:.13em;color:#5A6472;margin-bottom:5px">{{ m.kind }}</div>
+<div style="font:600 14.5px/1.35 'Inter Tight',sans-serif;color:#004B8C">{{ m.label }}</div>
+</a>
+</sc-for>
+</div>
+</div>
+
+<div style="background:#004B8C;border-radius:8px;padding:26px 28px 28px">
+<div style="width:34px;height:3px;background:#E38C07;margin-bottom:18px"></div>
+<h3 style="margin:0 0 12px;font:600 18px/1.26 'Inter Tight',sans-serif;color:#FFFFFF">Quarterly digest</h3>
+<p style="margin:0 0 18px;font:400 13.5px/1.6 Inter,sans-serif;color:#BFD2E4">One email every three months: what was published, what was signed, what is coming up.</p>
+<a href="#" style="display:block;text-align:center;font:600 13.5px Inter,sans-serif;color:#14181D;background:#E38C07;padding:12px 18px;border-radius:6px" style-hover="background:#F5C46B">Subscribe</a>
+</div>
+</div>
+
+</div>
+</section>
+
+<section style="background:#FAFAF8;padding:64px 0 80px;border-top:1px solid #D8DEE5">
+<div style="width:1320px;margin:0 auto">
+<div style="width:44px;height:3px;background:#E38C07;margin-bottom:22px"></div>
+<h2 style="margin:0 0 30px;font:700 26px/1.2 'Inter Tight',sans-serif;letter-spacing:-.015em;color:#14181D">Related stories</h2>
+<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px">
+<sc-for list="{{ related }}" as="r" hint-placeholder-count="3">
+<a href="CERDAS News Article.dc.html" style="background:#FFFFFF;border:1px solid #D8DEE5;border-radius:8px;padding:28px 28px 30px;display:flex;flex-direction:column" style-hover="border-color:#004B8C">
+<div style="display:flex;align-items:center;gap:12px;margin-bottom:16px">
+<span style="background:rgba(0,75,140,.08);color:#004B8C;font:600 10px 'IBM Plex Mono',monospace;letter-spacing:.08em;padding:5px 9px;border-radius:4px">{{ r.type }}</span>
+<span style="font:500 10.5px 'IBM Plex Mono',monospace;letter-spacing:.12em;color:#5A6472">{{ r.date }}</span>
+</div>
+<div style="font:600 19px/1.28 'Inter Tight',sans-serif;letter-spacing:-.008em;color:#14181D;margin-bottom:12px;text-wrap:pretty">{{ r.title }}</div>
+<div style="font:400 14px/1.6 Inter,sans-serif;color:#5A6472">{{ r.body }}</div>
+</a>
+</sc-for>
+</div>
+<div style="margin-top:32px">
+<a href="CERDAS News and Events.dc.html" style="font:600 14px Inter,sans-serif;color:#004B8C;border:1px solid #C3D4E4;border-radius:6px;padding:13px 22px;background:#FFFFFF" style-hover="background:#E6EEF5">All news and events →</a>
+</div>
+</div>
+</section>
+
+<dc-import name="SiteFooter" hint-size="100%,340px"></dc-import>
+
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1440}}">
+const BODY = [
+  { t: 'p', text: 'CERDAS has signed a three-year research agreement with Selat Energy Berhad covering grid resilience analytics across the operator\u2019s distribution network. The agreement is worth RM 2.8 million over its term and is the largest single industry commitment the centre has taken on.' },
+  { t: 'p', text: 'Two workstreams sit under it. The first extends the fault localisation work developed in SENTINEL-GRID to a second network with a different topology and a worse instrumentation record — a deliberately harder case, chosen because a method that only works on one utility\u2019s data is not a method. The second is new: demand-side forecasting under distributed generation growth, where rooftop solar is changing load shapes faster than the operator\u2019s existing models can track.' },
+  { t: 'p', text: 'The agreement also funds two doctoral positions, both starting in the January 2027 intake and both working on the operator\u2019s live data rather than a sanitised extract.' },
+
+  { t: 'h', text: 'The data arrangement took longest' },
+  { t: 'p', text: 'The technical scope was agreed within six weeks. The data arrangement took five months, and it is the part the centre considers most important.' },
+  { t: 'p', text: 'Selat Energy holds roughly a decade of operational records — fault logs, SCADA telemetry, restoration times and asset histories. None of it could be shared under the terms of the operator\u2019s existing agreements, and a straightforward transfer was never going to be acceptable. The solution runs the analysis inside the governed partition of the centre\u2019s cluster, with the operator retaining control over what leaves it.' },
+  { t: 'q', text: 'We did not want a project where the interesting result is locked behind a clause nobody can point at. It took five months, and now both sides know exactly what can be published and when.', attribution: 'Assoc. Prof. Ts. Dr. Hitham Seddig Alhassan Alhussian · Group Head, Data Science & Analytics' },
+  { t: 'p', text: 'Publication terms were settled at the same time: a six-month embargo on results that touch operational detail, no embargo on methodological work, and a named reviewer on the operator\u2019s side who has ten working days to raise an objection. The centre does not agree to permanent suppression, and said so early.' },
+
+  { t: 'h', text: 'Building on a measured result' },
+  { t: 'p', text: 'The agreement follows the deployment of the SENTINEL-GRID system across 240 substations on another network, where average fault localisation time fell from 47 minutes to 6. That system is now licensed non-exclusively and the licence income funds two current doctoral students.' },
+  { t: 'pull', label: 'THE RESULT THAT LED HERE', figures: [
+    { value: '47 → 6 min', label: 'average time to locate a fault after deployment' },
+    { value: '240', label: 'substations running the system in production' },
+    { value: '9 years', label: 'of operational records now accessible under the new agreement' }
+  ] },
+  { t: 'p', text: 'What made the difference commercially was not the accuracy figure but the explanation layer — a control room engineer can see why the system has pointed at a particular section, and disagree with it. An earlier version without that layer tested well and was not used.' },
+  { t: 'q', text: 'A prediction our engineers cannot interrogate at three in the morning is a prediction they will ignore. That was the thing CERDAS understood that others did not.', attribution: 'Ir. Faizal Ramli · Head of Network Operations, Selat Energy Berhad' },
+
+  { t: 'h', text: 'What happens next' },
+  { t: 'p', text: 'Work begins in October 2026. The first six months are given over to data reconstruction, which is unglamorous and always takes longer than anyone plans for — the fault records carry mislabelled causes and missing restoration times that have to be reconciled by hand before any model sees them.' },
+  { t: 'p', text: 'The two doctoral positions are advertised now and close on 31 October. Both are attached to named supervisors, and both come with the compute allocation and travel budget that all CERDAS scholarships carry.' },
+  { t: 'p', text: 'The agreement will be reported in the centre\u2019s next quarterly return to HiCoE under contract research and industry collaboration, and the figures will appear on the research dashboard when it refreshes in October.' }
+];
+
+const MENTIONED = [
+  { kind: 'PROJECT', label: 'SENTINEL-GRID', href: 'CERDAS Project Detail.dc.html' },
+  { kind: 'RESEARCHER', label: 'Assoc. Prof. Ts. Dr. Hitham Seddig Alhassan Alhussian', href: 'CERDAS Researcher Profile.dc.html' },
+  { kind: 'RESEARCH GROUP', label: 'RG01 · Data Science & Analytics', href: 'CERDAS Theme.dc.html' },
+  { kind: 'FACILITY', label: 'PETRA-1 governed partition', href: 'CERDAS Facility Detail.dc.html' },
+  { kind: 'OPPORTUNITY', label: 'Two funded PhD places, closing 31 Oct', href: 'CERDAS Join.dc.html' }
+];
+
+const RELATED = [
+  { type: 'INNOVATION', date: '05 AUG 2026', title: 'Two patents granted for an adaptive sensor-fusion method', body: 'Granted in Malaysia and Singapore. The method is available to license and already deployed on two operator fields.' },
+  { type: 'IMPACT', date: '12 JUN 2026', title: 'Water demand forecasting cuts error to 6% for a state operator', body: 'A sixteen-week consultancy engagement, validated on the operator\u2019s own holdout period.' },
+  { type: 'PEOPLE', date: '18 JUL 2026', title: 'Twelve postgraduate researchers complete in the first half of 2026', body: 'Seven doctorates and five research masters. Four have moved into industry roles with centre partners.' }
+];
+
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      body: BODY.map(b => ({
+        text: b.text, attribution: b.attribution ?? '', label: b.label ?? '', figures: b.figures ?? [],
+        isPara: b.t === 'p', isHead: b.t === 'h', isQuote: b.t === 'q', isPull: b.t === 'pull'
+      })),
+      mentioned: MENTIONED, related: RELATED
+    };
+  }
+}
+
+</script>
+</body>
+</html>

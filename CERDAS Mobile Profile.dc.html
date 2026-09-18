@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet><meta name="viewport" content="width=390, initial-scale=1"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""><link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&amp;family=Inter:wght@400;500;600;700&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<script src="./image-slot.js"></script>
+<style>
+body{margin:0;background:#FFFFFF;font-family:Inter,system-ui,sans-serif;-webkit-text-size-adjust:100%}
+a{color:#004B8C;text-decoration:none}a:hover{color:#00335F}
+[data-hscroll]::-webkit-scrollbar{height:0;display:none}
+[data-hscroll]{scrollbar-width:none}
+</style></helmet>
+
+<div data-screen-label="M4 Researcher profile · 390" style="width:390px;margin:0 auto;background:#FFFFFF;overflow:hidden">
+
+<dc-import name="MobileHeader" onOpen="{{ openMenu }}" hint-size="100%,56px"></dc-import>
+
+<sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
+<dc-import name="MobileDrawer" active="People" onClose="{{ closeMenu }}" hint-size="100%,100%"></dc-import>
+</sc-if>
+
+<section style="background:#00335F;padding:22px 16px 28px">
+<div style="font:500 10px 'IBM Plex Mono',monospace;letter-spacing:.13em;color:#7FAED9;margin-bottom:20px"><a href="CERDAS Mobile Home.dc.html" style="color:#7FAED9">HOME</a> <span style="color:#E38C07">/</span> <a href="CERDAS Mobile People.dc.html" style="color:#7FAED9">PEOPLE</a></div>
+
+<div style="display:grid;grid-template-columns:112px 1fr;gap:16px;align-items:start;margin-bottom:20px">
+<image-slot id="m-profile-portrait" style="width:112px;height:140px;display:block;border-radius:8px;overflow:hidden" shape="rounded" radius="8" placeholder="Portrait 4:5"></image-slot>
+<div>
+<span style="display:inline-block;background:#E38C07;color:#14181D;font:600 9.5px 'IBM Plex Mono',monospace;letter-spacing:.1em;padding:5px 9px;border-radius:4px;margin-bottom:12px">{{ tier }}</span>
+<div style="font:500 9.5px/1.5 'IBM Plex Mono',monospace;letter-spacing:.12em;color:#7FAED9;margin-bottom:10px">{{ themeLabel }}</div>
+<h1 style="margin:0;font:700 25px/1.1 'Inter Tight',sans-serif;letter-spacing:-.018em;color:#FFFFFF;text-wrap:pretty">{{ name }}</h1>
+</div>
+</div>
+
+<div style="font:400 16px/1.4 Inter,sans-serif;color:#BFD2E4;margin-bottom:8px">{{ role }}</div>
+<div style="font:400 13.5px/1.55 Inter,sans-serif;color:#7FAED9;margin-bottom:20px">{{ department }}</div>
+<p style="margin:0 0 22px;font:400 15px/1.6 Inter,sans-serif;color:#BFD2E4;text-wrap:pretty">{{ oneLiner }}</p>
+
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:22px">
+<a href="#" style="display:flex;align-items:center;justify-content:center;min-height:46px;font:600 12.5px Inter,sans-serif;color:#FFFFFF;border:1px solid rgba(255,255,255,.42);border-radius:6px;padding:0 10px;text-align:center">Email</a>
+<a href="#" style="display:flex;align-items:center;justify-content:center;min-height:46px;font:600 12.5px Inter,sans-serif;color:#FFFFFF;border:1px solid rgba(255,255,255,.42);border-radius:6px;padding:0 10px;text-align:center">ORCID</a>
+<a href="#" style="display:flex;align-items:center;justify-content:center;min-height:46px;font:600 12.5px Inter,sans-serif;color:#FFFFFF;border:1px solid rgba(255,255,255,.42);border-radius:6px;padding:0 10px;text-align:center">Scopus</a>
+<a href="#" style="display:flex;align-items:center;justify-content:center;min-height:46px;font:600 12.5px Inter,sans-serif;color:#FFFFFF;border:1px solid rgba(255,255,255,.42);border-radius:6px;padding:0 10px;text-align:center">Google Scholar</a>
+</div>
+
+<div style="background:rgba(255,255,255,.08);border-radius:8px;padding:20px 18px 22px">
+<sc-if value="{{ available }}" hint-placeholder-val="{{ true }}">
+<div style="display:flex;align-items:flex-start;gap:11px;padding-bottom:18px;margin-bottom:18px;border-bottom:1px solid rgba(255,255,255,.18)">
+<span style="flex:none;width:9px;height:9px;border-radius:50%;background:#E38C07;margin-top:5px"></span>
+<div>
+<div style="font:600 15px/1.3 'Inter Tight',sans-serif;color:#FFFFFF;margin-bottom:5px">Available for supervision</div>
+<div style="font:400 13px/1.5 Inter,sans-serif;color:#BFD2E4">{{ availableNote }}</div>
+</div>
+</div>
+</sc-if>
+<sc-if value="{{ unavailable }}" hint-placeholder-val="{{ false }}">
+<div style="display:flex;align-items:flex-start;gap:11px;padding-bottom:18px;margin-bottom:18px;border-bottom:1px solid rgba(255,255,255,.18)">
+<span style="flex:none;width:9px;height:9px;border-radius:50%;background:#7FAED9;margin-top:5px"></span>
+<div>
+<div style="font:600 15px/1.3 'Inter Tight',sans-serif;color:#FFFFFF;margin-bottom:5px">Not taking students this intake</div>
+<div style="font:400 13px/1.5 Inter,sans-serif;color:#BFD2E4">{{ availableNote }}</div>
+</div>
+</div>
+</sc-if>
+<a href="#enquire" style="display:flex;align-items:center;justify-content:center;height:50px;font:600 15px Inter,sans-serif;color:#14181D;background:#E38C07;border-radius:6px;margin-bottom:10px">Collaboration enquiry</a>
+<a href="CERDAS Join.dc.html" style="display:flex;align-items:center;justify-content:center;height:50px;font:600 14px Inter,sans-serif;color:#FFFFFF;border:1px solid rgba(255,255,255,.42);border-radius:6px">Apply for a scholarship</a>
+</div>
+</section>
+
+<div style="position:sticky;top:56px;z-index:30;background:#FFFFFF;border-bottom:1px solid #D8DEE5">
+<div data-hscroll="1" data-tabstrip="1" style="display:flex;overflow-x:auto;-webkit-overflow-scrolling:touch">
+<sc-for list="{{ tabs }}" as="t" hint-placeholder-count="7">
+<sc-if value="{{ t.on }}" hint-placeholder-val="{{ false }}">
+<button type="button" onClick="{{ t.pick }}" style="position:relative;flex:none;font:600 13.5px Inter,sans-serif;color:#004B8C;background:transparent;border:0;padding:16px 16px 14px;cursor:pointer;white-space:nowrap;min-height:50px">{{ t.label }}<span style="position:absolute;left:12px;right:12px;bottom:0;height:3px;background:#E38C07"></span></button>
+</sc-if>
+<sc-if value="{{ t.off }}" hint-placeholder-val="{{ true }}">
+<button type="button" onClick="{{ t.pick }}" style="flex:none;font:500 13.5px Inter,sans-serif;color:#5A6472;background:transparent;border:0;padding:16px 16px 14px;cursor:pointer;white-space:nowrap;min-height:50px">{{ t.label }}<span style="margin-left:6px;font:500 10.5px 'IBM Plex Mono',monospace;color:#A6AFBB">{{ t.count }}</span></button>
+</sc-if>
+</sc-for>
+<div style="flex:none;width:12px"></div>
+</div>
+</div>
+
+<section style="background:#FAFAF8;padding:28px 16px 34px">
+
+<sc-if value="{{ isBio }}" hint-placeholder-val="{{ true }}">
+<div style="width:38px;height:3px;background:#E38C07;margin-bottom:16px"></div>
+<h2 style="margin:0 0 18px;font:700 25px/1.16 'Inter Tight',sans-serif;letter-spacing:-.018em;color:#14181D">Biography</h2>
+<sc-for list="{{ bio }}" as="p" hint-placeholder-count="4">
+<p style="margin:0 0 18px;font:400 15.5px/1.68 Inter,sans-serif;color:#14181D;text-wrap:pretty">{{ p }}</p>
+</sc-for>
+<div style="margin-top:28px;padding-top:24px;border-top:1px solid #D8DEE5">
+<div style="font:500 10px 'IBM Plex Mono',monospace;letter-spacing:.14em;color:#5A6472;margin-bottom:16px">EDUCATION AND APPOINTMENTS</div>
+<div style="display:flex;flex-direction:column">
+<sc-for list="{{ career }}" as="c" hint-placeholder-count="6">
+<div style="padding:16px 0;border-bottom:1px solid #E2E7EC">
+<div style="font:500 11.5px 'IBM Plex Mono',monospace;letter-spacing:.04em;color:#004B8C;margin-bottom:8px">{{ c.years }}</div>
+<div style="font:600 15.5px/1.32 'Inter Tight',sans-serif;color:#14181D;margin-bottom:5px;text-wrap:pretty">{{ c.title }}</div>
+<div style="font:400 13.5px/1.5 Inter,sans-serif;color:#5A6472">{{ c.org }}</div>
+</div>
+</sc-for>
+</div>
+</div>
+</sc-if>
+
+<sc-if value="{{ isInterests }}" hint-placeholder-val="{{ false }}">
+<div style="width:38px;height:3px;background:#E38C07;margin-bottom:16px"></div>
+<h2 style="margin:0 0 12px;font:700 25px/1.16 'Inter Tight',sans-serif;letter-spacing:-.018em;color:#14181D">Research interests</h2>
+<p style="margin:0 0 22px;font:400 15px/1.62 Inter,sans-serif;color:#5A6472;text-wrap:pretty">{{ interestsIntro }}</p>
+<div style="display:flex;flex-direction:column;gap:12px">
+<sc-for list="{{ interests }}" as="i" hint-placeholder-count="4">
+<div style="background:#FFFFFF;border:1px solid #D8DEE5;border-radius:8px;padding:20px 18px 22px">
+<div style="font:500 9.5px 'IBM Plex Mono',monospace;letter-spacing:.12em;color:#5A6472;margin-bottom:10px">{{ i.since }}</div>
+<h3 style="margin:0 0 10px;font:600 18px/1.26 'Inter Tight',sans-serif;color:#14181D;text-wrap:pretty">{{ i.title }}</h3>
+<p style="margin:0 0 14px;font:400 14.5px/1.6 Inter,sans-serif;color:#5A6472;text-wrap:pretty">{{ i.body }}</p>
+<div style="font:500 12.5px Inter,sans-serif;color:#004B8C">{{ i.link }}</div>
+</div>
+</sc-for>
+</div>
+</sc-if>
+
+<sc-if value="{{ isPubs }}" hint-placeholder-val="{{ false }}">
+<div style="width:38px;height:3px;background:#E38C07;margin-bottom:16px"></div>
+<h2 style="margin:0 0 10px;font:700 25px/1.16 'Inter Tight',sans-serif;letter-spacing:-.018em;color:#14181D">Publications</h2>
+<p style="margin:0 0 8px;font:400 15px/1.6 Inter,sans-serif;color:#5A6472">Five most recent. Bold names are CERDAS authors.</p>
+<a href="CERDAS Publications.dc.html" style="display:inline-block;margin-bottom:18px;font:600 13.5px Inter,sans-serif;color:#004B8C;white-space:nowrap">All 68 in the register →</a>
+<div style="display:flex;flex-direction:column;gap:10px">
+<sc-for list="{{ pubs }}" as="p" hint-placeholder-count="5">
+<a href="CERDAS Publications.dc.html" style="display:block;background:#FFFFFF;border:1px solid #D8DEE5;border-radius:8px;padding:18px 16px 18px">
+<div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px">
+<span style="font:600 10px 'IBM Plex Mono',monospace;letter-spacing:.07em;color:#5A6472;background:#F1F3F5;padding:4px 8px;border-radius:3px">{{ p.year }}</span>
+<span style="font:600 10px 'IBM Plex Mono',monospace;letter-spacing:.07em;color:#004B8C;background:#E6EEF5;padding:4px 8px;border-radius:3px">{{ p.type }}</span>
+<sc-if value="{{ p.hasQ }}" hint-placeholder-val="{{ true }}"><span style="font:600 10px 'IBM Plex Mono',monospace;letter-spacing:.07em;color:#14181D;background:#F5C46B;padding:4px 8px;border-radius:3px">{{ p.quartile }}</span></sc-if>
+<sc-if value="{{ p.openAccess }}" hint-placeholder-val="{{ true }}"><span style="font:600 10px 'IBM Plex Mono',monospace;letter-spacing:.07em;color:#004B8C;border:1px solid #C3D4E4;padding:3px 8px;border-radius:3px">OPEN ACCESS</span></sc-if>
+</div>
+<div style="font:600 15.5px/1.4 Inter,sans-serif;color:#14181D;margin-bottom:10px;text-wrap:pretty">{{ p.title }}</div>
+<div style="font:400 13.5px/1.5 Inter,sans-serif;color:#5A6472;margin-bottom:12px">{{ p.authorLine }}</div>
+<div style="padding-top:12px;border-top:1px solid #E8ECF1;display:flex;align-items:center;justify-content:space-between;gap:12px">
+<span style="font:400 12.5px/1.4 'IBM Plex Mono',monospace;color:#5A6472">{{ p.venue }}</span>
+<span style="flex:none;font:500 11.5px 'IBM Plex Mono',monospace;color:#004B8C">{{ p.citations }} CIT</span>
+</div>
+</a>
+</sc-for>
+</div>
+</sc-if>
+
+<sc-if value="{{ isProjects }}" hint-placeholder-val="{{ false }}">
+<div style="width:38px;height:3px;background:#E38C07;margin-bottom:16px"></div>
+<h2 style="margin:0 0 12px;font:700 25px/1.16 'Inter Tight',sans-serif;letter-spacing:-.018em;color:#14181D">Projects</h2>
+<p style="margin:0 0 20px;font:400 15px/1.62 Inter,sans-serif;color:#5A6472;text-wrap:pretty">Three active and two completed. Role is stated for each — principal investigator, co-investigator or work package lead.</p>
+<div style="display:flex;flex-direction:column;gap:12px">
+<sc-for list="{{ projects }}" as="p" hint-placeholder-count="5">
+<div style="background:#FFFFFF;border:1px solid #D8DEE5;border-radius:8px;padding:20px 18px 22px">
+<div style="display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-bottom:12px">
+<sc-if value="{{ p.active }}" hint-placeholder-val="{{ true }}"><span style="background:rgba(0,75,140,.08);color:#004B8C;font:600 10px 'IBM Plex Mono',monospace;letter-spacing:.08em;padding:5px 9px;border-radius:4px">ACTIVE</span></sc-if>
+<sc-if value="{{ p.done }}" hint-placeholder-val="{{ false }}"><span style="background:#FAFAF8;border:1px solid #E8ECF1;color:#5A6472;font:600 10px 'IBM Plex Mono',monospace;letter-spacing:.08em;padding:4px 9px;border-radius:4px">COMPLETED</span></sc-if>
+<span style="font:500 10px 'IBM Plex Mono',monospace;letter-spacing:.12em;color:#5A6472">{{ p.code }}</span>
+</div>
+<div style="font:500 10px 'IBM Plex Mono',monospace;letter-spacing:.12em;color:#8A94A2;margin-bottom:12px">{{ p.role }}</div>
+<a href="CERDAS Project Detail.dc.html" style="display:block;font:600 18px/1.28 'Inter Tight',sans-serif;letter-spacing:-.008em;color:#14181D;margin-bottom:10px;text-wrap:pretty">{{ p.title }}</a>
+<p style="margin:0 0 16px;font:400 14.5px/1.6 Inter,sans-serif;color:#5A6472;text-wrap:pretty">{{ p.body }}</p>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;padding-top:14px;border-top:1px solid #E8ECF1">
+<div><div style="font:500 9.5px 'IBM Plex Mono',monospace;letter-spacing:.12em;color:#5A6472;margin-bottom:5px">VALUE</div><div style="font:500 13.5px 'IBM Plex Mono',monospace;color:#14181D">{{ p.value }}</div></div>
+<div><div style="font:500 9.5px 'IBM Plex Mono',monospace;letter-spacing:.12em;color:#5A6472;margin-bottom:5px">PERIOD</div><div style="font:500 13.5px 'IBM Plex Mono',monospace;color:#14181D">{{ p.period }}</div></div>
+<div style="grid-column:1 / -1"><div style="font:500 9.5px 'IBM Plex Mono',monospace;letter-spacing:.12em;color:#5A6472;margin-bottom:5px">FUNDER</div><div style="font:400 13.5px Inter,sans-serif;color:#14181D">{{ p.funder }}</div></div>
+</div>
+</div>
+</sc-for>
+</div>
+</sc-if>
+
+<sc-if value="{{ isSupervision }}" hint-placeholder-val="{{ false }}">
+<div style="width:38px;height:3px;background:#E38C07;margin-bottom:16px"></div>
+<h2 style="margin:0 0 12px;font:700 25px/1.16 'Inter Tight',sans-serif;letter-spacing:-.018em;color:#14181D">Supervision</h2>
+<p style="margin:0 0 24px;font:400 15px/1.62 Inter,sans-serif;color:#5A6472;text-wrap:pretty">Nine current candidates and fourteen completed. Thesis titles are listed once a candidate has passed confirmation.</p>
+<div style="font:500 10px 'IBM Plex Mono',monospace;letter-spacing:.14em;color:#5A6472;margin-bottom:12px">CURRENT CANDIDATES</div>
+<div style="display:flex;flex-direction:column;gap:1px;background:#E2E7EC;border:1px solid #E2E7EC;border-radius:8px;overflow:hidden;margin-bottom:28px">
+<sc-for list="{{ current }}" as="s" hint-placeholder-count="5">
+<div style="background:#FFFFFF;padding:16px 16px 18px">
+<div style="display:flex;align-items:center;gap:9px;margin-bottom:8px">
+<span style="font:600 10.5px 'IBM Plex Mono',monospace;color:#004B8C;background:#E6EEF5;padding:4px 8px;border-radius:3px">{{ s.degree }}</span>
+<span style="font:400 12px Inter,sans-serif;color:#5A6472">{{ s.stage }}</span>
+</div>
+<div style="font:600 15px/1.32 'Inter Tight',sans-serif;color:#14181D;margin-bottom:6px">{{ s.name }}</div>
+<div style="font:400 13.5px/1.5 Inter,sans-serif;color:#5A6472;text-wrap:pretty">{{ s.topic }}</div>
+</div>
+</sc-for>
+</div>
+<div style="font:500 10px 'IBM Plex Mono',monospace;letter-spacing:.14em;color:#5A6472;margin-bottom:12px">RECENT COMPLETIONS</div>
+<div style="display:flex;flex-direction:column;gap:1px;background:#E2E7EC;border:1px solid #E2E7EC;border-radius:8px;overflow:hidden">
+<sc-for list="{{ completed }}" as="s" hint-placeholder-count="4">
+<div style="background:#FFFFFF;padding:16px 16px 18px">
+<div style="display:flex;align-items:center;gap:9px;margin-bottom:8px">
+<span style="font:600 10.5px 'IBM Plex Mono',monospace;color:#5A6472;background:#F1F3F5;padding:4px 8px;border-radius:3px">{{ s.degree }}</span>
+<span style="font:400 12px Inter,sans-serif;color:#5A6472">{{ s.stage }}</span>
+</div>
+<div style="font:600 15px/1.32 'Inter Tight',sans-serif;color:#14181D;margin-bottom:6px">{{ s.name }}</div>
+<div style="font:400 13.5px/1.5 Inter,sans-serif;color:#5A6472;text-wrap:pretty">{{ s.topic }}</div>
+</div>
+</sc-for>
+</div>
+</sc-if>
+
+<sc-if value="{{ isTeaching }}" hint-placeholder-val="{{ false }}">
+<div style="width:38px;height:3px;background:#E38C07;margin-bottom:16px"></div>
+<h2 style="margin:0 0 12px;font:700 25px/1.16 'Inter Tight',sans-serif;letter-spacing:-.018em;color:#14181D">Teaching</h2>
+<p style="margin:0 0 22px;font:400 15px/1.62 Inter,sans-serif;color:#5A6472;text-wrap:pretty">Undergraduate and postgraduate courses in the current academic year, plus short courses run for industry through the consultancy route.</p>
+<div style="display:flex;flex-direction:column;gap:1px;background:#E2E7EC;border:1px solid #E2E7EC;border-radius:8px;overflow:hidden;margin-bottom:16px">
+<sc-for list="{{ teaching }}" as="c" hint-placeholder-count="4">
+<div style="background:#FFFFFF;padding:16px 16px 18px">
+<div style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:9px">
+<span style="font:500 12.5px 'IBM Plex Mono',monospace;color:#004B8C">{{ c.code }}</span>
+<span style="font:500 11px 'IBM Plex Mono',monospace;color:#5A6472">{{ c.students }}</span>
+</div>
+<div style="font:600 15.5px/1.32 'Inter Tight',sans-serif;color:#14181D;margin-bottom:6px;text-wrap:pretty">{{ c.title }}</div>
+<div style="font:400 13px/1.5 Inter,sans-serif;color:#5A6472">{{ c.level }} · {{ c.note }}</div>
+</div>
+</sc-for>
+</div>
+<div style="background:#FFFFFF;border:1px solid #D8DEE5;border-radius:8px;padding:20px 18px 22px">
+<div style="font:500 10px 'IBM Plex Mono',monospace;letter-spacing:.14em;color:#5A6472;margin-bottom:12px">SHORT COURSES FOR INDUSTRY</div>
+<p style="margin:0 0 14px;font:400 14.5px/1.6 Inter,sans-serif;color:#5A6472;text-wrap:pretty">Applied machine learning for maintenance engineers, delivered four times to 62 engineers on the client's own maintenance records.</p>
+<a href="CERDAS Consultancy.dc.html" style="font:600 13.5px Inter,sans-serif;color:#004B8C">Technical training →</a>
+</div>
+</sc-if>
+
+<sc-if value="{{ isAwards }}" hint-placeholder-val="{{ false }}">
+<div style="width:38px;height:3px;background:#E38C07;margin-bottom:16px"></div>
+<h2 style="margin:0 0 12px;font:700 25px/1.16 'Inter Tight',sans-serif;letter-spacing:-.018em;color:#14181D">Awards and recognition</h2>
+<p style="margin:0 0 20px;font:400 15px/1.62 Inter,sans-serif;color:#5A6472;text-wrap:pretty">Including editorial and review service, which is unglamorous and counts.</p>
+<div style="display:flex;flex-direction:column">
+<sc-for list="{{ awards }}" as="a" hint-placeholder-count="6">
+<div style="display:grid;grid-template-columns:54px 1fr;gap:14px;padding:16px 0;border-bottom:1px solid #E2E7EC;align-items:start">
+<div style="font:600 14.5px 'IBM Plex Mono',monospace;color:#004B8C">{{ a.year }}</div>
+<div>
+<div style="font:600 15.5px/1.32 'Inter Tight',sans-serif;color:#14181D;margin-bottom:6px;text-wrap:pretty">{{ a.title }}</div>
+<div style="font:400 13.5px/1.5 Inter,sans-serif;color:#5A6472">{{ a.org }}</div>
+</div>
+</div>
+</sc-for>
+</div>
+</sc-if>
+
+</section>
+
+<section style="background:#FFFFFF;padding:28px 16px 34px;border-top:1px solid #D8DEE5">
+<div style="background:#FFFFFF;border:1px solid #D8DEE5;border-radius:8px;padding:20px 18px 22px;margin-bottom:14px">
+<div style="font:500 10px 'IBM Plex Mono',monospace;letter-spacing:.14em;color:#5A6472;margin-bottom:18px">METRICS</div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:20px 16px">
+<sc-for list="{{ metrics }}" as="m" hint-placeholder-count="6">
+<div>
+<div style="font:600 24px/1 'IBM Plex Mono',monospace;color:#004B8C;letter-spacing:-.03em">{{ m.value }}</div>
+<div style="margin-top:7px;font:400 12px/1.35 Inter,sans-serif;color:#5A6472">{{ m.label }}</div>
+</div>
+</sc-for>
+</div>
+<div style="margin-top:20px;padding-top:16px;border-top:1px solid #E8ECF1;font:500 9.5px 'IBM Plex Mono',monospace;letter-spacing:.09em;color:#5A6472">SCOPUS · AS AT 12 AUG 2026</div>
+</div>
+
+<div style="background:#FFFFFF;border:1px solid #D8DEE5;border-radius:8px;padding:20px 18px 22px;margin-bottom:14px">
+<div style="font:500 10px 'IBM Plex Mono',monospace;letter-spacing:.14em;color:#5A6472;margin-bottom:16px">EXPERTISE</div>
+<div style="display:flex;flex-wrap:wrap;gap:7px">
+<sc-for list="{{ expertise }}" as="e" hint-placeholder-count="8">
+<span style="font:500 11.5px Inter,sans-serif;color:#004B8C;background:rgba(0,75,140,.06);border:1px solid rgba(0,75,140,.14);padding:7px 11px;border-radius:5px">{{ e }}</span>
+</sc-for>
+</div>
+</div>
+
+<div style="background:#FAFAF8;border:1px solid #D8DEE5;border-radius:8px;padding:20px 18px 22px;margin-bottom:14px">
+<div style="font:500 10px 'IBM Plex Mono',monospace;letter-spacing:.14em;color:#5A6472;margin-bottom:14px">THEME</div>
+<a href="CERDAS Theme.dc.html" style="display:block;font:600 18px/1.28 'Inter Tight',sans-serif;color:#14181D;margin-bottom:8px">{{ themeName }}</a>
+<div style="font:400 13.5px/1.55 Inter,sans-serif;color:#5A6472;margin-bottom:6px">{{ themeRole }}</div>
+<div style="display:flex;flex-direction:column;gap:0;margin-top:12px;border-top:1px solid #D8DEE5">
+<a href="CERDAS Theme.dc.html" style="display:flex;align-items:center;min-height:48px;font:500 13.5px Inter,sans-serif;color:#004B8C">Explore the theme →</a>
+<a href="CERDAS Governance.dc.html" style="display:flex;align-items:center;min-height:48px;font:500 13.5px Inter,sans-serif;color:#004B8C;border-top:1px solid #E8ECF1">Where this sits in governance →</a>
+</div>
+</div>
+
+<div id="enquire" style="background:#004B8C;border-radius:8px;padding:22px 18px 24px">
+<div style="width:34px;height:3px;background:#E38C07;margin-bottom:16px"></div>
+<h3 style="margin:0 0 10px;font:600 19px/1.26 'Inter Tight',sans-serif;color:#FFFFFF">Work with {{ shortName }}</h3>
+<p style="margin:0 0 18px;font:400 13.5px/1.6 Inter,sans-serif;color:#BFD2E4;text-wrap:pretty">For a joint project, a funded student, a review request or a visit. Enquiries reach {{ shortName }} directly, not a shared inbox.</p>
+<a href="CERDAS Join.dc.html" style="display:flex;align-items:center;justify-content:center;height:50px;font:600 15px Inter,sans-serif;color:#14181D;background:#E38C07;border-radius:6px;margin-bottom:10px">Send an enquiry</a>
+<a href="CERDAS Join.dc.html" style="display:flex;align-items:center;justify-content:center;height:50px;font:600 14px Inter,sans-serif;color:#FFFFFF;border:1px solid rgba(255,255,255,.42);border-radius:6px">Collaborate with CERDAS</a>
+</div>
+</section>
+
+<section style="background:#FAFAF8;padding:30px 16px 36px;border-top:1px solid #D8DEE5">
+<div style="width:38px;height:3px;background:#E38C07;margin-bottom:16px"></div>
+<h2 style="margin:0 0 8px;font:700 22px/1.2 'Inter Tight',sans-serif;letter-spacing:-.018em;color:#14181D">Others in this theme</h2>
+<div style="font:500 10px 'IBM Plex Mono',monospace;letter-spacing:.1em;color:#8A94A2;margin-bottom:18px">PROFILE UPDATED 12 AUG 2026</div>
+<div style="display:flex;flex-direction:column;gap:1px;background:#D8DEE5;border:1px solid #D8DEE5;border-radius:8px;overflow:hidden">
+<sc-for list="{{ colleagues }}" as="c" hint-placeholder-count="4">
+<a href="CERDAS Mobile Profile.dc.html" style="display:flex;align-items:center;justify-content:space-between;gap:14px;background:#FFFFFF;padding:16px;min-height:64px;box-sizing:border-box">
+<span style="min-width:0">
+<span style="display:block;font:500 9.5px 'IBM Plex Mono',monospace;letter-spacing:.13em;color:#5A6472;margin-bottom:7px">{{ c.tier }}</span>
+<span style="display:block;font:600 15.5px/1.3 'Inter Tight',sans-serif;color:#14181D;margin-bottom:5px">{{ c.name }}</span>
+<span style="display:block;font:400 13px/1.45 Inter,sans-serif;color:#5A6472">{{ c.focus }}</span>
+</span>
+<span style="flex:none;font:400 15px Inter,sans-serif;color:#004B8C">→</span>
+</a>
+</sc-for>
+</div>
+</section>
+
+<dc-import name="MobileFooter" hint-size="100%,760px"></dc-import>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:390},&quot;startTab&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Biography&quot;,&quot;Research interests&quot;,&quot;Publications&quot;,&quot;Projects&quot;,&quot;Supervision&quot;,&quot;Teaching&quot;,&quot;Awards&quot;],&quot;default&quot;:&quot;Biography&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Profile&quot;},&quot;available&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Profile&quot;}}">
+const TABS = [
+  ['bio', 'Biography', ''],
+  ['interests', 'Interests', '4'],
+  ['pubs', 'Publications', '68'],
+  ['projects', 'Projects', '5'],
+  ['supervision', 'Supervision', '23'],
+  ['teaching', 'Teaching', '4'],
+  ['awards', 'Awards', '6']
+];
+
+const P = {
+  name: 'Assoc. Prof. Ts. Dr. Hitham Seddig Alhassan Alhussian',
+  shortName: 'Dr. Hitham',
+  tier: 'SENIOR FELLOW',
+  role: 'Group Head — Data Science & Analytics',
+  department: 'Department of Computer & Information Sciences, Universiti Teknologi PETRONAS',
+  themeLabel: 'RG01 · DATA SCIENCE & ANALYTICS',
+  themeName: 'Data Science & Analytics',
+  themeRole: 'Group Head · 6 researchers, 11 active projects',
+  oneLiner: 'Works on graph learning for power distribution networks — where the model has to be right about infrastructure that people depend on, and be explainable to the engineer who acts on it.',
+  availableNote: 'Two funded PhD places open for the January 2027 intake.',
+  metrics: [
+    { value: '68', label: 'Publications' },
+    { value: '2,140', label: 'Citations' },
+    { value: '24', label: 'h-index' },
+    { value: '23', label: 'Students supervised' },
+    { value: '3', label: 'Active projects' },
+    { value: 'RM 4.2M', label: 'Grants as PI' }
+  ],
+  expertise: ['Graph neural networks', 'Power distribution networks', 'Fault localisation', 'Explainable AI', 'Time-series analysis', 'SCADA data', 'Sparse learning', 'Industrial deployment'],
+  bio: [
+    'Hitham Seddig Alhassan Alhussian leads the Data Science & Analytics research group at CERDAS, where he works on machine learning for electrical distribution networks — the medium-voltage layer that sits between the transmission grid and the street, and which is the least instrumented and least understood part of most utilities.',
+    'His work started from a practical frustration: utilities hold decades of fault records, and almost none of it is used to predict the next fault. The methods that dominate the literature assume dense sensing and clean topology data. Neither exists in a real distribution network, so the research has been about learning useful structure from sparse, mislabelled and partially observed data — and doing it in a way an engineer in a control room will actually trust.',
+    'That constraint has shaped how he runs projects. Models developed in the group are validated on a utility\u2019s own holdout period rather than a public benchmark, and every deployment carries an explanation layer, because a fault prediction nobody can interrogate does not get acted on. The SENTINEL-GRID work with Tenaga Nusantara cut average fault localisation time from 47 minutes to 6 across 240 substations, and the licence income from it funds two of his current students.',
+    'He joined UTP in 2016 after a postdoctoral position and three years as a distribution planning engineer, which he describes as the most useful research training he received. He is an associate editor at IEEE Transactions on Smart Grid and reviews for four other venues.'
+  ],
+  career: [
+    { years: '2022 — PRESENT', title: 'Group Head, Data Science & Analytics', org: 'CERDAS, Universiti Teknologi PETRONAS' },
+    { years: '2021 — PRESENT', title: 'Associate Professor', org: 'Department of Computer & Information Sciences, UTP' },
+    { years: '2016 — 2021', title: 'Senior Lecturer', org: 'Department of Computer & Information Sciences, UTP' },
+    { years: '2014 — 2016', title: 'Postdoctoral Researcher', org: 'Zuiderzee Institute for Data Systems, Utrecht' },
+    { years: '2010 — 2014', title: 'PhD, Electrical & Computer Engineering', org: 'University of Melbourne' },
+    { years: '2007 — 2010', title: 'Distribution Planning Engineer', org: 'Tenaga Nusantara' }
+  ],
+  interestsIntro: 'Four lines of work, all of them variations on the same question: how do you learn something reliable about a physical network you can only partially see?',
+  interests: [
+    { title: 'Graph learning on sparse infrastructure networks', since: 'SINCE 2016',
+      body: 'Learning network structure and fault propagation from records that are incomplete by construction. Most of the useful signal is in what was not measured, which is an awkward thing to build a loss function around.',
+      link: '18 publications · SENTINEL-GRID' },
+    { title: 'Explainability for operational decisions', since: 'SINCE 2019',
+      body: 'Not explainability as a research exercise, but the narrower question of what a control room engineer needs to see at 3am to act on a prediction, and how much accuracy it is worth giving up to get it.',
+      link: '11 publications · deployed in two utilities' },
+    { title: 'Forecasting under regime change', since: 'SINCE 2021',
+      body: 'Demand and load models break when the underlying system changes — new solar, new industrial load, a drought. Detecting that the regime has shifted usually matters more than the forecast itself.',
+      link: '9 publications · water and power' },
+    { title: 'Governed data sharing between utilities', since: 'SINCE 2024',
+      body: 'A newer line, from CLARA. Utilities have the same problems and cannot pool data. Federated approaches help, but the blocker is nearly always governance rather than method.',
+      link: '4 publications · CLARA' }
+  ],
+  pubs: [
+    { year: '2026', type: 'JOURNAL', quartile: 'Q1', citations: '9', openAccess: true,
+      title: 'Regime-aware demand forecasting for distribution networks under distributed generation growth',
+      authorLine: 'Alhussian, H. S., Talpur, N., Nwosu, C.',
+      venue: 'IEEE Trans. Smart Grid · vol. 17(2)' },
+    { year: '2025', type: 'JOURNAL', quartile: 'Q1', citations: '18', openAccess: true,
+      title: 'Uncertainty-aware demand forecasting for regional water distribution under drought stress',
+      authorLine: 'Zainuddin, N., Talpur, N., Alhussian, H. S., Perera, S.',
+      venue: 'Water Resources Research · vol. 61(8)' },
+    { year: '2024', type: 'JOURNAL', quartile: 'Q1', citations: '41', openAccess: false,
+      title: 'Sparse graph learning for fault localisation in medium-voltage distribution networks',
+      authorLine: 'Alhussian, H. S., Daud, H., Nwosu, C.',
+      venue: 'IEEE Trans. Smart Grid · vol. 15(6)' },
+    { year: '2024', type: 'CONFERENCE', quartile: '', citations: '14', openAccess: false,
+      title: 'What the control room actually needs: an audit of explanation formats for fault prediction',
+      authorLine: 'Alhussian, H. S., Devaraj, K.',
+      venue: 'Proc. ACM CHI · pp. 1–14' },
+    { year: '2023', type: 'JOURNAL', quartile: 'Q2', citations: '26', openAccess: false,
+      title: 'Topology inference from fault records in partially observed distribution feeders',
+      authorLine: 'Daud, H., Alhussian, H. S.',
+      venue: 'Electric Power Systems Research · vol. 224' }
+  ],
+  projects: [
+    { active: true, code: 'SENTINEL-GRID', role: 'PRINCIPAL INVESTIGATOR',
+      title: 'Fault localisation and prediction across medium-voltage distribution networks',
+      body: 'Graph-based localisation replacing manual SCADA alarm triage, now deployed across 240 substations and licensed non-exclusively for the utility sector.',
+      funder: 'Tenaga Nusantara · FRGS', value: 'RM 2.40M', period: '2023 — 2027' },
+    { active: true, code: 'CLARA', role: 'CO-INVESTIGATOR',
+      title: 'Provenance-preserving data sharing for industrial and clinical partners',
+      body: 'A governance layer that made cross-institution analysis legally possible before it made it technically clever. Led from T1 with Faridah Sulaiman.',
+      funder: 'KL Health Data Institute', value: 'RM 1.40M', period: '2024 — 2027' },
+    { active: true, code: 'AQUA-SENSE', role: 'PRINCIPAL INVESTIGATOR',
+      title: 'Demand forecasting under drought stress for regional water systems',
+      body: 'Regime-change detection applied to a state-level water system, with the operator running the retrained model themselves.',
+      funder: 'Perak Water Authority', value: 'RM 0.68M', period: '2025 — 2027' },
+    { active: false, code: 'GRID-OBS', role: 'PRINCIPAL INVESTIGATOR',
+      title: 'Topology inference for partially observed feeders',
+      body: 'The methodological groundwork SENTINEL-GRID was built on. Produced the sparse learning approach and one granted patent.',
+      funder: 'MOHE · FRGS', value: 'RM 0.42M', period: '2020 — 2023' },
+    { active: false, code: 'LOADSHAPE', role: 'WORK PACKAGE LEAD',
+      title: 'Load profiling for industrial consumers under tariff reform',
+      body: 'A short consortium project on how tariff changes alter measured industrial load, and what that does to existing forecasting models.',
+      funder: 'Energy Commission', value: 'RM 0.31M', period: '2019 — 2021' }
+  ],
+  current: [
+    { name: 'Amirul Hakim bin Roslan', topic: 'Explanation formats for operational fault prediction', degree: 'PhD', stage: 'Year 3 · writing up' },
+    { name: 'Chen Xiao Wen', topic: 'Federated learning across utility boundaries', degree: 'PhD', stage: 'Year 2' },
+    { name: 'Priyanka Nair', topic: 'Regime-change detection in demand time series', degree: 'PhD', stage: 'Year 2' },
+    { name: 'Muhammad Danial bin Zulkarnain', topic: 'Graph sparsification for large feeder networks', degree: 'PhD', stage: 'Year 1 · pre-confirmation' },
+    { name: 'Lee Su Ann', topic: 'Anomaly labelling under sensor drift', degree: 'MSc', stage: 'Year 1' }
+  ],
+  completed: [
+    { name: 'Dr. Hanita Daud', topic: 'Topology inference from fault records', degree: 'PhD', stage: '2023 · now Senior Fellow' },
+    { name: 'Ts. Dr. Yaman Hamed', topic: 'Sparse learning for infrastructure graphs', degree: 'PhD', stage: '2023 · postdoc, Utrecht' },
+    { name: 'Nur Alia binti Kamarudin', topic: 'Load profiling under tariff reform', degree: 'MSc', stage: '2022 · Tenaga Nusantara' },
+    { name: 'Dr. Aliza Sarlan', topic: 'Human factors in control room analytics', degree: 'PhD', stage: '2025 · Meridian Semiconductor' }
+  ],
+  teaching: [
+    { code: 'CIS3043', title: 'Machine Learning', note: 'Core, semester 1', level: 'Undergraduate', students: '186 STUDENTS' },
+    { code: 'CIS4092', title: 'Graph Methods for Networked Systems', note: 'Elective, semester 2', level: 'Undergraduate', students: '41 STUDENTS' },
+    { code: 'CIS5021', title: 'Research Methods in Data Science', note: 'Core, semester 1', level: 'Postgraduate', students: '34 STUDENTS' },
+    { code: 'CIS5088', title: 'Applied Machine Learning for Infrastructure', note: 'Elective, semester 2', level: 'Postgraduate', students: '22 STUDENTS' }
+  ],
+  awards: [
+    { year: '2026', title: 'Associate Editor', org: 'IEEE Transactions on Smart Grid' },
+    { year: '2025', title: 'UTP Excellence in Research Award', org: 'Universiti Teknologi PETRONAS' },
+    { year: '2025', title: 'Best Paper Award', org: 'IEEE Innovative Smart Grid Technologies Asia' },
+    { year: '2024', title: 'National Young Scientist Award, Engineering Sciences', org: 'Academy of Sciences Malaysia' },
+    { year: '2023', title: 'Outstanding Reviewer', org: 'Electric Power Systems Research' },
+    { year: '2021', title: 'UTP Teaching Excellence Award', org: 'Universiti Teknologi PETRONAS' }
+  ],
+  colleagues: [
+    { tier: 'PRINCIPAL FELLOW', name: 'Assoc. Prof. Ts. Dr. Said Jadid Abdulkadir', focus: 'Forecasting and uncertainty quantification' },
+    { tier: 'SENIOR FELLOW', name: 'Assoc. Prof. Ts. Dr. Hanita Daud', focus: 'Graph methods and topology inference' },
+    { tier: 'FELLOW', name: 'Dr. Noureen Talpur', focus: 'Time-series analysis and benchmark curation' },
+    { tier: 'FELLOW', name: 'Dr. Aliza Sarlan', focus: 'Human factors in operational analytics' }
+  ]
+};
+
+class Component extends DCLogic {
+  state = { menu: false, tab: null };
+  centreActiveTab() {
+    const strip = document.querySelector('[data-tabstrip]');
+    if (!strip || this.activeIdx == null) return;
+    const btn = strip.querySelectorAll('button')[this.activeIdx];
+    if (!btn) return;
+    const target = btn.offsetLeft - (strip.clientWidth - btn.offsetWidth) / 2;
+    strip.scrollLeft = Math.max(0, target);
+  }
+
+  componentDidMount() { this.centreActiveTab(); }
+  componentDidUpdate() { this.centreActiveTab(); }
+
+  renderVals() {
+    const startMap = {
+      'Biography': 'bio', 'Research interests': 'interests', 'Publications': 'pubs',
+      'Projects': 'projects', 'Supervision': 'supervision', 'Teaching': 'teaching', 'Awards': 'awards'
+    };
+    const tab = this.state.tab ?? (startMap[this.props.startTab ?? 'Biography'] || 'bio');
+    const available = this.props.available ?? true;
+    this.activeIdx = TABS.findIndex(t => t[0] === tab);
+    return {
+      menuOpen: this.state.menu,
+      openMenu: () => this.setState({ menu: true }),
+      closeMenu: () => this.setState({ menu: false }),
+      name: P.name, shortName: P.shortName, tier: P.tier, role: P.role, department: P.department,
+      themeLabel: P.themeLabel, themeName: P.themeName, themeRole: P.themeRole,
+      oneLiner: P.oneLiner,
+      available, unavailable: !available, availableNote: P.availableNote,
+      tabs: TABS.map(([id, label, count]) => ({
+        label, count, on: tab === id, off: tab !== id,
+        pick: () => this.setState({ tab: id })
+      })),
+      isBio: tab === 'bio', isInterests: tab === 'interests', isPubs: tab === 'pubs',
+      isProjects: tab === 'projects', isSupervision: tab === 'supervision',
+      isTeaching: tab === 'teaching', isAwards: tab === 'awards',
+      bio: P.bio, career: P.career,
+      interestsIntro: P.interestsIntro, interests: P.interests,
+      pubs: P.pubs.map(p => Object.assign({}, p, { hasQ: !!p.quartile })),
+      projects: P.projects.map(p => Object.assign({}, p, { done: !p.active })),
+      current: P.current, completed: P.completed, teaching: P.teaching, awards: P.awards,
+      metrics: P.metrics, expertise: P.expertise, colleagues: P.colleagues
+    };
+  }
+}
+
+</script>
+</body>
+</html>

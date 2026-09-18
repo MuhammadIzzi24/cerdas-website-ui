@@ -1,0 +1,417 @@
+CERDAS Website — Prototype Requirements & Content Spec
+Centre for Resilient Data Analytics and Computational Systems, Universiti Teknologi PETRONAS
+Prepared for Claude Design · August 2026
+1. How to use this document
+Section
+Use it for
+§3 Global elements & §4 Components
+Paste into Claude Design first — it establishes the shared vocabulary before any page is generated
+§5 Page-by-page spec
+Feed one group at a time (Group A, then B, then C…) rather than all 35 screens in one prompt
+§6 Content model
+Hand to whoever builds the WordPress side — this is the CPT/taxonomy blueprint
+§7 Visual direction
+Locked UTP palette plus three typographic variations — pick one, then lock it for all remaining pages
+§8 Prompts
+Copy-paste starters for Claude Design
+Content rule for this prototype: structure and section logic are real (drawn from the CERDAS governance documents). Names, figures, titles, and body copy are realistic placeholders and marked [PLACEHOLDER] where they must be replaced before launch.
+
+2. Source material and what it maps to
+Source
+What it provides
+Where it lands on the site
+CERDAS Organisational Structure chart
+Director, Research Leadership & Management Team, CRO, Advisory Board, 4 research themes, 4 functional arms
+About → Governance
+Roles & Responsibilities table
+Duties per role, accountability principle (Theme Leads → Functional Leads → Director)
+About → Roles & Responsibilities
+HiCoE Governance & KPI chart
+5-stage value chain, KPI accountability matrix
+Impact → Research Dashboard
+Fellowship Framework (2 charts)
+5 categories, 17 appointment types, eligibility, primary role
+About → Fellowship Framework; People → all sub-pages
+Recommended Navigation list
+6 top-level items and their children
+Global navigation
+Your draft People page
+Visual reference: hero with stat counters, filter row, tiered card grids, right sidebar
+All listing pages
+Gap flagged
+The recommended navigation has no About section, but the governance material (org chart, roles table, advisory board, fellowship framework) is the richest content you have and has nowhere to live. Your own draft mockup already shows “About” in the nav bar between Home and Research — so the mockup is ahead of the nav list.
+Recommendation: add About as a top-level item. This spec assumes 7 top-level sections. If you’d rather keep 6, the governance content folds into Research → but it will sit awkwardly there.
+
+3. Global elements
+3.1 Header
+CERDAS logo lockup (logo + “Center for Resilient Data Analytics and Computational Systems”), links to Home
+Primary nav: Home · About · Research · People · Publications & Innovation · Impact · Join CERDAS
+Mega menu on hover/tap for the five sections that have children — a flat dropdown becomes unusable at 5–6 items per section. Two-column mega panel: child links on the left, a contextual promo card on the right (e.g. under Research → the current flagship project; under Join CERDAS → open scholarship round)
+Search icon → expands to full-width overlay with scoped search (All / People / Publications / News)
+Sticky on scroll, condensed height after 80px
+3.2 Footer
+Column 1: CERDAS logo, one-line positioning statement, physical address (UTP, 32610 Seri Iskandar, Perak), general email, phone
+Column 2–4: condensed sitemap
+Column 5: newsletter signup + social icons (LinkedIn, X, YouTube, Google Scholar)
+Bottom bar: UTP logo, HiCoE mark [CONFIRM STATUS], copyright, privacy policy, accessibility statement, sitemap link
+3.3 Global patterns
+Breadcrumbs on every page except Home
+Theme colour coding — the four research themes carry a fixed colour throughout the entire site (see §7 Direction C, which makes this the spine of the design)
+Consistent CTA band above the footer, contextual per section: Research → “Partner on a project”; People → “Join our research community”; Impact → “Work with us”
+Language: English only for the prototype. Confirm whether a Bahasa Malaysia toggle is required for UTP compliance.
+
+4. Reusable component library
+Define these once; every page below references them by name.
+Component
+Contents
+Used on
+PersonCard
+Photo, name, title, fellowship badge, research theme, 2–3 expertise chips, icon row (email / Scholar / LinkedIn), arrow to profile
+People, Leadership, theme pages, project pages
+PersonCard-Featured
+Larger variant with role banner (DIRECTOR / DEPUTY DIRECTOR / THEME LEAD)
+Leadership row
+StatCounter
+Icon, large number, label — animates on scroll
+Every section hero
+FilterBar
+Keyword search + 2–4 dropdowns + Reset All
+All listing pages
+ThemeChip
+Theme name + theme colour, links to theme page
+Person cards, publications, projects
+PublicationRow
+Authors (CERDAS authors bolded), title, venue, year, type badge, DOI link, cite/BibTeX button
+Publications, profiles, theme pages
+ProjectCard
+Cover image, title, theme colour bar, PI, funder, status, TRL badge
+Flagship Projects, theme pages, Industry
+FacilityCard
+Image, name, specs list, access model, booking CTA
+Labs, Facilities
+KPITile
+Metric, current value, target, delta, owner, monitor arm
+Research Dashboard
+TimelineRow
+Stage number, icon, label, description
+HiCoE value chain, Technology Transfer
+OpportunityCard
+Position type, theme, supervisor, closing date, apply CTA
+All Join CERDAS pages
+Sidebar-BrowseByTheme
+Four theme rows with counts
+People, Publications, Projects
+Sidebar-QuickLinks
+Icon + label list
+Most listing pages
+CTABand
+Headline, sub-line, primary button
+Above footer, all pages
+
+5. Page-by-page specification
+Grouped for batched generation in Claude Design.
+
+GROUP A — Home + About (7 screens)
+A1. Home
+Job: in 15 seconds, tell a visitor what CERDAS researches, who it’s for, and give them one obvious next step.
+#
+Section
+Content
+1
+Hero
+Positioning headline [PLACEHOLDER: "Resilient intelligence for a sustainable future"], one-sentence descriptor, two CTAs (“Explore our research” / “Collaborate with us”), network-motif background
+2
+Stat strip
+4 × StatCounter — Researchers, Publications (5-yr), Active Grants (RM), Industry Partners
+3
+Four research themes
+Four large cards, each with theme icon, name, three sub-areas, researcher count, theme colour. This is the most important block on the page — themes are the scientific backbone
+4
+Value chain ribbon
+Research → Talent → Innovation → Partnership → Impact (taken directly from your org chart footer)
+5
+Flagship project spotlight
+One ProjectCard-Large, rotating
+6
+Latest publications
+3 × PublicationRow, “View all”
+7
+News & events
+3 cards, mixed news/event, “View all”
+8
+Partners strip
+Logo carousel [PLACEHOLDER logos]
+9
+Values row
+Excellence in Research · Collaboration & Inclusivity · Data-Driven Decision Making · Sustainability & Responsibility · Continuous Improvement · Integrity & Accountability
+10
+CTABand
+“Build something with CERDAS”
+A2. About → Overview
+Director’s message with portrait [PLACEHOLDER]; vision and mission statements; “What we do” — the four themes in brief; the six values expanded with one line each; milestone timeline [PLACEHOLDER: centre established, HiCoE application, first flagship grant]; centre-at-a-glance stat block.
+A3. About → Governance & Organisational Structure
+The org chart rendered as an interactive diagram, not a flat image — this is a signature moment. Director at the top; Research Leadership & Management Team and Advisory Board flanking; Centre Research Officer below with its nine support functions; then the four research themes; then the four strategic functional arms. Clicking any node reveals a side panel with that unit’s responsibilities and its people. Below the diagram: a plain-language explanation of how themes (deliver) and functional arms (enable) interact, plus the closing statement about combining research themes with clear governance to drive the journey from research excellence to sustainable impact.
+A4. About → Roles & Responsibilities
+Accordion or two-column table, one row per role: Director · Research Leadership & Management Team · Theme Leads (T1–T4) · Research Excellence & Talent Lead · Innovation & Impact Translation Lead · Industry & Strategic Partnerships Lead · Operations, Resources & Performance Lead · Advisory Board. Each expands to its full responsibility list — all of this content exists verbatim in your source document.
+Close the page with the Accountability Principle as a three-step visual: Theme Leads own research performance → Functional Leads enable, accelerate and monitor → Director owns overall performance and strategic impact. Tagline: “One team. One purpose.”
+A5. About → Advisory Board
+Composition explainer (Industry / Academia / Government / Strategic Guidance & Foresight); board member grid using PersonCard with an “Advisory Board” badge and affiliation instead of research theme [PLACEHOLDER: 6–8 members]; the board’s remit — validate direction and priorities, offer industry insight and foresight, support partnership development.
+A6. About → Fellowship Framework
+The five-category framework as five colour-coded blocks: CERDAS Fellowship (internal academic leadership) · Visiting Fellowship (academic collaboration) · Adjunct Fellowship (industry partnership) · Research Staff (research excellence & support) · Research Talent Pipeline (nurturing future researchers). Each block expands into a table of appointment / eligibility / primary role — 17 rows in total, all present in your source. Each row links to the relevant People sub-page and, where applicable, to a Join CERDAS route. Close with the four framework goals: strengthen research excellence and impact, foster collaboration across academia and industry, develop and nurture research talent, create sustainable solutions.
+A7. About → Contact
+Map, address, general enquiry form with routed dropdown (General / Research collaboration / Media / Student enquiry / Industry partnership), named contacts for research admin and partnerships [PLACEHOLDER], directions and parking note.
+
+GROUP B — Research (8 screens)
+B1. Research → Overview / Themes index
+Hero with StatCounter (active projects, grant value, labs, publications). Four theme panels — each with icon, full name, the three sub-areas, theme lead PersonCard-mini, researcher count, “Explore theme” CTA. Below: a cross-theme statement — a short paragraph on how the four themes interlock, since HiCoE evaluation favours integration over silos.
+B2–B5. Theme detail pages (× 4, one template)
+T1 AI & Data Intelligence — Data Science, Machine Learning, Generative AI T2 Computational Science & Optimisation — Computational Modelling, Simulation, Optimisation, Scientific Computing T3 Intelligent & Distributed Systems — Edge Computing, Cyber-Physical Systems, Real-Time AI Systems T4 Next-Generation Computing — Quantum Computing, Advanced Architectures, High-Performance Computing
+Template sections: theme-coloured hero with icon and one-paragraph scope statement → sub-area cards (2–4 per theme) each with a 2-sentence description and its own research questions → theme lead + core members grid → active projects (ProjectCard × 3–6) → selected publications (PublicationRow × 5) → linked facilities → theme-specific collaboration CTA.
+B6. Research → Flagship Projects
+FilterBar (theme / status / funder type / year). ProjectCard grid. Each card → project detail page template with: abstract, PI and team, funder and grant value, duration, TRL progression indicator, outputs (publications, IP, prototypes), industry partner, and impact statement.
+B7. Research → Laboratories
+FacilityCard grid [PLACEHOLDER: 5–8 labs]. Per lab: focus area, lead, equipment, capacity, linked theme, photo. Detail template with gallery and enquiry CTA.
+B8. Research → Facilities
+Distinct from labs — shared infrastructure: HPC cluster, data storage and governance platform, testbeds, software licences. Per facility: specifications, access model (internal / collaborative / commercial), booking or request process, technical contact. Include an “Access for external partners” panel — this supports the consultancy and partnership KPIs.
+
+GROUP C — People (6 screens + profile template)
+Your draft mockup is the reference for this whole group.
+C1. People → Overview / Our Researchers
+Exactly as drafted: hero with four StatCounter (Researchers, Principal Fellows, Senior Fellows, PhD Students) → FilterBar (Role / Research Theme / Expertise) + search → Leadership row (PersonCard-Featured × 3: Director, Deputy Director, Theme Lead) → “Researchers by Fellowship” horizontally-scrolling rows per tier (Principal Fellows, Senior Fellows, Fellows) → right sidebar with Sidebar-BrowseByTheme, “Why collaborate with our researchers”, Sidebar-QuickLinks, and an expertise tag cloud → community CTA band.
+C2. People → Leadership
+Director (large, with message excerpt and portrait), Deputy Director / Research Lead, four Theme Leads, four Strategic Functional Leads, Centre Research Officer. Each with portrait, remit summary drawn from the roles table, and a link to full profile.
+C3. People → Fellows
+All CERDAS Fellowship appointments grouped into Principal Fellow / Senior Fellow / Fellow, with the eligibility rule shown as a caption per tier (UTP Professor / Associate Professor / Senior Lecturer or Lecturer). Full FilterBar. Include Adjunct Fellows as a separate tabbed view — Adjunct Principal Fellow, Adjunct Senior Fellow, Adjunct Fellow — with company affiliation shown instead of academic title.
+C4. People → Researchers
+Research Scientists, Postdoctoral Fellows, Research Officers. Filterable. Each card notes the theme and supervising fellow.
+C5. People → Students
+Graduate Researchers (PhD / MSc by Research), Undergraduate Researchers (FYP), Research Interns, Young Researchers (school outreach). Present as the talent pipeline — a progression graphic from Young Researcher through to Postdoctoral Fellow — rather than a flat list, since that framing is what the fellowship document intends. Include a student spotlight and a link into Join CERDAS.
+C6. People → Visiting Researchers
+Current and past Visiting Principal Fellows / Visiting Senior Fellows / Visiting Fellows / Visiting Student Researchers, each with home institution, country, dates, and host. Add a world map showing collaboration geography — this directly evidences the international collaboration KPI.
+C7. Researcher profile (detail template)
+Hero: portrait, name, title, fellowship tier, theme, contact and Scholar/ORCID/LinkedIn. Tabbed body: Biography · Research Interests · Publications (PublicationRow, filterable by year) · Projects · Supervision (current and completed students) · Teaching · Awards. Sidebar: metrics (publications, citations, h-index, active grants), expertise chips, “Available for supervision” flag, collaboration enquiry button.
+
+GROUP D — Publications & Innovation (5 screens)
+D1. Publications
+Hero stats: total publications, Q1 journal share, citations, five-year trend chart. FilterBar: year, type (journal / conference / book chapter), theme, author, Q-ranking, keyword. PublicationRow list with cite and DOI actions. Export to BibTeX/RIS. Sidebar: top venues, most-cited works.
+D2. Patents
+Filed vs granted counts, jurisdictions covered. Card grid: title, inventors, application/grant number, filing date, status badge, jurisdiction flag, linked theme and project, licensing availability flag. Include a “Licensing enquiry” CTA — this connects to the Innovation & Impact Translation arm.
+D3. Software
+Research software and tools released by CERDAS. Per item: name, purpose, licence, repository link, DOI, maintainer, version, install snippet, citation. Filter by theme and licence type.
+D4. Datasets
+Per dataset: title, description, size, format, licence, DOI, access level (open / on request / restricted), linked publications, contact. Add a short data governance statement — appropriate given “Resilient Data” is in the centre’s name.
+D5. Technology Transfer
+The commercialisation pathway as a TimelineRow sequence: Research → PoC → Prototype → TRL progression → Licensing / Spin-off → Deployment. Case studies [PLACEHOLDER × 3] with before/after impact. Two clear routes: “License our technology” and “Co-develop with us”, each with a named contact and an enquiry form. Note IP policy and UTP’s role.
+
+GROUP E — Impact (5 screens + article template)
+E1. Impact → Industry
+Industry collaboration model, sector coverage [PLACEHOLDER: energy, manufacturing, healthcare, logistics], partner logo wall, joint project case studies with quantified outcomes, “Start a conversation” CTA with a scoped enquiry form.
+E2. Impact → Consultancy
+Service catalogue — what CERDAS can be engaged to do (data strategy audits, model development, simulation studies, HPC advisory, technical training). Engagement process in four steps. Indicative timelines. Past engagements [PLACEHOLDER]. Request-for-proposal form.
+E3. Impact → Partnerships
+Split into national and international. MoU register [PLACEHOLDER] with partner, type, focus, and year. Joint ventures and staff exchange programmes. Government and ecosystem relationships. Interactive map. Partnership enquiry route.
+E4. Impact → News & Events
+Combined feed with a News / Events toggle. Events show date-badge cards with register CTA and past/upcoming split. Filter by theme and type (seminar, workshop, conference, colloquium, outreach). Article detail template: hero image, meta row, body, related people, related news.
+E5. Impact → Research Dashboard
+The distinguishing page — this is where HiCoE evidence becomes public-facing. Build directly from the KPI accountability matrix.
+Header: reporting period selector, last-updated stamp
+KPITile grid, one per performance area: Publications & Citations · Research Grants · Postgraduate & Talent · IP, Patents & PoCs · Technology Translation · Industry Projects & Consultancy · International Collaboration · Facilities & Resources · HiCoE KPI & Evidence. Each tile shows current value, target, delta, primary owner, and enabling functional arm
+Trend charts: publications by year and quartile; grant value by year; postgraduate completions; IP filings
+The five-stage value chain (Generate & Deliver → Enable & Accelerate → Monitor & Report → Review & Decide → Deliver Impact) as a visual band tying the numbers back to the governance model
+Accountability note explaining that Theme Leads own research performance while functional arms enable and monitor it
+Decision needed: is this dashboard fully public, or partially gated for internal/HiCoE reviewer access? Recommend public headline figures, with the detailed matrix behind a login.
+
+GROUP F — Join CERDAS (5 screens)
+Shared pattern: eligibility → what you get → how to apply (numbered steps) → deadlines → current openings (OpportunityCard) → FAQ → contact.
+F1. Scholarships — PhD and MSc funding routes, stipend and coverage [PLACEHOLDER], supervisor matching tool filtered by theme and expertise, required documents
+F2. Postdoctoral — positions by theme, host fellow, duration, salary band [PLACEHOLDER], expectations, current openings
+F3. Research Positions — Research Scientist, Research Officer, technical and admin roles; benefits; life at UTP; application portal link
+F4. Internship — industrial training and short-term attachments for UG/PG; also covers Visiting Student Researchers and the Young Researcher school outreach programme; intake calendar; past intern testimonials [PLACEHOLDER]
+F5. Collaborate With Us — the master conversion page. Four routes as distinct cards: joint research project · consultancy engagement · adjunct fellowship (for industry experts) · facility and lab access. Each with a description, what CERDAS brings, what’s expected, and a single routed enquiry form. This is the page most external CTAs across the site should point to.
+
+Screen count: ~35 unique screens plus 4 detail templates (project, researcher, facility, article).
+
+6. WordPress content model
+Since this lands in WordPress, the prototype should be built against a structure that maps cleanly to custom post types.
+Custom Post Type
+Key fields
+Taxonomies
+researcher
+photo, title, fellowship tier, bio, email, Scholar ID, ORCID, LinkedIn, metrics, supervision availability
+Research Theme, Fellowship Category, Expertise, Role
+publication
+authors, venue, year, type, DOI, quartile, abstract
+Research Theme, Publication Type, Year
+project
+abstract, PI, team, funder, value, dates, status, TRL
+Research Theme, Project Status, Funder Type
+lab / facility
+specs, lead, equipment, access model, images
+Research Theme, Access Level
+patent
+inventors, number, jurisdiction, status, licensing flag
+Research Theme, IP Status
+software / dataset
+licence, repo, DOI, version, access level
+Research Theme, Licence Type
+news / event
+date, location, registration link, body
+Research Theme, Content Type
+opportunity
+type, supervisor, closing date, requirements
+Research Theme, Opportunity Type
+partner
+logo, sector, country, MoU type, year
+Sector, Partnership Type, Region
+Shared taxonomy — Research Theme (T1–T4) is the connective tissue. Every content type carries it, which is what makes the theme pages, filters, and dashboard aggregations work without manual curation.
+Suggested plugin direction: ACF Pro for fields, Facet WP or similar for the filter bars, a Scholar/Scopus import route for publications rather than manual entry.
+
+7. Visual direction — UTP brand, strictly applied
+The palette is fixed and non-negotiable across all three variations below. Only layout, typography, and tone differ. Sampled directly from the CERDAS/UTP logo file.
+7.1 Locked brand tokens
+Token
+Hex
+Role
+--utp-blue
+#004B8C
+Primary. Sampled from the UTP emblem and the CERDAS wordmark. Headers, primary buttons, links, section anchors
+--utp-blue-deep
+#00335F
+Dark surfaces, hero backgrounds, footer
+--utp-blue-tint
+#E6EEF5
+Section washes, table stripes, hover states
+--utp-gold
+#E38C07
+Sole accent. Sampled from the emblem’s three golden strokes. Use with restraint — CTAs, active states, key figures
+--utp-gold-soft
+#F5C46B
+Chart fills, badge backgrounds, gold on dark
+--ink
+#14181D
+Body text
+--slate
+#5A6472
+Secondary text, captions
+--rule
+#D8DEE5
+Hairlines, dividers, card borders
+--paper
+#FFFFFF
+Base surface
+--paper-warm
+#FAFAF8
+Alternate section background
+Discipline rules: - Gold is an accent, never a surface. If more than about 5% of a screen is gold, it’s overused. - No teal, no cyan, no gradient meshes. The draft mockup’s teal is retired. - Blue carries structure; gold carries attention. Nothing else is allowed to compete. - Semantic colours (success/warning/error) are permitted in the dashboard only, kept desaturated so they don’t read as brand colours.
+7.2 Handling the four research themes
+Your governance charts assign T1–T4 four distinct colours (red, green, blue, charcoal). Under a strict UTP palette those can’t survive as-is. Three options:
+Option
+How it works
+Trade-off
+A. Blue ladder (recommended)
+Themes differentiate by tint of the same blue: T1 #004B8C · T2 #1A6BAE · T3 #4A8CC4 · T4 #7FAED9. Gold marks the active state
+Fully on-brand, elegant. Weaker at-a-glance distinction
+B. Icon-led
+All themes use UTP blue; differentiation comes entirely from distinct icons and typography
+Maximum brand purity. Filters become harder to scan
+C. Restrained accents
+Keep four hues but desaturate and darken them to sit beside UTP blue without competing
+Preserves your existing chart language. Slightly dilutes brand strictness
+Option A is applied in the variations below.
+7.3 Three variations on the UTP palette
+Variation 1 — “Institutional”
+Type
+Display: Inter Tight · Body: Inter · Data: IBM Plex Mono
+Surfaces
+Deep blue hero, white content bands, blue-tint alternating sections
+Layout
+Conventional 12-column, generous cards, 8px rounding, soft shadows
+Signature
+Gold rule that underlines the active nav item and every section heading — a single thread of gold running down the page
+Reads as
+Safe, professional, unmistakably a UTP centre. Closest to what stakeholders expect
+Variation 2 — “Evidence”
+Type
+Display: IBM Plex Sans Condensed · Body: IBM Plex Sans · Data: IBM Plex Mono
+Surfaces
+Predominantly white/paper-warm. Deep blue reserved for header, footer, and one hero band
+Layout
+Hairline-ruled grid, 2–4px rounding, dense and precise, minimal shadow. Figures set large in mono
+Signature
+Metrics as the hero. Home opens with the live figure set — publications, grant value, patents, partners — in gold-on-white mono at display size, with the HiCoE value chain beneath. The site’s argument is its evidence
+Reads as
+A centre that measures itself. Strongest fit for HiCoE and MyRA evaluators
+Variation 3 — “Wordmark”
+Type
+Display: Libre Baskerville or Source Serif 4 (echoing the serif CERDAS wordmark) · Body: Source Sans 3 · Data: Roboto Mono
+Surfaces
+Warm paper base, deep blue full-bleed section breaks
+Layout
+Editorial. Wide margins, asymmetric two-column grids, large serif display type, minimal card chrome
+Signature
+The typography is the brand extension — the site’s display face descends from the CERDAS wordmark’s serif rather than importing an unrelated sans. Gold appears only as a thin vertical spine marking the current section
+Reads as
+Scholarly and considered. Most distinctive; also the most demanding to execute well
+My read: Variation 2 is the strongest strategic fit — it uses the brand strictly while making your HiCoE evidence the visual centrepiece. Variation 1 is the safest for internal approval. Variation 3 is the only one that extends the brand rather than merely obeying it.
+Before build: confirm these hex values against UTP’s Corporate Identity Manual. They’re sampled from the logo artwork, which is accurate for screen but may differ slightly from the official Pantone-derived digital values. Also confirm whether UTP mandates a specific typeface for sub-brand sites.
+8. Claude Design prompts
+Prompt 1 — establish context (send first, with the PDF and your draft image attached)
+I’m designing the website for CERDAS, the Center for Resilient Data Analytics and Computational Systems at Universiti Teknologi PETRONAS — a university research centre pursuing HiCoE recognition. Audiences, in priority order: prospective postgraduate students and postdocs; industry partners looking for research collaboration or consultancy; academic collaborators; HiCoE and MyRA evaluators.
+I’ve attached the centre’s governance documents and a draft mockup of one page. The site has seven top-level sections: Home, About, Research, People, Publications & Innovation, Impact, Join CERDAS.
+Don’t design anything yet. Confirm you’ve understood the structure, then wait for my page specifications.
+Prompt 2 — three variations on the UTP palette
+Design the Home page in three variations so I can compare. Desktop, 1440px.
+The colour palette is fixed and identical across all three — this is a university sub-brand and must comply strictly with UTP’s identity:
+[paste §7.1 brand tokens table and the discipline rules]
+Research themes differentiate by tint of the primary blue, not by separate hues: [paste §7.2 Option A]
+The three variations differ only in typography, layout, and tone:
+[paste §7.3 Variations 1, 2, 3]
+Same content and section order in all three — [paste §5 A1 Home] — so the only variable is the typographic and layout language. Show them side by side on the canvas.
+Prompt 3 — after picking a direction
+Lock Variation [X]. Apply it to the People page: [paste §5 C1]. Match the layout of my attached draft — hero with four stat counters, filter row, leadership row, fellowship-tier card rows, right sidebar. Use the components defined here: [paste §4].
+Prompt 4 — then batch the rest
+Now generate Group [B/C/D/E/F]: [paste the group from §5]. Reuse the components and the UTP brand tokens and Variation [X] typography already established. Keep the header, footer, and breadcrumbs consistent with the pages already built.
+Prompt 5 — responsive
+Show mobile versions (390px) of Home, People, and Research Dashboard. Mega menu collapses to an accordion drawer; card grids become single-column; the filter bar becomes a bottom sheet; dashboard KPI tiles stack two-up.
+
+9. Build order
+Phase
+Pages
+Why first
+1
+Home ×3 variations
+Locks the typographic and layout language; palette is already fixed
+2
+People overview + researcher profile
+Highest-traffic section, most reusable components, and you already have a reference
+3
+Research overview + one theme page
+Establishes the theme template applied four times
+4
+Research Dashboard
+Most distinctive page; the HiCoE argument
+5
+About group
+Content-heavy but structurally simple
+6
+Publications & Innovation + Impact
+Depends on component patterns from phases 2–3
+7
+Join CERDAS
+Shared template across five pages, fastest to produce
+8
+Mobile + detail templates
+Once desktop patterns are settled
+
+10. Open items
+Replace before launch, or confirm as assumptions:
+HiCoE status — applying, shortlisted, or recognised? Affects footer marks, Home page framing, and how the dashboard is positioned
+Real figures — researcher counts, publication totals, grant values, partner count. All stat counters currently carry placeholders
+Researcher roster — names, titles, photos, expertise tags, Scholar IDs
+Bahasa Malaysia — required, or English only?
+Dashboard access — fully public or partly gated?
+Existing WordPress site — URL, so existing content can be audited and mapped rather than rewritten
+UTP brand guidelines — exact hex values and any mandated typefaces or header/footer requirements for centre sites
+News source — does CERDAS publish its own news, or syndicate from UTP’s newsroom?
+Publication data — manual entry, or import from Scopus/Scholar/UTP’s repository?
+Domain — subdomain of utp.edu.my, or standalone?

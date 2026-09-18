@@ -1,0 +1,960 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""><link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&amp;family=Inter:wght@400;500;600;700&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#FAFAF8;font-family:Inter,system-ui,sans-serif}
+a{color:#004B8C;text-decoration:none}a:hover{color:#00335F}
+</style></helmet>
+
+<div data-screen-label="F Join CERDAS" style="width:1440px;margin:0 auto;background:#FFFFFF">
+
+<dc-import name="SiteHeader" active="Join CERDAS" hint-size="100%,78px"></dc-import>
+
+<section style="background:#00335F;padding:56px 0 60px;position:relative;overflow:hidden">
+<svg viewBox="0 0 1440 400" preserveAspectRatio="none" style="position:absolute;inset:0;width:100%;height:100%;opacity:.2" aria-hidden="true">
+<g stroke="#7FAED9" stroke-width="1.2" fill="none"><path d="M1020 320 H1120 V240 H1220 V160 H1320 V90 H1410"></path></g>
+<g fill="#7FAED9"><circle cx="1020" cy="320" r="6"></circle><circle cx="1120" cy="240" r="6"></circle><circle cx="1220" cy="160" r="6"></circle></g>
+<g fill="#E38C07"><circle cx="1320" cy="90" r="8"></circle></g>
+</svg>
+<div style="width:1320px;margin:0 auto;position:relative">
+<div style="font:500 11px 'IBM Plex Mono',monospace;letter-spacing:.13em;color:#7FAED9;margin-bottom:28px"><a href="CERDAS Home.dc.html" style="color:#7FAED9">HOME</a> <span style="color:#E38C07">/</span> JOIN CERDAS <span style="color:#E38C07">/</span> {{ crumb }}</div>
+<div style="display:flex;align-items:flex-start;justify-content:space-between;gap:64px">
+<div style="max-width:760px">
+<div style="font:500 10.5px 'IBM Plex Mono',monospace;letter-spacing:.14em;color:#E38C07;margin-bottom:18px">{{ eyebrow }}</div>
+<h1 style="margin:0 0 22px;font:700 52px/1.07 'Inter Tight',sans-serif;letter-spacing:-.02em;color:#FFFFFF;text-wrap:pretty">{{ title }}</h1>
+<p style="margin:0;font:400 18.5px/1.62 Inter,sans-serif;color:#BFD2E4;text-wrap:pretty">{{ intro }}</p>
+</div>
+<div style="flex:none;width:290px;border-left:1px solid rgba(127,174,217,.34);padding-left:28px">
+<div style="font:500 10px 'IBM Plex Mono',monospace;letter-spacing:.14em;color:#7FAED9;margin-bottom:9px">NEXT DEADLINE</div>
+<div style="font:600 22px/1.2 'IBM Plex Mono',monospace;color:#FFFFFF;margin-bottom:8px">{{ nextDeadline }}</div>
+<div style="font:400 13.5px/1.5 Inter,sans-serif;color:#BFD2E4;margin-bottom:24px">{{ nextDeadlineNote }}</div>
+<a href="#apply" style="display:block;text-align:center;font:600 14.5px Inter,sans-serif;color:#14181D;background:#E38C07;padding:14px 20px;border-radius:6px" style-hover="background:#F5C46B">{{ heroCta }}</a>
+</div>
+</div>
+</div>
+</section>
+
+<section style="background:#FFFFFF;border-bottom:1px solid #D8DEE5;position:sticky;top:0;z-index:20">
+<div style="width:1320px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:30px">
+<div style="display:flex;gap:0">
+<sc-for list="{{ tabs }}" as="t" hint-placeholder-count="5">
+<sc-if value="{{ t.on }}" hint-placeholder-val="{{ false }}">
+<button type="button" onClick="{{ t.pick }}" style="position:relative;font:600 13.5px Inter,sans-serif;color:#004B8C;background:transparent;border:0;padding:22px 22px 19px;cursor:pointer;white-space:nowrap">{{ t.label }}<span style="position:absolute;left:22px;right:22px;bottom:0;height:3px;background:#E38C07"></span></button>
+</sc-if>
+<sc-if value="{{ t.off }}" hint-placeholder-val="{{ true }}">
+<button type="button" onClick="{{ t.pick }}" style="font:500 13.5px Inter,sans-serif;color:#5A6472;background:transparent;border:0;padding:22px 22px 19px;cursor:pointer;white-space:nowrap" style-hover="color:#004B8C">{{ t.label }}</button>
+</sc-if>
+</sc-for>
+</div>
+<div style="font:500 10.5px 'IBM Plex Mono',monospace;letter-spacing:.1em;color:#5A6472;white-space:nowrap">{{ trackCode }}</div>
+</div>
+</section>
+
+<section style="background:#FFFFFF;border-bottom:1px solid #D8DEE5">
+<div style="width:1320px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr)">
+<sc-for list="{{ stats }}" as="s" hint-placeholder-count="4">
+<sc-if value="{{ s.first }}" hint-placeholder-val="{{ false }}">
+<div style="padding:38px 32px 38px 0">
+<div style="width:34px;height:3px;background:#E38C07;margin-bottom:18px"></div>
+<div style="font:600 38px/1 'IBM Plex Mono',monospace;color:#004B8C;letter-spacing:-.025em;white-space:nowrap">{{ s.value }}</div>
+<div style="margin-top:10px;font:500 11.5px Inter,sans-serif;letter-spacing:.09em;color:#5A6472">{{ s.label }}</div>
+</div>
+</sc-if>
+<sc-if value="{{ s.mid }}" hint-placeholder-val="{{ true }}">
+<div style="padding:38px 32px;border-left:1px solid #D8DEE5">
+<div style="width:34px;height:3px;background:#E38C07;margin-bottom:18px"></div>
+<div style="font:600 38px/1 'IBM Plex Mono',monospace;color:#004B8C;letter-spacing:-.025em;white-space:nowrap">{{ s.value }}</div>
+<div style="margin-top:10px;font:500 11.5px Inter,sans-serif;letter-spacing:.09em;color:#5A6472">{{ s.label }}</div>
+</div>
+</sc-if>
+<sc-if value="{{ s.last }}" hint-placeholder-val="{{ false }}">
+<div style="padding:38px 0 38px 32px;border-left:1px solid #D8DEE5">
+<div style="width:34px;height:3px;background:#E38C07;margin-bottom:18px"></div>
+<div style="font:600 38px/1 'IBM Plex Mono',monospace;color:#004B8C;letter-spacing:-.025em;white-space:nowrap">{{ s.value }}</div>
+<div style="margin-top:10px;font:500 11.5px Inter,sans-serif;letter-spacing:.09em;color:#5A6472">{{ s.label }}</div>
+</div>
+</sc-if>
+</sc-for>
+</div>
+</section>
+
+<sc-if value="{{ isCollab }}" hint-placeholder-val="{{ false }}">
+<section style="background:#004B8C;padding:64px 0 68px">
+<div style="width:1320px;margin:0 auto">
+<div style="width:44px;height:3px;background:#E38C07;margin-bottom:22px"></div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start;margin-bottom:44px">
+<div>
+<h2 style="margin:0 0 16px;font:700 34px/1.14 'Inter Tight',sans-serif;letter-spacing:-.018em;color:#FFFFFF;text-wrap:pretty">Why organisations work with a university centre rather than a consultancy</h2>
+<p style="margin:0;font:400 17px/1.62 Inter,sans-serif;color:#BFD2E4;text-wrap:pretty">Because the problems worth bringing here are the ones nobody can quote a fixed answer for. We take the questions that need a method invented, not a template applied — and you keep the method afterwards.</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:1px;background:rgba(127,174,217,.28);border-radius:8px;overflow:hidden">
+<div style="background:#004B8C;padding:22px 24px">
+<div style="font:500 10px 'IBM Plex Mono',monospace;letter-spacing:.14em;color:#F5C46B;margin-bottom:9px">DEPTH OVER SPEED</div>
+<div style="font:400 14.5px/1.6 Inter,sans-serif;color:#BFD2E4">A consultancy is optimised to finish. A research centre is optimised to be right — which is the better trade when the answer will run in your operation for a decade.</div>
+</div>
+<div style="background:#004B8C;padding:22px 24px">
+<div style="font:500 10px 'IBM Plex Mono',monospace;letter-spacing:.14em;color:#F5C46B;margin-bottom:9px">THE METHOD IS YOURS</div>
+<div style="font:400 14.5px/1.6 Inter,sans-serif;color:#BFD2E4">You get the model, the training code and a team that can retrain it — not a black box with a renewal date attached.</div>
+</div>
+<div style="background:#004B8C;padding:22px 24px">
+<div style="font:500 10px 'IBM Plex Mono',monospace;letter-spacing:.14em;color:#F5C46B;margin-bottom:9px">TALENT, AS A SIDE EFFECT</div>
+<div style="font:400 14.5px/1.6 Inter,sans-serif;color:#BFD2E4">Funded students work on your problem for three years and know your domain when they graduate. Several partners have hired the researcher who built their system.</div>
+</div>
+<div style="background:#004B8C;padding:22px 24px">
+<div style="font:500 10px 'IBM Plex Mono',monospace;letter-spacing:.14em;color:#F5C46B;margin-bottom:9px">PUBLIC FUNDING LEVERAGE</div>
+<div style="font:400 14.5px/1.6 Inter,sans-serif;color:#BFD2E4">On a joint grant, your contribution is the industry share of a much larger programme. RM 1 of partner cash has typically unlocked RM 3.20 of national funding.</div>
+</div>
+</div>
+</div>
+<div style="display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(127,174,217,.28);border-radius:8px;overflow:hidden">
+<sc-for list="{{ proof }}" as="p" hint-placeholder-count="4">
+<div style="background:#00335F;padding:28px 26px 30px">
+<div style="font:600 34px/1 'IBM Plex Mono',monospace;color:#FFFFFF;letter-spacing:-.025em;margin-bottom:12px">{{ p.value }}</div>
+<div style="font:400 13.5px/1.55 Inter,sans-serif;color:#BFD2E4">{{ p.label }}</div>
+</div>
+</sc-for>
+</div>
+</div>
+</section>
+</sc-if>
+
+<section style="background:#FAFAF8;padding:64px 0 76px">
+<div style="width:1320px;margin:0 auto">
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:start">
+
+<div style="background:#FFFFFF;border:1px solid #D8DEE5;border-radius:8px;padding:34px 36px 36px">
+<div style="width:44px;height:3px;background:#E38C07;margin-bottom:20px"></div>
+<h2 style="margin:0 0 12px;font:700 28px/1.18 'Inter Tight',sans-serif;letter-spacing:-.015em;color:#14181D">{{ eligTitle }}</h2>
+<p style="margin:0 0 26px;font:400 15.5px/1.62 Inter,sans-serif;color:#5A6472">{{ eligIntro }}</p>
+<div style="display:flex;flex-direction:column;gap:14px;margin-bottom:28px">
+<sc-for list="{{ eligibility }}" as="e" hint-placeholder-count="5">
+<div style="display:flex;gap:13px;align-items:flex-start">
+<span style="flex:none;width:18px;height:18px;border-radius:4px;background:rgba(0,75,140,.08);color:#004B8C;display:flex;align-items:center;justify-content:center;font:600 11px Inter,sans-serif;margin-top:2px">✓</span>
+<span style="font:400 15px/1.55 Inter,sans-serif;color:#14181D">{{ e }}</span>
+</div>
+</sc-for>
+</div>
+<div style="background:#FAFAF8;border:1px solid #E8ECF1;border-radius:7px;padding:22px 24px">
+<div style="font:500 10px 'IBM Plex Mono',monospace;letter-spacing:.14em;color:#5A6472;margin-bottom:12px">THIS IS PROBABLY NOT FOR YOU IF</div>
+<div style="display:flex;flex-direction:column;gap:11px">
+<sc-for list="{{ notFor }}" as="n" hint-placeholder-count="2">
+<div style="display:flex;gap:13px;align-items:flex-start">
+<span style="flex:none;width:18px;height:18px;border-radius:4px;background:#FFFFFF;border:1px solid #E8ECF1;color:#5A6472;display:flex;align-items:center;justify-content:center;font:600 11px Inter,sans-serif;margin-top:2px">—</span>
+<span style="font:400 14.5px/1.55 Inter,sans-serif;color:#5A6472">{{ n }}</span>
+</div>
+</sc-for>
+</div>
+</div>
+</div>
+
+<div style="background:#FFFFFF;border:1px solid #D8DEE5;border-radius:8px;padding:34px 36px 36px">
+<div style="width:44px;height:3px;background:#E38C07;margin-bottom:20px"></div>
+<h2 style="margin:0 0 12px;font:700 28px/1.18 'Inter Tight',sans-serif;letter-spacing:-.015em;color:#14181D">{{ getTitle }}</h2>
+<p style="margin:0 0 26px;font:400 15.5px/1.62 Inter,sans-serif;color:#5A6472">{{ getIntro }}</p>
+<div style="display:flex;flex-direction:column;gap:1px;background:#E8ECF1;border-radius:7px;overflow:hidden">
+<sc-for list="{{ benefits }}" as="b" hint-placeholder-count="5">
+<div style="background:#FFFFFF;padding:18px 20px;display:flex;align-items:baseline;justify-content:space-between;gap:20px">
+<div>
+<div style="font:600 15.5px/1.35 'Inter Tight',sans-serif;color:#14181D;margin-bottom:5px">{{ b.label }}</div>
+<div style="font:400 13.5px/1.5 Inter,sans-serif;color:#5A6472">{{ b.note }}</div>
+</div>
+<div style="flex:none;font:600 14px 'IBM Plex Mono',monospace;color:#004B8C;white-space:nowrap">{{ b.value }}</div>
+</div>
+</sc-for>
+</div>
+</div>
+
+</div>
+</div>
+</section>
+
+<section id="apply" style="background:#FFFFFF;padding:72px 0 80px;border-top:1px solid #D8DEE5">
+<div style="width:1320px;margin:0 auto">
+<div style="width:44px;height:3px;background:#E38C07;margin-bottom:22px"></div>
+<div style="display:flex;align-items:flex-end;justify-content:space-between;gap:40px;margin-bottom:36px">
+<div>
+<h2 style="margin:0 0 12px;font:700 32px/1.16 'Inter Tight',sans-serif;letter-spacing:-.015em;color:#14181D">{{ applyTitle }}</h2>
+<p style="margin:0;font:400 16px/1.6 Inter,sans-serif;color:#5A6472;max-width:660px">{{ applyIntro }}</p>
+</div>
+<div style="font:500 11.5px 'IBM Plex Mono',monospace;letter-spacing:.1em;color:#5A6472;white-space:nowrap;text-align:right">{{ applyMetaTop }}<br>{{ applyMetaBottom }}</div>
+</div>
+<div style="display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:#D8DEE5;border:1px solid #D8DEE5;border-radius:8px;overflow:hidden">
+<sc-for list="{{ steps }}" as="s" hint-placeholder-count="4">
+<div style="background:#FFFFFF;padding:30px 28px 32px;display:flex;flex-direction:column">
+<div style="font:600 30px/1 'IBM Plex Mono',monospace;color:#004B8C;letter-spacing:-.02em;margin-bottom:20px">{{ s.n }}</div>
+<div style="font:600 19px/1.26 'Inter Tight',sans-serif;color:#14181D;margin-bottom:10px">{{ s.title }}</div>
+<div style="font:400 14px/1.6 Inter,sans-serif;color:#5A6472;margin-bottom:20px">{{ s.body }}</div>
+<div style="margin-top:auto;padding-top:18px;border-top:1px solid #E8ECF1">
+<div style="font:500 9.5px 'IBM Plex Mono',monospace;letter-spacing:.12em;color:#5A6472;margin-bottom:5px">TYPICALLY</div>
+<div style="font:500 13px 'IBM Plex Mono',monospace;color:#14181D">{{ s.time }}</div>
+</div>
+</div>
+</sc-for>
+</div>
+
+<div style="margin-top:28px;display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:start">
+<div style="background:#FAFAF8;border:1px solid #D8DEE5;border-radius:8px;padding:30px 32px 32px">
+<h3 style="margin:0 0 20px;font:600 20px/1.24 'Inter Tight',sans-serif;color:#14181D">{{ docsTitle }}</h3>
+<div style="display:flex;flex-direction:column;gap:12px">
+<sc-for list="{{ documents }}" as="d" hint-placeholder-count="4">
+<div style="display:flex;gap:12px;align-items:flex-start">
+<span style="flex:none;width:5px;height:5px;border-radius:50%;background:#E38C07;margin-top:8px"></span>
+<span style="font:400 14.5px/1.55 Inter,sans-serif;color:#5A6472">{{ d }}</span>
+</div>
+</sc-for>
+</div>
+</div>
+<div style="background:#FAFAF8;border:1px solid #D8DEE5;border-radius:8px;padding:30px 32px 32px">
+<h3 style="margin:0 0 20px;font:600 20px/1.24 'Inter Tight',sans-serif;color:#14181D">Key dates</h3>
+<div style="display:flex;flex-direction:column;gap:1px;background:#E8ECF1;border-radius:7px;overflow:hidden">
+<sc-for list="{{ deadlines }}" as="d" hint-placeholder-count="4">
+<div style="background:#FFFFFF;padding:16px 18px;display:flex;align-items:center;justify-content:space-between;gap:20px">
+<div style="display:flex;align-items:center;gap:12px">
+<sc-if value="{{ d.next }}" hint-placeholder-val="{{ false }}"><span style="flex:none;width:8px;height:8px;border-radius:50%;background:#E38C07"></span></sc-if>
+<sc-if value="{{ d.later }}" hint-placeholder-val="{{ true }}"><span style="flex:none;width:8px;height:8px;border-radius:50%;background:#D8DEE5"></span></sc-if>
+<div>
+<div style="font:500 14.5px/1.35 Inter,sans-serif;color:#14181D">{{ d.label }}</div>
+<div style="margin-top:3px;font:400 12.5px Inter,sans-serif;color:#5A6472">{{ d.note }}</div>
+</div>
+</div>
+<div style="flex:none;font:600 13.5px 'IBM Plex Mono',monospace;color:#004B8C;white-space:nowrap">{{ d.date }}</div>
+</div>
+</sc-for>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<section style="background:#FAFAF8;padding:64px 0 76px">
+<div style="width:1320px;margin:0 auto">
+<div style="width:44px;height:3px;background:#E38C07;margin-bottom:22px"></div>
+<div style="display:flex;align-items:flex-end;justify-content:space-between;gap:40px;margin-bottom:30px">
+<div>
+<h2 style="margin:0 0 12px;font:700 32px/1.16 'Inter Tight',sans-serif;letter-spacing:-.015em;color:#14181D">{{ openTitle }}</h2>
+<p style="margin:0;font:400 16px/1.6 Inter,sans-serif;color:#5A6472;max-width:660px">{{ openIntro }}</p>
+</div>
+<div style="display:flex;align-items:center;gap:10px;flex:none">
+<span style="font:500 10.5px 'IBM Plex Mono',monospace;letter-spacing:.12em;color:#5A6472;margin-right:4px">THEME</span>
+<sc-for list="{{ themeChips }}" as="c" hint-placeholder-count="5">
+<sc-if value="{{ c.on }}" hint-placeholder-val="{{ false }}"><button type="button" onClick="{{ c.pick }}" style="font:600 12px 'IBM Plex Mono',monospace;letter-spacing:.05em;color:#FFFFFF;background:#004B8C;border:1px solid #004B8C;padding:7px 13px;border-radius:5px;cursor:pointer">{{ c.label }}</button></sc-if>
+<sc-if value="{{ c.off }}" hint-placeholder-val="{{ true }}"><button type="button" onClick="{{ c.pick }}" style="font:500 12px 'IBM Plex Mono',monospace;letter-spacing:.05em;color:#5A6472;background:#FFFFFF;border:1px solid #D8DEE5;padding:7px 13px;border-radius:5px;cursor:pointer" style-hover="border-color:#004B8C;color:#004B8C">{{ c.label }}</button></sc-if>
+</sc-for>
+</div>
+</div>
+
+<div style="background:#FFFFFF;border:1px solid #D8DEE5;border-radius:8px;overflow:hidden">
+<div style="display:grid;grid-template-columns:1fr 250px 200px 150px;background:#FAFAF8;border-bottom:1px solid #D8DEE5">
+<div style="padding:14px 20px 14px 28px;font:500 10px 'IBM Plex Mono',monospace;letter-spacing:.14em;color:#5A6472">{{ colOpening }}</div>
+<div style="padding:14px 20px;font:500 10px 'IBM Plex Mono',monospace;letter-spacing:.14em;color:#5A6472">{{ colOwner }}</div>
+<div style="padding:14px 20px;font:500 10px 'IBM Plex Mono',monospace;letter-spacing:.14em;color:#5A6472">CLOSES</div>
+<div style="padding:14px 28px 14px 20px;font:500 10px 'IBM Plex Mono',monospace;letter-spacing:.14em;color:#5A6472"></div>
+</div>
+<sc-for list="{{ openings }}" as="o" hint-placeholder-count="4">
+<div style="display:grid;grid-template-columns:1fr 250px 200px 150px;border-bottom:1px solid #E8ECF1;align-items:center">
+<div style="padding:22px 20px 22px 28px">
+<div style="display:flex;align-items:center;gap:10px;margin-bottom:7px">
+<span style="font:500 10px 'IBM Plex Mono',monospace;letter-spacing:.12em;color:#004B8C">{{ o.themeLabel }}</span>
+<sc-if value="{{ o.urgent }}" hint-placeholder-val="{{ false }}"><span style="background:#E38C07;color:#14181D;font:600 9.5px 'IBM Plex Mono',monospace;letter-spacing:.06em;padding:4px 8px;border-radius:4px;white-space:nowrap">CLOSING SOON</span></sc-if>
+</div>
+<div style="font:600 16px/1.32 'Inter Tight',sans-serif;color:#14181D;margin-bottom:6px">{{ o.title }}</div>
+<div style="font:400 13.5px/1.5 Inter,sans-serif;color:#5A6472">{{ o.note }}</div>
+</div>
+<div style="padding:22px 20px;font:400 13.5px/1.5 Inter,sans-serif;color:#5A6472">{{ o.owner }}</div>
+<div style="padding:22px 20px;font:500 13.5px 'IBM Plex Mono',monospace;color:#14181D">{{ o.closes }}</div>
+<div style="padding:22px 28px 22px 20px"><a href="#" style="font:600 13.5px Inter,sans-serif;color:#004B8C">{{ o.cta }} →</a></div>
+</div>
+</sc-for>
+</div>
+
+<sc-if value="{{ openEmpty }}" hint-placeholder-val="{{ false }}">
+<div style="background:#FFFFFF;border:1px solid #D8DEE5;border-top:0;border-radius:0 0 8px 8px;padding:48px 0;text-align:center">
+<div style="font:600 18px 'Inter Tight',sans-serif;color:#14181D;margin-bottom:9px">Nothing open in that theme right now</div>
+<div style="font:400 14.5px Inter,sans-serif;color:#5A6472">Clear the theme filter, or write to us anyway — strong applications are held for the next round.</div>
+</div>
+</sc-if>
+
+<div style="margin-top:16px;font:500 12px 'IBM Plex Mono',monospace;letter-spacing:.08em;color:#5A6472">{{ openLine }}</div>
+</div>
+</section>
+
+<section style="background:#FFFFFF;padding:72px 0 80px;border-top:1px solid #D8DEE5">
+<div style="width:1320px;margin:0 auto">
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start">
+<div>
+<div style="width:44px;height:3px;background:#E38C07;margin-bottom:22px"></div>
+<h2 style="margin:0 0 12px;font:700 32px/1.16 'Inter Tight',sans-serif;letter-spacing:-.015em;color:#14181D">Questions people actually ask</h2>
+<p style="margin:0 0 28px;font:400 16px/1.6 Inter,sans-serif;color:#5A6472">If yours is not here, ask the named contact — the answer usually takes a paragraph, not a meeting.</p>
+<div style="background:#FAFAF8;border:1px solid #D8DEE5;border-radius:8px;padding:28px 30px 30px">
+<div style="font:500 10px 'IBM Plex Mono',monospace;letter-spacing:.14em;color:#5A6472;margin-bottom:14px">WHO TO ASK</div>
+<div style="font:600 19px/1.28 'Inter Tight',sans-serif;color:#14181D;margin-bottom:6px">{{ contactName }}</div>
+<div style="font:400 14px/1.55 Inter,sans-serif;color:#5A6472;margin-bottom:20px">{{ contactRole }}</div>
+<div style="display:flex;flex-direction:column;gap:10px;padding-top:20px;border-top:1px solid #D8DEE5">
+<div style="display:flex;align-items:baseline;justify-content:space-between;gap:16px">
+<span style="font:500 10px 'IBM Plex Mono',monospace;letter-spacing:.12em;color:#5A6472">EMAIL</span>
+<a href="#" style="font:500 14px 'IBM Plex Mono',monospace;color:#004B8C">{{ contactEmail }}</a>
+</div>
+<div style="display:flex;align-items:baseline;justify-content:space-between;gap:16px">
+<span style="font:500 10px 'IBM Plex Mono',monospace;letter-spacing:.12em;color:#5A6472">REPLIES WITHIN</span>
+<span style="font:500 14px 'IBM Plex Mono',monospace;color:#14181D">{{ contactSla }}</span>
+</div>
+</div>
+</div>
+</div>
+<div style="display:flex;flex-direction:column;gap:1px;background:#D8DEE5;border:1px solid #D8DEE5;border-radius:8px;overflow:hidden">
+<sc-for list="{{ faqs }}" as="f" hint-placeholder-count="5">
+<div style="background:#FFFFFF">
+<button type="button" onClick="{{ f.toggle }}" style="width:100%;box-sizing:border-box;background:transparent;border:0;padding:22px 26px;display:flex;align-items:flex-start;justify-content:space-between;gap:22px;cursor:pointer;text-align:left;font-family:Inter,sans-serif" style-hover="background:#FAFAF8">
+<span style="font:600 16px/1.4 'Inter Tight',sans-serif;color:#14181D">{{ f.q }}</span>
+<sc-if value="{{ f.open }}" hint-placeholder-val="{{ false }}"><span style="flex:none;width:26px;height:26px;border-radius:5px;background:#004B8C;color:#FFFFFF;display:flex;align-items:center;justify-content:center;font:400 16px Inter,sans-serif">−</span></sc-if>
+<sc-if value="{{ f.closed }}" hint-placeholder-val="{{ true }}"><span style="flex:none;width:26px;height:26px;border-radius:5px;background:#FFFFFF;border:1px solid #BFD2E4;color:#004B8C;display:flex;align-items:center;justify-content:center;font:400 16px Inter,sans-serif">+</span></sc-if>
+</button>
+<sc-if value="{{ f.open }}" hint-placeholder-val="{{ false }}">
+<div style="padding:0 26px 24px;font:400 14.5px/1.65 Inter,sans-serif;color:#5A6472;text-wrap:pretty">{{ f.a }}</div>
+</sc-if>
+</div>
+</sc-for>
+</div>
+</div>
+</div>
+</section>
+
+<sc-if value="{{ isCollab }}" hint-placeholder-val="{{ false }}">
+<section style="background:#FAFAF8;padding:72px 0 84px">
+<div style="width:1320px;margin:0 auto">
+<div style="background:#FFFFFF;border:1px solid #D8DEE5;border-radius:8px;padding:44px 46px 46px">
+<div style="display:grid;grid-template-columns:1fr 580px;gap:56px;align-items:start">
+<div>
+<div style="width:44px;height:3px;background:#E38C07;margin-bottom:22px"></div>
+<h2 style="margin:0 0 14px;font:700 32px/1.14 'Inter Tight',sans-serif;letter-spacing:-.018em;color:#14181D;text-wrap:pretty">Tell us the problem</h2>
+<p style="margin:0 0 28px;font:400 16.5px/1.62 Inter,sans-serif;color:#5A6472;text-wrap:pretty">You do not need a specification, a budget code or a solution in mind. A paragraph about what is going wrong is enough to start — we will tell you honestly whether it is a research problem, a consultancy job, or something you should not be paying anyone for.</p>
+<div style="display:flex;flex-direction:column;gap:20px;margin-bottom:30px">
+<div style="display:flex;gap:16px;align-items:flex-start">
+<span style="flex:none;font:600 15px 'IBM Plex Mono',monospace;color:#004B8C;width:24px">01</span>
+<div>
+<div style="font:600 16px/1.3 'Inter Tight',sans-serif;color:#14181D;margin-bottom:5px">A named person replies within three working days</div>
+<div style="font:400 14px/1.55 Inter,sans-serif;color:#5A6472">Not an acknowledgement, an actual answer from someone technical.</div>
+</div>
+</div>
+<div style="display:flex;gap:16px;align-items:flex-start">
+<span style="flex:none;font:600 15px 'IBM Plex Mono',monospace;color:#004B8C;width:24px">02</span>
+<div>
+<div style="font:600 16px/1.3 'Inter Tight',sans-serif;color:#14181D;margin-bottom:5px">A 45-minute scoping call, free of charge</div>
+<div style="font:400 14px/1.55 Inter,sans-serif;color:#5A6472">With the Group Head whose area it falls in, not a business development contact.</div>
+</div>
+</div>
+<div style="display:flex;gap:16px;align-items:flex-start">
+<span style="flex:none;font:600 15px 'IBM Plex Mono',monospace;color:#004B8C;width:24px">03</span>
+<div>
+<div style="font:600 16px/1.3 'Inter Tight',sans-serif;color:#14181D;margin-bottom:5px">A written proposal within ten working days</div>
+<div style="font:400 14px/1.55 Inter,sans-serif;color:#5A6472">Scope, team, timeline, price and assumptions. No obligation, no charge.</div>
+</div>
+</div>
+</div>
+<div style="background:#FAFAF8;border:1px solid #E8ECF1;border-radius:7px;padding:22px 24px">
+<div style="font:500 10px 'IBM Plex Mono',monospace;letter-spacing:.14em;color:#5A6472;margin-bottom:12px">WHO PICKS THIS UP</div>
+<div style="font:600 17px/1.3 'Inter Tight',sans-serif;color:#14181D;margin-bottom:5px">Assoc. Prof. Ts. Dr. Yew Kwang Hooi</div>
+<div style="font:400 13.5px/1.5 Inter,sans-serif;color:#5A6472">Functional Lead · Industry &amp; Strategic Partnerships</div>
+</div>
+</div>
+
+<div style="background:#FAFAF8;border:1px solid #E8ECF1;border-radius:7px;padding:32px 34px 34px;display:flex;flex-direction:column;gap:18px">
+<div>
+<div style="font:500 10px 'IBM Plex Mono',monospace;letter-spacing:.12em;color:#5A6472;margin-bottom:8px">WHAT BRINGS YOU HERE</div>
+<div style="position:relative;display:flex">
+<select style="width:100%;appearance:none;font:400 14.5px Inter,sans-serif;color:#14181D;background:#FFFFFF;border:1px solid #D8DEE5;border-radius:6px;padding:14px 38px 14px 15px;cursor:pointer;outline:none">
+<option>A problem we cannot solve in-house</option>
+<option>Contract research</option>
+<option>A joint grant application</option>
+<option>Licensing a technology you have already built</option>
+<option>Hosting a funded PhD on our data</option>
+<option>An adjunct fellowship for one of our people</option>
+<option>Not sure yet — advise me</option>
+</select>
+<span style="position:absolute;right:15px;top:15px;font:400 12px Inter,sans-serif;color:#5A6472;pointer-events:none">▾</span>
+</div>
+</div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+<div>
+<div style="font:500 10px 'IBM Plex Mono',monospace;letter-spacing:.12em;color:#5A6472;margin-bottom:8px">SECTOR</div>
+<div style="position:relative;display:flex">
+<select style="width:100%;appearance:none;font:400 14.5px Inter,sans-serif;color:#14181D;background:#FFFFFF;border:1px solid #D8DEE5;border-radius:6px;padding:14px 38px 14px 15px;cursor:pointer;outline:none">
+<option>Energy &amp; utilities</option>
+<option>Manufacturing &amp; electronics</option>
+<option>Healthcare &amp; life sciences</option>
+<option>Logistics &amp; transport</option>
+<option>Other</option>
+</select>
+<span style="position:absolute;right:15px;top:15px;font:400 12px Inter,sans-serif;color:#5A6472;pointer-events:none">▾</span>
+</div>
+</div>
+<div>
+<div style="font:500 10px 'IBM Plex Mono',monospace;letter-spacing:.12em;color:#5A6472;margin-bottom:8px">TIMESCALE</div>
+<div style="position:relative;display:flex">
+<select style="width:100%;appearance:none;font:400 14.5px Inter,sans-serif;color:#14181D;background:#FFFFFF;border:1px solid #D8DEE5;border-radius:6px;padding:14px 38px 14px 15px;cursor:pointer;outline:none">
+<option>Urgent — this quarter</option>
+<option>Within six months</option>
+<option>Next financial year</option>
+<option>Exploratory</option>
+</select>
+<span style="position:absolute;right:15px;top:15px;font:400 12px Inter,sans-serif;color:#5A6472;pointer-events:none">▾</span>
+</div>
+</div>
+</div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+<div>
+<div style="font:500 10px 'IBM Plex Mono',monospace;letter-spacing:.12em;color:#5A6472;margin-bottom:8px">YOUR NAME</div>
+<input type="text" placeholder="Full name" style="width:100%;box-sizing:border-box;font:400 14.5px Inter,sans-serif;color:#14181D;background:#FFFFFF;border:1px solid #D8DEE5;border-radius:6px;padding:14px 15px;outline:none">
+</div>
+<div>
+<div style="font:500 10px 'IBM Plex Mono',monospace;letter-spacing:.12em;color:#5A6472;margin-bottom:8px">ORGANISATION</div>
+<input type="text" placeholder="Company or agency" style="width:100%;box-sizing:border-box;font:400 14.5px Inter,sans-serif;color:#14181D;background:#FFFFFF;border:1px solid #D8DEE5;border-radius:6px;padding:14px 15px;outline:none">
+</div>
+</div>
+<div>
+<div style="font:500 10px 'IBM Plex Mono',monospace;letter-spacing:.12em;color:#5A6472;margin-bottom:8px">WORK EMAIL</div>
+<input type="text" placeholder="name@company.com" style="width:100%;box-sizing:border-box;font:400 14.5px Inter,sans-serif;color:#14181D;background:#FFFFFF;border:1px solid #D8DEE5;border-radius:6px;padding:14px 15px;outline:none">
+</div>
+<div>
+<div style="font:500 10px 'IBM Plex Mono',monospace;letter-spacing:.12em;color:#5A6472;margin-bottom:8px">WHAT IS GOING WRONG?</div>
+<textarea rows="5" placeholder="A paragraph is plenty. What are you trying to do, what have you tried, and what is in the way?" style="width:100%;box-sizing:border-box;font:400 14.5px/1.55 Inter,sans-serif;color:#14181D;background:#FFFFFF;border:1px solid #D8DEE5;border-radius:6px;padding:14px 15px;outline:none;resize:vertical"></textarea>
+</div>
+<div style="display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;padding-top:6px">
+<a href="#" style="font:600 15px Inter,sans-serif;color:#14181D;background:#E38C07;padding:16px 30px;border-radius:6px;white-space:nowrap" style-hover="background:#F5C46B">Send it over</a>
+<span style="font:400 12.5px/1.5 Inter,sans-serif;color:#5A6472;max-width:270px">We sign an NDA before you share anything commercially sensitive. Nothing here counts as a public disclosure.</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</sc-if>
+
+<sc-if value="{{ notCollab }}" hint-placeholder-val="{{ true }}">
+<dc-import name="CTABand" heading="{{ ctaHeading }}" body="{{ ctaBody }}" cta-label="{{ ctaLabel }}" secondary-label="Ask a question first" href="#apply" hint-size="100%,220px"></dc-import>
+</sc-if>
+
+<section style="background:#FFFFFF;padding:64px 0 76px;border-top:1px solid #D8DEE5">
+<div style="width:1320px;margin:0 auto">
+<div style="width:44px;height:3px;background:#E38C07;margin-bottom:22px"></div>
+<h2 style="margin:0 0 30px;font:700 26px/1.2 'Inter Tight',sans-serif;letter-spacing:-.015em;color:#14181D">Other ways to join</h2>
+<div style="display:grid;grid-template-columns:repeat(4,1fr);gap:20px">
+<sc-for list="{{ others }}" as="o" hint-placeholder-count="4">
+<button type="button" onClick="{{ o.pick }}" style="background:#FAFAF8;border:1px solid #D8DEE5;border-radius:8px;padding:26px 26px 28px;text-align:left;cursor:pointer;font-family:Inter,sans-serif;display:flex;flex-direction:column" style-hover="border-color:#004B8C">
+<div style="font:500 10px 'IBM Plex Mono',monospace;letter-spacing:.14em;color:#5A6472;margin-bottom:14px">{{ o.code }}</div>
+<div style="font:600 18px/1.26 'Inter Tight',sans-serif;color:#14181D;margin-bottom:8px">{{ o.label }}</div>
+<div style="font:400 13.5px/1.5 Inter,sans-serif;color:#5A6472">{{ o.blurb }}</div>
+</button>
+</sc-for>
+</div>
+</div>
+</section>
+
+<dc-import name="SiteFooter" hint-size="100%,340px"></dc-import>
+
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1440},&quot;track&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Scholarships&quot;,&quot;Postdoctoral&quot;,&quot;Research Positions&quot;,&quot;Internship&quot;,&quot;Collaborate With Us&quot;],&quot;default&quot;:&quot;Collaborate With Us&quot;,&quot;tsType&quot;:&quot;string&quot;}}">
+const TH = { rg01: 'RG01', rg02: 'RG02', rg03: 'RG03', rg04: 'RG04', rg05: 'RG05', rg06: 'RG06' };
+const TFULL = {
+  rg01: 'RG01 DATA SCIENCE & ANALYTICS',
+  rg02: 'RG02 MACHINE LEARNING & INTELLIGENT SYSTEMS',
+  rg03: 'RG03 GENERATIVE AI',
+  rg04: 'RG04 COMPUTATIONAL MODELLING, SIMULATION & OPTIMISATION',
+  rg05: 'RG05 EDGE COMPUTING',
+  rg06: 'RG06 NEXT-GENERATION & QUANTUM COMPUTING'
+};
+
+const TRACKS = {
+  scholarships: {
+    code: 'F1', tab: 'Scholarships', crumb: 'SCHOLARSHIPS',
+    eyebrow: 'F1 · POSTGRADUATE FUNDING',
+    title: 'Scholarships',
+    intro: 'Funded PhD and MSc by Research places inside a live project, with a named supervisor and a stipend that does not require you to teach to survive.',
+    nextDeadline: '31 OCT 2026', nextDeadlineNote: 'January 2027 intake · applications close 23:59 MYT',
+    heroCta: 'See open scholarships',
+    stats: [
+      { value: '60', label: 'POSTGRADUATES ENROLLED' },
+      { value: '14', label: 'FUNDED PLACES, 2027 INTAKE' },
+      { value: 'RM 2,800', label: 'MONTHLY PhD STIPEND' },
+      { value: '3.5 yr', label: 'MEDIAN TIME TO SUBMISSION' }
+    ],
+    eligTitle: 'Who we can fund',
+    eligIntro: 'Scholarships are tied to funded projects, so eligibility follows what the project needs rather than a general merit ranking.',
+    eligibility: [
+      'A bachelor\u2019s degree with first-class or second-upper honours for MSc entry; a research master\u2019s or equivalent for direct PhD entry',
+      'A background in computer science, engineering, mathematics, physics or a closely related discipline',
+      'Enough programming to be useful in the first month — we teach the research, not the fundamentals',
+      'English at the level UTP requires for postgraduate admission, evidenced or waived by prior instruction',
+      'Availability to be on campus in Seri Iskandar; these are not remote positions'
+    ],
+    notFor: [
+      'You want to define your own topic from scratch — funded places come attached to a project and its objectives',
+      'You need part-time or evening study; the stipend assumes full-time research'
+    ],
+    getTitle: 'What the scholarship covers',
+    getIntro: 'Everything below is funded for the full award period, subject to satisfactory annual progression.',
+    benefits: [
+      { label: 'Monthly stipend', note: 'PhD; MSc by Research is RM 2,100', value: 'RM 2,800' },
+      { label: 'Tuition fees', note: 'Paid directly, including the international rate', value: 'FULL' },
+      { label: 'Conference travel', note: 'Per year, for presenting your own work', value: 'RM 6,000' },
+      { label: 'Compute allocation', note: 'PETRA-1 cluster hours, expandable on request', value: 'INCLUDED' },
+      { label: 'Award period', note: 'PhD; MSc by Research is 24 months', value: '36 MONTHS' }
+    ],
+    applyTitle: 'How to apply',
+    applyIntro: 'Contact the supervisor before you apply formally. An application that arrives cold is at a real disadvantage — not because we are unfair, but because fit is most of the decision.',
+    applyMeta: 'FOUR STEPS\n8–12 WEEKS END TO END',
+    steps: [
+      { n: '01', title: 'Email the supervisor', body: 'One page: what you have done, why this project, and what you would want to push on. Attach a CV and transcript.', time: '2 WEEKS BEFORE APPLYING' },
+      { n: '02', title: 'Informal conversation', body: 'Thirty minutes with the supervisor and usually one current student, so you can ask them what it is actually like.', time: 'WITHIN 2 WEEKS' },
+      { n: '03', title: 'Formal application', body: 'Submitted through UTP postgraduate admissions with the CERDAS scholarship code from the opening.', time: 'BY THE DEADLINE' },
+      { n: '04', title: 'Panel and offer', body: 'A short panel with the supervisor and Group Head. Offers are conditional on admission and reference checks.', time: '4–6 WEEKS AFTER CLOSING' }
+    ],
+    docsTitle: 'What to have ready',
+    documents: [
+      'CV, two pages, with any publications or software listed plainly',
+      'Academic transcripts for every degree awarded',
+      'A one-page statement on the project you are applying to — not a generic personal statement',
+      'Two academic referees who have supervised your work',
+      'English language evidence, unless your prior degree was taught in English'
+    ],
+    deadlines: [
+      { date: '31 OCT 2026', label: 'Applications close · January 2027 intake', note: 'Scholarship and admission in one submission', next: true },
+      { date: '21 NOV 2026', label: 'Panel interviews', note: 'Online or in person', next: false },
+      { date: '12 DEC 2026', label: 'Offers issued', note: 'Two weeks to accept', next: false },
+      { date: '19 JAN 2027', label: 'Semester begins', note: 'Induction the week before', next: false }
+    ],
+    openTitle: 'Open scholarships',
+    openIntro: 'Each place is attached to a specific project and supervisor. Apply to the one that fits — applying to all of them is visible and unhelpful.',
+    colOpening: 'PROJECT AND TOPIC', colOwner: 'SUPERVISOR',
+    openings: [
+      { theme: 'rg05', title: 'Federated anomaly detection under intermittent connectivity', note: 'PhD · SIGMA-FLOW · industry-linked with Selat Energy', owner: 'Dr. Siti Nurlaili Karim', closes: '31 OCT 2026', urgent: true, cta: 'Details' },
+      { theme: 'rg02', title: 'Graph learning for distribution network fault localisation', note: 'PhD · SENTINEL-GRID', owner: 'Assoc. Prof. Ts. Dr. Hitham Seddig Alhassan Alhussian', closes: '31 OCT 2026', urgent: true, cta: 'Details' },
+      { theme: 'rg04', title: 'Surrogate models for reactive transport at reservoir scale', note: 'PhD · two places', owner: 'Ts. Dr. Shakirah Mohd Taib', closes: '31 OCT 2026', urgent: true, cta: 'Details' },
+      { theme: 'rg06', title: 'Quantum-assisted heuristics for unit commitment', note: 'MSc by Research · QOPT', owner: 'Assoc. Prof. Dr. Ibrahim Venkat Krishnamurthy', closes: '28 FEB 2027', urgent: false, cta: 'Details' },
+      { theme: 'rg03', title: 'Privacy-preserving analysis across clinical institutions', note: 'PhD · CLARA · with KL Health Data Institute', owner: 'Ts. Dr. Mohana Sundaram A/L Muthuvalu', closes: '28 FEB 2027', urgent: false, cta: 'Details' },
+      { theme: 'rg05', title: 'Deadline-aware inference scheduling on constrained hardware', note: 'MSc by Research · EDGE-SENSE', owner: 'Dr. Ahmad Bukhari bin Aujih', closes: '28 FEB 2027', urgent: false, cta: 'Details' }
+    ],
+    contactName: 'Assoc. Prof. Ts. Dr. Shuhaida Mohamed Shuhidan',
+    contactRole: 'Functional Lead · Research Excellence & Talent',
+    contactEmail: 'postgraduate@cerdas.utp.edu.my', contactSla: '3 WORKING DAYS',
+    faqs: [
+      { q: 'Can I apply if I already have funding?', a: 'Yes, and it makes things easier. Tell us in the first email — self-funded and sponsored candidates go through the same academic process without competing for a scholarship place.' },
+      { q: 'Do I need a publication to be competitive?', a: 'No. Most successful MSc applicants have none. For direct PhD entry a publication or a substantial software artefact helps, but a strong research master\u2019s thesis matters more.' },
+      { q: 'Can I change my topic once I start?', a: 'Within the project, yes — topics narrow and shift constantly in the first year. Moving to a different project means moving to a different scholarship, which is possible but not automatic.' },
+      { q: 'Is the stipend taxable, and is it enough to live on?', a: 'It is not taxed as employment income. Seri Iskandar is inexpensive; most students share housing and find the stipend adequate without additional work.' },
+      { q: 'What happens if I do not finish in the award period?', a: 'Funding is 36 months for a PhD and submission is typically at 42. The gap is real and you should plan for it — most students cover it through teaching assistance or a short research officer contract.' }
+    ],
+    ctaHeading: 'Found a project that fits?',
+    ctaBody: 'Email the supervisor before the deadline. A two-paragraph message about why that project interests you is worth more than a perfect form.',
+    ctaLabel: 'See open scholarships'
+  },
+
+  postdoc: {
+    code: 'F2', tab: 'Postdoctoral', crumb: 'POSTDOCTORAL',
+    eyebrow: 'F2 · EARLY-CAREER RESEARCH',
+    title: 'Postdoctoral fellowships',
+    intro: 'Two to three years on a funded project, with the time and the expectation to build your own line of work — not just to deliver someone else\u2019s workplan.',
+    nextDeadline: '15 NOV 2026', nextDeadlineNote: 'Two positions open · rolling review until filled',
+    heroCta: 'See open positions',
+    stats: [
+      { value: '9', label: 'POSTDOCTORAL FELLOWS' },
+      { value: '2', label: 'POSITIONS OPEN NOW' },
+      { value: '4.2', label: 'MEAN PAPERS PER FELLOW' },
+      { value: '6', label: 'MOVED TO FACULTY POSTS' }
+    ],
+    eligTitle: 'Who we appoint',
+    eligIntro: 'Postdoctoral appointments are made against a funded project, but we appoint the person rather than the pair of hands.',
+    eligibility: [
+      'A doctorate awarded within the last five years, or submitted with a confirmed viva date',
+      'A publication record appropriate to your field and career stage — quality and independence matter more than count',
+      'Demonstrable ability to run your own research: you have designed a study, not only executed one',
+      'Willingness to co-supervise postgraduate students from the first year',
+      'Right to work in Malaysia, or eligibility for the employment pass UTP would sponsor'
+    ],
+    notFor: [
+      'You are looking for a holding position between other roles — two years is short enough that the first six months matter',
+      'You want a purely technical role with no supervision or writing; that is a research scientist post, not a fellowship'
+    ],
+    getTitle: 'What the position offers',
+    getIntro: 'Terms follow UTP research staff policy. Salary is set by qualification and experience within the published band.',
+    benefits: [
+      { label: 'Annual salary', note: 'By experience, within the published band', value: 'RM 78–102k' },
+      { label: 'Appointment length', note: 'Extendable to 3 years with funding', value: '24 MONTHS' },
+      { label: 'Research allowance', note: 'Per year, yours to direct', value: 'RM 15,000' },
+      { label: 'Conference travel', note: 'Per year, international included', value: 'RM 12,000' },
+      { label: 'Own-line research time', note: 'Protected, not absorbed by the project', value: '20%' }
+    ],
+    applyTitle: 'How to apply',
+    applyIntro: 'Write to the project lead first. We would rather have a short exchange about fit than read fifty applications from people who never spoke to us.',
+    applyMeta: 'FOUR STEPS\n6–10 WEEKS END TO END',
+    steps: [
+      { n: '01', title: 'Approach the project lead', body: 'A short email with your CV and two sentences on what you would bring that the project does not already have.', time: 'ANY TIME' },
+      { n: '02', title: 'Formal application', body: 'CV, publication list, a two-page research statement and three referees, sent to the talent office.', time: 'BY THE CLOSING DATE' },
+      { n: '03', title: 'Seminar and interview', body: 'A 30-minute talk on your doctoral work, open to the centre, followed by a panel with the Group Head and project lead.', time: '3–4 WEEKS AFTER CLOSING' },
+      { n: '04', title: 'Offer and appointment', body: 'Offer, reference checks, then contracting through UTP human resources. Visa sponsorship starts here if needed.', time: '4–8 WEEKS TO START' }
+    ],
+    docsTitle: 'What to submit',
+    documents: [
+      'CV with a full publication list, indicating your contribution to each multi-author work',
+      'A two-page research statement: what you have done, and what you would do here',
+      'One representative publication, chosen by you, with a paragraph on why you chose it',
+      'Three referees including your doctoral supervisor',
+      'Evidence of doctoral award, or a letter confirming the submission and viva date'
+    ],
+    deadlines: [
+      { date: '15 NOV 2026', label: 'Current round closes', note: 'Two positions · RG01 and RG05', next: true },
+      { date: '08 DEC 2026', label: 'Seminars and interviews', note: 'Online for overseas candidates', next: false },
+      { date: '19 DEC 2026', label: 'Offers issued', note: 'Three weeks to accept', next: false },
+      { date: 'FROM MAR 2027', label: 'Typical start', note: 'Later starts negotiable for visa timelines', next: false }
+    ],
+    openTitle: 'Open positions',
+    openIntro: 'Both positions are funded and both have a named project behind them. Applications are reviewed as they arrive.',
+    colOpening: 'POSITION', colOwner: 'PROJECT LEAD',
+    openings: [
+      { theme: 'rg01', title: 'Postdoctoral Fellow — governed data sharing and federated analysis', note: '24 months · CLARA · clinical and industrial data', owner: 'Ts. Dr. Mohana Sundaram A/L Muthuvalu', closes: '15 NOV 2026', urgent: true, cta: 'Details' },
+      { theme: 'rg05', title: 'Postdoctoral Fellow — real-time inference on constrained hardware', note: '24 months, extendable · EDGE-SENSE', owner: 'Assoc. Prof. Ts. Dr. Mohd Anuaruddin bin Ahmadon', closes: '15 NOV 2026', urgent: true, cta: 'Details' }
+    ],
+    contactName: 'Assoc. Prof. Ts. Dr. Shuhaida Mohamed Shuhidan',
+    contactRole: 'Functional Lead · Research Excellence & Talent',
+    contactEmail: 'research.careers@cerdas.utp.edu.my', contactSla: '3 WORKING DAYS',
+    faqs: [
+      { q: 'Can I bring my own funding or fellowship?', a: 'Yes, and we will host you. Externally funded fellows get the same status, space and supervision load as funded postdocs, and we will support the application itself if you approach us early enough.' },
+      { q: 'How much of my time goes on the project?', a: 'Roughly 80%. The remaining fifth is protected for your own line of work and is taken seriously — it is written into the appointment, not offered informally.' },
+      { q: 'Will I be able to supervise students?', a: 'You will co-supervise from the first year, with a CERDAS fellow as principal supervisor. Formal principal supervision requires a faculty appointment under university rules.' },
+      { q: 'What happens at the end of two years?', a: 'Extension where funding allows, a faculty application where a post exists, or a move out with our active support. Six of our fellows have gone to faculty positions; we would rather that than keep people indefinitely.' },
+      { q: 'Do you sponsor visas for international candidates?', a: 'Yes. UTP sponsors the employment pass and the university\u2019s international office handles it. Budget eight to ten weeks between offer and start date.' }
+    ],
+    ctaHeading: 'Not the right project, but the right centre?',
+    ctaBody: 'Write anyway. We keep strong speculative applications on file and contact people when a funded position opens in their area.',
+    ctaLabel: 'Send a speculative application'
+  },
+
+  positions: {
+    code: 'F3', tab: 'Research Positions', crumb: 'RESEARCH POSITIONS',
+    eyebrow: 'F3 · RESEARCH STAFF',
+    title: 'Research positions',
+    intro: 'Salaried research roles on funded projects — research scientists, research officers and technical staff. These are jobs, with contracts and salaries, not studentships.',
+    nextDeadline: '30 SEP 2026', nextDeadlineNote: 'Three positions open · one closing this month',
+    heroCta: 'See open positions',
+    stats: [
+      { value: '22', label: 'RESEARCH STAFF' },
+      { value: '3', label: 'POSITIONS OPEN NOW' },
+      { value: '33', label: 'PEOPLE IN THE CENTRE' },
+      { value: '2.8 yr', label: 'MEDIAN TENURE' }
+    ],
+    eligTitle: 'Who we hire',
+    eligIntro: 'Requirements vary by role. What is common to all of them is that you will be given a real piece of the research and expected to own it.',
+    eligibility: [
+      'Research Scientist: a doctorate with a strong publication record, and the ability to lead a work package',
+      'Research Officer: a master\u2019s degree, or a bachelor\u2019s with substantial relevant research experience',
+      'Technical staff: a diploma or degree with demonstrable hands-on skill in instrumentation, systems or data engineering',
+      'The specific technical skills named in the posting — we list them precisely so you can judge for yourself',
+      'Right to work in Malaysia, or eligibility for a pass UTP can sponsor for doctoral-level roles'
+    ],
+    notFor: [
+      'You are looking for a permanent appointment — these roles are funded for the life of a project, typically two to three years',
+      'You want to work entirely remotely; the instrumentation and the cluster are on campus'
+    ],
+    getTitle: 'Terms and conditions',
+    getIntro: 'Salaries follow the UTP research staff scale. The band for each role is published in the posting rather than negotiated in the dark.',
+    benefits: [
+      { label: 'Research Scientist', note: 'Annual, by experience', value: 'RM 90–120k' },
+      { label: 'Research Officer', note: 'Annual, by experience', value: 'RM 54–78k' },
+      { label: 'Contract length', note: 'Tied to project funding, renewable', value: '24–36 MONTHS' },
+      { label: 'Leave', note: 'Annual, plus public holidays', value: '24 DAYS' },
+      { label: 'Development budget', note: 'Per year, for training and conferences', value: 'RM 6,000' }
+    ],
+    applyTitle: 'How to apply',
+    applyIntro: 'A normal recruitment process, run in weeks rather than months. You will hear either way — silence is not an outcome we use.',
+    applyMeta: 'FOUR STEPS\n4–8 WEEKS END TO END',
+    steps: [
+      { n: '01', title: 'Apply to the posting', body: 'CV and a short cover note against the named requirements. No forms to fill in beyond that.', time: 'BY THE CLOSING DATE' },
+      { n: '02', title: 'Technical screen', body: 'Forty-five minutes on your actual work with the project lead. No whiteboard puzzles.', time: 'WITHIN 2 WEEKS' },
+      { n: '03', title: 'Panel interview', body: 'With the project lead, the Group Head and someone you would work alongside daily.', time: '1–2 WEEKS LATER' },
+      { n: '04', title: 'Offer and contracting', body: 'Offer with the salary point stated, then contracting through UTP human resources.', time: '2–4 WEEKS TO START' }
+    ],
+    docsTitle: 'What to send',
+    documents: [
+      'CV, two to three pages, with the technical work described concretely',
+      'A short cover note addressing the requirements listed in the posting',
+      'Links to code, systems or publications where they exist and are shareable',
+      'Two referees, at least one who has managed your work directly'
+    ],
+    deadlines: [
+      { date: '30 SEP 2026', label: 'Research Officer · SIGMA-FLOW closes', note: 'Interviews the following week', next: true },
+      { date: '17 OCT 2026', label: 'Research Scientist · SENTINEL-GRID closes', note: 'Doctoral-level appointment', next: false },
+      { date: '31 OCT 2026', label: 'Data Engineer · CLARA closes', note: 'Technical staff appointment', next: false },
+      { date: 'ROLLING', label: 'Speculative applications', note: 'Reviewed monthly against upcoming projects', next: false }
+    ],
+    openTitle: 'Open positions',
+    openIntro: 'Every posting names the project, the funding period and the salary band. If any of those is missing, it is an error — tell us.',
+    colOpening: 'POSITION', colOwner: 'REPORTS TO',
+    openings: [
+      { theme: 'rg04', title: 'Research Officer — flow assurance simulation', note: 'RM 54–68k · 24 months · SIGMA-FLOW', owner: 'Ts. Dr. Hamzah Sakidin', closes: '30 SEP 2026', urgent: true, cta: 'Apply' },
+      { theme: 'rg02', title: 'Research Scientist — grid analytics', note: 'RM 96–120k · 36 months · SENTINEL-GRID', owner: 'Assoc. Prof. Ts. Dr. Hitham Seddig Alhassan Alhussian', closes: '17 OCT 2026', urgent: false, cta: 'Apply' },
+      { theme: 'rg01', title: 'Data Engineer — governed data platform', note: 'RM 60–78k · 30 months · CLARA', owner: 'Dr. Nur Syadhila Che Lah', closes: '31 OCT 2026', urgent: false, cta: 'Apply' }
+    ],
+    contactName: 'Latty Shazana Ismail',
+    contactRole: 'Centre Research Officer · appointments and contracts',
+    contactEmail: 'careers@cerdas.utp.edu.my', contactSla: '5 WORKING DAYS',
+    faqs: [
+      { q: 'Are these permanent positions?', a: 'No. They are funded for the life of a project, usually two to three years, and renewed when the next grant lands. We say this plainly because the alternative — implying permanence and then not delivering it — is worse.' },
+      { q: 'Can a research officer role lead to a PhD?', a: 'Frequently. Several staff have moved onto a funded scholarship with the same supervisor, sometimes with part of the work already done. Say at interview if that is your intention.' },
+      { q: 'Is the salary band negotiable?', a: 'The band is fixed by university scale; the point within it is set by qualification and experience. We state the point in the offer rather than asking you to name a number first.' },
+      { q: 'Do you consider candidates from outside academia?', a: 'Yes, particularly for engineering and data roles. Industrial experience is often the thing a project is missing. What we cannot flex on is the willingness to publish what you build.' },
+      { q: 'What if no current posting fits?', a: 'Send a speculative application. We review them monthly against projects starting in the next two quarters, and roughly one in six leads to a conversation.' }
+    ],
+    ctaHeading: 'Nothing open that fits?',
+    ctaBody: 'Send a speculative application. We review them monthly against projects that are about to start, and we do reply.',
+    ctaLabel: 'Send a speculative application'
+  },
+
+  internship: {
+    code: 'F4', tab: 'Internship', crumb: 'INTERNSHIP',
+    eyebrow: 'F4 · STUDENTS AND EARLY TALENT',
+    title: 'Internships',
+    intro: 'Eight to twenty-four weeks on a real workstream, with a named supervisor and something you can point at afterwards. Not filing, not shadowing.',
+    nextDeadline: '15 OCT 2026', nextDeadlineNote: 'January–June 2027 cohort · 11 places',
+    heroCta: 'See placements',
+    stats: [
+      { value: '11', label: 'PLACES, JAN 2027 COHORT' },
+      { value: '8–24', label: 'WEEKS PER PLACEMENT' },
+      { value: 'RM 1,200', label: 'MONTHLY ALLOWANCE' },
+      { value: '4', label: 'INTERNS WHO RETURNED AS STUDENTS' }
+    ],
+    eligTitle: 'Who can apply',
+    eligIntro: 'Internships are open to students at any Malaysian or overseas institution, not only UTP.',
+    eligibility: [
+      'Enrolled in an undergraduate or master\u2019s programme for the duration of the placement',
+      'Completed at least two years of study, or one year for a master\u2019s student',
+      'Able to program in Python or an equivalent language without supervision',
+      'Available for a continuous block of at least eight weeks — split placements do not work',
+      'Covered by your institution\u2019s insurance, or able to arrange equivalent cover'
+    ],
+    notFor: [
+      'You need a placement shorter than eight weeks; you would spend all of it getting oriented',
+      'Your programme requires a corporate placement specifically — check with your faculty first, as a research centre may not qualify'
+    ],
+    getTitle: 'What you get',
+    getIntro: 'Placements are paid. We do not run unpaid internships — if the work is worth doing, it is worth an allowance.',
+    benefits: [
+      { label: 'Monthly allowance', note: 'Paid regardless of institution', value: 'RM 1,200' },
+      { label: 'Named supervisor', note: 'A researcher, not an administrator', value: 'ASSIGNED' },
+      { label: 'Cluster access', note: 'Same allocation process as staff', value: 'INCLUDED' },
+      { label: 'Placement report', note: 'Written reference and formal assessment', value: 'PROVIDED' },
+      { label: 'Co-authorship', note: 'Where the contribution warrants it — it sometimes does', value: 'POSSIBLE' }
+    ],
+    applyTitle: 'How to apply',
+    applyIntro: 'One application per cohort, reviewed together. We match people to placements rather than making you apply to each one separately.',
+    applyMeta: 'FOUR STEPS\n6–8 WEEKS END TO END',
+    steps: [
+      { n: '01', title: 'Submit the application', body: 'CV, transcript, and a short note on which two placement areas interest you and why.', time: 'BY THE COHORT DEADLINE' },
+      { n: '02', title: 'Matching', body: 'We match applicants to placements by fit, not by ranking. You may be offered an area you did not list.', time: '2 WEEKS AFTER CLOSING' },
+      { n: '03', title: 'Short conversation', body: 'Twenty minutes with the proposed supervisor to confirm the match works both ways.', time: 'WITHIN 3 WEEKS' },
+      { n: '04', title: 'Offer and paperwork', body: 'Offer, then the agreement between us and your institution. Start the paperwork early — it is the slow part.', time: '4 WEEKS BEFORE START' }
+    ],
+    docsTitle: 'What to send',
+    documents: [
+      'CV, one to two pages',
+      'Current academic transcript',
+      'A short note naming two placement areas and what draws you to them',
+      'A letter from your institution confirming enrolment and placement dates',
+      'Any code or project you are proud of, with a sentence on your role in it'
+    ],
+    deadlines: [
+      { date: '15 OCT 2026', label: 'Applications close · Jan–Jun 2027 cohort', note: '11 places available', next: true },
+      { date: '29 OCT 2026', label: 'Matching complete', note: 'You hear either way', next: false },
+      { date: '20 NOV 2026', label: 'Offers and institution agreements', note: 'Allow four weeks for paperwork', next: false },
+      { date: '05 JAN 2027', label: 'Cohort starts', note: 'Two-day induction', next: false }
+    ],
+    openTitle: 'Placement areas',
+    openIntro: 'These are the areas taking interns this cohort. You apply once and name two — you do not apply to each.',
+    colOpening: 'PLACEMENT AREA', colOwner: 'SUPERVISOR',
+    openings: [
+      { theme: 'rg01', title: 'Benchmark curation and evaluation tooling', note: '3 places · 12–24 weeks', owner: 'Dr. Noureen Talpur', closes: '15 OCT 2026', urgent: true, cta: 'Details' },
+      { theme: 'rg05', title: 'Edge deployment and field instrumentation', note: '2 places · 16–24 weeks', owner: 'Dr. Ahmad Bukhari bin Aujih', closes: '15 OCT 2026', urgent: true, cta: 'Details' },
+      { theme: 'rg04', title: 'Simulation pipelines and visualisation', note: '3 places · 8–16 weeks', owner: 'Dr. Rajalingam Sokkalingam', closes: '15 OCT 2026', urgent: true, cta: 'Details' },
+      { theme: 'rg06', title: 'HPC workload profiling and optimisation', note: '2 places · 12–24 weeks', owner: 'Prof. Ts. Dr. Mohd Fadzil Hassan', closes: '15 OCT 2026', urgent: true, cta: 'Details' },
+      { theme: 'rg01', title: 'Research software engineering and documentation', note: '1 place · 12–24 weeks', owner: 'Dr. Nur Syadhila Che Lah', closes: '15 OCT 2026', urgent: true, cta: 'Details' }
+    ],
+    contactName: 'Latty Shazana Ismail',
+    contactRole: 'Executive · student placements and outreach',
+    contactEmail: 'internships@cerdas.utp.edu.my', contactSla: '5 WORKING DAYS',
+    faqs: [
+      { q: 'Do I have to be a UTP student?', a: 'No. Roughly a third of each cohort comes from other Malaysian universities and a few from overseas. The requirement is enrolment somewhere, and an institution willing to sign the agreement.' },
+      { q: 'Will I work on something real?', a: 'Yes, and that is the point. Placements are scoped as a genuine piece of a live workstream — small enough to finish, real enough that someone depends on the result.' },
+      { q: 'Can an internship turn into a scholarship?', a: 'It has, four times. Doing well as an intern is the single strongest signal we have when scholarship applications come round.' },
+      { q: 'Is accommodation provided?', a: 'No, but the allowance is set with local shared housing in mind and the student office will point you at the usual options in Seri Iskandar.' },
+      { q: 'Can I do it remotely?', a: 'Only in the software and tooling areas, and only partially. Anything involving instrumentation or the cluster needs you on campus.' }
+    ],
+    ctaHeading: 'Applications close 15 October',
+    ctaBody: 'One application, two named areas, eleven places. Send it before the deadline and you will hear either way within two weeks of closing.',
+    ctaLabel: 'Apply for the January cohort'
+  },
+
+  collaborate: {
+    code: 'F5', tab: 'Collaborate With Us', crumb: 'COLLABORATE WITH US',
+    eyebrow: 'F5 · INDUSTRY, AGENCIES AND INSTITUTIONS',
+    title: 'Collaborate with us',
+    intro: 'Bring us the problem your team has run out of road on. Five routes in, one named contact, and a written proposal within ten working days of the first conversation — at no cost and no obligation.',
+    nextDeadline: 'NO DEADLINE', nextDeadlineNote: 'Enquiries are picked up as they arrive, all year',
+    heroCta: 'Tell us the problem',
+    stats: [
+      { value: '31', label: 'PARTNER ORGANISATIONS' },
+      { value: '14', label: 'ACTIVE INDUSTRY PROJECTS' },
+      { value: 'RM 11.6M', label: 'CONTRACT VALUE, 5 YEARS' },
+      { value: '3 days', label: 'TO A NAMED REPLY' }
+    ],
+    proof: [
+      { value: '18%', label: 'less empty running for a logistics partner, from a scheduler built on their own data' },
+      { value: '47 → 6 min', label: 'to locate a network fault after deployment across 240 substations' },
+      { value: '2.4×', label: 'inference throughput gained on hardware the partner already owned' },
+      { value: 'RM 3.20', label: 'of national funding typically unlocked per RM 1 of partner cash' }
+    ],
+    eligTitle: 'What makes a good collaboration',
+    eligIntro: 'We are not the right partner for everything, and saying so early saves everyone a quarter.',
+    eligibility: [
+      'A problem where the method does not exist yet, or exists but has never been tried on data like yours',
+      'Data you can share, or a governed environment in which we can work on it without it leaving your control',
+      'A named technical person on your side who can answer questions in days rather than weeks',
+      'Tolerance for a result that says the approach does not work — that is a real outcome and you will get it if it is true',
+      'A decision the work is meant to support, even if the decision is two years out'
+    ],
+    notFor: [
+      'You need a fixed deliverable by a fixed date with no methodological risk — that is an engineering contract, and a supplier will serve you better',
+      'The work must stay permanently confidential; we can delay publication, but a centre that never publishes stops being one'
+    ],
+    getTitle: 'Five routes in',
+    getIntro: 'The first conversation is mostly about which of these fits. Most partnerships start smaller than the partner expected and grow.',
+    benefits: [
+      { label: 'Contract research', note: 'You set the problem and fund the work', value: 'RM 150k–2M' },
+      { label: 'Joint grant application', note: 'Your share unlocks national funding', value: 'RM 300k–4M' },
+      { label: 'Consultancy', note: 'Scoped, short, written report at the end', value: 'RM 20k–250k' },
+      { label: 'Funded PhD on your problem', note: 'Three years, your data, your domain', value: 'FROM RM 180k' },
+      { label: 'Adjunct fellowship', note: 'Your expert inside a theme, two-year term', value: 'NO FEE' }
+    ],
+    applyTitle: 'How an engagement starts',
+    applyIntro: 'Four steps from first email to work beginning. The first two cost you nothing and carry no obligation — most of the elapsed time is your own procurement, not ours.',
+    applyMeta: 'FOUR STEPS\n6–10 WEEKS TO START',
+    steps: [
+      { n: '01', title: 'Send the problem', body: 'A paragraph is enough. No specification, no budget code, no solution required.', time: 'REPLY IN 3 WORKING DAYS' },
+      { n: '02', title: 'Scoping call', body: 'Forty-five minutes with the Group Head whose area it falls in. We will tell you if it is not a research problem.', time: 'FREE OF CHARGE' },
+      { n: '03', title: 'Written proposal', body: 'Scope, team, milestones, price and assumptions. If we think your scope is wrong, it says so and offers an alternative.', time: '10 WORKING DAYS' },
+      { n: '04', title: 'Agreement and start', body: 'NDA where needed, then the engagement contract signed by the university with IP terms stated up front.', time: '3–6 WEEKS' }
+    ],
+    docsTitle: 'What helps us respond well',
+    documents: [
+      'The decision the work should support, and who will make it',
+      'What data exists, roughly how much, and who owns it',
+      'What you have already tried, including what failed — this is the most useful thing you can tell us',
+      'Your real deadline, and what happens if it slips',
+      'Any constraint that rules out an approach: hardware, regulation, procurement, or a vendor already in place'
+    ],
+    deadlines: [
+      { date: 'ALL YEAR', label: 'Enquiries and scoping calls', note: 'No round, no window — we pick them up as they arrive', next: true },
+      { date: 'MAR & SEP', label: 'National grant call cycles', note: 'Approach us 10 weeks before if a joint bid is the route', next: false },
+      { date: 'OCT & FEB', label: 'Postgraduate intakes', note: 'The deadline that matters if a funded PhD is part of the plan', next: false },
+      { date: 'QUARTERLY', label: 'Portfolio review', note: 'When new projects are formally admitted to a theme', next: false }
+    ],
+    openTitle: 'Where we are actively looking for partners',
+    openIntro: 'Open problems the centre has capability and capacity for right now. A partner in any of these would move a real programme forward.',
+    colOpening: 'OPPORTUNITY', colOwner: 'GROUP HEAD',
+    openings: [
+      { theme: 'rg01', title: 'Cross-institution analysis without moving the data', note: 'Governed federated analysis · healthcare, finance or utilities', owner: 'Ts. Dr. Mohana Sundaram A/L Muthuvalu', closes: 'OPEN', urgent: false, cta: 'Enquire' },
+      { theme: 'rg05', title: 'Condition monitoring on assets you cannot re-instrument', note: 'Working from the sensors already installed', owner: 'Assoc. Prof. Ts. Dr. Mohd Anuaruddin bin Ahmadon', closes: 'OPEN', urgent: false, cta: 'Enquire' },
+      { theme: 'rg04', title: 'Simulation too slow to use in an operating decision', note: 'Surrogate modelling for real-time use', owner: 'Ts. Dr. Mohana Sundaram A/L Muthuvalu', closes: 'OPEN', urgent: false, cta: 'Enquire' },
+      { theme: 'rg06', title: 'Scheduling and allocation problems that do not solve at scale', note: 'Classical and quantum-assisted optimisation', owner: 'Assoc. Prof. Dr. Ibrahim Venkat Krishnamurthy', closes: 'OPEN', urgent: false, cta: 'Enquire' }
+    ],
+    contactName: 'Assoc. Prof. Ts. Dr. Yew Kwang Hooi',
+    contactRole: 'Functional Lead · Industry & Strategic Partnerships',
+    contactEmail: 'partnerships@cerdas.utp.edu.my', contactSla: '3 WORKING DAYS',
+    faqs: [
+      { q: 'Who owns the intellectual property?', a: 'Background IP stays with whoever brought it. Foreground IP is negotiated before the project starts and written into the agreement — most commonly university-owned with a licence to the partner in their field of use, or joint ownership where both sides contribute inventively.' },
+      { q: 'Can you delay publication?', a: 'Yes. A defined embargo — usually six to twelve months, and longer while a patent is filed — is standard and we build it into the agreement. What we cannot agree to is permanent suppression.' },
+      { q: 'How much does it cost?', a: 'Consultancy runs from RM 20k; contract research typically RM 150k and up; a funded PhD from around RM 180k over three years. On a joint grant your contribution is the industry share of something much larger.' },
+      { q: 'What if the research does not work?', a: 'Then we tell you, with evidence, and you have saved the cost of finding out the expensive way. Every proposal states what result would count as a negative one — that is not a caveat, it is the point of doing research rather than procurement.' },
+      { q: 'Can our data stay on our systems?', a: 'Yes. Several partnerships run entirely in the partner\u2019s environment or in the centre\u2019s governed vault, with only results leaving. For sensitive telemetry this is now the normal arrangement rather than the exception.' },
+      { q: 'We are a small company. Is this only for large partners?', a: 'No. Consultancy and joint grant routes exist precisely for organisations that cannot fund a multi-year programme alone. Several of our smallest partners contribute in-kind data and domain time rather than cash.' }
+    ]
+  }
+};
+
+const ORDER = ['scholarships', 'postdoc', 'positions', 'internship', 'collaborate'];
+
+class Component extends DCLogic {
+  state = { track: null, theme: 'all', open: 0 };
+
+  pickTrack(id) { return () => this.setState({ track: id, theme: 'all', open: 0 }); }
+  pickTheme(v) { return () => this.setState({ theme: v }); }
+  toggleFaq(i) { return () => this.setState(s => ({ open: s.open === i ? -1 : i })); }
+
+  currentId() {
+    const fromProp = { 'Scholarships': 'scholarships', 'Postdoctoral': 'postdoc', 'Research Positions': 'positions', 'Internship': 'internship', 'Collaborate With Us': 'collaborate' }[this.props.track];
+    return this.state.track ?? fromProp ?? 'collaborate';
+  }
+
+  renderVals() {
+    const id = this.currentId();
+    const t = TRACKS[id];
+    const isCollab = id === 'collaborate';
+    const th = this.state.theme;
+    const openings = t.openings.filter(o => th === 'all' || o.theme === th);
+
+    return {
+      crumb: t.crumb, eyebrow: t.eyebrow, title: t.title, intro: t.intro,
+      nextDeadline: t.nextDeadline, nextDeadlineNote: t.nextDeadlineNote, heroCta: t.heroCta,
+      trackCode: t.code + ' · JOIN CERDAS',
+      tabs: ORDER.map(k => ({
+        label: TRACKS[k].tab, on: k === id, off: k !== id, pick: this.pickTrack(k)
+      })),
+      stats: t.stats.map((s, i) => ({
+        value: s.value, label: s.label,
+        first: i === 0, last: i === t.stats.length - 1,
+        mid: i > 0 && i < t.stats.length - 1
+      })),
+      isCollab, notCollab: !isCollab,
+      proof: t.proof ?? [],
+      eligTitle: t.eligTitle, eligIntro: t.eligIntro, eligibility: t.eligibility, notFor: t.notFor,
+      getTitle: t.getTitle, getIntro: t.getIntro, benefits: t.benefits,
+      applyTitle: t.applyTitle, applyIntro: t.applyIntro, applyMetaTop: t.applyMeta.split('\n')[0], applyMetaBottom: t.applyMeta.split('\n')[1] ?? '', steps: t.steps,
+      docsTitle: t.docsTitle, documents: t.documents,
+      deadlines: t.deadlines.map(d => ({ date: d.date, label: d.label, note: d.note, next: !!d.next, later: !d.next })),
+      openTitle: t.openTitle, openIntro: t.openIntro,
+      colOpening: t.colOpening, colOwner: t.colOwner,
+      themeChips: ['all', 'rg01', 'rg02', 'rg03', 'rg04', 'rg05', 'rg06'].map(v => ({
+        label: v === 'all' ? 'ALL' : TH[v], on: th === v, off: th !== v, pick: this.pickTheme(v)
+      })),
+      openings: openings.map(o => Object.assign({}, o, { themeLabel: TFULL[o.theme] })),
+      openEmpty: openings.length === 0,
+      openLine: 'SHOWING ' + openings.length + ' OF ' + t.openings.length + ' · UPDATED 2 SEP 2026',
+      contactName: t.contactName, contactRole: t.contactRole,
+      contactEmail: t.contactEmail, contactSla: t.contactSla,
+      faqs: t.faqs.map((f, i) => ({
+        q: f.q, a: f.a, open: this.state.open === i, closed: this.state.open !== i, toggle: this.toggleFaq(i)
+      })),
+      ctaHeading: t.ctaHeading ?? '', ctaBody: t.ctaBody ?? '', ctaLabel: t.ctaLabel ?? '',
+      others: ORDER.filter(k => k !== id).map(k => ({
+        code: TRACKS[k].code, label: TRACKS[k].tab,
+        blurb: { scholarships: 'Funded PhD and MSc places inside a live project.',
+                 postdoc: 'Two to three years, with protected time for your own line.',
+                 positions: 'Salaried research and technical roles on funded projects.',
+                 internship: 'Eight to twenty-four weeks on a real workstream, paid.',
+                 collaborate: 'Bring us a problem your team has run out of road on.' }[k],
+        pick: this.pickTrack(k)
+      }))
+    };
+  }
+}
+
+</script>
+</body>
+</html>

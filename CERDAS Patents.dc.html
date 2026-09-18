@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""><link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&amp;family=Inter:wght@400;500;600;700&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#FAFAF8;font-family:Inter,system-ui,sans-serif}
+a{color:#004B8C;text-decoration:none}a:hover{color:#00335F}
+</style></helmet>
+
+<div data-screen-label="D2 Patents" style="width:1440px;margin:0 auto;background:#FFFFFF">
+
+<dc-import name="SiteHeader" active="Publications &amp; Innovation" hint-size="100%,78px"></dc-import>
+
+<section style="background:#00335F;padding:56px 0 66px;position:relative;overflow:hidden">
+<svg viewBox="0 0 1440 400" preserveAspectRatio="none" style="position:absolute;inset:0;width:100%;height:100%;opacity:.22" aria-hidden="true">
+<g stroke="#7FAED9" stroke-width="1.2" fill="none">
+<rect x="1040" y="70" width="130" height="90" rx="3"></rect><rect x="1200" y="70" width="130" height="90" rx="3"></rect>
+<rect x="1040" y="190" width="130" height="90" rx="3"></rect><rect x="1200" y="190" width="130" height="90" rx="3"></rect>
+</g>
+<g fill="#E38C07"><rect x="1056" y="86" width="34" height="6" rx="2"></rect><rect x="1216" y="86" width="34" height="6" rx="2"></rect><rect x="1056" y="206" width="34" height="6" rx="2"></rect><rect x="1216" y="206" width="34" height="6" rx="2"></rect></g>
+</svg>
+<div style="width:1320px;margin:0 auto;position:relative">
+<div style="font:500 11px 'IBM Plex Mono',monospace;letter-spacing:.13em;color:#7FAED9;margin-bottom:28px"><a href="CERDAS Home.dc.html" style="color:#7FAED9">HOME</a> <span style="color:#E38C07">/</span> <a href="CERDAS Publications.dc.html" style="color:#7FAED9">PUBLICATIONS &amp; INNOVATION</a> <span style="color:#E38C07">/</span> PATENTS</div>
+<h1 style="margin:0 0 22px;font:700 52px/1.07 'Inter Tight',sans-serif;letter-spacing:-.02em;color:#FFFFFF;max-width:840px;text-wrap:pretty">Patents</h1>
+<p style="margin:0;font:400 18.5px/1.62 Inter,sans-serif;color:#BFD2E4;max-width:720px;text-wrap:pretty">What the centre has filed, what has been granted, and what is available to license. Every entry names its inventors, its jurisdiction and the project it came out of.</p>
+</div>
+</section>
+
+<section style="background:#FFFFFF;border-bottom:1px solid #D8DEE5">
+<div style="width:1320px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr)">
+<div style="padding:40px 32px 40px 0"><dc-import name="StatCounter" count="19" suffix="" label="FILED, 2021–2025" hint-size="100%,130px"></dc-import></div>
+<div style="padding:40px 32px;border-left:1px solid #D8DEE5"><dc-import name="StatCounter" count="7" suffix="" label="GRANTED" hint-size="100%,130px"></dc-import></div>
+<div style="padding:40px 32px;border-left:1px solid #D8DEE5"><dc-import name="StatCounter" count="4" suffix="" label="JURISDICTIONS COVERED" hint-size="100%,130px"></dc-import></div>
+<div style="padding:40px 0 40px 32px;border-left:1px solid #D8DEE5"><dc-import name="StatCounter" count="12" suffix="" label="PROOF-OF-CONCEPTS" hint-size="100%,130px"></dc-import></div>
+</div>
+</section>
+
+<section style="background:#FAFAF8;padding:60px 0 80px">
+<div style="width:1320px;margin:0 auto">
+<div style="display:flex;align-items:flex-end;justify-content:space-between;gap:40px;margin-bottom:34px">
+<div>
+<div style="width:44px;height:3px;background:#E38C07;margin-bottom:20px"></div>
+<h2 style="margin:0 0 10px;font:700 32px/1.16 'Inter Tight',sans-serif;letter-spacing:-.015em;color:#14181D">The portfolio</h2>
+<p style="margin:0;font:400 16px/1.6 Inter,sans-serif;color:#5A6472;max-width:620px">Eight of nineteen filings shown. A gold flag means the technology is available to license today.</p>
+</div>
+<div style="font:500 11.5px 'IBM Plex Mono',monospace;letter-spacing:.1em;color:#5A6472;white-space:nowrap;text-align:right">8 OF 19 SHOWN<br>UPDATED 28 AUG 2026</div>
+</div>
+
+<div style="display:grid;grid-template-columns:repeat(2,1fr);gap:24px">
+<sc-for list="{{ patents }}" as="p" hint-placeholder-count="8">
+<div style="background:#FFFFFF;border:1px solid #D8DEE5;border-radius:8px;padding:26px 28px 28px;display:flex;flex-direction:column">
+<div style="display:flex;align-items:flex-start;justify-content:space-between;gap:16px;margin-bottom:18px">
+<div style="font:500 10.5px 'IBM Plex Mono',monospace;letter-spacing:.12em;color:#5A6472">{{ p.jurisdiction }}</div>
+<div style="display:flex;gap:8px;flex:none">
+<sc-if value="{{ p.licensable }}" hint-placeholder-val="{{ false }}">
+<span style="background:#E38C07;color:#14181D;font:600 10px 'IBM Plex Mono',monospace;letter-spacing:.06em;padding:5px 8px;border-radius:4px;white-space:nowrap">AVAILABLE TO LICENSE</span>
+</sc-if>
+<span style="background:rgba(0,75,140,.08);color:#004B8C;font:600 10px 'IBM Plex Mono',monospace;letter-spacing:.06em;padding:5px 8px;border-radius:4px;white-space:nowrap">{{ p.status }}</span>
+</div>
+</div>
+<a href="#" style="font:600 20px/1.28 'Inter Tight',sans-serif;letter-spacing:-.01em;color:#14181D;text-wrap:pretty;margin-bottom:14px" style-hover="color:#004B8C">{{ p.title }}</a>
+<div style="font:400 14px/1.55 Inter,sans-serif;color:#5A6472;margin-bottom:20px">{{ p.inventors }}</div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:16px 20px;padding:18px 0;border-top:1px solid #E8ECF1;border-bottom:1px solid #E8ECF1;margin-bottom:18px">
+<div>
+<div style="font:500 9.5px 'IBM Plex Mono',monospace;letter-spacing:.14em;color:#5A6472;margin-bottom:5px">{{ p.numberLabel }}</div>
+<div style="font:500 13.5px 'IBM Plex Mono',monospace;color:#14181D">{{ p.number }}</div>
+</div>
+<div>
+<div style="font:500 9.5px 'IBM Plex Mono',monospace;letter-spacing:.14em;color:#5A6472;margin-bottom:5px">FILING DATE</div>
+<div style="font:500 13.5px 'IBM Plex Mono',monospace;color:#14181D">{{ p.filed }}</div>
+</div>
+</div>
+<div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px">
+<span style="font:500 10.5px 'IBM Plex Mono',monospace;letter-spacing:.08em;color:#5A6472;background:#FAFAF8;border:1px solid #E8ECF1;padding:5px 9px;border-radius:4px">{{ p.theme }}</span>
+<span style="font:500 10.5px 'IBM Plex Mono',monospace;letter-spacing:.08em;color:#5A6472;background:#FAFAF8;border:1px solid #E8ECF1;padding:5px 9px;border-radius:4px">{{ p.project }}</span>
+</div>
+<div style="margin-top:auto;display:flex;align-items:center;gap:20px">
+<a href="#" style="font:600 13.5px Inter,sans-serif;color:#004B8C">Abstract →</a>
+<a href="CERDAS Technology Transfer.dc.html" style="font:600 13.5px Inter,sans-serif;color:#004B8C">Licensing enquiry →</a>
+</div>
+</div>
+</sc-for>
+</div>
+
+<div style="margin-top:32px;text-align:center">
+<a href="#" style="display:inline-block;font:600 14px Inter,sans-serif;color:#004B8C;border:1px solid #C3D4E4;border-radius:6px;padding:14px 26px;background:#FFFFFF" style-hover="background:#E6EEF5">Load the remaining 11 filings →</a>
+</div>
+</div>
+</section>
+
+<section style="background:#FFFFFF;padding:72px 0 80px;border-top:1px solid #D8DEE5">
+<div style="width:1320px;margin:0 auto">
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:start">
+<div>
+<div style="width:44px;height:3px;background:#E38C07;margin-bottom:22px"></div>
+<h2 style="margin:0 0 12px;font:700 30px/1.16 'Inter Tight',sans-serif;letter-spacing:-.015em;color:#14181D">Where we file</h2>
+<p style="margin:0 0 30px;font:400 16px/1.6 Inter,sans-serif;color:#5A6472;max-width:520px">Filing follows the market for the technology, not the location of the lab. Malaysia first, then the jurisdictions where a partner intends to deploy.</p>
+<div style="display:flex;flex-direction:column;gap:20px">
+<div>
+<div style="display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin-bottom:9px">
+<span style="font:500 14.5px Inter,sans-serif;color:#14181D">Malaysia · MyIPO</span>
+<span style="font:600 14px 'IBM Plex Mono',monospace;color:#004B8C">19</span>
+</div>
+<div style="height:6px;background:#E8ECF1;border-radius:3px"><div style="width:100%;height:6px;background:#004B8C;border-radius:3px"></div></div>
+</div>
+<div>
+<div style="display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin-bottom:9px">
+<span style="font:500 14.5px Inter,sans-serif;color:#14181D">Singapore · IPOS</span>
+<span style="font:600 14px 'IBM Plex Mono',monospace;color:#004B8C">4</span>
+</div>
+<div style="height:6px;background:#E8ECF1;border-radius:3px"><div style="width:21%;height:6px;background:#1A6BAE;border-radius:3px"></div></div>
+</div>
+<div>
+<div style="display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin-bottom:9px">
+<span style="font:500 14.5px Inter,sans-serif;color:#14181D">United States · USPTO</span>
+<span style="font:600 14px 'IBM Plex Mono',monospace;color:#004B8C">3</span>
+</div>
+<div style="height:6px;background:#E8ECF1;border-radius:3px"><div style="width:16%;height:6px;background:#4A8CC4;border-radius:3px"></div></div>
+</div>
+<div>
+<div style="display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin-bottom:9px">
+<span style="font:500 14.5px Inter,sans-serif;color:#14181D">PCT international phase</span>
+<span style="font:600 14px 'IBM Plex Mono',monospace;color:#004B8C">2</span>
+</div>
+<div style="height:6px;background:#E8ECF1;border-radius:3px"><div style="width:11%;height:6px;background:#7FAED9;border-radius:3px"></div></div>
+</div>
+</div>
+</div>
+
+<div style="background:#004B8C;border-radius:8px;padding:40px 42px 44px">
+<div style="width:44px;height:3px;background:#E38C07;margin-bottom:24px"></div>
+<h2 style="margin:0 0 14px;font:700 28px/1.2 'Inter Tight',sans-serif;letter-spacing:-.015em;color:#FFFFFF">License a CERDAS technology</h2>
+<p style="margin:0 0 26px;font:400 16px/1.62 Inter,sans-serif;color:#BFD2E4">Licensing runs through the Innovation &amp; Impact Translation arm — one contact, one process. Tell us the application you have in mind and we will say whether the filing covers it and what stage it has reached.</p>
+<div style="background:rgba(255,255,255,.09);border-radius:7px;padding:22px 24px;margin-bottom:26px">
+<div style="font:500 10px 'IBM Plex Mono',monospace;letter-spacing:.14em;color:#7FAED9;margin-bottom:10px">NAMED CONTACT</div>
+<div style="font:600 17px/1.3 'Inter Tight',sans-serif;color:#FFFFFF;margin-bottom:6px">Dr. Emelia Akashah Patah Akhir</div>
+<div style="font:400 13.5px/1.5 Inter,sans-serif;color:#BFD2E4">Functional Lead · Innovation &amp; Impact Translation</div>
+</div>
+<div style="display:flex;gap:14px;flex-wrap:wrap">
+<a href="CERDAS Technology Transfer.dc.html" style="font:600 14.5px Inter,sans-serif;color:#14181D;background:#E38C07;padding:15px 26px;border-radius:6px;white-space:nowrap" style-hover="background:#F5C46B">Licensing enquiry</a>
+<a href="CERDAS Join.dc.html" style="font:600 14.5px Inter,sans-serif;color:#FFFFFF;border:1px solid rgba(255,255,255,.42);padding:14px 26px;border-radius:6px;white-space:nowrap" style-hover="border-color:#FFFFFF">Contact the centre</a>
+</div>
+</div>
+</div>
+
+<div style="margin-top:28px;background:#FAFAF8;border:1px solid #D8DEE5;border-radius:8px;padding:28px 32px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:36px">
+<div>
+<div style="font:500 10px 'IBM Plex Mono',monospace;letter-spacing:.14em;color:#5A6472;margin-bottom:12px">IP OWNERSHIP</div>
+<div style="font:400 14.5px/1.62 Inter,sans-serif;color:#5A6472">Intellectual property generated at CERDAS is owned by Universiti Teknologi PETRONAS, with inventor recognition and a share of licensing income under university policy.</div>
+</div>
+<div>
+<div style="font:500 10px 'IBM Plex Mono',monospace;letter-spacing:.14em;color:#5A6472;margin-bottom:12px">JOINT FILINGS</div>
+<div style="font:400 14.5px/1.62 Inter,sans-serif;color:#5A6472">Where a partner co-funds the work, ownership and licensing terms are agreed in the research agreement before the project starts — never after a result appears.</div>
+</div>
+<div>
+<div style="font:500 10px 'IBM Plex Mono',monospace;letter-spacing:.14em;color:#5A6472;margin-bottom:12px">DISCLOSURE FIRST</div>
+<div style="font:400 14.5px/1.62 Inter,sans-serif;color:#5A6472">Researchers file an invention disclosure before publishing. The Innovation arm assesses novelty and decides on filing within four weeks.</div>
+</div>
+</div>
+</div>
+</section>
+
+<dc-import name="SiteFooter" hint-size="100%,340px"></dc-import>
+
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1440}}">
+const PATENTS = [
+  { title: 'Adaptive sensor-fusion method for pipeline leak localisation',
+    inventors: 'Iskandar, S.; Rahim, A. N.; Noor Azmi, S.',
+    jurisdiction: 'MALAYSIA · SINGAPORE', status: 'GRANTED', licensable: true,
+    numberLabel: 'GRANT NUMBER', number: 'MY-198441', filed: '14 MAR 2024',
+    theme: 'T3 INTELLIGENT & DISTRIBUTED SYSTEMS', project: 'SIGMA-FLOW' },
+  { title: 'System and method for latency-bounded federated model updates',
+    inventors: 'Noor Azmi, S.; Bakri, A.',
+    jurisdiction: 'PCT INTERNATIONAL PHASE', status: 'UNDER EXAMINATION', licensable: false,
+    numberLabel: 'APPLICATION NUMBER', number: 'PCT/MY2025/050212', filed: '08 FEB 2025',
+    theme: 'T3 INTELLIGENT & DISTRIBUTED SYSTEMS', project: 'EDGE-SENSE' },
+  { title: 'Physics-informed surrogate apparatus for multiphase flow assurance',
+    inventors: 'Tengku Zainal, M. F.; Ooi, L. W.; Iskandar, S.',
+    jurisdiction: 'MALAYSIA', status: 'FILED', licensable: false,
+    numberLabel: 'APPLICATION NUMBER', number: 'MY 2025/01477', filed: '22 JAN 2025',
+    theme: 'T2 COMPUTATIONAL SCIENCE & OPTIMISATION', project: 'SIGMA-FLOW' },
+  { title: 'Graph-based fault localisation apparatus for distribution networks',
+    inventors: 'Kamal, N. I.; Daud, H.; Zainuddin, A.',
+    jurisdiction: 'MALAYSIA', status: 'GRANTED', licensable: true,
+    numberLabel: 'GRANT NUMBER', number: 'MY-196072', filed: '30 AUG 2023',
+    theme: 'T1 AI & DATA INTELLIGENCE', project: 'SENTINEL-GRID' },
+  { title: 'Method for scheduling inference workloads on constrained edge devices',
+    inventors: 'Zulkifli, I.; Bakri, A.',
+    jurisdiction: 'UNITED STATES', status: 'UNDER EXAMINATION', licensable: false,
+    numberLabel: 'APPLICATION NUMBER', number: 'US 18/442,905', filed: '11 SEP 2024',
+    theme: 'T3 INTELLIGENT & DISTRIBUTED SYSTEMS', project: 'EDGE-SENSE' },
+  { title: 'Quantum-assisted solver for constrained unit commitment',
+    inventors: 'Lim, W. S.; Tan, C. M.',
+    jurisdiction: 'MALAYSIA', status: 'FILED', licensable: false,
+    numberLabel: 'APPLICATION NUMBER', number: 'MY 2026/00812', filed: '19 FEB 2026',
+    theme: 'T4 NEXT-GENERATION COMPUTING', project: 'QOPT' },
+  { title: 'Data vault architecture with provenance-preserving access control',
+    inventors: 'Sulaiman, F.; Idris, W. S.; Hamzah, N.',
+    jurisdiction: 'MALAYSIA', status: 'LICENSED', licensable: false,
+    numberLabel: 'GRANT NUMBER', number: 'MY-197318', filed: '05 NOV 2024',
+    theme: 'T1 AI & DATA INTELLIGENCE', project: 'CLARA' },
+  { title: 'Calibration rig and method for multi-channel telemetry sensors',
+    inventors: 'Suresh, R.; Amri, K.',
+    jurisdiction: 'MALAYSIA', status: 'FILED', licensable: true,
+    numberLabel: 'APPLICATION NUMBER', number: 'MY 2025/04456', filed: '30 JUN 2025',
+    theme: 'T2 COMPUTATIONAL SCIENCE & OPTIMISATION', project: 'MESH-OPT' }
+];
+
+class Component extends DCLogic {
+  renderVals() { return { patents: PATENTS }; }
+}
+
+</script>
+</body>
+</html>

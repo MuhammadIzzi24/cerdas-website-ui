@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<footer style="background:#00335F;padding:34px 16px 26px">
+<img src="assets/cerdas-logo-white.png" alt="CERDAS" style="height:32px;width:auto;display:block;margin-bottom:18px">
+<p style="margin:0 0 20px;font:400 14px/1.65 Inter,sans-serif;color:#9FBAD3">Resilient data analytics and computational systems for critical national infrastructure.</p>
+
+<div style="display:flex;flex-direction:column;gap:0;border-top:1px solid rgba(255,255,255,.14)">
+<sc-for list="{{ groups }}" as="g" hint-placeholder-count="4">
+<div style="border-bottom:1px solid rgba(255,255,255,.14)">
+<button type="button" onClick="{{ g.toggle }}" style="width:100%;box-sizing:border-box;min-height:52px;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:0 2px;background:transparent;border:0;cursor:pointer;text-align:left">
+<span style="font:600 11.5px 'IBM Plex Mono',monospace;letter-spacing:.11em;color:#F5C46B">{{ g.title }}</span>
+<span style="font:400 10px Inter,sans-serif;color:#9FBAD3">{{ g.chev }}</span>
+</button>
+<sc-if value="{{ g.open }}" hint-placeholder-val="{{ false }}">
+<div style="display:flex;flex-direction:column;gap:0;padding-bottom:8px">
+<sc-for list="{{ g.links }}" as="l" hint-placeholder-count="4">
+<a href="{{ l.href }}" style="display:flex;align-items:center;min-height:44px;font:400 14.5px Inter,sans-serif;color:#C7DAEB">{{ l.label }}</a>
+</sc-for>
+</div>
+</sc-if>
+</div>
+</sc-for>
+</div>
+
+<div style="margin-top:26px">
+<div style="font:600 11.5px 'IBM Plex Mono',monospace;letter-spacing:.11em;color:#F5C46B;margin-bottom:12px">STAY IN TOUCH</div>
+<p style="margin:0 0 12px;font:400 13.5px/1.6 Inter,sans-serif;color:#9FBAD3">Quarterly research digest.</p>
+<div style="display:flex;flex-direction:column;gap:8px">
+<div style="height:48px;border:1px solid rgba(255,255,255,.24);border-radius:6px;display:flex;align-items:center;padding:0 14px;font:400 14.5px Inter,sans-serif;color:#7A97B3">your@email.com</div>
+<div style="height:48px;background:#E38C07;border-radius:6px;display:flex;align-items:center;justify-content:center;font:600 15px Inter,sans-serif;color:#14181D">Join the digest</div>
+</div>
+<div style="display:flex;gap:9px;margin-top:18px">
+<div style="width:42px;height:42px;border:1px solid rgba(255,255,255,.24);border-radius:6px;display:flex;align-items:center;justify-content:center;font:600 11.5px Inter,sans-serif;color:#C7DAEB">in</div>
+<div style="width:42px;height:42px;border:1px solid rgba(255,255,255,.24);border-radius:6px;display:flex;align-items:center;justify-content:center;font:600 11.5px Inter,sans-serif;color:#C7DAEB">X</div>
+<div style="width:42px;height:42px;border:1px solid rgba(255,255,255,.24);border-radius:6px;display:flex;align-items:center;justify-content:center;font:600 11.5px Inter,sans-serif;color:#C7DAEB">YT</div>
+<div style="width:42px;height:42px;border:1px solid rgba(255,255,255,.24);border-radius:6px;display:flex;align-items:center;justify-content:center;font:600 11.5px Inter,sans-serif;color:#C7DAEB">GS</div>
+</div>
+</div>
+
+<div style="margin-top:28px;padding-top:20px;border-top:1px solid rgba(255,255,255,.14)">
+<div style="font:400 13px/1.75 Inter,sans-serif;color:#9FBAD3">Universiti Teknologi PETRONAS<br>32610 Seri Iskandar, Perak, Malaysia</div>
+<div style="margin-top:12px;font:500 13px/1.75 'IBM Plex Mono',monospace;color:#C7DAEB">cerdas@utp.edu.my<br>+605 368 8000</div>
+<div style="margin-top:20px;display:flex;flex-wrap:wrap;gap:16px;font:400 12.5px Inter,sans-serif"><a href="#" style="color:#9FBAD3">Privacy policy</a><a href="#" style="color:#9FBAD3">Accessibility</a><a href="#" style="color:#9FBAD3">Sitemap</a></div>
+<div style="margin-top:16px;font:400 12px/1.6 Inter,sans-serif;color:#7A97B3">© 2026 Universiti Teknologi PETRONAS.<br>All rights reserved.</div>
+</div>
+</footer>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:390,&quot;height&quot;:760}}">
+const GROUPS = [
+  ['RESEARCH', [['Themes', 'CERDAS Research.dc.html'], ['Flagship projects', 'CERDAS Projects.dc.html'], ['Laboratories', 'CERDAS Laboratories.dc.html'], ['Facilities', 'CERDAS Facilities.dc.html']]],
+  ['PEOPLE', [['Leadership', 'CERDAS Governance.dc.html'], ['Fellows', 'CERDAS Fellowship Framework.dc.html'], ['Researchers', 'CERDAS Mobile People.dc.html'], ['Students', 'CERDAS Join.dc.html']]],
+  ['IMPACT', [['Industry', 'CERDAS Industry.dc.html'], ['Consultancy', 'CERDAS Consultancy.dc.html'], ['Partnerships', 'CERDAS Partnerships.dc.html'], ['Research dashboard', 'CERDAS Mobile Dashboard.dc.html']]],
+  ['PUBLICATIONS', [['Publications register', 'CERDAS Publications.dc.html'], ['Patents', 'CERDAS Patents.dc.html'], ['Software', 'CERDAS Software.dc.html'], ['Datasets', 'CERDAS Datasets.dc.html']]]
+];
+
+class Component extends DCLogic {
+  state = { open: '' };
+  renderVals() {
+    return {
+      groups: GROUPS.map(([title, links]) => {
+        const open = this.state.open === title;
+        return {
+          title, open, chev: open ? '▲' : '▼',
+          links: links.map(([label, href]) => ({ label, href })),
+          toggle: () => this.setState({ open: open ? '' : title })
+        };
+      })
+    };
+  }
+}
+
+</script>
+</body>
+</html>

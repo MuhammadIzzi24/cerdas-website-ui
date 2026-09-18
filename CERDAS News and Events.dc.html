@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""><link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&amp;family=Inter:wght@400;500;600;700&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<script src="./image-slot.js"></script>
+<style>
+body{margin:0;background:#FAFAF8;font-family:Inter,system-ui,sans-serif}
+a{color:#004B8C;text-decoration:none}a:hover{color:#00335F}
+</style></helmet>
+
+<div data-screen-label="E4 News and events" style="width:1440px;margin:0 auto;background:#FFFFFF">
+
+<dc-import name="SiteHeader" active="Impact" hint-size="100%,78px"></dc-import>
+
+<section style="background:#00335F;padding:56px 0 66px;position:relative;overflow:hidden">
+<svg viewBox="0 0 1440 400" preserveAspectRatio="none" style="position:absolute;inset:0;width:100%;height:100%;opacity:.2" aria-hidden="true">
+<g fill="#7FAED9">
+<rect x="1030" y="70" width="80" height="80" rx="4"></rect><rect x="1126" y="70" width="80" height="80" rx="4"></rect><rect x="1222" y="70" width="80" height="80" rx="4"></rect>
+<rect x="1030" y="166" width="80" height="80" rx="4"></rect><rect x="1222" y="166" width="80" height="80" rx="4"></rect>
+</g>
+<g fill="#E38C07"><rect x="1126" y="166" width="80" height="80" rx="4"></rect></g>
+</svg>
+<div style="width:1320px;margin:0 auto;position:relative">
+<div style="font:500 11px 'IBM Plex Mono',monospace;letter-spacing:.13em;color:#7FAED9;margin-bottom:28px"><a href="CERDAS Home.dc.html" style="color:#7FAED9">HOME</a> <span style="color:#E38C07">/</span> <a href="CERDAS Industry.dc.html" style="color:#7FAED9">IMPACT</a> <span style="color:#E38C07">/</span> NEWS &amp; EVENTS</div>
+<h1 style="margin:0 0 22px;font:700 52px/1.07 'Inter Tight',sans-serif;letter-spacing:-.02em;color:#FFFFFF;max-width:840px;text-wrap:pretty">News &amp; events</h1>
+<p style="margin:0;font:400 18.5px/1.62 Inter,sans-serif;color:#BFD2E4;max-width:720px;text-wrap:pretty">What has happened, and what you can come to. Seminars and workshops are open to researchers outside the centre unless a session says otherwise.</p>
+</div>
+</section>
+
+<section style="background:#FFFFFF;padding:44px 0 0">
+<div style="width:1320px;margin:0 auto">
+<div style="display:flex;align-items:center;justify-content:space-between;gap:30px;flex-wrap:wrap;padding-bottom:26px;border-bottom:1px solid #D8DEE5">
+<div style="display:flex;gap:0;border:1px solid #D8DEE5;border-radius:7px;overflow:hidden">
+<sc-if value="{{ isNews }}" hint-placeholder-val="{{ true }}">
+<button type="button" onClick="{{ pickNews }}" style="font:600 13.5px 'IBM Plex Mono',monospace;letter-spacing:.06em;color:#FFFFFF;background:#004B8C;border:0;padding:14px 28px;cursor:pointer;white-space:nowrap">NEWS · 6</button>
+<button type="button" onClick="{{ pickEvents }}" style="font:500 13.5px 'IBM Plex Mono',monospace;letter-spacing:.06em;color:#5A6472;background:#FFFFFF;border:0;border-left:1px solid #D8DEE5;padding:14px 28px;cursor:pointer;white-space:nowrap" style-hover="color:#004B8C">EVENTS · 6</button>
+</sc-if>
+<sc-if value="{{ isEvents }}" hint-placeholder-val="{{ false }}">
+<button type="button" onClick="{{ pickNews }}" style="font:500 13.5px 'IBM Plex Mono',monospace;letter-spacing:.06em;color:#5A6472;background:#FFFFFF;border:0;padding:14px 28px;cursor:pointer;white-space:nowrap" style-hover="color:#004B8C">NEWS · 6</button>
+<button type="button" onClick="{{ pickEvents }}" style="font:600 13.5px 'IBM Plex Mono',monospace;letter-spacing:.06em;color:#FFFFFF;background:#004B8C;border:0;border-left:1px solid #004B8C;padding:14px 28px;cursor:pointer;white-space:nowrap">EVENTS · 6</button>
+</sc-if>
+</div>
+<div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
+<span style="font:500 10.5px 'IBM Plex Mono',monospace;letter-spacing:.12em;color:#5A6472;margin-right:4px">{{ typeLabel }}</span>
+<sc-for list="{{ typeChips }}" as="c" hint-placeholder-count="5">
+<sc-if value="{{ c.on }}" hint-placeholder-val="{{ false }}"><button type="button" onClick="{{ c.pick }}" style="font:600 12px 'IBM Plex Mono',monospace;letter-spacing:.05em;color:#FFFFFF;background:#004B8C;border:1px solid #004B8C;padding:7px 13px;border-radius:5px;cursor:pointer;white-space:nowrap">{{ c.label }}</button></sc-if>
+<sc-if value="{{ c.off }}" hint-placeholder-val="{{ true }}"><button type="button" onClick="{{ c.pick }}" style="font:500 12px 'IBM Plex Mono',monospace;letter-spacing:.05em;color:#5A6472;background:#FFFFFF;border:1px solid #D8DEE5;padding:7px 13px;border-radius:5px;cursor:pointer;white-space:nowrap" style-hover="border-color:#004B8C;color:#004B8C">{{ c.label }}</button></sc-if>
+</sc-for>
+</div>
+<div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
+<span style="font:500 10.5px 'IBM Plex Mono',monospace;letter-spacing:.12em;color:#5A6472;margin-right:4px">THEME</span>
+<sc-for list="{{ themeChips }}" as="c" hint-placeholder-count="5">
+<sc-if value="{{ c.on }}" hint-placeholder-val="{{ false }}"><button type="button" onClick="{{ c.pick }}" style="font:600 12px 'IBM Plex Mono',monospace;letter-spacing:.05em;color:#FFFFFF;background:#004B8C;border:1px solid #004B8C;padding:7px 13px;border-radius:5px;cursor:pointer">{{ c.label }}</button></sc-if>
+<sc-if value="{{ c.off }}" hint-placeholder-val="{{ true }}"><button type="button" onClick="{{ c.pick }}" style="font:500 12px 'IBM Plex Mono',monospace;letter-spacing:.05em;color:#5A6472;background:#FFFFFF;border:1px solid #D8DEE5;padding:7px 13px;border-radius:5px;cursor:pointer" style-hover="border-color:#004B8C;color:#004B8C">{{ c.label }}</button></sc-if>
+</sc-for>
+</div>
+</div>
+</div>
+</section>
+
+<sc-if value="{{ isNews }}" hint-placeholder-val="{{ true }}">
+<section style="background:#FFFFFF;padding:48px 0 84px">
+<div style="width:1320px;margin:0 auto">
+
+<sc-if value="{{ hasFeature }}" hint-placeholder-val="{{ true }}">
+<div style="border:1px solid #D8DEE5;border-radius:8px;overflow:hidden;display:grid;grid-template-columns:600px 1fr;margin-bottom:32px">
+<image-slot id="news-feature" style="width:600px;height:340px;display:block" shape="rect" placeholder="Lead news photograph"></image-slot>
+<div style="padding:38px 40px 40px;display:flex;flex-direction:column">
+<div style="display:flex;align-items:center;gap:12px;margin-bottom:18px">
+<span style="background:rgba(0,75,140,.08);color:#004B8C;font:600 10px 'IBM Plex Mono',monospace;letter-spacing:.08em;padding:5px 9px;border-radius:4px">{{ feature.type }}</span>
+<span style="font:500 10.5px 'IBM Plex Mono',monospace;letter-spacing:.12em;color:#5A6472">{{ feature.date }}</span>
+</div>
+<a href="CERDAS News Article.dc.html" style="font:600 30px/1.2 'Inter Tight',sans-serif;letter-spacing:-.015em;color:#14181D;margin-bottom:16px;text-wrap:pretty" style-hover="color:#004B8C">{{ feature.title }}</a>
+<p style="margin:0 0 22px;font:400 15.5px/1.62 Inter,sans-serif;color:#5A6472;text-wrap:pretty">{{ feature.body }}</p>
+<div style="margin-top:auto;display:flex;align-items:center;justify-content:space-between;gap:20px">
+<span style="font:500 10.5px 'IBM Plex Mono',monospace;letter-spacing:.1em;color:#5A6472">{{ feature.themeLabel }}</span>
+<a href="CERDAS News Article.dc.html" style="font:600 14px Inter,sans-serif;color:#004B8C">Read the story →</a>
+</div>
+</div>
+</div>
+</sc-if>
+
+<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px">
+<sc-for list="{{ news }}" as="n" hint-placeholder-count="5">
+<div style="background:#FFFFFF;border:1px solid #D8DEE5;border-radius:8px;padding:28px 28px 30px;display:flex;flex-direction:column">
+<div style="display:flex;align-items:center;gap:12px;margin-bottom:18px">
+<span style="background:rgba(0,75,140,.08);color:#004B8C;font:600 10px 'IBM Plex Mono',monospace;letter-spacing:.08em;padding:5px 9px;border-radius:4px">{{ n.type }}</span>
+<span style="font:500 10.5px 'IBM Plex Mono',monospace;letter-spacing:.12em;color:#5A6472">{{ n.date }}</span>
+</div>
+<a href="CERDAS News Article.dc.html" style="font:600 19px/1.28 'Inter Tight',sans-serif;letter-spacing:-.008em;color:#14181D;margin-bottom:14px;text-wrap:pretty" style-hover="color:#004B8C">{{ n.title }}</a>
+<p style="margin:0 0 20px;font:400 14.5px/1.6 Inter,sans-serif;color:#5A6472;text-wrap:pretty">{{ n.body }}</p>
+<div style="margin-top:auto;padding-top:18px;border-top:1px solid #E8ECF1;display:flex;align-items:center;justify-content:space-between;gap:16px">
+<span style="font:500 10px 'IBM Plex Mono',monospace;letter-spacing:.1em;color:#5A6472">{{ n.themeShort }}</span>
+<a href="CERDAS News Article.dc.html" style="font:600 13.5px Inter,sans-serif;color:#004B8C">Read →</a>
+</div>
+</div>
+</sc-for>
+</div>
+
+<sc-if value="{{ newsEmpty }}" hint-placeholder-val="{{ false }}">
+<div style="padding:56px 0;text-align:center">
+<div style="font:600 19px 'Inter Tight',sans-serif;color:#14181D;margin-bottom:10px">Nothing in the feed matches those filters</div>
+<div style="font:400 14.5px Inter,sans-serif;color:#5A6472">Clear a type or theme selection to see the rest.</div>
+</div>
+</sc-if>
+
+<div style="margin-top:34px;display:flex;align-items:center;justify-content:space-between;gap:24px">
+<div style="font:500 12px 'IBM Plex Mono',monospace;letter-spacing:.08em;color:#5A6472">{{ newsLine }}</div>
+<a href="#" style="font:600 14px Inter,sans-serif;color:#004B8C;border:1px solid #C3D4E4;border-radius:6px;padding:13px 22px" style-hover="background:#E6EEF5">Older stories →</a>
+</div>
+</div>
+</section>
+</sc-if>
+
+<sc-if value="{{ isEvents }}" hint-placeholder-val="{{ false }}">
+<section style="background:#FFFFFF;padding:48px 0 72px">
+<div style="width:1320px;margin:0 auto">
+<div style="display:flex;align-items:flex-end;justify-content:space-between;gap:40px;margin-bottom:28px">
+<div>
+<div style="width:44px;height:3px;background:#E38C07;margin-bottom:20px"></div>
+<h2 style="margin:0 0 10px;font:700 30px/1.16 'Inter Tight',sans-serif;letter-spacing:-.015em;color:#14181D">Upcoming</h2>
+<p style="margin:0;font:400 16px/1.6 Inter,sans-serif;color:#5A6472;max-width:600px">Open to external researchers unless marked otherwise. Registration closes two working days before each session.</p>
+</div>
+<div style="font:500 11.5px 'IBM Plex Mono',monospace;letter-spacing:.1em;color:#5A6472;white-space:nowrap;text-align:right">{{ upcomingLine }}</div>
+</div>
+
+<div style="display:flex;flex-direction:column;gap:16px;margin-bottom:64px">
+<sc-for list="{{ upcoming }}" as="e" hint-placeholder-count="3">
+<div style="background:#FFFFFF;border:1px solid #D8DEE5;border-radius:8px;overflow:hidden;display:grid;grid-template-columns:132px 1fr 230px">
+<div style="background:#004B8C;padding:28px 20px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center">
+<div style="font:600 40px/1 'IBM Plex Mono',monospace;color:#FFFFFF;letter-spacing:-.03em">{{ e.day }}</div>
+<div style="margin-top:8px;font:500 11px 'IBM Plex Mono',monospace;letter-spacing:.14em;color:#BFD2E4">{{ e.month }}</div>
+<div style="margin-top:14px;width:24px;height:2px;background:#E38C07"></div>
+<div style="margin-top:14px;font:500 10.5px 'IBM Plex Mono',monospace;color:#BFD2E4">{{ e.time }}</div>
+</div>
+<div style="padding:28px 32px 30px">
+<div style="display:flex;align-items:center;gap:12px;margin-bottom:14px">
+<span style="background:rgba(0,75,140,.08);color:#004B8C;font:600 10px 'IBM Plex Mono',monospace;letter-spacing:.08em;padding:5px 9px;border-radius:4px">{{ e.type }}</span>
+<span style="font:500 10.5px 'IBM Plex Mono',monospace;letter-spacing:.1em;color:#5A6472">{{ e.themeLabel }}</span>
+</div>
+<a href="CERDAS News Article.dc.html" style="display:block;font:600 22px/1.26 'Inter Tight',sans-serif;letter-spacing:-.01em;color:#14181D;margin-bottom:12px;text-wrap:pretty" style-hover="color:#004B8C">{{ e.title }}</a>
+<p style="margin:0 0 16px;font:400 14.5px/1.6 Inter,sans-serif;color:#5A6472;max-width:640px;text-wrap:pretty">{{ e.body }}</p>
+<div style="display:flex;align-items:center;gap:22px;flex-wrap:wrap">
+<span style="font:400 13.5px Inter,sans-serif;color:#14181D">{{ e.venue }}</span>
+<span style="font:500 10.5px 'IBM Plex Mono',monospace;letter-spacing:.1em;color:#5A6472">{{ e.speaker }}</span>
+</div>
+</div>
+<div style="border-left:1px solid #E8ECF1;padding:28px 30px;display:flex;flex-direction:column;justify-content:center;gap:14px">
+<a href="#" style="font:600 14px Inter,sans-serif;color:#14181D;background:#E38C07;padding:14px 20px;border-radius:6px;text-align:center;white-space:nowrap" style-hover="background:#F5C46B">Register</a>
+<a href="#" style="font:600 13.5px Inter,sans-serif;color:#004B8C;text-align:center">Add to calendar →</a>
+<div style="font:500 10px 'IBM Plex Mono',monospace;letter-spacing:.1em;color:#5A6472;text-align:center">{{ e.places }}</div>
+</div>
+</div>
+</sc-for>
+</div>
+
+<div style="display:flex;align-items:flex-end;justify-content:space-between;gap:40px;margin-bottom:28px">
+<div>
+<div style="width:44px;height:3px;background:#E38C07;margin-bottom:20px"></div>
+<h2 style="margin:0 0 10px;font:700 30px/1.16 'Inter Tight',sans-serif;letter-spacing:-.015em;color:#14181D">Past</h2>
+<p style="margin:0;font:400 16px/1.6 Inter,sans-serif;color:#5A6472;max-width:600px">Slides and recordings are posted where speakers have agreed to release them.</p>
+</div>
+<div style="font:500 11.5px 'IBM Plex Mono',monospace;letter-spacing:.1em;color:#5A6472;white-space:nowrap;text-align:right">{{ pastLine }}</div>
+</div>
+
+<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px">
+<sc-for list="{{ past }}" as="e" hint-placeholder-count="3">
+<div style="background:#FAFAF8;border:1px solid #D8DEE5;border-radius:8px;padding:26px 28px 28px;display:flex;flex-direction:column">
+<div style="display:flex;align-items:center;gap:12px;margin-bottom:16px">
+<span style="background:#FFFFFF;border:1px solid #E8ECF1;color:#5A6472;font:600 10px 'IBM Plex Mono',monospace;letter-spacing:.08em;padding:4px 9px;border-radius:4px">{{ e.type }}</span>
+<span style="font:500 10.5px 'IBM Plex Mono',monospace;letter-spacing:.12em;color:#5A6472">{{ e.date }}</span>
+</div>
+<a href="CERDAS News Article.dc.html" style="font:600 18.5px/1.28 'Inter Tight',sans-serif;letter-spacing:-.008em;color:#14181D;margin-bottom:12px;text-wrap:pretty" style-hover="color:#004B8C">{{ e.title }}</a>
+<p style="margin:0 0 18px;font:400 14px/1.6 Inter,sans-serif;color:#5A6472">{{ e.body }}</p>
+<div style="margin-top:auto;padding-top:18px;border-top:1px solid #D8DEE5;display:flex;align-items:center;justify-content:space-between;gap:16px">
+<span style="font:500 10px 'IBM Plex Mono',monospace;letter-spacing:.1em;color:#5A6472">{{ e.attended }}</span>
+<a href="CERDAS News Article.dc.html" style="font:600 13.5px Inter,sans-serif;color:#004B8C">{{ e.linkLabel }} →</a>
+</div>
+</div>
+</sc-for>
+</div>
+
+<sc-if value="{{ eventsEmpty }}" hint-placeholder-val="{{ false }}">
+<div style="padding:56px 0;text-align:center">
+<div style="font:600 19px 'Inter Tight',sans-serif;color:#14181D;margin-bottom:10px">No events match those filters</div>
+<div style="font:400 14.5px Inter,sans-serif;color:#5A6472">Clear a type or theme selection to see the rest.</div>
+</div>
+</sc-if>
+</div>
+</section>
+</sc-if>
+
+<dc-import name="CTABand" heading="Get the quarterly digest" body="One email every three months: what was published, what was signed, what is coming up. No other mail from us." cta-label="Subscribe" secondary-label="Contact the centre" href="CERDAS Join.dc.html" hint-size="100%,220px"></dc-import>
+
+<dc-import name="SiteFooter" hint-size="100%,340px"></dc-import>
+
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1440},&quot;startMode&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;News&quot;,&quot;Events&quot;],&quot;default&quot;:&quot;News&quot;,&quot;tsType&quot;:&quot;string&quot;}}">
+const TH = {
+  t1: ['T1 AI & DATA INTELLIGENCE', 'T1'],
+  t2: ['T2 COMPUTATIONAL SCIENCE', 'T2'],
+  t3: ['T3 INTELLIGENT & DISTRIBUTED SYSTEMS', 'T3'],
+  t4: ['T4 NEXT-GENERATION COMPUTING', 'T4'],
+  all: ['ALL THEMES', 'ALL']
+};
+
+const NEWS = [
+  { date: '22 AUG 2026', type: 'PARTNERSHIP', theme: 't1',
+    title: 'CERDAS and Selat Energy sign a three-year agreement on grid resilience analytics',
+    body: 'The agreement funds two workstreams on fault localisation and demand-side forecasting, with two funded doctoral positions and access to a decade of operational records under a governed data arrangement.' },
+  { date: '05 AUG 2026', type: 'INNOVATION', theme: 't3',
+    title: 'Two patents granted for an adaptive sensor-fusion method',
+    body: 'Granted in Malaysia and Singapore. The method is available to license and already deployed on two operator fields.' },
+  { date: '18 JUL 2026', type: 'PEOPLE', theme: 'all',
+    title: 'Twelve postgraduate researchers complete in the first half of 2026',
+    body: 'Seven doctorates and five research masters, spread across all four themes. Four have moved into industry roles with centre partners.' },
+  { date: '30 JUN 2026', type: 'FACILITIES', theme: 't4',
+    title: 'Cluster utilisation passes 80% as the quantum sandbox comes online',
+    body: 'PETRA-1 ran at 83% through the first half of the year. The 32-qubit simulation sandbox is now open to allocated projects.' },
+  { date: '12 JUN 2026', type: 'IMPACT', theme: 't1',
+    title: 'Water demand forecasting cuts error to 6% for a state operator',
+    body: 'A sixteen-week consultancy engagement, validated on the operator\u2019s own holdout period. The model and training code were handed over in full.' },
+  { date: '28 MAY 2026', type: 'SOFTWARE', theme: 't3',
+    title: 'cerdas-anomaly 2.3 ships with a labelled fault-injection benchmark',
+    body: 'The release pairs the detection toolkit with the ITFI-2025 dataset so results can be compared on the same ground truth.' }
+];
+
+const EVENTS = [
+  { day: '18', month: 'SEP', time: '14:30', date: '18 SEP 2026', type: 'SEMINAR', theme: 't4', upcoming: true,
+    title: 'Quantum algorithms for combinatorial optimisation in energy systems',
+    body: 'Where quantum-assisted heuristics currently beat classical baselines on unit commitment, and where they do not. Includes results from the centre\u2019s own benchmark set.',
+    venue: 'Chancellor Hall, UTP', speaker: 'PROF. DR. LIM WEI SHENG', places: '120 PLACES · 41 TAKEN' },
+  { day: '02', month: 'OCT', time: '09:00', date: '02 OCT 2026', type: 'WORKSHOP', theme: 't3', upcoming: true,
+    title: 'Hands-on federated learning for industrial telemetry',
+    body: 'A full day building a federated detector on the ITFI-2025 dataset. Bring a laptop; cluster accounts are provided for the day.',
+    venue: 'Applied Machine Learning Lab, Block N', speaker: 'DR. SITI NOOR AZMI', places: '24 PLACES · 19 TAKEN' },
+  { day: '21', month: 'OCT', time: '15:00', date: '21 OCT 2026', type: 'COLLOQUIUM', theme: 't1', upcoming: true,
+    title: 'Data governance when anonymisation is not enough',
+    body: 'What to do when operational data can be re-identified in practice — consent records, lineage, and analysing in place rather than releasing.',
+    venue: 'Block P Auditorium', speaker: 'ASSOC. PROF. DR. FARIDAH SULAIMAN', places: '80 PLACES · 12 TAKEN' },
+  { day: '14', month: 'AUG', time: 'FULL DAY', date: '14 AUG 2026', type: 'CONFERENCE', theme: 'all', upcoming: false,
+    title: 'CERDAS Annual Research Colloquium 2026',
+    body: 'Thirty-one presentations across the four themes, plus an industry panel on translation.',
+    attended: '214 ATTENDED', linkLabel: 'Programme and slides' },
+  { day: '24', month: 'JUL', time: '09:30', date: '24 JUL 2026', type: 'OUTREACH', theme: 'all', upcoming: false,
+    title: 'Young Researcher day: sensing the world around you',
+    body: 'Sixty-eight secondary school students built and calibrated a sensor rig with our postgraduate researchers.',
+    attended: '68 STUDENTS', linkLabel: 'Photographs' },
+  { day: '09', month: 'JUL', time: '10:00', date: '09 JUL 2026', type: 'WORKSHOP', theme: 'all', upcoming: false,
+    title: 'Writing for Q1 venues',
+    body: 'An internal session on framing, reviewer response and venue choice, run by three of the centre\u2019s most published fellows.',
+    attended: '37 ATTENDED', linkLabel: 'Materials' }
+];
+
+const NEWS_TYPES = ['ALL', 'PARTNERSHIP', 'INNOVATION', 'PEOPLE', 'FACILITIES', 'IMPACT', 'SOFTWARE'];
+const EVENT_TYPES = ['ALL', 'SEMINAR', 'WORKSHOP', 'COLLOQUIUM', 'CONFERENCE', 'OUTREACH'];
+
+class Component extends DCLogic {
+  state = { mode: 'news', type: 'ALL', theme: 'all' };
+
+  pickMode(v) { return () => this.setState({ mode: v, type: 'ALL' }); }
+  pick(k, v) { return () => this.setState({ [k]: v }); }
+
+  renderVals() {
+    const s = this.state;
+    const isNews = s.mode === 'news';
+    const matches = x =>
+      (s.type === 'ALL' || x.type === s.type) &&
+      (s.theme === 'all' || x.theme === s.theme);
+
+    const newsList = NEWS.filter(matches);
+    const feature = isNews && newsList.length ? newsList[0] : null;
+    const rest = isNews && newsList.length ? newsList.slice(1) : [];
+    const ev = EVENTS.filter(matches);
+
+    return {
+      isNews, isEvents: !isNews,
+      pickNews: this.pickMode('news'), pickEvents: this.pickMode('events'),
+      typeLabel: isNews ? 'CATEGORY' : 'TYPE',
+      typeChips: (isNews ? NEWS_TYPES : EVENT_TYPES).map(t => ({
+        label: t, on: s.type === t, off: s.type !== t, pick: this.pick('type', t)
+      })),
+      themeChips: ['all', 't1', 't2', 't3', 't4'].map(t => ({
+        label: TH[t][1], on: s.theme === t, off: s.theme !== t, pick: this.pick('theme', t)
+      })),
+      hasFeature: !!feature,
+      feature: feature ? Object.assign({}, feature, { themeLabel: TH[feature.theme][0] }) : {},
+      news: rest.map(n => Object.assign({}, n, { themeShort: TH[n.theme][0] })),
+      newsEmpty: isNews && newsList.length === 0,
+      newsLine: 'SHOWING ' + newsList.length + ' OF ' + NEWS.length + ' STORIES',
+      upcoming: ev.filter(e => e.upcoming).map(e => Object.assign({}, e, { themeLabel: TH[e.theme][0] })),
+      past: ev.filter(e => !e.upcoming),
+      upcomingLine: ev.filter(e => e.upcoming).length + ' UPCOMING',
+      pastLine: ev.filter(e => !e.upcoming).length + ' IN THE LAST QUARTER',
+      eventsEmpty: !isNews && ev.length === 0
+    };
+  }
+}
+
+</script>
+</body>
+</html>
