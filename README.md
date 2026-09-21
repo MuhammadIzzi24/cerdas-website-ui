@@ -10,25 +10,78 @@ This is a **prototype, not the live website**. There is no database, no login, n
 
 ## Getting started
 
-You need **Python** installed (check by running `python --version`). You don't need Node, npm, or any build step.
+You don't need Node, npm, or any build step — just Python, a browser, and an internet connection (the pages load their fonts and a small script library online).
 
-Open a terminal **in this folder** and run:
+### Step 1 — Check you have Python
+
+Open a terminal (Windows: press the Start key, type `terminal`, press Enter) and run:
+
+```bash
+python --version
+```
+
+If it prints something like `Python 3.12.4`, you're set — skip to Step 2.
+
+If it says the command isn't found, **or the Microsoft Store opens instead**, install Python from [python.org/downloads](https://www.python.org/downloads/). On the first screen of the installer, **tick "Add python.exe to PATH"** before clicking Install — this is the step people miss. Then close and reopen your terminal and try `python --version` again.
+
+> On Mac, use `python3` instead of `python` in every command in this README.
+
+### Step 2 — Get the files
+
+Pick **one** of these.
+
+**Option A — Clone with Git (recommended).** You'll be able to pull updates and push your changes. Check you have Git with `git --version`; if not, install it from [git-scm.com](https://git-scm.com/downloads) with the default options. Then:
+
+```bash
+cd Documents
+git clone https://github.com/MuhammadIzzi24/cerdas-website-ui.git
+cd cerdas-website-ui
+```
+
+This creates a `cerdas-website-ui` folder inside Documents and moves your terminal into it.
+
+**Option B — Download a ZIP.** Quicker if you only want to look. On the [repository page](https://github.com/MuhammadIzzi24/cerdas-website-ui), click the green **Code** button → **Download ZIP**. Right-click the downloaded file → **Extract All**. You'll get a folder called `cerdas-website-ui-main`. Note that a ZIP is a one-off copy — it won't receive updates, and you can't push changes from it.
+
+### Step 3 — Open a terminal inside the folder
+
+If you cloned in Step 2, your terminal is already there — skip ahead.
+
+Otherwise, open the folder in File Explorer, **right-click an empty space** inside it, and choose **Open in Terminal**. (Alternative: click the address bar at the top of File Explorer, type `cmd`, press Enter.)
+
+To check you're in the right place, run `dir` (Mac: `ls`). You should see `README.md` and a long list of `CERDAS ... .dc.html` files. If you don't, you're in the wrong folder.
+
+### Step 4 — Start the local server
 
 ```bash
 python -m http.server 8000
 ```
 
-Leave that running, then open this in your browser:
+You should see `Serving HTTP on :: port 8000 ...`. **Leave this terminal window open** — closing it stops the website. If Windows asks about firewall access, click **Allow** (or Cancel — it only affects other computers reaching yours, not you).
+
+### Step 5 — Open the site in your browser
+
+Go to:
 
 ```
 http://localhost:8000/CERDAS%20Home.dc.html
 ```
 
-From the home page you can click through to every other page, the same way a visitor would.
+Give it a couple of seconds on first load. From the home page you can click through to every other page, the same way a visitor would. `http://localhost:8000` on its own shows a plain list of every file, which is handy for jumping straight to a component or a mobile page.
 
-**Don't just double-click the `.html` files.** They will open, but the shared header and footer won't load and the page will look broken. This is a browser security rule about local files, not a bug. Always go through `http://localhost:8000`.
+### Step 6 — Stop the server when you're done
 
-When you're finished, press `Ctrl+C` in the terminal to stop the server.
+Click into the terminal and press `Ctrl+C`. Next time, just repeat Steps 3 to 5 — you don't need to download anything again.
+
+### If something goes wrong
+
+| Problem | Fix |
+|---|---|
+| **Page loads but has no header, footer, or looks broken** | You opened the file directly (the address bar starts with `file:///`). Browsers block pages from loading other local files, so the shared header and footer fail silently. Always use `http://localhost:8000/...` — never double-click the `.html` files. |
+| **Page stays blank** | Check your internet connection — the pages load a script library and fonts online. Then hard-refresh with `Ctrl+Shift+R`. |
+| **"This site can't be reached"** | The server isn't running. Check the terminal from Step 4 is still open and didn't show an error. |
+| **Error mentioning `address already in use`** | Something else is using port 8000. Use another number — `python -m http.server 8080` — and change `8000` to `8080` in the browser address too. |
+| **"Error code: 404 — File not found"** | The server was started in the wrong folder. Stop it with `Ctrl+C`, go back to Step 3, and check with `dir` before starting it again. |
+| **Your edits don't show up** | Save the file, then hard-refresh with `Ctrl+Shift+R`. |
 
 ---
 
