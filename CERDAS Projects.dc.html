@@ -8,139 +8,248 @@
 <body>
 <x-dc>
 <helmet><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""><link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&amp;family=Inter:wght@400;500;600;700&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<script src="./image-slot.js"></script>
 <style>
 body{margin:0;background:#FAFAF8;font-family:Inter,system-ui,sans-serif}
 a{color:#004B8C;text-decoration:none}a:hover{color:#00335F}
 </style></helmet>
 
-<div data-screen-label="B6 Flagship projects" style="width:1440px;margin:0 auto;background:#FFFFFF">
+<div data-screen-label="B6 Projects" style="width:1440px;margin:0 auto;background:#FFFFFF">
 
-<dc-import name="SiteHeader" active="Research" hint-size="100%,78px"></dc-import>
-
-<section style="background:#00335F;padding:56px 0 72px;position:relative;overflow:hidden">
-<svg viewBox="0 0 1440 400" preserveAspectRatio="none" style="position:absolute;inset:0;width:100%;height:100%;opacity:.26" aria-hidden="true">
-<g stroke="#7FAED9" stroke-width="1" fill="none">
-<polyline points="1020,40 1110,130 1040,280 1190,350"></polyline>
-<polyline points="1190,350 1330,280 1270,120 1400,50"></polyline>
-</g>
-<g fill="#7FAED9">
-<circle cx="1020" cy="40" r="4"></circle><circle cx="1110" cy="130" r="5"></circle><circle cx="1040" cy="280" r="3"></circle><circle cx="1190" cy="350" r="4"></circle><circle cx="1330" cy="280" r="4"></circle><circle cx="1270" cy="120" r="3"></circle><circle cx="1400" cy="50" r="4"></circle>
-</g>
-</svg>
-<div style="width:1320px;margin:0 auto;position:relative">
-<div style="font:500 11px 'IBM Plex Mono',monospace;letter-spacing:.13em;color:#7FAED9;margin-bottom:30px"><a href="CERDAS Home.dc.html" style="color:#7FAED9">HOME</a> <span style="color:#E38C07">/</span> <a href="CERDAS Research.dc.html" style="color:#7FAED9">RESEARCH</a> <span style="color:#E38C07">/</span> FLAGSHIP PROJECTS</div>
-<h1 style="margin:0 0 24px;font:700 54px/1.07 'Inter Tight',sans-serif;letter-spacing:-.02em;color:#FFFFFF;max-width:820px;text-wrap:pretty">Flagship projects</h1>
-<p style="margin:0;font:400 18.5px/1.62 Inter,sans-serif;color:#BFD2E4;max-width:700px;text-wrap:pretty">Funded work in flight. Every entry carries its grant value, funder, lead partner, principal investigator and technology readiness level — so the portfolio can be judged rather than admired.</p>
+<section style="position: relative; overflow: hidden; height: 500px; box-sizing: border-box; padding: 0; background-color: #0E1A26; background-image: linear-gradient(180deg,rgba(8,12,18,.94) 0%,rgba(8,12,18,.78) 12%,rgba(8,12,18,.42) 30%,rgba(8,12,18,0) 46%),linear-gradient(90deg,rgba(8,14,22,.8) 0%,rgba(8,14,22,.55) 55%,rgba(8,14,22,.35) 100%),url('assets/hero-research.jpg'); background-size: cover; background-position: center">
+<dc-import name="SiteHeader" active="Research" overlay="{{ true }}" hint-size="100%,96px"></dc-import>
+<div style="width:1320px;margin:0 auto;position:relative;padding-top:60px">
+<div style="font:500 11px 'IBM Plex Mono',monospace;letter-spacing:.13em;color:#E6EEF5;margin-bottom:30px"><a href="CERDAS Home.dc.html" style="color:#E6EEF5">HOME</a> <span style="color:#E38C07">/</span> <a href="CERDAS Research.dc.html" style="color:#E6EEF5">RESEARCH</a> <span style="color:#E38C07">/</span> PROJECTS</div>
+<h1 style="margin:0 0 24px;font:700 58px/1.06 'Inter Tight',sans-serif;letter-spacing:-.02em;color:#FFFFFF;max-width:820px;text-wrap:pretty">Projects</h1>
+<p style="margin:0;font:400 19px/1.62 Inter,sans-serif;color:#FFFFFF;max-width:700px;text-wrap:pretty"><span style="color: #FFFFFF; text-decoration-line: underline; text-decoration-style: dotted; text-decoration-thickness: 1px; text-underline-offset: 3px">Funded work in flight. Every entry carries its grant value, funder, lead partner, principal investigator and technology readiness level — so the portfolio can be judged rather than admired.</span> </p>
 </div>
 </section>
 
 <section style="background:#FFFFFF;border-bottom:1px solid #D8DEE5">
-<div style="width:1320px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr)">
-<div style="padding:40px 32px 40px 0"><dc-import name="StatCounter" count="37" suffix="" label="ACTIVE PROJECTS" hint-size="100%,130px"></dc-import></div>
-<div style="padding:40px 32px;border-left:1px solid #D8DEE5"><dc-import name="StatCounter" count="24.6" suffix="M" label="ACTIVE GRANT VALUE (RM)" hint-size="100%,130px"></dc-import></div>
-<div style="padding:40px 32px;border-left:1px solid #D8DEE5"><dc-import name="StatCounter" count="19" suffix="" label="PATENTS FILED" hint-size="100%,130px"></dc-import></div>
-<div style="padding:40px 0 40px 32px;border-left:1px solid #D8DEE5"><dc-import name="StatCounter" count="31" suffix="" label="INDUSTRY PARTNERS" hint-size="100%,130px"></dc-import></div>
+<div style="width:1320px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr)">
+<div style="padding:40px 32px 40px 0"><dc-import name="StatCounter" count="27" suffix="" label="PROJECTS" hint-size="100%,130px"></dc-import></div>
+<div style="padding:40px 32px;border-left:1px solid #D8DEE5"><dc-import name="StatCounter" count="13.89" suffix="M" label="RM TOTAL APPROVED, PROJECTS" hint-size="100%,130px"></dc-import></div>
+<div style="padding:40px 0 40px 32px;border-left:1px solid #D8DEE5"><dc-import name="StatCounter" count="25" suffix="" label="PARTNERS" hint-size="100%,130px"></dc-import></div>
 </div>
 </section>
 
-<section style="background:#FAFAF8;padding:56px 0 88px">
+<section style="background:#FAFAF8;padding:64px 0 80px">
 <div style="width:1320px;margin:0 auto">
+<div style="width:44px;height:3px;background:#E38C07;margin-bottom:22px"></div>
+<div style="display:flex;align-items:flex-end;justify-content:space-between;gap:40px;margin-bottom:34px">
+<div>
+<h2 style="margin:0 0 12px;font:700 32px/1.16 'Inter Tight',sans-serif;letter-spacing:-.015em;color:#14181D">Flagship projects</h2>
+<p style="margin:0;font:400 16px/1.6 Inter,sans-serif;color:#5A6472;max-width:620px">Industry-funded work above RM1M.</p>
+</div>
+<div style="font:500 11.5px 'IBM Plex Mono',monospace;letter-spacing:.1em;color:#5A6472;white-space:nowrap;text-align:right">5 FLAGSHIPS<br>RM 13.06M TOTAL</div>
+</div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:28px">
+<sc-for list="{{ flagships }}" as="f" hint-placeholder-count="5">
+<div style="background:#FFFFFF;border:1px solid #D8DEE5;border-radius:8px;box-shadow:0 1px 3px rgba(20,24,29,.05);display:flex;flex-direction:column;overflow:hidden">
+<div style="position:relative;height:180px;flex:none;background:#00335F">
+<image-slot id="{{ f.slotId }}" shape="rect" placeholder="Project image" src="{{ f.src }}"></image-slot>
+<div style="position:absolute;left:18px;top:18px;display:flex;gap:8px;pointer-events:none">
+<span style="font:600 10.5px 'IBM Plex Mono',monospace;letter-spacing:.08em;color:#A0A4AB;background:#EEEEEE;padding:5px 10px;border-radius:4px"><span style="text-decoration-line:underline;text-decoration-style:dotted;text-decoration-thickness:1px;text-underline-offset:3px">TRL</span> <span style="font:500 10.5px Inter,sans-serif;letter-spacing:0">(dummy)</span></span>
+</div>
+</div>
+<div style="padding:26px;display:flex;flex-direction:column;flex:1">
+<h3 style="margin:0 0 12px;font:700 21px/1.26 'Inter Tight',sans-serif;letter-spacing:-.012em;color:#14181D;text-wrap:pretty">{{ f.title }}</h3>
+<p style="margin:0 0 22px;font:400 14.5px/1.6 Inter,sans-serif;color:#5A6472;text-wrap:pretty"><span style="color:#A0A4AB;text-decoration-line:underline;text-decoration-style:dotted;text-decoration-thickness:1px;text-underline-offset:3px">Description to be confirmed.</span> <span style="font:500 11px/1 Inter,sans-serif;letter-spacing:0;color:#A0A4AB;white-space:nowrap">(dummy)</span></p>
+<div style="margin-top:auto;display:grid;grid-template-columns:1fr 1fr;gap:18px 24px;padding-top:20px;border-top:1px solid #E6EEF5">
+<div>
+<div style="font:500 10px 'IBM Plex Mono',monospace;letter-spacing:.1em;color:#5A6472;margin-bottom:6px">AMOUNT APPROVED</div>
+<div style="font:600 16px 'IBM Plex Mono',monospace;color:#14181D">{{ f.amount }}</div>
+</div>
+<div>
+<div style="font:500 10px 'IBM Plex Mono',monospace;letter-spacing:.1em;color:#5A6472;margin-bottom:6px">PERIOD</div>
+<div style="font:600 16px 'IBM Plex Mono',monospace;color:#14181D">{{ f.years }}</div>
+</div>
+<div>
+<div style="font:500 10px 'IBM Plex Mono',monospace;letter-spacing:.1em;color:#5A6472;margin-bottom:6px">FUNDER</div>
+<div style="font:500 14px/1.4 Inter,sans-serif;color:#14181D">{{ f.funder }}</div>
+</div>
+<div>
+<div style="font:500 10px 'IBM Plex Mono',monospace;letter-spacing:.1em;color:#5A6472;margin-bottom:6px">PRINCIPAL INVESTIGATOR</div>
+<div style="font:500 14px/1.4 Inter,sans-serif;color:#14181D">{{ f.pi }}</div>
+</div>
+</div>
+</div>
+</div>
+</sc-for>
+</div>
+</div>
+</section>
 
-<dc-import name="FilterBar" placeholder="Search projects, partners or principal investigator…" label1="FILTER BY RESEARCH GROUP" label2="FILTER BY STATUS" label3="FILTER BY PARTNER TYPE" query="" role="All research groups" roleOptions="{{ themeOptions }}" theme="All statuses" themeOptions="{{ statusOptions }}" expertise="All partner types" expertiseOptions="{{ partnerOptions }}" resultLine="SHOWING 6 FEATURED PROJECTS OF 37" hint-size="100%,270px"></dc-import>
+<section style="background:#FFFFFF;padding:72px 0 88px;border-top:1px solid #D8DEE5">
+<div style="width:1320px;margin:0 auto">
+<div style="width:44px;height:3px;background:#E38C07;margin-bottom:22px"></div>
+<div style="display:flex;align-items:flex-end;justify-content:space-between;gap:40px;margin-bottom:30px">
+<div>
+<h2 style="margin:0 0 12px;font:700 32px/1.16 'Inter Tight',sans-serif;letter-spacing:-.015em;color:#14181D">Projects</h2>
+<p style="margin:0;font:400 16px/1.6 Inter,sans-serif;color:#5A6472;max-width:620px">Industry-funded work above RM250k, up to RM1M.</p>
+</div>
+<div style="font:500 11.5px 'IBM Plex Mono',monospace;letter-spacing:.1em;color:#5A6472;white-space:nowrap;text-align:right">27 PROJECTS<br>RM 13.89M TOTAL</div>
+</div>
 
-<div style="margin-top:44px;display:grid;grid-template-columns:1fr 1fr;gap:28px">
-<sc-for list="{{ projects }}" as="pr" hint-placeholder-count="6">
-<dc-import name="ProjectCard" slot-id="{{ pr.slotId }}" theme="{{ pr.theme }}" title="{{ pr.title }}" summary="{{ pr.summary }}" trl="{{ pr.trl }}" status="{{ pr.status }}" grant="{{ pr.grant }}" period="{{ pr.period }}" partner="{{ pr.partner }}" pi="{{ pr.pi }}" chips="{{ pr.chips }}" href="CERDAS Project Detail.dc.html" hint-size="100%,620px"></dc-import>
+<div style="background:#FFFFFF;border:1px solid #D8DEE5;border-radius:8px;box-shadow:0 1px 3px rgba(20,24,29,.05);padding:24px">
+<div style="display:flex;gap:16px;align-items:center">
+<div style="flex:1;position:relative;display:flex;align-items:center">
+<svg width="17" height="17" viewBox="0 0 18 18" fill="none" style="position:absolute;left:15px;pointer-events:none" aria-hidden="true"><circle cx="8" cy="8" r="6" stroke="#5A6472" stroke-width="1.6"></circle><path d="M12.4 12.4 L16 16" stroke="#5A6472" stroke-width="1.6"></path></svg>
+<input type="text" value="{{ query }}" onChange="{{ onQuery }}" placeholder="Search by title, funder or principal investigator…" style="width:100%;box-sizing:border-box;font:400 14.5px Inter,sans-serif;color:#14181D;background:#FFFFFF;border:1px solid #D8DEE5;border-radius:6px;padding:13px 16px 13px 42px;outline:none">
+</div>
+<button type="button" onClick="{{ onReset }}" style="font:600 13.5px Inter,sans-serif;color:#004B8C;background:#FFFFFF;border:1px solid #C3D4E4;border-radius:6px;padding:13px 20px;cursor:pointer;white-space:nowrap" style-hover="background:#E6EEF5">↺ Reset all</button>
+</div>
+<div style="display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:20px">
+<div>
+<div style="font:500 11px 'IBM Plex Mono',monospace;letter-spacing:.1em;color:#5A6472;margin-bottom:8px">FILTER BY RESEARCH GROUP <span style="font:500 11px/1 Inter,sans-serif;letter-spacing:0;color:#A0A4AB">(dummy)</span></div>
+<div style="position:relative;display:flex">
+<select disabled="" style="width:100%;appearance:none;font:400 14px Inter,sans-serif;color:#A0A4AB;background:#FAFAF8;border:1px solid #E1E5E9;border-radius:6px;padding:12px 38px 12px 14px;outline:none;cursor:not-allowed">
+<option>All research groups</option>
+</select>
+<span style="position:absolute;right:14px;top:13px;font:400 12px Inter,sans-serif;color:#A0A4AB;pointer-events:none">▾</span>
+</div>
+</div>
+<div>
+<div style="font:500 11px 'IBM Plex Mono',monospace;letter-spacing:.1em;color:#5A6472;margin-bottom:8px">FILTER BY PARTNER TYPE <span style="font:500 11px/1 Inter,sans-serif;letter-spacing:0;color:#A0A4AB">(dummy)</span></div>
+<div style="position:relative;display:flex">
+<select disabled="" style="width:100%;appearance:none;font:400 14px Inter,sans-serif;color:#A0A4AB;background:#FAFAF8;border:1px solid #E1E5E9;border-radius:6px;padding:12px 38px 12px 14px;outline:none;cursor:not-allowed">
+<option>All partner types</option>
+</select>
+<span style="position:absolute;right:14px;top:13px;font:400 12px Inter,sans-serif;color:#A0A4AB;pointer-events:none">▾</span>
+</div>
+</div>
+</div>
+<div style="margin-top:20px;padding-top:18px;border-top:1px solid #E6EEF5;font:500 12.5px 'IBM Plex Mono',monospace;color:#5A6472">{{ resultLine }}</div>
+</div>
+
+<div style="margin-top:32px;display:grid;grid-template-columns:1fr 1fr;gap:24px">
+<sc-for list="{{ shown }}" as="p" hint-placeholder-count="6">
+<div style="background:#FFFFFF;border:1px solid #D8DEE5;border-radius:8px;box-shadow:0 1px 3px rgba(20,24,29,.05);padding:26px;display:flex;flex-direction:column">
+<h3 style="margin:0 0 20px;font:700 19px/1.3 'Inter Tight',sans-serif;letter-spacing:-.01em;color:#14181D;text-wrap:pretty">{{ p.title }}</h3>
+<div style="margin-top:auto;display:grid;grid-template-columns:1fr 1fr;gap:18px 24px;padding-top:18px;border-top:1px solid #E6EEF5">
+<div>
+<div style="font:500 10px 'IBM Plex Mono',monospace;letter-spacing:.1em;color:#5A6472;margin-bottom:6px">AMOUNT APPROVED</div>
+<div style="font:600 15px 'IBM Plex Mono',monospace;color:#14181D">{{ p.amount }}</div>
+</div>
+<div>
+<div style="font:500 10px 'IBM Plex Mono',monospace;letter-spacing:.1em;color:#5A6472;margin-bottom:6px">PERIOD</div>
+<div style="font:600 15px 'IBM Plex Mono',monospace;color:#14181D">{{ p.years }}</div>
+</div>
+<div>
+<div style="font:500 10px 'IBM Plex Mono',monospace;letter-spacing:.1em;color:#5A6472;margin-bottom:6px">FUNDER</div>
+<div style="font:500 14px/1.4 Inter,sans-serif;color:#14181D">{{ p.funder }}</div>
+</div>
+<div>
+<div style="font:500 10px 'IBM Plex Mono',monospace;letter-spacing:.1em;color:#5A6472;margin-bottom:6px">PRINCIPAL INVESTIGATOR</div>
+<div style="font:500 14px/1.4 Inter,sans-serif;color:#14181D">{{ p.pi }}</div>
+</div>
+</div>
+</div>
 </sc-for>
 </div>
 
-<div style="margin-top:32px;display:flex;justify-content:center">
-<a href="CERDAS Project Detail.dc.html" style="font:600 14px Inter,sans-serif;color:#004B8C;background:#FFFFFF;border:1px solid #C3D4E4;border-radius:6px;padding:14px 28px" style-hover="background:#E6EEF5">Load the remaining 31 projects</a>
-</div>
+<sc-if value="{{ noMatches }}" hint-placeholder-val="{{ false }}">
+<div style="margin-top:24px;padding:40px;text-align:center;background:#FAFAF8;border:1px dashed #D8DEE5;border-radius:8px;font:500 15px Inter,sans-serif;color:#5A6472">No projects match that search.</div>
+</sc-if>
 
+<sc-if value="{{ showToggle }}" hint-placeholder-val="{{ true }}">
+<div style="margin-top:32px;display:flex;justify-content:center">
+<button type="button" onClick="{{ toggleAll }}" style="font:600 14px Inter,sans-serif;color:#004B8C;background:#FFFFFF;border:1px solid #C3D4E4;border-radius:6px;padding:14px 28px;cursor:pointer" style-hover="background:#E6EEF5">{{ toggleLabel }}</button>
+</div>
+</sc-if>
 </div>
 </section>
 
-<section style="background:#FFFFFF;padding:80px 0 88px;border-top:1px solid #D8DEE5">
+<section style="background:#FAFAF8;padding:80px 0 88px;border-top:1px solid #D8DEE5">
 <div style="width:1320px;margin:0 auto">
 <div style="width:44px;height:3px;background:#E38C07;margin-bottom:22px"></div>
 <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:40px;margin-bottom:40px">
 <div>
 <h2 style="margin:0 0 12px;font:700 32px/1.16 'Inter Tight',sans-serif;letter-spacing:-.015em;color:#14181D">Portfolio by research group</h2>
-<p style="margin:0;font:400 16px/1.6 Inter,sans-serif;color:#5A6472;max-width:620px">Where the money and the effort actually sit, as of the current reporting period.</p>
+<p style="margin:0;font:400 16px/1.6 Inter,sans-serif;color:#5A6472;max-width:620px"><span style="color:#A0A4AB;text-decoration-line:underline;text-decoration-style:dotted;text-decoration-thickness:1px;text-underline-offset:3px">Where the money and the effort actually sit, as of the current reporting period.</span> <span style="font:500 11px/1 Inter,sans-serif;letter-spacing:0;color:#A0A4AB;white-space:nowrap">(dummy)</span></p>
 </div>
-<div style="font:500 11.5px 'IBM Plex Mono',monospace;letter-spacing:.1em;color:#5A6472;white-space:nowrap;text-align:right">37 PROJECTS<br>RM 24.6M TOTAL</div>
+<div style="font:500 11.5px 'IBM Plex Mono',monospace;letter-spacing:.1em;color:#5A6472;white-space:nowrap;text-align:right"><span style="color:#A0A4AB;text-decoration-line:underline;text-decoration-style:dotted;text-decoration-thickness:1px;text-underline-offset:3px">37 PROJECTS<br>RM 24.6M TOTAL</span><br><span style="font:500 11px/1 Inter,sans-serif;letter-spacing:0;color:#A0A4AB">(dummy)</span></div>
 </div>
 <div style="border-top:1px solid #D8DEE5">
-
-<div style="display:grid;grid-template-columns:70px 1fr 300px 120px 110px;gap:28px;align-items:center;padding:22px 0;border-bottom:1px solid #D8DEE5">
-<div style="font:500 13px 'IBM Plex Mono',monospace;color:#004B8C">RG01</div>
-<div style="font:600 16px/1.35 Inter,sans-serif;color:#14181D;text-wrap:pretty">Data Science &amp; Analytics</div>
-<div style="height:10px;background:#E6EEF5;border-radius:2px;overflow:hidden"><div style="width:26%;height:100%;background:#00335F"></div></div>
-<div style="font:500 13.5px 'IBM Plex Mono',monospace;color:#14181D;text-align:right">10 projects</div>
-<div style="font:500 13.5px 'IBM Plex Mono',monospace;color:#5A6472;text-align:right">RM 6.4M</div>
+<sc-for list="{{ portfolio }}" as="g" hint-placeholder-count="6">
+<div style="display:grid;grid-template-columns:70px 1fr 300px 120px 170px;gap:28px;align-items:center;padding:22px 0;border-bottom:1px solid #D8DEE5">
+<div style="font:500 13px 'IBM Plex Mono',monospace;color:#004B8C">{{ g.code }}</div>
+<div style="font:600 16px/1.35 Inter,sans-serif;color:#14181D;text-wrap:pretty">{{ g.name }}</div>
+<div style="height:10px;background:#EEEEEE;border-radius:2px;overflow:hidden"><div style="width:{{ g.pct }};height:100%;background:#A0A4AB"></div></div>
+<div style="font:500 13.5px 'IBM Plex Mono',monospace;color:#A0A4AB;text-decoration-line:underline;text-decoration-style:dotted;text-decoration-thickness:1px;text-underline-offset:3px;text-align:right">{{ g.count }}</div>
+<div style="font:500 13.5px 'IBM Plex Mono',monospace;color:#5A6472;text-align:right;white-space:nowrap"><span style="color:#A0A4AB;text-decoration-line:underline;text-decoration-style:dotted;text-decoration-thickness:1px;text-underline-offset:3px">{{ g.value }}</span> <span style="font:500 11px/1 Inter,sans-serif;letter-spacing:0;color:#A0A4AB">(dummy)</span></div>
 </div>
-
-<div style="display:grid;grid-template-columns:70px 1fr 300px 120px 110px;gap:28px;align-items:center;padding:22px 0;border-bottom:1px solid #D8DEE5">
-<div style="font:500 13px 'IBM Plex Mono',monospace;color:#004B8C">RG02</div>
-<div style="font:600 16px/1.35 Inter,sans-serif;color:#14181D;text-wrap:pretty">Machine Learning &amp; Intelligent Systems</div>
-<div style="height:10px;background:#E6EEF5;border-radius:2px;overflow:hidden"><div style="width:19%;height:100%;background:#004B8C"></div></div>
-<div style="font:500 13.5px 'IBM Plex Mono',monospace;color:#14181D;text-align:right">7 projects</div>
-<div style="font:500 13.5px 'IBM Plex Mono',monospace;color:#5A6472;text-align:right">RM 4.9M</div>
-</div>
-
-<div style="display:grid;grid-template-columns:70px 1fr 300px 120px 110px;gap:28px;align-items:center;padding:22px 0;border-bottom:1px solid #D8DEE5">
-<div style="font:500 13px 'IBM Plex Mono',monospace;color:#004B8C">RG03</div>
-<div style="font:600 16px/1.35 Inter,sans-serif;color:#14181D;text-wrap:pretty">Generative AI</div>
-<div style="height:10px;background:#E6EEF5;border-radius:2px;overflow:hidden"><div style="width:11%;height:100%;background:#1A6BAE"></div></div>
-<div style="font:500 13.5px 'IBM Plex Mono',monospace;color:#14181D;text-align:right">4 projects</div>
-<div style="font:500 13.5px 'IBM Plex Mono',monospace;color:#5A6472;text-align:right">RM 2.1M</div>
-</div>
-
-<div style="display:grid;grid-template-columns:70px 1fr 300px 120px 110px;gap:28px;align-items:center;padding:22px 0;border-bottom:1px solid #D8DEE5">
-<div style="font:500 13px 'IBM Plex Mono',monospace;color:#004B8C">RG04</div>
-<div style="font:600 16px/1.35 Inter,sans-serif;color:#14181D;text-wrap:pretty">Computational Modelling, Simulation &amp; Optimisation</div>
-<div style="height:10px;background:#E6EEF5;border-radius:2px;overflow:hidden"><div style="width:24%;height:100%;background:#2F7CB8"></div></div>
-<div style="font:500 13.5px 'IBM Plex Mono',monospace;color:#14181D;text-align:right">9 projects</div>
-<div style="font:500 13.5px 'IBM Plex Mono',monospace;color:#5A6472;text-align:right">RM 6.0M</div>
-</div>
-
-<div style="display:grid;grid-template-columns:70px 1fr 300px 120px 110px;gap:28px;align-items:center;padding:22px 0;border-bottom:1px solid #D8DEE5">
-<div style="font:500 13px 'IBM Plex Mono',monospace;color:#004B8C">RG05</div>
-<div style="font:600 16px/1.35 Inter,sans-serif;color:#14181D;text-wrap:pretty">Edge Computing</div>
-<div style="height:10px;background:#E6EEF5;border-radius:2px;overflow:hidden"><div style="width:14%;height:100%;background:#4A8CC4"></div></div>
-<div style="font:500 13.5px 'IBM Plex Mono',monospace;color:#14181D;text-align:right">5 projects</div>
-<div style="font:500 13.5px 'IBM Plex Mono',monospace;color:#5A6472;text-align:right">RM 3.4M</div>
-</div>
-
-<div style="display:grid;grid-template-columns:70px 1fr 300px 120px 110px;gap:28px;align-items:center;padding:22px 0;border-bottom:1px solid #D8DEE5">
-<div style="font:500 13px 'IBM Plex Mono',monospace;color:#004B8C">RG06</div>
-<div style="font:600 16px/1.35 Inter,sans-serif;color:#14181D;text-wrap:pretty">Next-Generation &amp; Quantum Computing</div>
-<div style="height:10px;background:#E6EEF5;border-radius:2px;overflow:hidden"><div style="width:6%;height:100%;background:#7FAED9"></div></div>
-<div style="font:500 13.5px 'IBM Plex Mono',monospace;color:#14181D;text-align:right">2 projects</div>
-<div style="font:500 13.5px 'IBM Plex Mono',monospace;color:#5A6472;text-align:right">RM 1.8M</div>
-</div>
+</sc-for>
 </div>
 </div>
 </section>
 
-<dc-import name="CTABand" heading="Fund a project, or bring one" body="Grant co-application, contract research or a jointly supervised studentship — all three start the same way, with a scoping conversation." ctaLabel="Discuss a project" secondaryLabel="Download portfolio summary" href="CERDAS Project Detail.dc.html" hint-size="100%,220px"></dc-import>
+<dc-import name="CTABand" heading="Fund a project, or bring one" body="Grant co-application, contract research or a jointly supervised studentship — all three start the same way, with a scoping conversation." ctaLabel="Discuss a project" secondaryLabel="Download portfolio summary" href="CERDAS Join.dc.html" placeholder="{{ true }}" hint-size="100%,220px"></dc-import>
 
 <dc-import name="SiteFooter" hint-size="100%,340px"></dc-import>
 
 </div>
+
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props="{&quot;animateStats&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Page structure&quot;}}">
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1440},&quot;animateStats&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Page structure&quot;}}">
+// Source: uploads/Cerdas_list_consultancies_categorised.xlsx — Category "Flagship Project" and "Project", newest first.
+const FLAGSHIP_IMAGES = {
+  'i-CoRPA Phase 3 for PRefChem': 'assets/flagships/icorpa.jpg',
+  'Development of Intelligent Corrosion Predictive Tool for PRefChem': 'assets/flagships/intelligent-corrosion-prefchem.jpg',
+  'Provision of Material, Corrosion & Inspection (MCI) Consultancy Services to Develop Intelligent Corrosion Predictive Tools for PRECHEM Under PTSSB': 'assets/flagships/mci-prechem.jpg',
+  'Corrosion Predictive Analytics for PCSB SBA & PGB': 'assets/flagships/corrosion-pcsb.jpg',
+  'Provision of Research and Development of Artificial Intelligent Monitoring and Prediction for PETRONAS Carigali Sdn Bhd': 'assets/flagships/ai-monitoring-carigali.jpg'
+};
+const FLAGSHIPS = [
+  {"slotId":"fs-1","title":"i-CoRPA Phase 3 for PRefChem","funder":"PETRONAS Technical Services Sdn Bhd","pi":"Izzatdin Abdul Aziz","years":"2023–2024","exact":"RM 1.42M"},
+  {"slotId":"fs-2","title":"Development of Intelligent Corrosion Predictive Tool for PRefChem","funder":"PETRONAS Technical Services Sdn Bhd","pi":"Izzatdin Abdul Aziz","years":"2020","exact":"RM 3.80M"},
+  {"slotId":"fs-3","title":"Provision of Material, Corrosion & Inspection (MCI) Consultancy Services to Develop Intelligent Corrosion Predictive Tools for PRECHEM Under PTSSB","funder":"PETRONAS Technical Services Sdn Bhd","pi":"Izzatdin Abdul Aziz","years":"2020","exact":"RM 1.66M"},
+  {"slotId":"fs-4","title":"Corrosion Predictive Analytics for PCSB SBA & PGB","funder":"PETRONAS Technical Services Sdn Bhd","pi":"Said Jadid Abdulkadir","years":"2019–2020","exact":"RM 1.03M"},
+  {"slotId":"fs-5","title":"Provision of Research and Development of Artificial Intelligent Monitoring and Prediction for PETRONAS Carigali Sdn Bhd","funder":"PETRONAS Carigali Sdn Bhd","pi":"Jafreezal Jaafar","years":"2019–2020","exact":"RM 5.16M"}
+];
 const PROJECTS = [
-  { slotId:'pj-1', theme:'RG04 · COMPUTATIONAL MODELLING, SIMULATION & OPTIMISATION', title:'SIGMA-Flow: physics-informed digital twins for offshore flow assurance', summary:'A surrogate modelling framework that predicts hydrate and wax formation risk across subsea gathering networks, fast enough to sit inside an operating decision.', trl:'TRL 5', status:'ACTIVE', grant:'RM 4.2M', period:'2024–2027', partner:'Sepang Energy Bhd', pi:'Ts. Dr. Shakirah Mohd Taib', chips:['Digital Twin','Optimisation'] },
-  { slotId:'pj-2', theme:'RG01 · DATA SCIENCE & ANALYTICS', title:'SENTINEL-Grid: anomaly detection for national grid telemetry', summary:'Streaming anomaly detection across 4,200 substation sensors, tuned so control-room operators receive fewer than five actionable alerts a day.', trl:'TRL 4', status:'ACTIVE', grant:'RM 3.8M', period:'2024–2027', partner:'Tenaga Nusantara Bhd', pi:'Assoc. Prof. Ts. Dr. Said Jadid Abdulkadir', chips:['Machine Learning','Anomaly Detection'] },
-  { slotId:'pj-3', theme:'RG05 · EDGE COMPUTING', title:'EDGE-Sense: real-time inference for pipeline integrity monitoring', summary:'On-device acoustic classification along 180 km of transmission pipeline, running on solar-powered nodes with intermittent backhaul.', trl:'TRL 6', status:'ACTIVE', grant:'RM 2.6M', period:'2025–2028', partner:'Perak Water Consortium', pi:'Assoc. Prof. Ts. Dr. Mohd Anuaruddin bin Ahmadon', chips:['Edge AI','Cyber-Physical Systems'] },
-  { slotId:'pj-4', theme:'RG04 · COMPUTATIONAL MODELLING, SIMULATION & OPTIMISATION', title:'MESH-Opt: surrogate solvers for structural fatigue assessment', summary:'Replacing overnight finite-element runs with a validated surrogate that fits inside an inspection planning meeting.', trl:'TRL 5', status:'ACTIVE', grant:'RM 2.2M', period:'2023–2026', partner:'Marina Fabrication Bhd', pi:'Dr. Rajalingam Sokkalingam', chips:['Simulation','Scientific Computing'] },
-  { slotId:'pj-5', theme:'RG06 · NEXT-GENERATION & QUANTUM COMPUTING', title:'QOPT: quantum-assisted optimisation for refinery scheduling', summary:'A variational solver for unit-commitment style scheduling, reported alongside the classical baseline it has to beat.', trl:'TRL 2', status:'ACTIVE', grant:'RM 1.9M', period:'2025–2027', partner:'Kilang Selatan Sdn Bhd', pi:'Assoc. Prof. Dr. Ibrahim Venkat Krishnamurthy', chips:['Quantum Computing','Scheduling'] },
-  { slotId:'pj-6', theme:'RG01 · DATA SCIENCE & ANALYTICS', title:'CLARA: clinical language models for low-resource settings', summary:'A domain-adapted language model for triage summaries in Bahasa Malaysia and English, evaluated against blinded clinician review.', trl:'TRL 3', status:'IN REVIEW', grant:'RM 1.4M', period:'2024–2026', partner:'Hospital Bandar Baru', pi:'Dr. Noureen Talpur', chips:['Generative AI','Evaluation'] }
+  {"title":"NDE-READI Module Enhancement and Pilot Deployment","funder":"PETRONAS Technical Services Sdn Bhd","pi":"Said Jadid Abdulkadir","years":"2025–2026","exact":"RM 400,000"},
+  {"title":"Job Hazard Analysis (JHA) Verification System","funder":"PETRONAS Technical Services Sdn Bhd","pi":"Ahmad Bukhari bin Aujih","years":"2025–2026","exact":"RM 331,463"},
+  {"title":"Provision of Radiographic Film Digitization Services for NDE-READI Deployment at PGB (NPS 36 SG Loop 2)","funder":"PETRONAS Technical Services Sdn Bhd","pi":"Said Jadid Abdulkadir","years":"2025–2026","exact":"RM 820,496"},
+  {"title":"Security Risk Assessment & Analytics System (SRAAS) Phase II","funder":"Petronas Group Security","pi":"Shakirah Mohd Taib","years":"2024–2025","exact":"RM 379,620"},
+  {"title":"OPTIMUS (MVP 2):Operational Requirement","funder":"PETRONAS Technical Services Sdn Bhd","pi":"Emelia Akashah Bt Patah Akhir","years":"2024–2025","exact":"RM 507,600"},
+  {"title":"UTP SLA: IPSS Analytics Development by UTP Cerdas","funder":"PETRONAS Technical Services Sdn Bhd","pi":"Emelia Akashah Bt Patah Akhir","years":"2024–2025","exact":"RM 447,120"},
+  {"title":"NDE-READI: Provision of Digital Detector Array Radiographic Testing (DDA RT) Services for NDE-READI Pilot Deployment","funder":"PETRONAS Technical Services Sdn Bhd","pi":"Said Jadid Abdulkadir","years":"2024","exact":"RM 481,531"},
+  {"title":"Feasibility Study for Artificial Intelligence (AI) Technology Deployment for Marine Loading Arm (MLA) - Phase 1","funder":"PETRONAS Technical Services Sdn Bhd","pi":"Hitham Seddig Alhassan Alhussian","years":"2024–2026","exact":"RM 532,556"},
+  {"title":"NDE-READI Solution Enhancement and Deployment for 2024-2025 (Phase 4)","funder":"PETRONAS Technical Services Sdn Bhd","pi":"Said Jadid Abdulkadir","years":"2024–2026","exact":"RM 818,478"},
+  {"title":"PETRONAS Production Loss Analytics (P2LA) Enhancement - Machine Learning","funder":"PETRONAS Technical Services Sdn Bhd","pi":"Shuhaida Mohamed Shuhidan","years":"2024","exact":"RM 996,840"},
+  {"title":"MMPD - Features Development and Enhancement","funder":"PETRONAS Technical Services Sdn Bhd","pi":"Izzatdin Abdul Aziz","years":"2024–2025","exact":"RM 791,640"},
+  {"title":"Predictive Model Enhancement for Naphthenic Acid Corrosion (NAC)","funder":"PETRONAS Technical Services Sdn Bhd","pi":"Izzatdin Abdul Aziz","years":"2023","exact":"RM 348,740"},
+  {"title":"NDE-READI Deployment for IBO Project and Maintenance","funder":"PETRONAS Technical Services Sdn Bhd","pi":"Said Jadid Abdulkadir","years":"2023–2024","exact":"RM 452,620"},
+  {"title":"GUSA Automation","funder":"PETRONAS Technical Services Sdn Bhd","pi":"Shuhaida Mohamed Shuhidan","years":"2023","exact":"RM 400,000"},
+  {"title":"PETRONAS Production Loss Analytics (P2LA) Phase 2 Development","funder":"PETRONAS Technical Services Sdn Bhd","pi":"Shuhaida Mohamed Shuhidan","years":"2023","exact":"RM 280,000"},
+  {"title":"Order1 for Project 2 UTP: Development of Security Analytics Programme for PETRONAS Group Security Project 2: Intelligence Learning System (Phase 1)","funder":"Petroliam Nasional Berhad (PETRONAS)","pi":"Aliza Sarlan","years":"2023","exact":"RM 318,000"},
+  {"title":"Order1 for Project 3 UTP: Development of Security Analytics Programme for PETRONAS Group Security - Remote Alarm System at Unmanned Platform (Phase 1)","funder":"Petroliam Nasional Berhad (PETRONAS)","pi":"Mohd Hilmi Hasan","years":"2023","exact":"RM 477,000"},
+  {"title":"Order1 for Project 1 UTP: Development of Security Analytics Programme for PETRONAS Group Security Project 1 - Security Risk Assessment & Research/Alert Analytics Application (Phase 1)","funder":"Petroliam Nasional Berhad (PETRONAS)","pi":"Shakirah Mohd Taib","years":"2023","exact":"RM 318,000"},
+  {"title":"Oder 1 for OPTIMUS (MVP 2): Data Analytics for Operational REQ","funder":"Petroliam Nasional Berhad (PETRONAS)","pi":"Emelia Akashah Bt Patah Akhir","years":"2022","exact":"RM 464,227"},
+  {"title":"Data-Driven Predictive Model for Naphthenic Acid Corrosion (NAC)","funder":"PETRONAS Technical Services Sdn Bhd","pi":"Izzatdin Abdul Aziz","years":"2022","exact":"RM 429,300"},
+  {"title":"NDE-READI (Record Analysis & Digitalization) for Inspection Data","funder":"PETRONAS Technical Services Sdn Bhd","pi":"Hitham Seddig Alhassan Alhussian","years":"2022–2023","exact":"RM 807,511"},
+  {"title":"Predictive Analytics Pipeline/Piping Weldment (PrAnWeld+) Phase 1- Radiography Test (RT)","funder":"PETRONAS Technical Services Sdn Bhd","pi":"Said Jadid Abdulkadir","years":"2021–2022","exact":"RM 963,601"},
+  {"title":"Predictive Analytic for Freespan (PrAnSpan) Phase 2 (Automation of Metocean Tensor)","funder":"PETRONAS Technical Services Sdn Bhd","pi":"Hitham Seddig Alhassan Alhussian","years":"2021","exact":"RM 608,501"},
+  {"title":"Intelligent Constructability Review (i-CR) - Phase 2","funder":"PETRONAS Technical Services Sdn Bhd","pi":"Yew Kwang Hooi","years":"2021","exact":"RM 256,096"},
+  {"title":"Intelligent Constructability Review (i-CR)","funder":"PETRONAS Technical Services Sdn Bhd","pi":"Yew Kwang Hooi","years":"2020","exact":"RM 384,144"},
+  {"title":"Free Span Predictive Analytics for PCSB","funder":"PETRONAS Technical Services Sdn Bhd","pi":"Hitham Seddig Alhassan Alhussian","years":"2019–2020","exact":"RM 606,320"},
+  {"title":"Institute of Autonomous System","funder":"PETRONAS Technical Services Sdn Bhd","pi":"Yew Kwang Hooi","years":"2017–2019","exact":"RM 264,875"}
+];
+
+// Sample split by research group — not from the Excel, shown as dummy.
+const PORTFOLIO = [
+  { code: 'RG01', name: 'Data Science & Analytics', pct: '26%', count: '10 projects', value: 'RM 6.4M' },
+  { code: 'RG02', name: 'Machine Learning & Intelligent Systems', pct: '19%', count: '7 projects', value: 'RM 4.9M' },
+  { code: 'RG03', name: 'Generative AI', pct: '11%', count: '4 projects', value: 'RM 2.1M' },
+  { code: 'RG04', name: 'Computational Modelling, Simulation & Optimisation', pct: '24%', count: '9 projects', value: 'RM 6.0M' },
+  { code: 'RG05', name: 'Edge Computing', pct: '14%', count: '5 projects', value: 'RM 3.4M' },
+  { code: 'RG06', name: 'Next-Generation & Quantum Computing', pct: '6%', count: '2 projects', value: 'RM 1.8M' }
 ];
 
 class Component extends DCLogic {
+  state = { query: '', all: false };
+
   get root() { return { current: document }; }
 
   runCounters() {
@@ -183,15 +292,32 @@ class Component extends DCLogic {
   }
 
   renderVals() {
+    const fmt = s => {
+      const t = s.replace(/^RM\s*/, '').replace(/,/g, '').trim();
+      const n = t.endsWith('M') ? parseFloat(t) * 1e6 : parseFloat(t);
+      return n >= 1e6 ? 'RM ' + (n / 1e6).toFixed(2) + ' Million' : 'RM ' + Math.round(n / 1000) + 'K';
+    };
+    const q = this.state.query.trim().toLowerCase();
+    const list = PROJECTS.map(p => ({ title: p.title, funder: p.funder, pi: p.pi, years: p.years, amount: fmt(p.exact) }));
+    const matches = q ? list.filter(p => (p.title + ' ' + p.funder + ' ' + p.pi).toLowerCase().includes(q)) : list;
+    const shown = (q || this.state.all) ? matches : matches.slice(0, 6);
     return {
       rootRef: this.root,
-      projects: PROJECTS,
-      themeOptions: ['All research groups', 'RG01 Data Science & Analytics', 'RG02 Machine Learning & Intelligent Systems', 'RG03 Generative AI', 'RG04 Computational Modelling, Simulation & Optimisation', 'RG05 Edge Computing', 'RG06 Next-Generation & Quantum Computing'],
-      statusOptions: ['All statuses', 'Active', 'In review', 'Completed'],
-      partnerOptions: ['All partner types', 'Industry', 'Government agency', 'University', 'Hospital / clinical']
+      flagships: FLAGSHIPS.map(f => ({ slotId: f.slotId, src: FLAGSHIP_IMAGES[f.title] || '', title: f.title, funder: f.funder, pi: f.pi, years: f.years, amount: fmt(f.exact) })),
+      shown,
+      query: this.state.query,
+      onQuery: e => this.setState({ query: e.target.value }),
+      onReset: () => this.setState({ query: '', all: false }),
+      resultLine: 'SHOWING ' + shown.length + ' OF ' + PROJECTS.length + ' PROJECTS',
+      noMatches: matches.length === 0,
+      showToggle: !q && PROJECTS.length > 6,
+      toggleLabel: this.state.all ? 'Show fewer' : 'Show all ' + PROJECTS.length,
+      toggleAll: () => this.setState(s => ({ all: !s.all })),
+      portfolio: PORTFOLIO
     };
   }
 }
+
 </script>
 </body>
 </html>

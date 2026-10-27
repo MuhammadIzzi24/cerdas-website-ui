@@ -1,14 +1,8 @@
-# OS / editor cruft
-Thumbs.db
-ehthumbs.db
-Desktop.ini
-.DS_Store
+# Design-tool working files — not part of the site
+scraps/
 .thumbnail
-*.swp
-.vscode/
-.idea/
 
-# Logs and temp files
-*.log
-*.tmp
-~$*
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/

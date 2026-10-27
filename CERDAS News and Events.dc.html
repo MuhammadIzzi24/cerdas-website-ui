@@ -18,7 +18,7 @@ a{color:#004B8C;text-decoration:none}a:hover{color:#00335F}
 
 <dc-import name="SiteHeader" active="Impact" hint-size="100%,78px"></dc-import>
 
-<section style="background:#00335F;padding:56px 0 66px;position:relative;overflow:hidden">
+<section style="min-height:500px;box-sizing:border-box;background:#00335F;padding:56px 0 66px;position:relative;overflow:hidden">
 <svg viewBox="0 0 1440 400" preserveAspectRatio="none" style="position:absolute;inset:0;width:100%;height:100%;opacity:.2" aria-hidden="true">
 <g fill="#7FAED9">
 <rect x="1030" y="70" width="80" height="80" rx="4"></rect><rect x="1126" y="70" width="80" height="80" rx="4"></rect><rect x="1222" y="70" width="80" height="80" rx="4"></rect>
@@ -158,6 +158,9 @@ a{color:#004B8C;text-decoration:none}a:hover{color:#00335F}
 </div>
 </div>
 </sc-for>
+<sc-if value="{{ noUpcoming }}" hint-placeholder-val="{{ false }}">
+<div style="background:#FFFFFF;border:1px solid #D8DEE5;border-radius:8px;padding:40px;text-align:center;font:600 18px 'Inter Tight',sans-serif;color:#14181D">No upcoming events listed</div>
+</sc-if>
 </div>
 
 <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:40px;margin-bottom:28px">
@@ -216,36 +219,15 @@ const NEWS = [
   { date: '22 AUG 2026', type: 'PARTNERSHIP', theme: 't1',
     title: 'CERDAS and Selat Energy sign a three-year agreement on grid resilience analytics',
     body: 'The agreement funds two workstreams on fault localisation and demand-side forecasting, with two funded doctoral positions and access to a decade of operational records under a governed data arrangement.' },
-  { date: '05 AUG 2026', type: 'INNOVATION', theme: 't3',
-    title: 'Two patents granted for an adaptive sensor-fusion method',
-    body: 'Granted in Malaysia and Singapore. The method is available to license and already deployed on two operator fields.' },
-  { date: '18 JUL 2026', type: 'PEOPLE', theme: 'all',
-    title: 'Twelve postgraduate researchers complete in the first half of 2026',
-    body: 'Seven doctorates and five research masters, spread across all four themes. Four have moved into industry roles with centre partners.' },
   { date: '30 JUN 2026', type: 'FACILITIES', theme: 't4',
     title: 'Cluster utilisation passes 80% as the quantum sandbox comes online',
     body: 'PETRA-1 ran at 83% through the first half of the year. The 32-qubit simulation sandbox is now open to allocated projects.' },
-  { date: '12 JUN 2026', type: 'IMPACT', theme: 't1',
-    title: 'Water demand forecasting cuts error to 6% for a state operator',
-    body: 'A sixteen-week consultancy engagement, validated on the operator\u2019s own holdout period. The model and training code were handed over in full.' },
   { date: '28 MAY 2026', type: 'SOFTWARE', theme: 't3',
     title: 'cerdas-anomaly 2.3 ships with a labelled fault-injection benchmark',
     body: 'The release pairs the detection toolkit with the ITFI-2025 dataset so results can be compared on the same ground truth.' }
 ];
 
 const EVENTS = [
-  { day: '18', month: 'SEP', time: '14:30', date: '18 SEP 2026', type: 'SEMINAR', theme: 't4', upcoming: true,
-    title: 'Quantum algorithms for combinatorial optimisation in energy systems',
-    body: 'Where quantum-assisted heuristics currently beat classical baselines on unit commitment, and where they do not. Includes results from the centre\u2019s own benchmark set.',
-    venue: 'Chancellor Hall, UTP', speaker: 'PROF. DR. LIM WEI SHENG', places: '120 PLACES · 41 TAKEN' },
-  { day: '02', month: 'OCT', time: '09:00', date: '02 OCT 2026', type: 'WORKSHOP', theme: 't3', upcoming: true,
-    title: 'Hands-on federated learning for industrial telemetry',
-    body: 'A full day building a federated detector on the ITFI-2025 dataset. Bring a laptop; cluster accounts are provided for the day.',
-    venue: 'Applied Machine Learning Lab, Block N', speaker: 'DR. SITI NOOR AZMI', places: '24 PLACES · 19 TAKEN' },
-  { day: '21', month: 'OCT', time: '15:00', date: '21 OCT 2026', type: 'COLLOQUIUM', theme: 't1', upcoming: true,
-    title: 'Data governance when anonymisation is not enough',
-    body: 'What to do when operational data can be re-identified in practice — consent records, lineage, and analysing in place rather than releasing.',
-    venue: 'Block P Auditorium', speaker: 'ASSOC. PROF. DR. FARIDAH SULAIMAN', places: '80 PLACES · 12 TAKEN' },
   { day: '14', month: 'AUG', time: 'FULL DAY', date: '14 AUG 2026', type: 'CONFERENCE', theme: 'all', upcoming: false,
     title: 'CERDAS Annual Research Colloquium 2026',
     body: 'Thirty-one presentations across the four themes, plus an industry panel on translation.',
@@ -256,7 +238,7 @@ const EVENTS = [
     attended: '68 STUDENTS', linkLabel: 'Photographs' },
   { day: '09', month: 'JUL', time: '10:00', date: '09 JUL 2026', type: 'WORKSHOP', theme: 'all', upcoming: false,
     title: 'Writing for Q1 venues',
-    body: 'An internal session on framing, reviewer response and venue choice, run by three of the centre\u2019s most published fellows.',
+    body: 'An internal session on framing, reviewer response and venue choice, run by three of the centre\u2019s most published researchers.',
     attended: '37 ATTENDED', linkLabel: 'Materials' }
 ];
 
@@ -299,6 +281,7 @@ class Component extends DCLogic {
       upcoming: ev.filter(e => e.upcoming).map(e => Object.assign({}, e, { themeLabel: TH[e.theme][0] })),
       past: ev.filter(e => !e.upcoming),
       upcomingLine: ev.filter(e => e.upcoming).length + ' UPCOMING',
+      noUpcoming: ev.filter(e => e.upcoming).length === 0,
       pastLine: ev.filter(e => !e.upcoming).length + ' IN THE LAST QUARTER',
       eventsEmpty: !isNews && ev.length === 0
     };

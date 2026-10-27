@@ -7,9 +7,10 @@
 </head>
 <body>
 <x-dc>
+<sc-if value="{{ plain }}" hint-placeholder-val="{{ true }}">
 <header style="height:78px;background:#FFFFFF;border-bottom:1px solid #D8DEE5;display:flex;align-items:center;position:relative;z-index:20">
 <div style="width:1320px;margin:0 auto;display:flex;align-items:center;justify-content:space-between">
-<a href="{{ homeHref }}" style="display:block;flex:none"><img src="assets/cerdas-logo.png" alt="CERDAS — Center for Resilient Data Analytics and Computational Systems" style="height:40px;width:auto;display:block"></a>
+<a href="{{ homeHref }}" style="display:block;flex:none"><img src="assets/cerdas-utp-logo.png" alt="Universiti Teknologi PETRONAS · CERDAS — Center for Resilient Data Analytics and Computational Systems" style="height:46px;width:auto;display:block"></a>
 <nav style="display:flex;align-items:center;gap:26px">
 <sc-for list="{{ nav }}" as="item" hint-placeholder-count="6">
 <div style="position:relative;display:flex;align-items:center" onMouseEnter="{{ item.onEnter }}" onMouseLeave="{{ item.onLeave }}" onFocus="{{ item.onEnter }}" onBlur="{{ item.onLeave }}">
@@ -32,29 +33,57 @@
 </nav>
 </div>
 </header>
+</sc-if>
+<sc-if value="{{ overlay }}" hint-placeholder-val="{{ false }}">
+<header style="height:96px;background:transparent;display:flex;align-items:center;position:relative;z-index:20">
+<div style="width:1320px;margin:0 auto;display:flex;align-items:center;justify-content:space-between">
+<a href="{{ homeHref }}" style="display:block;flex:none"><img src="assets/cerdas-utp-logo-white.png" alt="Universiti Teknologi PETRONAS · CERDAS — Center for Resilient Data Analytics and Computational Systems" style="height:52px;width:auto;display:block;filter:drop-shadow(0 2px 6px rgba(0,0,0,.35))"></a>
+<nav style="display:flex;align-items:center;gap:26px">
+<sc-for list="{{ nav }}" as="item" hint-placeholder-count="6">
+<div style="position:relative;display:flex;align-items:center" onMouseEnter="{{ item.onEnter }}" onMouseLeave="{{ item.onLeave }}" onFocus="{{ item.onEnter }}" onBlur="{{ item.onLeave }}">
+<a href="{{ item.href }}" style="position:relative;display:flex;align-items:center;gap:6px;font:600 15px Inter,sans-serif;color:#FFFFFF;padding-bottom:6px;white-space:nowrap" style-hover="color:#F5C46B">{{ item.label }}<sc-if value="{{ item.hasMenu }}" hint-placeholder-val="{{ true }}"><svg width="9" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true" style="flex:none;opacity:.6"><path d="M1 1.2 L5 4.8 L9 1.2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></sc-if><sc-if value="{{ item.active }}" hint-placeholder-val="{{ false }}"><span style="position:absolute;left:0;right:0;bottom:0;height:2px;background:#E38C07"></span></sc-if></a>
+<sc-if value="{{ item.open }}" hint-placeholder-val="{{ false }}">
+<div style="position:absolute;top:100%;left:-20px;padding-top:18px;z-index:30">
+<div style="background:#FFFFFF;border:1px solid #D8DEE5;border-top:2px solid #004B8C;box-shadow:0 14px 30px rgba(20,24,29,.14);padding:14px 0;min-width:238px">
+<sc-for list="{{ item.children }}" as="child" hint-placeholder-count="4">
+<a href="{{ child.href }}" style="display:block;padding:9px 22px;font:400 13.5px Inter,sans-serif;color:#14181D;white-space:nowrap" style-hover="background:#F2F6FA;color:#004B8C">{{ child.label }}</a>
+</sc-for>
+</div>
+</div>
+</sc-if>
+</div>
+</sc-for>
+<div style="display:flex;align-items:center;gap:18px;margin-left:6px">
+<span style="width:38px;height:38px;border-radius:50%;background:#FFFFFF;display:flex;align-items:center;justify-content:center"><svg width="16" height="16" viewBox="0 0 18 18" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="6" stroke="#14181D" stroke-width="2"></circle><path d="M12.4 12.4 L16 16" stroke="#14181D" stroke-width="2"></path></svg></span>
+<a href="CERDAS Join.dc.html" style="font:600 13px Inter,sans-serif;color:#FFFFFF;border:1.5px solid #FFFFFF;padding:9px 20px;border-radius:999px;white-space:nowrap" style-hover="background:#FFFFFF;color:#00335F">Join CERDAS</a>
+</div>
+</nav>
+</div>
+</header>
+</sc-if>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1440,&quot;height&quot;:78},&quot;active&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Home&quot;,&quot;About&quot;,&quot;Research&quot;,&quot;People&quot;,&quot;Publications &amp; Innovation&quot;,&quot;Impact&quot;],&quot;default&quot;:&quot;Research&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;dropdowns&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;}}">
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1440,&quot;height&quot;:78},&quot;active&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Home&quot;,&quot;About&quot;,&quot;Research&quot;,&quot;People&quot;,&quot;Publications &amp; Innovation&quot;,&quot;Impact&quot;],&quot;default&quot;:&quot;Research&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;dropdowns&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;},&quot;overlay&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;}}">
 const ITEMS = [
   ['Home', 'CERDAS Home.dc.html', []],
-  ['About', 'CERDAS Governance.dc.html', [
-    ['Governance', 'CERDAS Governance.dc.html'],
-    ['Fellowship framework', 'CERDAS Fellowship Framework.dc.html'],
-    ['Sitemap', 'CERDAS Sitemap.dc.html']
+  ['About', 'CERDAS Our Vision.dc.html', [
+    ['Our vision', 'CERDAS Our Vision.dc.html'],
+    ['Organisation chart', 'CERDAS Organisation Chart.dc.html'],
+    ['Researcher framework', 'CERDAS Fellowship Framework.dc.html'],
+    ['Facilities', 'CERDAS Facilities.dc.html'],
+    ['Collaborate with us', 'CERDAS Join.dc.html#collaborate']
   ]],
   ['Research', 'CERDAS Research.dc.html', [
     ['Research groups', 'CERDAS Research.dc.html'],
-    ['Flagship projects', 'CERDAS Projects.dc.html'],
-    ['Laboratories', 'CERDAS Laboratories.dc.html'],
-    ['Facilities', 'CERDAS Facilities.dc.html']
+    ['Projects', 'CERDAS Projects.dc.html']
   ]],
   ['People', 'CERDAS People.dc.html', [
     ['Researchers', 'CERDAS People.dc.html'],
-    ['Fellowship framework', 'CERDAS Fellowship Framework.dc.html'],
+    ['Researcher framework', 'CERDAS Fellowship Framework.dc.html'],
     ['Postgraduate study', 'CERDAS Join.dc.html']
   ]],
   ['Publications & Innovation', 'CERDAS Publications.dc.html', [
     ['Publications', 'CERDAS Publications.dc.html'],
-    ['Patents', 'CERDAS Patents.dc.html'],
+    ['Inventions & Products', 'CERDAS Inventions and Products.dc.html'],
     ['Software', 'CERDAS Software.dc.html'],
     ['Datasets', 'CERDAS Datasets.dc.html'],
     ['Technology transfer', 'CERDAS Technology Transfer.dc.html']
@@ -86,7 +115,10 @@ class Component extends DCLogic {
   renderVals() {
     const active = this.props.active ?? 'Home';
     const showMenus = this.props.dropdowns ?? true;
+    const overlay = !!this.props.overlay;
     return {
+      overlay,
+      plain: !overlay,
       homeHref: 'CERDAS Home.dc.html',
       nav: ITEMS.map(([label, href, kids]) => ({
         label,

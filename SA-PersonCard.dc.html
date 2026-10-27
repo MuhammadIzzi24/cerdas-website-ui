@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<div style="background:#FFFFFF;border:1px solid #D8DEE5;border-radius:8px;box-shadow:0 1px 3px rgba(20,24,29,.05);padding:24px;height:100%;box-sizing:border-box;display:flex;flex-direction:column">
+<div style="font:600 17px/1.28 'Inter Tight',sans-serif;letter-spacing:-.005em;color:#14181D;text-wrap:pretty">{{ personName }}</div>
+<sc-if value="{{ hasDept }}" hint-placeholder-val="{{ true }}">
+<div style="margin-top:18px;font:500 10.5px 'IBM Plex Mono',monospace;letter-spacing:.1em;color:#5A6472">DEPARTMENT</div>
+<div style="margin-top:5px;font:400 13.5px/1.45 Inter,sans-serif;color:#14181D">{{ department }}</div>
+</sc-if>
+<sc-if value="{{ hasEmail }}" hint-placeholder-val="{{ true }}">
+<div style="margin-top:14px;font:500 10.5px 'IBM Plex Mono',monospace;letter-spacing:.1em;color:#5A6472">EMAIL</div>
+<a href="{{ mailto }}" style="margin-top:5px;font:500 13.5px/1.45 Inter,sans-serif;color:#004B8C;word-break:break-all" style-hover="color:#00335F">{{ email }}</a>
+</sc-if>
+<sc-if value="{{ hasProfile }}" hint-placeholder-val="{{ false }}">
+<div style="margin-top:auto;padding-top:20px;display:flex;justify-content:flex-end">
+<a href="{{ href }}" aria-label="View profile" style="width:32px;height:32px;border-radius:6px;background:#E6EEF5;display:flex;align-items:center;justify-content:center;font:600 15px Inter,sans-serif;color:#004B8C" style-hover="background:#004B8C;color:#FFFFFF">→</a>
+</div>
+</sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:320,&quot;height&quot;:260},&quot;personName&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;Ahmad Bukhari bin Aujih&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;department&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;Electrical &amp; Electronics Engineering&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;email&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;bukhari.aujih@utp.edu.my&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;href&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;&quot;,&quot;tsType&quot;:&quot;string&quot;}}">
+class Component extends DCLogic {
+  renderVals() {
+    const email = this.props.email ?? '';
+    const department = this.props.department ?? '';
+    const href = this.props.href ?? '';
+    return {
+      personName: this.props.personName ?? '',
+      department, hasDept: !!department,
+      email, hasEmail: !!email, mailto: email ? 'mailto:' + email : '#',
+      href, hasProfile: !!href
+    };
+  }
+}
+</script>
+</body>
+</html>

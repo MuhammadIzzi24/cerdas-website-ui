@@ -10,15 +10,22 @@
 <helmet><script src="./image-slot.js"></script></helmet>
 <div style="background:#FFFFFF;border:1px solid #D8DEE5;border-radius:8px;box-shadow:0 1px 3px rgba(20,24,29,.05);height:100%;box-sizing:border-box;display:flex;flex-direction:column;overflow:hidden">
 <div style="position:relative;height:164px;flex:none;background:#00335F">
-<image-slot id="{{ slotId }}" shape="rect" placeholder="{{ placeholder }}"></image-slot>
+<image-slot id="{{ slotId }}" shape="rect" placeholder="{{ placeholder }}" src="{{ src }}"></image-slot>
+<sc-if value="{{ hasCategory }}" hint-placeholder-val="{{ true }}">
 <div style="position:absolute;left:16px;top:16px;pointer-events:none">
 <span style="font:600 10.5px 'IBM Plex Mono',monospace;letter-spacing:.08em;color:#FFFFFF;background:rgba(0,51,95,.86);padding:5px 10px;border-radius:4px">{{ category }}</span>
 </div>
+</sc-if>
 </div>
 <div style="padding:24px;display:flex;flex-direction:column;flex:1">
 <h3 style="margin:0 0 10px;font:700 19px/1.28 'Inter Tight',sans-serif;letter-spacing:-.01em;color:#14181D;text-wrap:pretty">{{ title }}</h3>
+<sc-if value="{{ hasCode }}" hint-placeholder-val="{{ true }}">
 <div style="font:500 12.5px 'IBM Plex Mono',monospace;color:#004B8C;margin-bottom:14px">{{ code }}</div>
+</sc-if>
+<sc-if value="{{ hasSummary }}" hint-placeholder-val="{{ true }}">
 <p style="margin:0 0 20px;font:400 14px/1.6 Inter,sans-serif;color:#5A6472;text-wrap:pretty">{{ summary }}</p>
+</sc-if>
+<sc-if value="{{ hasSpecs }}" hint-placeholder-val="{{ true }}">
 <div style="display:flex;flex-direction:column;border-top:1px solid #E6EEF5;margin-bottom:20px">
 <sc-for list="{{ specs }}" as="spec" hint-placeholder-count="4">
 <div style="display:flex;align-items:baseline;justify-content:space-between;gap:16px;padding:11px 0;border-bottom:1px solid #E6EEF5">
@@ -27,13 +34,31 @@
 </div>
 </sc-for>
 </div>
+</sc-if>
+<sc-if value="{{ hasFooter }}" hint-placeholder-val="{{ true }}">
 <div style="margin-top:auto;display:flex;align-items:center;justify-content:space-between;gap:12px">
-<a href="{{ href }}" style="font:600 13px Inter,sans-serif;color:#004B8C;border-bottom:2px solid #E38C07;padding-bottom:2px">{{ linkLabel }}</a>
+<sc-if value="{{ hasLink }}" hint-placeholder-val="{{ true }}"><a href="{{ href }}" style="font:600 13px Inter,sans-serif;color:#004B8C;border-bottom:2px solid #E38C07;padding-bottom:2px">{{ linkLabel }}</a></sc-if>
 <span style="font:500 11.5px 'IBM Plex Mono',monospace;color:#5A6472">{{ access }}</span>
 </div>
+</sc-if>
 </div>
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:420,&quot;height&quot;:580},&quot;slotId&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;facility-1&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;placeholder&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;Laboratory photo&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;category&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;LABORATORY&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;title&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;Applied Machine Learning Lab&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;code&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;T1 · Block N, Level 2&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;summary&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;Model development and evaluation for industrial datasets, with a dedicated annotation and benchmarking bay.&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;specs&quot;:{&quot;editor&quot;:null,&quot;default&quot;:[[&quot;SEATS&quot;,&quot;24 researchers&quot;],[&quot;LEAD&quot;,&quot;Assoc. Prof. Ts. Dr. Said Jadid Abdulkadir&quot;]],&quot;tsType&quot;:&quot;{label:string,value:string}[]&quot;},&quot;linkLabel&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;Lab detail →&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;access&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;BY ARRANGEMENT&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;href&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;#&quot;,&quot;tsType&quot;:&quot;string&quot;}}"></script>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:420,&quot;height&quot;:580},&quot;slotId&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;facility-1&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;src&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;placeholder&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;Facility photo&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;category&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;title&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;CERDAS Avengers Room&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;code&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;summary&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;specs&quot;:{&quot;editor&quot;:null,&quot;default&quot;:[],&quot;tsType&quot;:&quot;{label:string,value:string}[]&quot;},&quot;linkLabel&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;Facility detail →&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;access&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;href&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;&quot;,&quot;tsType&quot;:&quot;string&quot;}}">
+class Component extends DCLogic {
+  renderVals() {
+    const v = k => this.props[k] ?? '';
+    const specs = Array.isArray(this.props.specs) ? this.props.specs : [];
+    const href = v('href');
+    const hasLink = !!href && href !== '#';
+    return {
+      src: v('src'),
+      hasCategory: !!v('category'), hasCode: !!v('code'), hasSummary: !!v('summary'),
+      specs, hasSpecs: specs.length > 0,
+      hasLink, hasFooter: hasLink || !!v('access')
+    };
+  }
+}
+</script>
 </body>
 </html>

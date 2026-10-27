@@ -17,7 +17,7 @@ a{color:#004B8C;text-decoration:none}a:hover{color:#00335F}
 
 <dc-import name="SiteHeader" active="Publications &amp; Innovation" hint-size="100%,78px"></dc-import>
 
-<section style="background:#00335F;padding:56px 0 66px;position:relative;overflow:hidden">
+<section style="min-height:500px;box-sizing:border-box;background:#00335F;padding:56px 0 66px;position:relative;overflow:hidden">
 <svg viewBox="0 0 1440 400" preserveAspectRatio="none" style="position:absolute;inset:0;width:100%;height:100%;opacity:.2" aria-hidden="true">
 <g fill="#7FAED9">
 <rect x="1030" y="60" width="330" height="22" rx="3"></rect>
@@ -101,6 +101,11 @@ a{color:#004B8C;text-decoration:none}a:hover{color:#00335F}
 </div>
 </sc-for>
 </div>
+<sc-if value="{{ isEmpty }}" hint-placeholder-val="{{ false }}">
+<div style="background:#FFFFFF;border:1px solid #D8DEE5;border-radius:8px;padding:56px 40px;text-align:center">
+<div style="font:600 19px 'Inter Tight',sans-serif;color:#14181D">No datasets listed</div>
+</div>
+</sc-if>
 </div>
 </section>
 
@@ -150,36 +155,13 @@ const T = {
   t4: 'T4 NEXT-GENERATION COMPUTING'
 };
 
-const SETS = [
-  { access: 'open', theme: 't3', title: 'Industrial telemetry with labelled fault injection (ITFI-2025)',
-    description: 'Eighteen months of multi-channel telemetry from three test rigs, with 1,240 injected faults labelled by type, severity and onset time. Built as a benchmark so anomaly detectors can be compared on the same ground truth.',
-    size: '1.8 TB', format: 'Parquet + JSON', licence: 'CC BY 4.0', doi: '10.5281/zenodo.15118240',
-    contact: 'Dr. Siti Nurlaili Karim', pubCount: '6' },
-  { access: 'request', theme: 't1', title: 'Medium-voltage distribution network fault archive',
-    description: 'Nine years of recorded faults across a regional distribution network, with topology, weather at time of fault and restoration times. Network topology is generalised to protect asset detail.',
-    size: '240 GB', format: 'CSV + GeoJSON', licence: 'CC BY-NC 4.0', doi: '10.5281/zenodo.14903771',
-    contact: 'Assoc. Prof. Ts. Dr. Hitham Seddig Alhassan Alhussian', pubCount: '4' },
-  { access: 'open', theme: 't2', title: 'Subsea gathering network flow assurance simulations',
-    description: 'A simulation corpus of 42,000 multiphase flow cases spanning pressure, temperature and composition ranges, generated for surrogate-model training and validation.',
-    size: '620 GB', format: 'HDF5', licence: 'CC BY 4.0', doi: '10.5281/zenodo.15044119',
-    contact: 'Ts. Dr. Hamzah Sakidin', pubCount: '3' },
-  { access: 'request', theme: 't1', title: 'Regional water demand and drought stress records, 2015–2025',
-    description: 'Daily demand, reservoir level and rainfall records for a state-level water system, aligned to a common calendar with quality flags for sensor outages.',
-    size: '78 GB', format: 'CSV + NetCDF', licence: 'CC BY 4.0', doi: '10.5281/zenodo.14688305',
-    contact: 'Dr. Noureen Talpur', pubCount: '2' },
-  { access: 'restricted', theme: 't3', title: 'Structural health monitoring vibration corpus',
-    description: 'High-rate vibration and strain records from instrumented industrial structures. Held under partner agreement — analysis runs inside the centre\u2019s governed environment, with results reviewed before release.',
-    size: '410 GB', format: 'TDMS + Parquet', licence: 'Partner agreement', doi: '10.5281/zenodo.15207733',
-    contact: 'Dr. Ahmad Bukhari bin Aujih', pubCount: '5' },
-  { access: 'open', theme: 't4', title: 'Unit commitment benchmark instances for quantum solvers',
-    description: 'A graded set of 900 unit-commitment instances with known optima, sized for both classical solvers and current quantum hardware, plus classical baseline results.',
-    size: '12 GB', format: 'JSON + LP', licence: 'CC0 1.0', doi: '10.5281/zenodo.15290118',
-    contact: 'Assoc. Prof. Dr. Ibrahim Venkat Krishnamurthy', pubCount: '2' }
-];
+// Sample entries removed (each named a researcher as contact/maintainer).
+const SETS = [];
 
 class Component extends DCLogic {
   renderVals() {
     return {
+      isEmpty: SETS.length === 0,
       sets: SETS.map(d => Object.assign({}, d, {
         themeLabel: T[d.theme],
         open: d.access === 'open',

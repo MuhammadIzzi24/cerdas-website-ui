@@ -17,7 +17,7 @@ a{color:#004B8C;text-decoration:none}a:hover{color:#00335F}
 
 <dc-import name="SiteHeader" active="Impact" hint-size="100%,78px"></dc-import>
 
-<section style="background:#00335F;padding:52px 0 0;position:relative;overflow:hidden">
+<section style="min-height:500px;box-sizing:border-box;display:flex;flex-direction:column;background:#00335F;padding:52px 0 0;position:relative;overflow:hidden">
 <svg viewBox="0 0 1440 420" preserveAspectRatio="none" style="position:absolute;inset:0;width:100%;height:100%;opacity:.22" aria-hidden="true">
 <g stroke="#7FAED9" stroke-width="1" fill="none">
 <polyline points="1000,330 1070,240 1140,265 1210,150 1280,180 1350,90 1420,110"></polyline>
@@ -26,9 +26,9 @@ a{color:#004B8C;text-decoration:none}a:hover{color:#00335F}
 <circle cx="1000" cy="330" r="3"></circle><circle cx="1070" cy="240" r="3"></circle><circle cx="1140" cy="265" r="3"></circle><circle cx="1210" cy="150" r="3"></circle><circle cx="1280" cy="180" r="3"></circle><circle cx="1350" cy="90" r="3"></circle><circle cx="1420" cy="110" r="3"></circle>
 </g>
 </svg>
-<div style="width:1320px;margin:0 auto;position:relative">
+<div style="width:1320px;margin:0 auto;position:relative;flex:1;display:flex;flex-direction:column">
 <div style="font:500 11px 'IBM Plex Mono',monospace;letter-spacing:.13em;color:#7FAED9;margin-bottom:28px"><a href="CERDAS Home.dc.html" style="color:#7FAED9">HOME</a> <span style="color:#E38C07">/</span> <a href="CERDAS Industry.dc.html" style="color:#7FAED9">IMPACT</a> <span style="color:#E38C07">/</span> RESEARCH DASHBOARD</div>
-<div style="display:flex;align-items:flex-start;justify-content:space-between;gap:64px">
+<div style="display:flex;align-items:flex-start;justify-content:space-between;gap:64px;margin-bottom:44px">
 <div style="max-width:720px">
 <h1 style="margin:0 0 20px;font:700 50px/1.08 'Inter Tight',sans-serif;letter-spacing:-.02em;color:#FFFFFF;text-wrap:pretty">Research dashboard</h1>
 <p style="margin:0;font:400 18px/1.6 Inter,sans-serif;color:#BFD2E4;text-wrap:pretty">The performance position CERDAS reports to HiCoE, published as it stands. Nine performance areas, each with a target, a named owner and the functional arm that monitors it.</p>
@@ -43,7 +43,7 @@ a{color:#004B8C;text-decoration:none}a:hover{color:#00335F}
 </div>
 </div>
 
-<div style="margin-top:44px;padding:22px 0 24px;border-top:1px solid rgba(127,174,217,.28);display:flex;align-items:center;justify-content:space-between;gap:40px">
+<div style="margin-top:auto;padding:22px 0 24px;border-top:1px solid rgba(127,174,217,.28);display:flex;align-items:center;justify-content:space-between;gap:40px">
 <div style="display:flex;align-items:center;gap:20px">
 <div style="font:500 10px 'IBM Plex Mono',monospace;letter-spacing:.14em;color:#7FAED9;white-space:nowrap">REPORTING PERIOD</div>
 <div style="display:flex;gap:8px">
@@ -112,7 +112,7 @@ a{color:#004B8C;text-decoration:none}a:hover{color:#00335F}
 <div style="font:600 38px/1 'IBM Plex Mono',monospace;color:#004B8C;letter-spacing:-.025em;white-space:nowrap">{{ t.value }}</div>
 </div>
 
-<sc-if value="{{ showTargets }}" hint-placeholder-val="{{ true }}">
+<sc-if value="{{ t.showRail }}" hint-placeholder-val="{{ true }}">
 <div style="margin-top:16px">
 <div style="position:relative;height:4px;background:#E8ECF1;border-radius:2px">
 <div style="position:absolute;left:0;top:0;bottom:0;background:#1A6BAE;border-radius:2px;width:{{ t.railPct }}%"></div>
@@ -125,6 +125,7 @@ a{color:#004B8C;text-decoration:none}a:hover{color:#00335F}
 </sc-if>
 
 <sc-if value="{{ full }}" hint-placeholder-val="{{ true }}">
+<sc-if value="{{ t.hasSubs }}" hint-placeholder-val="{{ true }}">
 <div style="margin-top:20px;padding-top:18px;border-top:1px solid #E8ECF1;display:grid;grid-template-columns:1fr 1fr;gap:18px">
 <div>
 <div style="font:400 11.5px/1.35 Inter,sans-serif;color:#5A6472;margin-bottom:6px">{{ t.sub1Label }}</div>
@@ -135,6 +136,7 @@ a{color:#004B8C;text-decoration:none}a:hover{color:#00335F}
 <div style="font:500 15px 'IBM Plex Mono',monospace;color:#14181D">{{ t.sub2Val }}</div>
 </div>
 </div>
+</sc-if>
 <div style="margin-top:18px;padding-top:16px;border-top:1px solid #E8ECF1;display:flex;flex-direction:column;gap:10px">
 <div>
 <div style="font:500 9.5px 'IBM Plex Mono',monospace;letter-spacing:.14em;color:#5A6472;margin-bottom:4px">OWNER</div>
@@ -225,27 +227,6 @@ a{color:#004B8C;text-decoration:none}a:hover{color:#00335F}
 <sc-for list="{{ xLabels }}" as="x" hint-placeholder-count="6"><text x="{{ x.x }}" y="208" text-anchor="middle" fill="{{ x.col }}" style="font:500 10.5px 'IBM Plex Mono',monospace">{{ x.text }}</text></sc-for>
 </svg>
 <div style="margin-top:12px;font:500 10px 'IBM Plex Mono',monospace;letter-spacing:.08em;color:#5A6472">2026 IS HALF-YEAR TO 30 JUN · 88 COMPLETIONS 2021–2025 · 60 CURRENTLY ENROLLED</div>
-</div>
-
-<div style="background:#FFFFFF;border:1px solid #D8DEE5;border-radius:8px;padding:26px 26px 20px">
-<div style="font:500 10.5px 'IBM Plex Mono',monospace;letter-spacing:.13em;color:#5A6472;margin-bottom:10px">CHART 04</div>
-<h3 style="margin:0 0 6px;font:600 19px/1.25 'Inter Tight',sans-serif;color:#14181D">IP filings</h3>
-<p style="margin:0 0 16px;font:400 13.5px/1.5 Inter,sans-serif;color:#5A6472">Filed in the year, and grants awarded in the year.</p>
-<div style="display:flex;flex-wrap:wrap;gap:16px;margin-bottom:12px">
-<div style="display:flex;align-items:center;gap:7px"><span style="width:11px;height:11px;background:#4A8CC4;border-radius:2px;display:block"></span><span style="font:500 11px 'IBM Plex Mono',monospace;color:#5A6472">Filed</span></div>
-<div style="display:flex;align-items:center;gap:7px"><span style="width:11px;height:11px;background:#004B8C;border-radius:2px;display:block"></span><span style="font:500 11px 'IBM Plex Mono',monospace;color:#5A6472">Granted</span></div>
-<sc-if value="{{ showTargets }}" hint-placeholder-val="{{ true }}"><div style="display:flex;align-items:center;gap:7px"><span style="width:14px;height:0;border-top:2px dashed #E38C07;display:block"></span><span style="font:500 11px 'IBM Plex Mono',monospace;color:#5A6472">Target 6 / yr</span></div></sc-if>
-</div>
-<svg viewBox="0 0 640 224" style="width:100%;height:auto;display:block" aria-label="IP filings and grants by year">
-<sc-for list="{{ ipTicks }}" as="k" hint-placeholder-count="3"><line x1="46" y1="{{ k.y }}" x2="626" y2="{{ k.y }}" stroke="#EDF0F3" stroke-width="1"></line><text x="38" y="{{ k.ty }}" text-anchor="end" fill="#5A6472" style="font:500 9.5px 'IBM Plex Mono',monospace">{{ k.label }}</text></sc-for>
-<sc-for list="{{ ipBars }}" as="b" hint-placeholder-count="12"><rect x="{{ b.x }}" y="{{ b.y }}" width="{{ b.w }}" height="{{ b.h }}" fill="{{ b.fill }}"></rect></sc-for>
-<sc-if value="{{ showTargets }}" hint-placeholder-val="{{ true }}"><line x1="46" y1="{{ ipTargetY }}" x2="626" y2="{{ ipTargetY }}" stroke="#E38C07" stroke-width="1.5" stroke-dasharray="6 4"></line></sc-if>
-<sc-for list="{{ ipVals }}" as="v" hint-placeholder-count="6"><text x="{{ v.x }}" y="{{ v.y }}" text-anchor="middle" fill="{{ v.col }}" style="font:500 10.5px 'IBM Plex Mono',monospace">{{ v.text }}</text></sc-for>
-<line x1="46" y1="186" x2="626" y2="186" stroke="#D8DEE5" stroke-width="1"></line>
-<sc-for list="{{ marks }}" as="m" hint-placeholder-count="1"><rect x="{{ m.x }}" y="{{ m.y }}" width="{{ m.w }}" height="{{ m.h }}" fill="#E38C07"></rect></sc-for>
-<sc-for list="{{ xLabels }}" as="x" hint-placeholder-count="6"><text x="{{ x.x }}" y="208" text-anchor="middle" fill="{{ x.col }}" style="font:500 10.5px 'IBM Plex Mono',monospace">{{ x.text }}</text></sc-for>
-</svg>
-<div style="margin-top:12px;font:500 10px 'IBM Plex Mono',monospace;letter-spacing:.08em;color:#5A6472">2026 IS HALF-YEAR TO 30 JUN · 19 FILED 2021–2025 · 7 GRANTED · 12 PROOF-OF-CONCEPTS</div>
 </div>
 
 </div>
@@ -389,24 +370,15 @@ const TILES = [
         [23, 22, ['PhD / MSc', '14 / 9'], ['Currently enrolled', '58']],
         [19, 20, ['PhD / MSc', '12 / 7'], ['Currently enrolled', '51']],
         [88, 85, ['PhD / MSc', '53 / 35'], ['Currently enrolled', '60']]] },
-  { code: 'KPI-04', area: 'IP, Patents & PoCs', metric: 'IP filings made in the period', fmt: 'int',
-    owner: 'Inventor teams', arm: 'Innovation & Commercialisation Unit',
-    d: [[5, 4, ['Granted, cumulative', '9'], ['Proof-of-concepts', '3']],
-        [6, 6, ['Granted, cumulative', '7'], ['Proof-of-concepts', '4']],
-        [5, 5, ['Granted, cumulative', '4'], ['Proof-of-concepts', '3']],
-        [19, 18, ['Granted, cumulative', '7'], ['Proof-of-concepts', '12']]] },
   { code: 'KPI-05', area: 'Technology Translation', metric: 'Technologies advanced to TRL 6 or above', fmt: 'int',
     owner: 'Project leads, TRL 6+', arm: 'Innovation & Commercialisation Unit',
     d: [[2, 3, ['Licences signed', '1'], ['Licensing income', 'RM 0.5M']],
         [5, 5, ['Licences signed', '2'], ['Licensing income', 'RM 0.9M']],
         [3, 4, ['Licences signed', '1'], ['Licensing income', 'RM 0.4M']],
         [14, 15, ['Licences signed', '6'], ['Licensing income', 'RM 2.8M']]] },
-  { code: 'KPI-06', area: 'Industry Projects & Consultancy', metric: 'Contract research & consultancy value', fmt: 'money',
+  { code: 'KPI-06', area: 'Industry Projects & Consultancy', metric: 'Consultancy value approved (by start year)', fmt: 'money', noTarget: true,
     owner: 'Group Heads', arm: 'Industry & Partnership Office',
-    d: [[1.4, 1.8, ['Active industry projects', '14'], ['Partner organisations', '31']],
-        [3.2, 3.0, ['Active industry projects', '14'], ['Partner organisations', '31']],
-        [2.4, 2.6, ['Active industry projects', '11'], ['Partner organisations', '26']],
-        [11.6, 12.0, ['Active industry projects', '14'], ['Partner organisations', '31']]] },
+    d: [[null], [1.7], [5.4], [14.1]] },
   { code: 'KPI-07', area: 'International Collaboration', metric: 'Publications with an international co-author', fmt: 'pct',
     owner: 'Group Heads', arm: 'International Relations Office',
     d: [[36, 32, ['Active MoUs', '9'], ['Visiting researchers', '4']],
@@ -504,8 +476,15 @@ class Component extends DCLogic {
 
     const tiles = TILES.map(t => {
       const row = t.d[pIdx];
+      if (t.noTarget) return {
+        code: t.code, area: t.area, metric: t.metric, owner: t.owner, arm: t.arm,
+        value: row[0] == null ? '—' : fmtV(row[0], t.fmt), target: '', delta: '', attain: '', railPct: '0',
+        above: false, on: false, below: false, assessed: false, showRail: false, hasSubs: false,
+        sub1Label: '', sub1Val: '', sub2Label: '', sub2Val: ''
+      };
       const v = row[0], tgt = row[1], st = statusOf(v, tgt, t.fmt);
       return {
+        assessed: true, showRail: showTargets, hasSubs: true,
         code: t.code, area: t.area, metric: t.metric, owner: t.owner, arm: t.arm,
         value: fmtV(v, t.fmt), target: fmtV(tgt, t.fmt), delta: deltaOf(v, tgt, t.fmt),
         attain: Math.round((v / tgt) * 100) + '%',
@@ -526,8 +505,8 @@ class Component extends DCLogic {
         pick: () => this.setState({ period: p.id })
       })),
       periodLabel: P.label, periodRange: P.range, provisionalNote: P.prov,
-      nOnOrAbove: tiles.filter(t => !t.below).length,
-      nBelow: tiles.filter(t => t.below).length,
+      nOnOrAbove: tiles.filter(t => t.assessed && !t.below).length,
+      nBelow: tiles.filter(t => t.assessed && t.below).length,
       tiles, showTargets, full,
       marks: markers(sel),
       xLabels: YEARS.map((y, i) => ({ x: bandX(i) + SW / 2, text: y, col: sel.indexOf(i) > -1 ? '#14181D' : '#5A6472' })),

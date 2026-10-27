@@ -18,27 +18,27 @@ a{color:#004B8C;text-decoration:none}a:hover{color:#00335F}
 
 <dc-import name="SiteHeader" active="People" hint-size="100%,78px"></dc-import>
 
-<section style="background:#00335F;padding:52px 0 0;position:relative;overflow:hidden">
+<section style="height:500px;box-sizing:border-box;background:#00335F;padding:52px 0 0;position:relative;overflow:hidden">
 <div style="width:1320px;margin:0 auto;position:relative">
 <div style="font:500 11px 'IBM Plex Mono',monospace;letter-spacing:.13em;color:#7FAED9;margin-bottom:32px"><a href="CERDAS Home.dc.html" style="color:#7FAED9">HOME</a> <span style="color:#E38C07">/</span> <a href="CERDAS People.dc.html" style="color:#7FAED9">PEOPLE</a> <span style="color:#E38C07">/</span> {{ surnameUpper }}</div>
 
-<div style="display:grid;grid-template-columns:260px 1fr 300px;gap:48px;align-items:start;padding-bottom:44px">
+<div style="display:grid;grid-template-columns:260px 1fr 280px;gap:40px;align-items:start;padding-bottom:40px">
 <image-slot id="profile-portrait" style="width:260px;height:320px;display:block;border-radius:8px;overflow:hidden" shape="rounded" radius="8" placeholder="Portrait — 4:5, plain background"></image-slot>
 
 <div style="padding-top:6px">
-<div style="display:flex;align-items:center;gap:12px;margin-bottom:18px">
+<div style="display:flex;align-items:center;gap:12px;margin-bottom:14px">
 <span style="background:#E38C07;color:#14181D;font:600 10px 'IBM Plex Mono',monospace;letter-spacing:.1em;padding:6px 10px;border-radius:4px">{{ tier }}</span>
 <span style="font:500 10.5px 'IBM Plex Mono',monospace;letter-spacing:.13em;color:#7FAED9">{{ themeLabel }}</span>
 </div>
-<h1 style="margin:0 0 12px;font:700 46px/1.08 'Inter Tight',sans-serif;letter-spacing:-.02em;color:#FFFFFF;text-wrap:pretty">{{ name }}</h1>
-<div style="font:400 19px/1.45 Inter,sans-serif;color:#BFD2E4;margin-bottom:10px">{{ role }}</div>
-<div style="font:400 15.5px/1.55 Inter,sans-serif;color:#7FAED9;margin-bottom:28px">{{ department }}</div>
-<p style="margin:0 0 30px;font:400 17px/1.62 Inter,sans-serif;color:#BFD2E4;max-width:620px;text-wrap:pretty">{{ oneLiner }}</p>
-<div style="display:flex;flex-wrap:wrap;gap:12px">
-<a href="#" style="font:600 13.5px Inter,sans-serif;color:#FFFFFF;border:1px solid rgba(255,255,255,.42);padding:11px 18px;border-radius:6px;white-space:nowrap" style-hover="border-color:#FFFFFF">{{ email }}</a>
-<a href="#" style="font:600 13.5px Inter,sans-serif;color:#FFFFFF;border:1px solid rgba(255,255,255,.42);padding:11px 18px;border-radius:6px;white-space:nowrap" style-hover="border-color:#FFFFFF">ORCID {{ orcid }}</a>
-<a href="#" style="font:600 13.5px Inter,sans-serif;color:#FFFFFF;border:1px solid rgba(255,255,255,.42);padding:11px 18px;border-radius:6px;white-space:nowrap" style-hover="border-color:#FFFFFF">Scopus</a>
-<a href="#" style="font:600 13.5px Inter,sans-serif;color:#FFFFFF;border:1px solid rgba(255,255,255,.42);padding:11px 18px;border-radius:6px;white-space:nowrap" style-hover="border-color:#FFFFFF">Google Scholar</a>
+<h1 style="margin:0 0 8px;font:700 40px/1.08 'Inter Tight',sans-serif;letter-spacing:-.02em;color:#FFFFFF;text-wrap:pretty">{{ name }}</h1>
+<div style="font:400 19px/1.45 Inter,sans-serif;color:#BFD2E4;margin-bottom:6px">{{ role }}</div>
+<div style="font:400 15.5px/1.55 Inter,sans-serif;color:#7FAED9;margin-bottom:18px">{{ department }}</div>
+<p style="margin:0 0 20px;font:400 17px/1.62 Inter,sans-serif;color:#BFD2E4;max-width:680px;text-wrap:pretty">{{ oneLiner }}</p>
+<div style="display:flex;flex-wrap:wrap;gap:10px">
+<a href="{{ mailto }}" style="font:600 13px Inter,sans-serif;color:#FFFFFF;border:1px solid rgba(255,255,255,.42);padding:9px 13px;border-radius:6px;white-space:nowrap" style-hover="border-color:#FFFFFF">{{ email }}</a>
+<a href="#" style="font:600 13px Inter,sans-serif;color:#FFFFFF;border:1px solid rgba(255,255,255,.42);padding:9px 13px;border-radius:6px;white-space:nowrap" style-hover="border-color:#FFFFFF">ORCID {{ orcid }}</a>
+<a href="#" style="font:600 13px Inter,sans-serif;color:#FFFFFF;border:1px solid rgba(255,255,255,.42);padding:9px 13px;border-radius:6px;white-space:nowrap" style-hover="border-color:#FFFFFF">Scopus</a>
+<a href="#" style="font:600 13px Inter,sans-serif;color:#FFFFFF;border:1px solid rgba(255,255,255,.42);padding:9px 13px;border-radius:6px;white-space:nowrap" style-hover="border-color:#FFFFFF">Google Scholar</a>
 </div>
 </div>
 
@@ -71,7 +71,7 @@ a{color:#004B8C;text-decoration:none}a:hover{color:#00335F}
 <section style="background:#FFFFFF;border-bottom:1px solid #D8DEE5;position:sticky;top:0;z-index:20">
 <div style="width:1320px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:30px">
 <div style="display:flex;gap:0">
-<sc-for list="{{ tabs }}" as="t" hint-placeholder-count="7">
+<sc-for list="{{ tabs }}" as="t" hint-placeholder-count="8">
 <sc-if value="{{ t.on }}" hint-placeholder-val="{{ false }}">
 <button type="button" onClick="{{ t.pick }}" style="position:relative;font:600 13.5px Inter,sans-serif;color:#004B8C;background:transparent;border:0;padding:20px 20px 17px;cursor:pointer;white-space:nowrap">{{ t.label }}<span style="position:absolute;left:20px;right:20px;bottom:0;height:3px;background:#E38C07"></span></button>
 </sc-if>
@@ -169,6 +169,37 @@ a{color:#004B8C;text-decoration:none}a:hover{color:#00335F}
 </div>
 </sc-if>
 
+<sc-if value="{{ isInventions }}" hint-placeholder-val="{{ false }}">
+<div style="width:44px;height:3px;background:#E38C07;margin-bottom:22px"></div>
+<div style="display:flex;align-items:flex-end;justify-content:space-between;gap:30px;margin-bottom:30px">
+<h2 style="margin:0;font:700 30px/1.16 'Inter Tight',sans-serif;letter-spacing:-.015em;color:#14181D">Inventions</h2>
+<a href="CERDAS Inventions and Products.dc.html" style="font:600 13.5px Inter,sans-serif;color:#004B8C;white-space:nowrap">All inventions &amp; products →</a>
+</div>
+<div style="display:flex;flex-direction:column;gap:16px">
+<sc-for list="{{ inventions }}" as="v" hint-placeholder-count="1">
+<div style="border:1px solid #D8DEE5;border-radius:8px;padding:26px 28px 28px">
+<div style="display:flex;align-items:center;gap:12px;margin-bottom:14px">
+<span style="background:rgba(0,75,140,.08);color:#004B8C;font:600 10px 'IBM Plex Mono',monospace;letter-spacing:.08em;padding:5px 9px;border-radius:4px">{{ v.role }}</span>
+<sc-if value="{{ v.hasProduct }}" hint-placeholder-val="{{ false }}">
+<span style="width:4px;height:4px;border-radius:50%;background:#E38C07;display:block"></span>
+<span style="font:500 10.5px 'IBM Plex Mono',monospace;letter-spacing:.12em;color:#5A6472">PRODUCT · {{ v.product }}</span>
+</sc-if>
+</div>
+<div style="font:600 20px/1.28 'Inter Tight',sans-serif;letter-spacing:-.008em;color:#14181D;margin-bottom:12px;text-wrap:pretty">{{ v.title }}</div>
+<p style="margin:0 0 18px;font:400 14.5px/1.6 Inter,sans-serif;color:#5A6472;max-width:680px">{{ v.description }}</p>
+<div style="padding-top:16px;border-top:1px solid #E8ECF1">
+<div style="font:500 10px 'IBM Plex Mono',monospace;letter-spacing:.12em;color:#5A6472;margin-bottom:10px">INVENTORS</div>
+<div style="display:flex;flex-wrap:wrap;gap:8px 26px">
+<sc-for list="{{ v.inventors }}" as="w" hint-placeholder-count="3">
+<div style="display:flex;align-items:baseline;gap:8px"><span style="font:400 13.5px Inter,sans-serif;color:#14181D">{{ w.name }}</span><span style="font:500 10.5px 'IBM Plex Mono',monospace;letter-spacing:.08em;color:#5A6472">{{ w.role }}</span></div>
+</sc-for>
+</div>
+</div>
+</div>
+</sc-for>
+</div>
+</sc-if>
+
 <sc-if value="{{ isSupervision }}" hint-placeholder-val="{{ false }}">
 <div style="width:44px;height:3px;background:#E38C07;margin-bottom:22px"></div>
 <h2 style="margin:0 0 14px;font:700 30px/1.16 'Inter Tight',sans-serif;letter-spacing:-.015em;color:#14181D">Supervision</h2>
@@ -208,7 +239,7 @@ a{color:#004B8C;text-decoration:none}a:hover{color:#00335F}
 <sc-if value="{{ isTeaching }}" hint-placeholder-val="{{ false }}">
 <div style="width:44px;height:3px;background:#E38C07;margin-bottom:22px"></div>
 <h2 style="margin:0 0 14px;font:700 30px/1.16 'Inter Tight',sans-serif;letter-spacing:-.015em;color:#14181D">Teaching</h2>
-<p style="margin:0 0 30px;font:400 16.5px/1.65 Inter,sans-serif;color:#5A6472;max-width:720px">Undergraduate and postgraduate courses in the current academic year, plus short courses run for industry through the consultancy route.</p>
+<p style="margin:0 0 30px;font:400 16.5px/1.65 Inter,sans-serif;color:#5A6472;max-width:720px">Undergraduate and postgraduate courses in the current academic year.</p>
 <div style="display:flex;flex-direction:column;gap:1px;background:#E8ECF1;border:1px solid #E8ECF1;border-radius:7px;overflow:hidden;margin-bottom:30px">
 <sc-for list="{{ teaching }}" as="c" hint-placeholder-count="4">
 <div style="background:#FFFFFF;padding:20px 24px;display:grid;grid-template-columns:110px 1fr 150px 120px;gap:22px;align-items:center">
@@ -221,11 +252,6 @@ a{color:#004B8C;text-decoration:none}a:hover{color:#00335F}
 <div style="font:500 12.5px 'IBM Plex Mono',monospace;color:#14181D">{{ c.students }}</div>
 </div>
 </sc-for>
-</div>
-<div style="background:#FAFAF8;border:1px solid #D8DEE5;border-radius:8px;padding:26px 28px">
-<div style="font:500 10px 'IBM Plex Mono',monospace;letter-spacing:.14em;color:#5A6472;margin-bottom:12px">SHORT COURSES FOR INDUSTRY</div>
-<p style="margin:0 0 14px;font:400 14.5px/1.62 Inter,sans-serif;color:#5A6472">Applied machine learning for maintenance engineers, delivered four times to 62 engineers on the client's own maintenance records.</p>
-<a href="CERDAS Consultancy.dc.html" style="font:600 13.5px Inter,sans-serif;color:#004B8C">Technical training →</a>
 </div>
 </sc-if>
 
@@ -278,7 +304,7 @@ a{color:#004B8C;text-decoration:none}a:hover{color:#00335F}
 <div style="font:400 13.5px/1.55 Inter,sans-serif;color:#5A6472;margin-bottom:18px">{{ themeRole }}</div>
 <div style="display:flex;flex-direction:column;gap:10px;padding-top:18px;border-top:1px solid #D8DEE5">
 <a href="CERDAS Theme.dc.html" style="font:500 13.5px Inter,sans-serif;color:#004B8C">Explore the theme →</a>
-<a href="CERDAS Governance.dc.html" style="font:500 13.5px Inter,sans-serif;color:#004B8C">Where this sits in governance →</a>
+<a href="CERDAS Organisation Chart.dc.html" style="font:500 13.5px Inter,sans-serif;color:#004B8C">Where this sits in governance →</a>
 </div>
 </div>
 
@@ -315,24 +341,31 @@ a{color:#004B8C;text-decoration:none}a:hover{color:#00335F}
 </div>
 
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1440},&quot;startTab&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Biography&quot;,&quot;Research interests&quot;,&quot;Publications&quot;,&quot;Projects&quot;,&quot;Supervision&quot;,&quot;Teaching&quot;,&quot;Awards&quot;],&quot;default&quot;:&quot;Biography&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;available&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;}}">
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1440},&quot;startTab&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Biography&quot;,&quot;Research interests&quot;,&quot;Publications&quot;,&quot;Projects&quot;,&quot;Inventions&quot;,&quot;Supervision&quot;,&quot;Teaching&quot;,&quot;Awards&quot;],&quot;default&quot;:&quot;Biography&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;available&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;}}">
+// Inventions: uploads/All List of PI CERDAS.xlsx — sheet "List of Product@Invention".
+const ME = 'Hitham Seddig Alhassan Alhussian';
+const INVENTIONS = [
+  {"title":"Intelligent Constructability Review (i-CR)","product":"","description":"Constructability Review (CR) is conducted to identify construction obstacle before/during the project construction actual work. i-CR is a software-based technique for Constructability Review (CR) process through Artificial Intelligence and data-driven architecture and design for systematic identification of constructability issues and providing advisory of recommended actions. i-CR interacts with experts to collect data, organise data and generate model for advisory. The invention automates CR and will build data-driven and evidence-driven knowledge base cumulatively. The invention’s architecture and design will allow automation leading to autonomation","inventors":[{"name":"Yew Kwang Hooi","role":"Main Inventor"},{"name":"Hitham Seddig Alhassan Alhussian","role":"Co-Inventor"},{"name":"Said Jadid Abdulkadir","role":"Co-Inventor"}]}
+];
+
 const TABS = [
   ['bio', 'Biography', ''],
   ['interests', 'Research interests', '4'],
   ['pubs', 'Publications', '68'],
   ['projects', 'Projects', '5'],
+  ['inventions', 'Inventions', String(INVENTIONS.length)],
   ['supervision', 'Supervision', '23'],
   ['teaching', 'Teaching', '4'],
   ['awards', 'Awards', '6']
 ];
 
 const P = {
-  name: 'Assoc. Prof. Ts. Dr. Hitham Seddig Alhassan Alhussian',
-  shortName: 'Dr. Hitham',
+  name: 'Hitham Seddig Alhassan Alhussian',
+  shortName: 'Hitham',
   surnameUpper: 'HITHAM SEDDIG ALHASSAN ALHUSSIAN',
-  tier: 'SENIOR FELLOW',
+  tier: 'SENIOR RESEARCHER',
   role: 'Group Head — Data Science & Analytics',
-  department: 'Department of Computer & Information Sciences, Universiti Teknologi PETRONAS',
+  department: 'Computing',
   themeLabel: 'RG01 · DATA SCIENCE & ANALYTICS',
   themeName: 'Data Science & Analytics',
   themeRole: 'Group Head · 6 researchers, 11 active projects',
@@ -431,10 +464,10 @@ const P = {
     { name: 'Lee Su Ann', topic: 'Anomaly labelling under sensor drift', degree: 'MSc', stage: 'Year 1' }
   ],
   completed: [
-    { name: 'Dr. Hanita Daud', topic: 'Topology inference from fault records', degree: 'PhD', stage: '2023 · now Senior Fellow' },
-    { name: 'Ts. Dr. Yaman Hamed', topic: 'Sparse learning for infrastructure graphs', degree: 'PhD', stage: '2023 · postdoc, Utrecht' },
+    { name: 'Hanita Daud', topic: 'Topology inference from fault records', degree: 'PhD', stage: '2023 · now Senior Researcher' },
+    { name: 'Yaman Hamed', topic: 'Sparse learning for infrastructure graphs', degree: 'PhD', stage: '2023 · postdoc, Utrecht' },
     { name: 'Nur Alia binti Kamarudin', topic: 'Load profiling under tariff reform', degree: 'MSc', stage: '2022 · Tenaga Nusantara' },
-    { name: 'Dr. Aliza Sarlan', topic: 'Human factors in control room analytics', degree: 'PhD', stage: '2025 · Meridian Semiconductor' }
+    { name: 'Aliza Sarlan', topic: 'Human factors in control room analytics', degree: 'PhD', stage: '2025 · Meridian Semiconductor' }
   ],
   teaching: [
     { code: 'CIS3043', title: 'Machine Learning', note: 'Core, semester 1', level: 'Undergraduate', students: '186 STUDENTS' },
@@ -451,10 +484,10 @@ const P = {
     { year: '2021', title: 'UTP Teaching Excellence Award', org: 'Universiti Teknologi PETRONAS' }
   ],
   colleagues: [
-    { tier: 'PRINCIPAL FELLOW', name: 'Assoc. Prof. Ts. Dr. Said Jadid Abdulkadir', focus: 'Forecasting and uncertainty quantification' },
-    { tier: 'SENIOR FELLOW', name: 'Assoc. Prof. Ts. Dr. Hanita Daud', focus: 'Graph methods and topology inference' },
-    { tier: 'FELLOW', name: 'Dr. Noureen Talpur', focus: 'Time-series analysis and benchmark curation' },
-    { tier: 'FELLOW', name: 'Dr. Aliza Sarlan', focus: 'Human factors in operational analytics' }
+    { tier: 'PRINCIPAL RESEARCHER', name: 'Said Jadid Abdulkadir', focus: 'Forecasting and uncertainty quantification' },
+    { tier: 'SENIOR RESEARCHER', name: 'Hanita Daud', focus: 'Graph methods and topology inference' },
+    { tier: 'RESEARCHER', name: 'Noureen Talpur', focus: 'Time-series analysis and benchmark curation' },
+    { tier: 'RESEARCHER', name: 'Aliza Sarlan', focus: 'Human factors in operational analytics' }
   ]
 };
 
@@ -469,14 +502,19 @@ class Component extends DCLogic {
       name: P.name, shortName: P.shortName, surnameUpper: P.surnameUpper,
       tier: P.tier, role: P.role, department: P.department,
       themeLabel: P.themeLabel, themeName: P.themeName, themeRole: P.themeRole,
-      oneLiner: P.oneLiner, email: P.email, orcid: P.orcid,
+      oneLiner: P.oneLiner, email: P.email, mailto: 'mailto:' + P.email, orcid: P.orcid,
       available: P.available, unavailable: !P.available, availableNote: P.availableNote,
       tabs: TABS.map(([id, label, count]) => ({
         label, count, on: tab === id, off: tab !== id, pick: this.pick(id)
       })),
       isBio: tab === 'bio', isInterests: tab === 'interests', isPubs: tab === 'pubs',
       isProjects: tab === 'projects', isSupervision: tab === 'supervision',
-      isTeaching: tab === 'teaching', isAwards: tab === 'awards',
+      isTeaching: tab === 'teaching', isAwards: tab === 'awards', isInventions: tab === 'inventions',
+      inventions: INVENTIONS.map(v => ({
+        title: v.title, product: v.product, hasProduct: !!v.product, description: v.description,
+        role: ((v.inventors.find(w => w.name === ME) || {}).role || '').toUpperCase(),
+        inventors: v.inventors.map(w => ({ name: w.name, role: w.role.toUpperCase() }))
+      })),
       bio: P.bio, career: P.career,
       interestsIntro: P.interestsIntro, interests: P.interests,
       pubs: P.pubs.map(p => Object.assign({}, p, { themeLabel: 'T1 AI & DATA INTELLIGENCE' })),

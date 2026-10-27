@@ -17,7 +17,7 @@ a{color:#004B8C;text-decoration:none}a:hover{color:#00335F}
 
 <dc-import name="SiteHeader" active="Publications &amp; Innovation" hint-size="100%,78px"></dc-import>
 
-<section style="background:#00335F;padding:56px 0 66px;position:relative;overflow:hidden">
+<section style="min-height:500px;box-sizing:border-box;background:#00335F;padding:56px 0 66px;position:relative;overflow:hidden">
 <svg viewBox="0 0 1440 400" preserveAspectRatio="none" style="position:absolute;inset:0;width:100%;height:100%;opacity:.2" aria-hidden="true">
 <g fill="#7FAED9">
 <rect x="1020" y="70" width="60" height="10" rx="2"></rect><rect x="1092" y="70" width="150" height="10" rx="2"></rect>
@@ -113,8 +113,13 @@ a{color:#004B8C;text-decoration:none}a:hover{color:#00335F}
 
 <sc-if value="{{ empty }}" hint-placeholder-val="{{ false }}">
 <div style="padding:56px 0;text-align:center">
+<sc-if value="{{ hasItems }}" hint-placeholder-val="{{ true }}">
 <div style="font:600 19px 'Inter Tight',sans-serif;color:#14181D;margin-bottom:10px">Nothing matches those filters</div>
 <div style="font:400 14.5px Inter,sans-serif;color:#5A6472">Clear a theme or licence selection to see the rest.</div>
+</sc-if>
+<sc-if value="{{ noItems }}" hint-placeholder-val="{{ false }}">
+<div style="font:600 19px 'Inter Tight',sans-serif;color:#14181D">No packages listed</div>
+</sc-if>
 </div>
 </sc-if>
 </div>
@@ -165,26 +170,8 @@ const T = {
   t4: 'T4 NEXT-GENERATION COMPUTING'
 };
 
-const ITEMS = [
-  { name: 'cerdas-anomaly', version: 'v2.3.1', licence: 'Apache-2.0', theme: 't3',
-    purpose: 'Detection toolkit for industrial telemetry: streaming detectors, labelled fault injection and a reproducible benchmark harness.',
-    install: 'pip install cerdas-anomaly', maintainer: 'Dr. Siti Nurlaili Karim', doi: '10.5281/zenodo.14882031', downloads: '11.4k' },
-  { name: 'flowsurro', version: 'v0.9.4', licence: 'BSD-3-Clause', theme: 't2',
-    purpose: 'Physics-informed surrogate models for multiphase flow assurance, with pressure-drop and hydrate-risk operators.',
-    install: 'pip install flowsurro', maintainer: 'Ts. Dr. Hamzah Sakidin', doi: '10.5281/zenodo.15003472', downloads: '3.1k' },
-  { name: 'gridloc', version: 'v1.6.0', licence: 'MIT', theme: 't1',
-    purpose: 'Sparse graph learning for fault localisation in medium-voltage distribution networks, with SCADA import adapters.',
-    install: 'pip install gridloc', maintainer: 'Assoc. Prof. Ts. Dr. Hitham Seddig Alhassan Alhussian', doi: '10.5281/zenodo.13947118', downloads: '8.6k' },
-  { name: 'edgesched', version: 'v1.2.2', licence: 'Apache-2.0', theme: 't3',
-    purpose: 'Deadline-aware inference scheduler for constrained edge devices, with power and thermal budgets as first-class constraints.',
-    install: 'pip install edgesched', maintainer: 'Dr. Ahmad Bukhari bin Aujih', doi: '10.5281/zenodo.14550998', downloads: '5.2k' },
-  { name: 'qopt-uc', version: 'v0.4.0', licence: 'GPL-3.0', theme: 't4',
-    purpose: 'Quantum-assisted heuristics for constrained unit commitment, with simulator and classical baselines side by side.',
-    install: 'pip install qopt-uc', maintainer: 'Assoc. Prof. Dr. Ibrahim Venkat Krishnamurthy', doi: '10.5281/zenodo.15221604', downloads: '1.3k' },
-  { name: 'provenance-vault', version: 'v3.0.1', licence: 'Apache-2.0', theme: 't1',
-    purpose: 'Access-control and provenance layer for governed research data: consent records, lineage tracking and audit export.',
-    install: 'docker pull cerdas/provenance-vault:3.0.1', maintainer: 'Dr. Nur Syadhila Che Lah', doi: '10.5281/zenodo.14776520', downloads: '2.0k' }
-];
+// Sample entries removed (each named a researcher as contact/maintainer).
+const ITEMS = [];
 
 class Component extends DCLogic {
   state = { theme: 'All', licence: 'All' };
@@ -207,7 +194,7 @@ class Component extends DCLogic {
         label: v === 'All' ? 'ALL' : v, on: s.licence === v, off: s.licence !== v, pick: this.pick('licence', v)
       })),
       items: list.map(i => Object.assign({}, i, { themeLabel: T[i.theme] })),
-      empty: list.length === 0,
+      empty: list.length === 0, hasItems: ITEMS.length > 0, noItems: ITEMS.length === 0,
       countLine: 'SHOWING ' + list.length + ' OF ' + ITEMS.length + ' PACKAGES'
     };
   }

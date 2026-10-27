@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<div style="background:#FFFFFF;border:1px solid #D8DEE5;border-radius:8px;box-shadow:0 1px 3px rgba(20,24,29,.05);height:100%;box-sizing:border-box;display:flex;flex-direction:column;overflow:hidden">
+<div style="position:relative;height:180px;flex:none;background:#00335F">
+<image-slot id="{{ slotId }}" shape="rect" placeholder="Project image"></image-slot>
+<div style="position:absolute;left:18px;top:18px;display:flex;gap:8px;pointer-events:none">
+<span style="font:600 10.5px 'IBM Plex Mono',monospace;letter-spacing:.08em;color:#14181D;background:#E38C07;padding:5px 10px;border-radius:4px">{{ trl }}</span>
+<span style="font:600 10.5px 'IBM Plex Mono',monospace;letter-spacing:.08em;color:#FFFFFF;background:rgba(0,51,95,.86);padding:5px 10px;border-radius:4px">{{ status }}</span>
+</div>
+</div>
+<div style="padding:26px;display:flex;flex-direction:column;flex:1">
+<div style="font:500 10.5px 'IBM Plex Mono',monospace;letter-spacing:.1em;color:#004B8C;margin-bottom:12px">{{ theme }}</div>
+<h3 style="margin:0 0 12px;font:700 21px/1.26 'Inter Tight',sans-serif;letter-spacing:-.012em;color:#14181D;text-wrap:pretty">{{ title }}</h3>
+<p style="margin:0 0 22px;font:400 14.5px/1.6 Inter,sans-serif;color:#5A6472;text-wrap:pretty">{{ summary }}</p>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:18px 24px;padding:20px 0;border-top:1px solid #E6EEF5;border-bottom:1px solid #E6EEF5;margin-bottom:20px">
+<div>
+<div style="font:500 10px 'IBM Plex Mono',monospace;letter-spacing:.1em;color:#5A6472;margin-bottom:6px">GRANT VALUE</div>
+<div style="font:600 16px 'IBM Plex Mono',monospace;color:#14181D">{{ grant }}</div>
+</div>
+<div>
+<div style="font:500 10px 'IBM Plex Mono',monospace;letter-spacing:.1em;color:#5A6472;margin-bottom:6px">PERIOD</div>
+<div style="font:600 16px 'IBM Plex Mono',monospace;color:#14181D">{{ period }}</div>
+</div>
+<div>
+<div style="font:500 10px 'IBM Plex Mono',monospace;letter-spacing:.1em;color:#5A6472;margin-bottom:6px">LEAD PARTNER</div>
+<div style="font:500 14px Inter,sans-serif;color:#14181D">{{ partner }}</div>
+</div>
+<div>
+<div style="font:500 10px 'IBM Plex Mono',monospace;letter-spacing:.1em;color:#5A6472;margin-bottom:6px">PRINCIPAL INVESTIGATOR</div>
+<div style="font:500 14px Inter,sans-serif;color:#14181D">{{ pi }}</div>
+</div>
+</div>
+<div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:22px">
+<sc-for list="{{ chips }}" as="chip" hint-placeholder-count="3">
+<dc-import name="ThemeChip" label="{{ chip }}" hint-size="110px,26px"></dc-import>
+</sc-for>
+</div>
+<div style="margin-top:auto">
+<a href="{{ href }}" style="font:600 13.5px Inter,sans-serif;color:#004B8C;border-bottom:2px solid #E38C07;padding-bottom:2px">Project detail →</a>
+</div>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:640,&quot;height&quot;:620},&quot;slotId&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;project-1&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;theme&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;RG04 · COMPUTATIONAL MODELLING, SIMULATION &amp; OPTIMISATION&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;title&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;SIGMA-Flow: physics-informed digital twins for offshore flow assurance&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;summary&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;A surrogate modelling framework that predicts hydrate and wax formation risk across subsea gathering networks.&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;trl&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;TRL 5&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;status&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;ACTIVE&quot;,&quot;IN REVIEW&quot;,&quot;COMPLETED&quot;],&quot;default&quot;:&quot;ACTIVE&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;grant&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;RM 4.2M&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;period&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;2024–2027&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;partner&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;Sepang Energy Bhd&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;pi&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;chips&quot;:{&quot;editor&quot;:null,&quot;default&quot;:[&quot;Digital Twin&quot;,&quot;Optimisation&quot;],&quot;tsType&quot;:&quot;string[]&quot;},&quot;href&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;#&quot;,&quot;tsType&quot;:&quot;string&quot;}}"></script>
+</body>
+</html>

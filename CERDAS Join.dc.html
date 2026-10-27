@@ -15,26 +15,20 @@ a{color:#004B8C;text-decoration:none}a:hover{color:#00335F}
 
 <div data-screen-label="F Join CERDAS" style="width:1440px;margin:0 auto;background:#FFFFFF">
 
-<dc-import name="SiteHeader" active="Join CERDAS" hint-size="100%,78px"></dc-import>
-
-<section style="background:#00335F;padding:56px 0 60px;position:relative;overflow:hidden">
-<svg viewBox="0 0 1440 400" preserveAspectRatio="none" style="position:absolute;inset:0;width:100%;height:100%;opacity:.2" aria-hidden="true">
-<g stroke="#7FAED9" stroke-width="1.2" fill="none"><path d="M1020 320 H1120 V240 H1220 V160 H1320 V90 H1410"></path></g>
-<g fill="#7FAED9"><circle cx="1020" cy="320" r="6"></circle><circle cx="1120" cy="240" r="6"></circle><circle cx="1220" cy="160" r="6"></circle></g>
-<g fill="#E38C07"><circle cx="1320" cy="90" r="8"></circle></g>
-</svg>
-<div style="width:1320px;margin:0 auto;position:relative">
-<div style="font:500 11px 'IBM Plex Mono',monospace;letter-spacing:.13em;color:#7FAED9;margin-bottom:28px"><a href="CERDAS Home.dc.html" style="color:#7FAED9">HOME</a> <span style="color:#E38C07">/</span> JOIN CERDAS <span style="color:#E38C07">/</span> {{ crumb }}</div>
+<section style="min-height:500px;padding:0 0 60px;position:relative;overflow:hidden;box-sizing:border-box;background-color:#0E1A26;background-image:linear-gradient(180deg,rgba(8,12,18,.94) 0%,rgba(8,12,18,.78) 12%,rgba(8,12,18,.42) 30%,rgba(8,12,18,0) 46%),linear-gradient(90deg,rgba(8,14,22,.8) 0%,rgba(8,14,22,.55) 55%,rgba(8,14,22,.35) 100%),url('assets/hero-about.jpg');background-size:cover;background-position:center">
+<dc-import name="SiteHeader" active="Join CERDAS" overlay="{{ true }}" hint-size="100%,96px"></dc-import>
+<div style="width:1320px;margin:0 auto;position:relative;padding-top:56px">
+<div style="font:500 11px 'IBM Plex Mono',monospace;letter-spacing:.13em;color:#E6EEF5;margin-bottom:28px"><a href="CERDAS Home.dc.html" style="color:#E6EEF5">HOME</a> <span style="color:#E38C07">/</span> JOIN CERDAS <span style="color:#E38C07">/</span> {{ crumb }}</div>
 <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:64px">
 <div style="max-width:760px">
 <div style="font:500 10.5px 'IBM Plex Mono',monospace;letter-spacing:.14em;color:#E38C07;margin-bottom:18px">{{ eyebrow }}</div>
 <h1 style="margin:0 0 22px;font:700 52px/1.07 'Inter Tight',sans-serif;letter-spacing:-.02em;color:#FFFFFF;text-wrap:pretty">{{ title }}</h1>
-<p style="margin:0;font:400 18.5px/1.62 Inter,sans-serif;color:#BFD2E4;text-wrap:pretty">{{ intro }}</p>
+<p style="margin:0;font:400 18.5px/1.62 Inter,sans-serif;color:#FFFFFF;text-wrap:pretty">{{ intro }}</p>
 </div>
-<div style="flex:none;width:290px;border-left:1px solid rgba(127,174,217,.34);padding-left:28px">
-<div style="font:500 10px 'IBM Plex Mono',monospace;letter-spacing:.14em;color:#7FAED9;margin-bottom:9px">NEXT DEADLINE</div>
+<div style="flex:none;width:290px;border-left:1px solid rgba(230,238,245,.34);padding-left:28px">
+<div style="font:500 10px 'IBM Plex Mono',monospace;letter-spacing:.14em;color:#E6EEF5;margin-bottom:9px">NEXT DEADLINE</div>
 <div style="font:600 22px/1.2 'IBM Plex Mono',monospace;color:#FFFFFF;margin-bottom:8px">{{ nextDeadline }}</div>
-<div style="font:400 13.5px/1.5 Inter,sans-serif;color:#BFD2E4;margin-bottom:24px">{{ nextDeadlineNote }}</div>
+<div style="font:400 13.5px/1.5 Inter,sans-serif;color:#E6EEF5;margin-bottom:24px">{{ nextDeadlineNote }}</div>
 <a href="#apply" style="display:block;text-align:center;font:600 14.5px Inter,sans-serif;color:#14181D;background:#E38C07;padding:14px 20px;border-radius:6px" style-hover="background:#F5C46B">{{ heroCta }}</a>
 </div>
 </div>
@@ -191,10 +185,12 @@ a{color:#004B8C;text-decoration:none}a:hover{color:#00335F}
 <div style="font:600 30px/1 'IBM Plex Mono',monospace;color:#004B8C;letter-spacing:-.02em;margin-bottom:20px">{{ s.n }}</div>
 <div style="font:600 19px/1.26 'Inter Tight',sans-serif;color:#14181D;margin-bottom:10px">{{ s.title }}</div>
 <div style="font:400 14px/1.6 Inter,sans-serif;color:#5A6472;margin-bottom:20px">{{ s.body }}</div>
+<sc-if value="{{ s.hasTime }}" hint-placeholder-val="{{ true }}">
 <div style="margin-top:auto;padding-top:18px;border-top:1px solid #E8ECF1">
 <div style="font:500 9.5px 'IBM Plex Mono',monospace;letter-spacing:.12em;color:#5A6472;margin-bottom:5px">TYPICALLY</div>
 <div style="font:500 13px 'IBM Plex Mono',monospace;color:#14181D">{{ s.time }}</div>
 </div>
+</sc-if>
 </div>
 </sc-for>
 </div>
@@ -276,8 +272,13 @@ a{color:#004B8C;text-decoration:none}a:hover{color:#00335F}
 
 <sc-if value="{{ openEmpty }}" hint-placeholder-val="{{ false }}">
 <div style="background:#FFFFFF;border:1px solid #D8DEE5;border-top:0;border-radius:0 0 8px 8px;padding:48px 0;text-align:center">
+<sc-if value="{{ hasAnyOpenings }}" hint-placeholder-val="{{ true }}">
 <div style="font:600 18px 'Inter Tight',sans-serif;color:#14181D;margin-bottom:9px">Nothing open in that theme right now</div>
 <div style="font:400 14.5px Inter,sans-serif;color:#5A6472">Clear the theme filter, or write to us anyway — strong applications are held for the next round.</div>
+</sc-if>
+<sc-if value="{{ noOpenings }}" hint-placeholder-val="{{ false }}">
+<div style="font:600 18px 'Inter Tight',sans-serif;color:#14181D">No openings listed</div>
+</sc-if>
 </div>
 </sc-if>
 
@@ -360,7 +361,7 @@ a{color:#004B8C;text-decoration:none}a:hover{color:#00335F}
 </div>
 <div style="background:#FAFAF8;border:1px solid #E8ECF1;border-radius:7px;padding:22px 24px">
 <div style="font:500 10px 'IBM Plex Mono',monospace;letter-spacing:.14em;color:#5A6472;margin-bottom:12px">WHO PICKS THIS UP</div>
-<div style="font:600 17px/1.3 'Inter Tight',sans-serif;color:#14181D;margin-bottom:5px">Assoc. Prof. Ts. Dr. Yew Kwang Hooi</div>
+<div style="font:600 17px/1.3 'Inter Tight',sans-serif;color:#14181D;margin-bottom:5px">Yew Kwang Hooi</div>
 <div style="font:400 13.5px/1.5 Inter,sans-serif;color:#5A6472">Functional Lead · Industry &amp; Strategic Partnerships</div>
 </div>
 </div>
@@ -375,7 +376,7 @@ a{color:#004B8C;text-decoration:none}a:hover{color:#00335F}
 <option>A joint grant application</option>
 <option>Licensing a technology you have already built</option>
 <option>Hosting a funded PhD on our data</option>
-<option>An adjunct fellowship for one of our people</option>
+<option>An adjunct researcher role for one of our people</option>
 <option>Not sure yet — advise me</option>
 </select>
 <span style="position:absolute;right:15px;top:15px;font:400 12px Inter,sans-serif;color:#5A6472;pointer-events:none">▾</span>
@@ -535,15 +536,9 @@ const TRACKS = {
     openTitle: 'Open scholarships',
     openIntro: 'Each place is attached to a specific project and supervisor. Apply to the one that fits — applying to all of them is visible and unhelpful.',
     colOpening: 'PROJECT AND TOPIC', colOwner: 'SUPERVISOR',
-    openings: [
-      { theme: 'rg05', title: 'Federated anomaly detection under intermittent connectivity', note: 'PhD · SIGMA-FLOW · industry-linked with Selat Energy', owner: 'Dr. Siti Nurlaili Karim', closes: '31 OCT 2026', urgent: true, cta: 'Details' },
-      { theme: 'rg02', title: 'Graph learning for distribution network fault localisation', note: 'PhD · SENTINEL-GRID', owner: 'Assoc. Prof. Ts. Dr. Hitham Seddig Alhassan Alhussian', closes: '31 OCT 2026', urgent: true, cta: 'Details' },
-      { theme: 'rg04', title: 'Surrogate models for reactive transport at reservoir scale', note: 'PhD · two places', owner: 'Ts. Dr. Shakirah Mohd Taib', closes: '31 OCT 2026', urgent: true, cta: 'Details' },
-      { theme: 'rg06', title: 'Quantum-assisted heuristics for unit commitment', note: 'MSc by Research · QOPT', owner: 'Assoc. Prof. Dr. Ibrahim Venkat Krishnamurthy', closes: '28 FEB 2027', urgent: false, cta: 'Details' },
-      { theme: 'rg03', title: 'Privacy-preserving analysis across clinical institutions', note: 'PhD · CLARA · with KL Health Data Institute', owner: 'Ts. Dr. Mohana Sundaram A/L Muthuvalu', closes: '28 FEB 2027', urgent: false, cta: 'Details' },
-      { theme: 'rg05', title: 'Deadline-aware inference scheduling on constrained hardware', note: 'MSc by Research · EDGE-SENSE', owner: 'Dr. Ahmad Bukhari bin Aujih', closes: '28 FEB 2027', urgent: false, cta: 'Details' }
-    ],
-    contactName: 'Assoc. Prof. Ts. Dr. Shuhaida Mohamed Shuhidan',
+    // Sample openings removed (each named a researcher).
+    openings: [],
+    contactName: 'Shuhaida Mohamed Shuhidan',
     contactRole: 'Functional Lead · Research Excellence & Talent',
     contactEmail: 'postgraduate@cerdas.utp.edu.my', contactSla: '3 WORKING DAYS',
     faqs: [
@@ -561,14 +556,14 @@ const TRACKS = {
   postdoc: {
     code: 'F2', tab: 'Postdoctoral', crumb: 'POSTDOCTORAL',
     eyebrow: 'F2 · EARLY-CAREER RESEARCH',
-    title: 'Postdoctoral fellowships',
+    title: 'Postdoctoral researcher posts',
     intro: 'Two to three years on a funded project, with the time and the expectation to build your own line of work — not just to deliver someone else\u2019s workplan.',
     nextDeadline: '15 NOV 2026', nextDeadlineNote: 'Two positions open · rolling review until filled',
     heroCta: 'See open positions',
     stats: [
-      { value: '9', label: 'POSTDOCTORAL FELLOWS' },
+      { value: '9', label: 'POSTDOCTORAL RESEARCHERS' },
       { value: '2', label: 'POSITIONS OPEN NOW' },
-      { value: '4.2', label: 'MEAN PAPERS PER FELLOW' },
+      { value: '4.2', label: 'MEAN PAPERS PER RESEARCHER' },
       { value: '6', label: 'MOVED TO FACULTY POSTS' }
     ],
     eligTitle: 'Who we appoint',
@@ -582,7 +577,7 @@ const TRACKS = {
     ],
     notFor: [
       'You are looking for a holding position between other roles — two years is short enough that the first six months matter',
-      'You want a purely technical role with no supervision or writing; that is a research scientist post, not a fellowship'
+      'You want a purely technical role with no supervision or writing; that is a research scientist post, not a postdoctoral post'
     ],
     getTitle: 'What the position offers',
     getIntro: 'Terms follow UTP research staff policy. Salary is set by qualification and experience within the published band.',
@@ -619,18 +614,16 @@ const TRACKS = {
     openTitle: 'Open positions',
     openIntro: 'Both positions are funded and both have a named project behind them. Applications are reviewed as they arrive.',
     colOpening: 'POSITION', colOwner: 'PROJECT LEAD',
-    openings: [
-      { theme: 'rg01', title: 'Postdoctoral Fellow — governed data sharing and federated analysis', note: '24 months · CLARA · clinical and industrial data', owner: 'Ts. Dr. Mohana Sundaram A/L Muthuvalu', closes: '15 NOV 2026', urgent: true, cta: 'Details' },
-      { theme: 'rg05', title: 'Postdoctoral Fellow — real-time inference on constrained hardware', note: '24 months, extendable · EDGE-SENSE', owner: 'Assoc. Prof. Ts. Dr. Mohd Anuaruddin bin Ahmadon', closes: '15 NOV 2026', urgent: true, cta: 'Details' }
-    ],
-    contactName: 'Assoc. Prof. Ts. Dr. Shuhaida Mohamed Shuhidan',
+    // Sample openings removed (each named a researcher).
+    openings: [],
+    contactName: 'Shuhaida Mohamed Shuhidan',
     contactRole: 'Functional Lead · Research Excellence & Talent',
     contactEmail: 'research.careers@cerdas.utp.edu.my', contactSla: '3 WORKING DAYS',
     faqs: [
-      { q: 'Can I bring my own funding or fellowship?', a: 'Yes, and we will host you. Externally funded fellows get the same status, space and supervision load as funded postdocs, and we will support the application itself if you approach us early enough.' },
+      { q: 'Can I bring my own funding or research post?', a: 'Yes, and we will host you. Externally funded researchers get the same status, space and supervision load as funded postdocs, and we will support the application itself if you approach us early enough.' },
       { q: 'How much of my time goes on the project?', a: 'Roughly 80%. The remaining fifth is protected for your own line of work and is taken seriously — it is written into the appointment, not offered informally.' },
-      { q: 'Will I be able to supervise students?', a: 'You will co-supervise from the first year, with a CERDAS fellow as principal supervisor. Formal principal supervision requires a faculty appointment under university rules.' },
-      { q: 'What happens at the end of two years?', a: 'Extension where funding allows, a faculty application where a post exists, or a move out with our active support. Six of our fellows have gone to faculty positions; we would rather that than keep people indefinitely.' },
+      { q: 'Will I be able to supervise students?', a: 'You will co-supervise from the first year, with a CERDAS researcher as principal supervisor. Formal principal supervision requires a faculty appointment under university rules.' },
+      { q: 'What happens at the end of two years?', a: 'Extension where funding allows, a faculty application where a post exists, or a move out with our active support. Six of our researchers have gone to faculty positions; we would rather that than keep people indefinitely.' },
       { q: 'Do you sponsor visas for international candidates?', a: 'Yes. UTP sponsors the employment pass and the university\u2019s international office handles it. Budget eight to ten weeks between offer and start date.' }
     ],
     ctaHeading: 'Not the right project, but the right centre?',
@@ -698,11 +691,8 @@ const TRACKS = {
     openTitle: 'Open positions',
     openIntro: 'Every posting names the project, the funding period and the salary band. If any of those is missing, it is an error — tell us.',
     colOpening: 'POSITION', colOwner: 'REPORTS TO',
-    openings: [
-      { theme: 'rg04', title: 'Research Officer — flow assurance simulation', note: 'RM 54–68k · 24 months · SIGMA-FLOW', owner: 'Ts. Dr. Hamzah Sakidin', closes: '30 SEP 2026', urgent: true, cta: 'Apply' },
-      { theme: 'rg02', title: 'Research Scientist — grid analytics', note: 'RM 96–120k · 36 months · SENTINEL-GRID', owner: 'Assoc. Prof. Ts. Dr. Hitham Seddig Alhassan Alhussian', closes: '17 OCT 2026', urgent: false, cta: 'Apply' },
-      { theme: 'rg01', title: 'Data Engineer — governed data platform', note: 'RM 60–78k · 30 months · CLARA', owner: 'Dr. Nur Syadhila Che Lah', closes: '31 OCT 2026', urgent: false, cta: 'Apply' }
-    ],
+    // Sample openings removed (each named a researcher).
+    openings: [],
     contactName: 'Latty Shazana Ismail',
     contactRole: 'Centre Research Officer · appointments and contracts',
     contactEmail: 'careers@cerdas.utp.edu.my', contactSla: '5 WORKING DAYS',
@@ -779,13 +769,8 @@ const TRACKS = {
     openTitle: 'Placement areas',
     openIntro: 'These are the areas taking interns this cohort. You apply once and name two — you do not apply to each.',
     colOpening: 'PLACEMENT AREA', colOwner: 'SUPERVISOR',
-    openings: [
-      { theme: 'rg01', title: 'Benchmark curation and evaluation tooling', note: '3 places · 12–24 weeks', owner: 'Dr. Noureen Talpur', closes: '15 OCT 2026', urgent: true, cta: 'Details' },
-      { theme: 'rg05', title: 'Edge deployment and field instrumentation', note: '2 places · 16–24 weeks', owner: 'Dr. Ahmad Bukhari bin Aujih', closes: '15 OCT 2026', urgent: true, cta: 'Details' },
-      { theme: 'rg04', title: 'Simulation pipelines and visualisation', note: '3 places · 8–16 weeks', owner: 'Dr. Rajalingam Sokkalingam', closes: '15 OCT 2026', urgent: true, cta: 'Details' },
-      { theme: 'rg06', title: 'HPC workload profiling and optimisation', note: '2 places · 12–24 weeks', owner: 'Prof. Ts. Dr. Mohd Fadzil Hassan', closes: '15 OCT 2026', urgent: true, cta: 'Details' },
-      { theme: 'rg01', title: 'Research software engineering and documentation', note: '1 place · 12–24 weeks', owner: 'Dr. Nur Syadhila Che Lah', closes: '15 OCT 2026', urgent: true, cta: 'Details' }
-    ],
+    // Sample openings removed (each named a researcher).
+    openings: [],
     contactName: 'Latty Shazana Ismail',
     contactRole: 'Executive · student placements and outreach',
     contactEmail: 'internships@cerdas.utp.edu.my', contactSla: '5 WORKING DAYS',
@@ -838,18 +823,18 @@ const TRACKS = {
     benefits: [
       { label: 'Contract research', note: 'You set the problem and fund the work', value: 'RM 150k–2M' },
       { label: 'Joint grant application', note: 'Your share unlocks national funding', value: 'RM 300k–4M' },
-      { label: 'Consultancy', note: 'Scoped, short, written report at the end', value: 'RM 20k–250k' },
+      { label: 'Consultancy', note: 'Scoped, short, written report at the end', value: '' },
       { label: 'Funded PhD on your problem', note: 'Three years, your data, your domain', value: 'FROM RM 180k' },
-      { label: 'Adjunct fellowship', note: 'Your expert inside a theme, two-year term', value: 'NO FEE' }
+      { label: 'Adjunct researcher role', note: 'Your expert inside a theme, two-year term', value: 'NO FEE' }
     ],
     applyTitle: 'How an engagement starts',
     applyIntro: 'Four steps from first email to work beginning. The first two cost you nothing and carry no obligation — most of the elapsed time is your own procurement, not ours.',
-    applyMeta: 'FOUR STEPS\n6–10 WEEKS TO START',
+    applyMeta: 'FOUR STEPS',
     steps: [
-      { n: '01', title: 'Send the problem', body: 'A paragraph is enough. No specification, no budget code, no solution required.', time: 'REPLY IN 3 WORKING DAYS' },
+      { n: '01', title: 'Send the problem', body: 'A paragraph is enough. No specification, no budget code, no solution required.', time: '' },
       { n: '02', title: 'Scoping call', body: 'Forty-five minutes with the Group Head whose area it falls in. We will tell you if it is not a research problem.', time: 'FREE OF CHARGE' },
-      { n: '03', title: 'Written proposal', body: 'Scope, team, milestones, price and assumptions. If we think your scope is wrong, it says so and offers an alternative.', time: '10 WORKING DAYS' },
-      { n: '04', title: 'Agreement and start', body: 'NDA where needed, then the engagement contract signed by the university with IP terms stated up front.', time: '3–6 WEEKS' }
+      { n: '03', title: 'Written proposal', body: 'Scope, team, milestones, price and assumptions. If we think your scope is wrong, it says so and offers an alternative.', time: '' },
+      { n: '04', title: 'Agreement and start', body: 'NDA where needed, then the engagement contract signed by the university with IP terms stated up front.', time: '' }
     ],
     docsTitle: 'What helps us respond well',
     documents: [
@@ -868,19 +853,15 @@ const TRACKS = {
     openTitle: 'Where we are actively looking for partners',
     openIntro: 'Open problems the centre has capability and capacity for right now. A partner in any of these would move a real programme forward.',
     colOpening: 'OPPORTUNITY', colOwner: 'GROUP HEAD',
-    openings: [
-      { theme: 'rg01', title: 'Cross-institution analysis without moving the data', note: 'Governed federated analysis · healthcare, finance or utilities', owner: 'Ts. Dr. Mohana Sundaram A/L Muthuvalu', closes: 'OPEN', urgent: false, cta: 'Enquire' },
-      { theme: 'rg05', title: 'Condition monitoring on assets you cannot re-instrument', note: 'Working from the sensors already installed', owner: 'Assoc. Prof. Ts. Dr. Mohd Anuaruddin bin Ahmadon', closes: 'OPEN', urgent: false, cta: 'Enquire' },
-      { theme: 'rg04', title: 'Simulation too slow to use in an operating decision', note: 'Surrogate modelling for real-time use', owner: 'Ts. Dr. Mohana Sundaram A/L Muthuvalu', closes: 'OPEN', urgent: false, cta: 'Enquire' },
-      { theme: 'rg06', title: 'Scheduling and allocation problems that do not solve at scale', note: 'Classical and quantum-assisted optimisation', owner: 'Assoc. Prof. Dr. Ibrahim Venkat Krishnamurthy', closes: 'OPEN', urgent: false, cta: 'Enquire' }
-    ],
-    contactName: 'Assoc. Prof. Ts. Dr. Yew Kwang Hooi',
+    // Sample openings removed (each named a researcher).
+    openings: [],
+    contactName: 'Yew Kwang Hooi',
     contactRole: 'Functional Lead · Industry & Strategic Partnerships',
     contactEmail: 'partnerships@cerdas.utp.edu.my', contactSla: '3 WORKING DAYS',
     faqs: [
       { q: 'Who owns the intellectual property?', a: 'Background IP stays with whoever brought it. Foreground IP is negotiated before the project starts and written into the agreement — most commonly university-owned with a licence to the partner in their field of use, or joint ownership where both sides contribute inventively.' },
       { q: 'Can you delay publication?', a: 'Yes. A defined embargo — usually six to twelve months, and longer while a patent is filed — is standard and we build it into the agreement. What we cannot agree to is permanent suppression.' },
-      { q: 'How much does it cost?', a: 'Consultancy runs from RM 20k; contract research typically RM 150k and up; a funded PhD from around RM 180k over three years. On a joint grant your contribution is the industry share of something much larger.' },
+      { q: 'How much does it cost?', a: 'Contract research typically RM 150k and up; a funded PhD from around RM 180k over three years. On a joint grant your contribution is the industry share of something much larger.' },
       { q: 'What if the research does not work?', a: 'Then we tell you, with evidence, and you have saved the cost of finding out the expensive way. Every proposal states what result would count as a negative one — that is not a caveat, it is the point of doing research rather than procurement.' },
       { q: 'Can our data stay on our systems?', a: 'Yes. Several partnerships run entirely in the partner\u2019s environment or in the centre\u2019s governed vault, with only results leaving. For sensitive telemetry this is now the normal arrangement rather than the exception.' },
       { q: 'We are a small company. Is this only for large partners?', a: 'No. Consultancy and joint grant routes exist precisely for organisations that cannot fund a multi-year programme alone. Several of our smallest partners contribute in-kind data and domain time rather than cash.' }
@@ -893,13 +874,20 @@ const ORDER = ['scholarships', 'postdoc', 'positions', 'internship', 'collaborat
 class Component extends DCLogic {
   state = { track: null, theme: 'all', open: 0 };
 
+  componentDidMount() {
+    this.onHash = () => { const h = location.hash.slice(1); if (TRACKS[h]) this.setState({ track: h, theme: 'all', open: 0 }); };
+    window.addEventListener('hashchange', this.onHash);
+  }
+  componentWillUnmount() { window.removeEventListener('hashchange', this.onHash); }
+
   pickTrack(id) { return () => this.setState({ track: id, theme: 'all', open: 0 }); }
   pickTheme(v) { return () => this.setState({ theme: v }); }
   toggleFaq(i) { return () => this.setState(s => ({ open: s.open === i ? -1 : i })); }
 
   currentId() {
     const fromProp = { 'Scholarships': 'scholarships', 'Postdoctoral': 'postdoc', 'Research Positions': 'positions', 'Internship': 'internship', 'Collaborate With Us': 'collaborate' }[this.props.track];
-    return this.state.track ?? fromProp ?? 'collaborate';
+    const h = typeof location !== 'undefined' ? location.hash.slice(1) : '';
+    return this.state.track ?? (TRACKS[h] ? h : null) ?? fromProp ?? 'collaborate';
   }
 
   renderVals() {
@@ -925,7 +913,7 @@ class Component extends DCLogic {
       proof: t.proof ?? [],
       eligTitle: t.eligTitle, eligIntro: t.eligIntro, eligibility: t.eligibility, notFor: t.notFor,
       getTitle: t.getTitle, getIntro: t.getIntro, benefits: t.benefits,
-      applyTitle: t.applyTitle, applyIntro: t.applyIntro, applyMetaTop: t.applyMeta.split('\n')[0], applyMetaBottom: t.applyMeta.split('\n')[1] ?? '', steps: t.steps,
+      applyTitle: t.applyTitle, applyIntro: t.applyIntro, applyMetaTop: t.applyMeta.split('\n')[0], applyMetaBottom: t.applyMeta.split('\n')[1] ?? '', steps: t.steps.map(s => Object.assign({}, s, { hasTime: !!s.time })),
       docsTitle: t.docsTitle, documents: t.documents,
       deadlines: t.deadlines.map(d => ({ date: d.date, label: d.label, note: d.note, next: !!d.next, later: !d.next })),
       openTitle: t.openTitle, openIntro: t.openIntro,
@@ -935,7 +923,8 @@ class Component extends DCLogic {
       })),
       openings: openings.map(o => Object.assign({}, o, { themeLabel: TFULL[o.theme] })),
       openEmpty: openings.length === 0,
-      openLine: 'SHOWING ' + openings.length + ' OF ' + t.openings.length + ' · UPDATED 2 SEP 2026',
+      hasAnyOpenings: t.openings.length > 0, noOpenings: t.openings.length === 0,
+      openLine: t.openings.length ? 'SHOWING ' + openings.length + ' OF ' + t.openings.length + ' · UPDATED 2 SEP 2026' : '',
       contactName: t.contactName, contactRole: t.contactRole,
       contactEmail: t.contactEmail, contactSla: t.contactSla,
       faqs: t.faqs.map((f, i) => ({

@@ -20,7 +20,7 @@ a{color:#004B8C;text-decoration:none}a:hover{color:#00335F}
 
 <div style="height:6px;background:var(--tk)"></div>
 
-<section style="background:#00335F;padding:56px 0 0;position:relative;overflow:hidden">
+<section style="min-height:500px;box-sizing:border-box;background:#00335F;padding:56px 0 0;position:relative;overflow:hidden">
 <div style="width:1320px;margin:0 auto;position:relative">
 <div style="font:500 11px 'IBM Plex Mono',monospace;letter-spacing:.13em;color:#7FAED9;margin-bottom:34px"><a href="CERDAS Home.dc.html" style="color:#7FAED9">HOME</a> <span style="color:#E38C07">/</span> <a href="CERDAS Research.dc.html" style="color:#7FAED9">RESEARCH</a> <span style="color:#E38C07">/</span> {{ themeNameUpper }}</div>
 <div style="display:grid;grid-template-columns:1fr 420px;gap:70px;align-items:start;padding-bottom:54px">
@@ -48,10 +48,6 @@ a{color:#004B8C;text-decoration:none}a:hover{color:#00335F}
 <div style="width:34px;height:3px;background:#E38C07;margin-bottom:20px"></div>
 <div style="font:500 10.5px 'IBM Plex Mono',monospace;letter-spacing:.12em;color:#7FAED9;margin-bottom:22px">GROUP AT A GLANCE</div>
 <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px 20px">
-<div>
-<div style="font:600 32px/1 'IBM Plex Mono',monospace;color:#FFFFFF;letter-spacing:-.02em">{{ cResearchers }}</div>
-<div style="margin-top:8px;font:500 10.5px Inter,sans-serif;letter-spacing:.09em;color:#BFD2E4">RESEARCHERS</div>
-</div>
 <div>
 <div style="font:600 32px/1 'IBM Plex Mono',monospace;color:#FFFFFF;letter-spacing:-.02em">{{ cProjects }}</div>
 <div style="margin-top:8px;font:500 10.5px Inter,sans-serif;letter-spacing:.09em;color:#BFD2E4">ACTIVE PROJECTS</div>
@@ -105,8 +101,7 @@ a{color:#004B8C;text-decoration:none}a:hover{color:#00335F}
 <dc-import name="ThemeChip" label="{{ chip }}" hint-size="110px,26px"></dc-import>
 </sc-for>
 </div>
-<div style="margin-top:auto;padding-top:20px;border-top:1px solid #E6EEF5;display:flex;align-items:center;justify-content:space-between;gap:14px">
-<span style="font:500 11.5px 'IBM Plex Mono',monospace;color:#5A6472">{{ sa.count }}</span>
+<div style="margin-top:auto;padding-top:20px;border-top:1px solid #E6EEF5;display:flex;align-items:center;justify-content:flex-end;gap:14px">
 <a href="CERDAS Project Detail.dc.html" style="font:600 13px Inter,sans-serif;color:#004B8C">Detail →</a>
 </div>
 </div>
@@ -122,93 +117,32 @@ a{color:#004B8C;text-decoration:none}a:hover{color:#00335F}
 <h2 style="margin:0 0 12px;font:700 34px/1.16 'Inter Tight',sans-serif;letter-spacing:-.015em;color:#14181D">Group members</h2>
 <p style="margin:0 0 36px;font:400 16px/1.6 Inter,sans-serif;color:#5A6472;max-width:620px">Group head and members. The full roster for all six groups sits on the <a href="CERDAS People.dc.html">People</a> page.</p>
 <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;align-items:stretch">
-<dc-import name="PersonCardFeatured" slot-id="{{ lead.slotId }}" badge="GROUP HEAD" prefix="{{ lead.prefix }}" person-name="{{ lead.name }}" role="{{ lead.role }}" tier="{{ lead.tier }}" theme="{{ themeName }}" href="CERDAS Researcher Profile.dc.html" hint-size="100%,470px"></dc-import>
+<dc-import name="PersonCardFeatured" badge="GROUP HEAD" person-name="{{ lead.name }}" department="{{ lead.department }}" email="{{ lead.email }}" href="{{ lead.href }}" hint-size="100%,300px"></dc-import>
 <sc-for list="{{ team }}" as="p" hint-placeholder-count="2">
-<dc-import name="PersonCard" slot-id="{{ p.slotId }}" prefix="{{ p.prefix }}" person-name="{{ p.name }}" role="{{ p.role }}" theme="{{ themeName }}" chips="{{ p.chips }}" href="CERDAS Researcher Profile.dc.html" hint-size="100%,410px"></dc-import>
-</sc-for>
-</div>
-<div style="margin-top:28px;background:#FAFAF8;border:1px solid #D8DEE5;border-radius:8px;padding:24px 28px;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap">
-<div style="font:400 14.5px/1.5 Inter,sans-serif;color:#5A6472"><span style="font-weight:600;color:#14181D">{{ remainderLine }}</span> — filter the People page by this research group to see them all.</div>
-<a href="CERDAS People.dc.html" style="flex:none;font:600 13.5px Inter,sans-serif;color:#004B8C;border-bottom:2px solid #E38C07;padding-bottom:2px">Open the full roster →</a>
-</div>
-</div>
-</section>
-
-<section style="background:#FAFAF8;padding:80px 0 84px;border-top:1px solid #D8DEE5">
-<div style="width:1320px;margin:0 auto">
-<div style="width:44px;height:3px;background:#E38C07;margin-bottom:22px"></div>
-<div style="display:flex;align-items:flex-end;justify-content:space-between;gap:40px;margin-bottom:36px">
-<h2 style="margin:0;font:700 34px/1.16 'Inter Tight',sans-serif;letter-spacing:-.015em;color:#14181D">Selected projects</h2>
-<a href="CERDAS Projects.dc.html" style="font:600 13.5px Inter,sans-serif;color:#004B8C;white-space:nowrap">All {{ cProjects }} projects in this group →</a>
-</div>
-<div style="display:grid;grid-template-columns:1fr 1fr;gap:28px">
-<sc-for list="{{ projects }}" as="pr" hint-placeholder-count="2">
-<dc-import name="ProjectCard" slot-id="{{ pr.slotId }}" theme="{{ pr.theme }}" title="{{ pr.title }}" summary="{{ pr.summary }}" trl="{{ pr.trl }}" status="{{ pr.status }}" grant="{{ pr.grant }}" period="{{ pr.period }}" partner="{{ pr.partner }}" pi="{{ pr.pi }}" chips="{{ pr.chips }}" href="CERDAS Project Detail.dc.html" hint-size="100%,620px"></dc-import>
+<dc-import name="PersonCard" person-name="{{ p.name }}" department="{{ p.department }}" email="{{ p.email }}" href="{{ p.href }}" hint-size="100%,200px"></dc-import>
 </sc-for>
 </div>
 </div>
 </section>
 
-<section style="background:#FFFFFF;padding:80px 0 84px">
-<div style="width:1320px;margin:0 auto">
-<div style="width:44px;height:3px;background:#E38C07;margin-bottom:22px"></div>
-<div style="display:flex;align-items:flex-end;justify-content:space-between;gap:40px;margin-bottom:32px">
-<h2 style="margin:0;font:700 30px/1.2 'Inter Tight',sans-serif;letter-spacing:-.015em;color:#14181D">Recent publications</h2>
-<a href="CERDAS Publications.dc.html" style="font:600 13.5px Inter,sans-serif;color:#004B8C;white-space:nowrap">All {{ cPublications }} →</a>
-</div>
-<div style="border-top:1px solid #D8DEE5">
-<sc-for list="{{ publications }}" as="pub" hint-placeholder-count="3">
-<div style="display:grid;grid-template-columns:78px 1fr 300px;gap:32px;padding:24px 0;border-bottom:1px solid #D8DEE5;align-items:start">
-<div style="font:500 13px 'IBM Plex Mono',monospace;color:#5A6472">{{ pub.year }}</div>
-<div>
-<div style="font:600 16.5px/1.4 Inter,sans-serif;color:#14181D;margin-bottom:8px;text-wrap:pretty">{{ pub.title }}</div>
-<div style="font:400 13.5px Inter,sans-serif;color:#5A6472">{{ pub.authors }}</div>
-</div>
-<div style="text-align:right">
-<div style="font:500 13px Inter,sans-serif;color:#14181D">{{ pub.venue }}</div>
-<div style="margin-top:6px;font:500 11.5px 'IBM Plex Mono',monospace;color:#5A6472">{{ pub.tag }}</div>
-</div>
-</div>
-</sc-for>
-</div>
-</div>
-</section>
-
+<sc-if value="{{ hasFacilities }}" hint-placeholder-val="{{ true }}">
 <section style="background:#FAFAF8;padding:80px 0 84px;border-top:1px solid #D8DEE5">
 <div style="width:1320px;margin:0 auto">
 <div style="width:44px;height:3px;background:#E38C07;margin-bottom:22px"></div>
 <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:40px;margin-bottom:36px">
 <h2 style="margin:0;font:700 30px/1.2 'Inter Tight',sans-serif;letter-spacing:-.015em;color:#14181D">Laboratories and facilities used</h2>
-<a href="CERDAS Laboratories.dc.html" style="font:600 13.5px Inter,sans-serif;color:#004B8C;white-space:nowrap">All laboratories →</a>
+<a href="CERDAS Facilities.dc.html" style="font:600 13.5px Inter,sans-serif;color:#004B8C;white-space:nowrap">All facilities →</a>
 </div>
 <div style="display:grid;grid-template-columns:1fr 1fr;gap:28px">
 <sc-for list="{{ facilities }}" as="f" hint-placeholder-count="2">
-<dc-import name="FacilityCard" slot-id="{{ f.slotId }}" placeholder="Laboratory photo" category="{{ f.category }}" title="{{ f.title }}" code="{{ f.code }}" summary="{{ f.summary }}" specs="{{ f.specs }}" link-label="Lab detail →" access="{{ f.access }}" href="CERDAS Laboratories.dc.html" hint-size="100%,560px"></dc-import>
+<dc-import name="FacilityCard" slot-id="{{ f.slotId }}" placeholder="Laboratory photo" category="{{ f.category }}" title="{{ f.title }}" code="{{ f.code }}" summary="{{ f.summary }}" specs="{{ f.specs }}" link-label="Lab detail →" access="{{ f.access }}" href="CERDAS Facilities.dc.html" hint-size="100%,560px"></dc-import>
 </sc-for>
 </div>
 </div>
 </section>
+</sc-if>
 
-<section style="background:#FFFFFF;padding:76px 0 84px">
-<div style="width:1320px;margin:0 auto">
-<div style="width:44px;height:3px;background:#E38C07;margin-bottom:22px"></div>
-<h2 style="margin:0 0 36px;font:700 30px/1.2 'Inter Tight',sans-serif;letter-spacing:-.015em;color:#14181D">Other research groups</h2>
-<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px">
-<sc-for list="{{ others }}" as="o" hint-placeholder-count="5">
-<a href="{{ o.href }}" style="display:block;background:#FAFAF8;border:1px solid #D8DEE5;border-radius:8px;overflow:hidden" style-hover="border-color:#004B8C">
-<div style="{{ o.bar }}"></div>
-<div style="padding:26px 24px">
-<div style="font:500 11px 'IBM Plex Mono',monospace;letter-spacing:.1em;color:#5A6472;margin-bottom:12px">{{ o.meta }}</div>
-<div style="font:600 20px/1.26 'Inter Tight',sans-serif;color:#14181D;margin-bottom:16px">{{ o.name }}</div>
-<div style="font:600 13px Inter,sans-serif;color:#004B8C;border-bottom:2px solid #E38C07;padding-bottom:2px;display:inline-block">Explore →</div>
-</div>
-</a>
-</sc-for>
-</div>
-</div>
-</section>
-
-<dc-import name="CTABand" heading="Work with this research group" body="Joint research, contract work, adjunct fellowship or postgraduate supervision — tell us which and we will route you to the right investigator." ctaLabel="Contact the group head" secondaryLabel="See open positions" href="CERDAS Join.dc.html" hint-size="100%,220px"></dc-import>
+<dc-import name="CTABand" heading="Work with this research group" body="Joint research, contract work, adjunct researcher role or postgraduate supervision — tell us which and we will route you to the right investigator." ctaLabel="Contact the group head" secondaryLabel="See open positions" href="CERDAS Join.dc.html" hint-size="100%,220px"></dc-import>
 
 <dc-import name="SiteFooter" hint-size="100%,340px"></dc-import>
 
@@ -216,42 +150,68 @@ a{color:#004B8C;text-decoration:none}a:hover{color:#00335F}
 </div>
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1440},&quot;group&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;RG01 Data Science &amp; Analytics&quot;,&quot;RG02 Machine Learning &amp; Intelligent Systems&quot;,&quot;RG03 Generative AI&quot;,&quot;RG04 Computational Modelling, Simulation &amp; Optimisation&quot;,&quot;RG05 Edge Computing&quot;,&quot;RG06 Next-Generation &amp; Quantum Computing&quot;],&quot;default&quot;:&quot;RG01 Data Science &amp; Analytics&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Research group template&quot;}}">
+// Name, Department, Email: uploads/All List of PI CERDAS.xlsx. Group membership: CERDAS organisation chart.
+const PEOPLE = [
+  {"name":"Ahmad Bukhari bin Aujih","department":"Electrical & Electronics Engineering","email":"bukhari.aujih@utp.edu.my"},
+  {"name":"Ahmad Izuddin Zainal Abidin","department":"Computing","email":"izuddin_z@utp.edu.my"},
+  {"name":"Aliza Sarlan","department":"Dean CFS","email":"aliza_sarlan@utp.edu.my"},
+  {"name":"Dennis Ling Chuan Ching","department":"Applied Science","email":"dennis.ling@utp.edu.my"},
+  {"name":"Emelia Akashah Bt Patah Akhir","department":"Computing","email":"emelia.akhir@utp.edu.my"},
+  {"name":"Faizal Ahmad Fadzil","department":"Computing","email":"faizal_ahmadfadzil@utp.edu.my"},
+  {"name":"Farahida Hanim Bt Mausor","department":"Computing","email":"farahida.mausor@utp.edu.my"},
+  {"name":"Hamzah Sakidin","department":"Applied Science","email":"hamzah.sakidin@utp.edu.my"},
+  {"name":"Hanita Daud","department":"Applied Science","email":"hanita_daud@utp.edu.my"},
+  {"name":"Haruhiro Fujita","department":"Computing","email":"fujita@utp.edu.my"},
+  {"name":"Hitham Seddig Alhassan Alhussian","department":"Computing","email":"seddig.alhussian@utp.edu.my"},
+  {"name":"Ibrahim Venkat Krishnamurthy","department":"Computing","email":"ibrahim.venkat@utp.edu.my"},
+  {"name":"Izzatdin Abdul Aziz","department":"Institute Director","email":"izzatdin@utp.edu.my"},
+  {"name":"Jafreezal Jaafar","department":"Dean FSMC","email":"jafreez@utp.edu.my"},
+  {"name":"Maged Mohammed Saeed Nasser","department":"Computing","email":"maged.nasser@utp.edu.my"},
+  {"name":"Mohana Sundaram Muthuvalu","department":"Applied Science","email":"mohana.muthuvalu@utp.edu.my"},
+  {"name":"Mohd Anuaruddin bin Ahmadon","department":"Computing","email":"anuaruddin.ahmadon@utp.edu.my"},
+  {"name":"Mohd Fadzil Hassan","department":"Dean PGR","email":"mfadzil_hassan@utp.edu.my"},
+  {"name":"Mohd Hilmi Hasan","department":"Chair Computing","email":"mhilmi_hasan@utp.edu.my"},
+  {"name":"Nazleeni Samiha Haron @ Baharon","department":"Computing","email":"nazleeni@utp.edu.my"},
+  {"name":"Nooraini Zainuddin","department":"Applied Science","email":"aini_zainuddin@utp.edu.my"},
+  {"name":"Noureen Talpur","department":"Computing","email":"noureen.talpur@utp.edu.my"},
+  {"name":"Nur Syadhila Che Lah","department":"Computing","email":"nursyadhila.chelah@utp.edu.my"},
+  {"name":"Nurul Aida Osman","department":"Computing","email":"nurulaida.osman@utp.edu.my"},
+  {"name":"Rajalingam Sokkalingam","department":"Applied Science","email":"raja.sokkalingam@utp.edu.my"},
+  {"name":"Said Jadid Abdulkadir","department":"Computing","email":"saidjadid.a@utp.edu.my"},
+  {"name":"Shakirah Mohd Taib","department":"Computing","email":"shakita@utp.edu.my"},
+  {"name":"Shuhaida Mohamed Shuhidan","department":"Computing","email":"shuhaida.shuhidan@utp.edu.my"},
+  {"name":"Siti Nurlaili Karim","department":"Computing","email":"nurlaili.karim@utp.edu.my"},
+  {"name":"Syahirah Bt Suboh","department":"Computing","email":"syahirah.suboh@utp.edu.my"},
+  {"name":"Yaman Hamed","department":"Applied Science","email":"yaman.hamed@utp.edu.my"},
+  {"name":"Yew Kwang Hooi","department":"Computing","email":"yewkwanghooi@utp.edu.my"},
+  {"name":"Zazilah May","department":"Applied Science","email":"zazilah@utp.edu.my"}
+];
+const PROFILES = { 'Hitham Seddig Alhassan Alhussian': 'CERDAS Researcher Profile.dc.html' };
+const person = name => {
+  const x = PEOPLE.find(p => p.name === name) || { name, department: '', email: '' };
+  return { name: x.name, department: x.department, email: x.email, href: PROFILES[x.name] || '' };
+};
 const P = {
-  hitham:   { slotId:'th-hitham',   prefix:'Assoc. Prof. Ts. Dr.', name:'Hitham Seddig Alhassan Alhussian', role:'Group Head — Data Science & Analytics', tier:'Senior Fellow', chips:[] },
-  emelia:   { slotId:'th-emelia',   prefix:'Dr.',                  name:'Emelia Akashah Patah Akhir', role:'Member · Head of F2 Innovation & Impact', tier:'Fellow', chips:['Data Science','Analytics'] },
-  noureen:  { slotId:'th-noureen',  prefix:'Dr.',                  name:'Noureen Talpur',       role:'Member',      tier:'Fellow',        chips:['Machine Learning','Evaluation'] },
-  said:     { slotId:'th-said',     prefix:'Assoc. Prof. Ts. Dr.', name:'Said Jadid Abdulkadir', role:'Group Head — Machine Learning & Intelligent Systems', tier:'Senior Fellow', chips:[] },
-  hanita:   { slotId:'th-hanita',   prefix:'Assoc. Prof. Ts. Dr.', name:'Hanita Daud',          role:'Member',      tier:'Senior Fellow', chips:['Machine Learning','Statistical Modelling'] },
-  yaman:    { slotId:'th-yaman',    prefix:'Ts. Dr.',              name:'Yaman Hamed',          role:'Member',      tier:'Fellow',        chips:['Intelligent Systems','Time Series'] },
-  shakirah: { slotId:'th-shakirah', prefix:'Ts. Dr.',              name:'Shakirah Mohd Taib',   role:'Group Head — Generative AI', tier:'Fellow', chips:[] },
-  yew:      { slotId:'th-yew',      prefix:'Assoc. Prof. Ts. Dr.', name:'Yew Kwang Hooi',       role:'Member · Head of F3 Industry & Partnerships', tier:'Senior Fellow', chips:['Generative AI','Knowledge Systems'] },
-  izuddin:  { slotId:'th-izuddin',  prefix:'Ts.',                  name:'Ahmad Izuddin Zainal Abidin', role:'Member', tier:'Fellow',     chips:['LLM Adaptation','Applied AI'] },
-  mohana:   { slotId:'th-mohana',   prefix:'Ts. Dr.',              name:'Mohana Sundaram A/L Muthuvalu', role:'Group Head — Computational Modelling, Simulation & Optimisation', tier:'Fellow', chips:[] },
-  hamzah:   { slotId:'th-hamzah',   prefix:'Ts. Dr.',              name:'Hamzah Sakidin',       role:'Member',      tier:'Fellow',        chips:['Computational Modelling','Simulation'] },
-  nooraini: { slotId:'th-nooraini', prefix:'Ts. Dr.',              name:'Nooraini Zainuddin',   role:'Member',      tier:'Fellow',        chips:['Numerical Methods','Optimisation'] },
-  anuar:    { slotId:'th-anuar',    prefix:'Assoc. Prof. Ts. Dr.', name:'Mohd Anuaruddin bin Ahmadon', role:'Group Head — Edge Computing', tier:'Senior Fellow', chips:[] },
-  syadhila: { slotId:'th-syadhila', prefix:'Dr.',                  name:'Nur Syadhila Che Lah', role:'Member · Head of F4 Operations & Performance', tier:'Fellow', chips:['Edge Computing','Distributed Systems'] },
-  bukhari:  { slotId:'th-bukhari',  prefix:'Dr.',                  name:'Ahmad Bukhari bin Aujih', role:'Member',   tier:'Fellow',        chips:['Real-Time AI','Embedded Systems'] },
-  ibrahim:  { slotId:'th-ibrahim',  prefix:'Assoc. Prof. Dr.',     name:'Ibrahim Venkat Krishnamurthy', role:'Group Head — Next-Generation & Quantum Computing', tier:'Senior Fellow', chips:[] },
-  fadzil:   { slotId:'th-fadzil',   prefix:'Prof. Ts. Dr.',        name:'Mohd Fadzil Hassan',   role:'Member',      tier:'Principal Fellow', chips:['High-Performance Computing','Distributed Computing'] },
-  hilmi:    { slotId:'th-hilmi',    prefix:'Assoc. Prof. Ts. Dr.', name:'Mohd Hilmi Hasan',     role:'Member',      tier:'Senior Fellow', chips:['Advanced Architectures','Computational Intelligence'] }
+  hitham: person('Hitham Seddig Alhassan Alhussian'),
+  emelia: person('Emelia Akashah Bt Patah Akhir'),
+  noureen: person('Noureen Talpur'),
+  said: person('Said Jadid Abdulkadir'),
+  hanita: person('Hanita Daud'),
+  yaman: person('Yaman Hamed'),
+  shakirah: person('Shakirah Mohd Taib'),
+  yew: person('Yew Kwang Hooi'),
+  izuddin: person('Ahmad Izuddin Zainal Abidin'),
+  mohana: person('Mohana Sundaram Muthuvalu'),
+  hamzah: person('Hamzah Sakidin'),
+  nooraini: person('Nooraini Zainuddin'),
+  anuar: person('Mohd Anuaruddin bin Ahmadon'),
+  syadhila: person('Nur Syadhila Che Lah'),
+  bukhari: person('Ahmad Bukhari bin Aujih'),
+  ibrahim: person('Ibrahim Venkat Krishnamurthy'),
+  fadzil: person('Mohd Fadzil Hassan'),
+  hilmi: person('Mohd Hilmi Hasan')
 };
 
-const PR = {
-  sentinel: { slotId:'th-pr-sentinel', title:'SENTINEL-Grid: anomaly detection for national grid telemetry', summary:'Streaming anomaly detection across 4,200 substation sensors, tuned so operators get fewer than five actionable alerts a day.', trl:'TRL 4', status:'ACTIVE', grant:'RM 3.8M', period:'2024–2027', partner:'Tenaga Nusantara Bhd', pi:'Assoc. Prof. Ts. Dr. Said Jadid Abdulkadir', chips:['Machine Learning','Anomaly Detection'] },
-  clara:    { slotId:'th-pr-clara',    title:'CLARA: clinical language models for low-resource settings', summary:'A domain-adapted language model for triage summaries in Bahasa Malaysia and English, evaluated against clinician review.', trl:'TRL 3', status:'ACTIVE', grant:'RM 1.4M', period:'2024–2026', partner:'Hospital Bandar Baru', pi:'Dr. Noureen Talpur', chips:['Generative AI','Evaluation'] },
-  latch:    { slotId:'th-pr-latch',    title:'LATCH: latency-bounded inference for rotating machinery protection', summary:'A profiling and scheduling toolchain that proves a worst-case inference deadline on commodity edge hardware.', trl:'TRL 4', status:'IN REVIEW', grant:'RM 1.1M', period:'2025–2027', partner:'Kinta Heavy Industries', pi:'Dr. Ahmad Bukhari bin Aujih', chips:['Real-Time AI','Profiling'] },
-  sigma:    { slotId:'th-pr-sigma',    title:'SIGMA-Flow: physics-informed digital twins for offshore flow assurance', summary:'A surrogate modelling framework that predicts hydrate and wax formation risk across subsea gathering networks.', trl:'TRL 5', status:'ACTIVE', grant:'RM 4.2M', period:'2024–2027', partner:'Sepang Energy Bhd', pi:'Ts. Dr. Mohana Sundaram A/L Muthuvalu', chips:['Digital Twin','Optimisation'] },
-  mesh:     { slotId:'th-pr-mesh',     title:'MESH-Opt: surrogate solvers for structural fatigue assessment', summary:'Replacing overnight finite-element runs with a validated surrogate that fits inside an inspection planning meeting.', trl:'TRL 5', status:'ACTIVE', grant:'RM 2.2M', period:'2023–2026', partner:'Marina Fabrication Bhd', pi:'Ts. Dr. Hamzah Sakidin', chips:['Simulation','Scientific Computing'] },
-  edge:     { slotId:'th-pr-edge',     title:'EDGE-Sense: real-time inference for pipeline integrity monitoring', summary:'On-device acoustic classification along 180 km of transmission pipeline, running on solar-powered nodes with intermittent backhaul.', trl:'TRL 6', status:'ACTIVE', grant:'RM 2.6M', period:'2025–2028', partner:'Perak Water Consortium', pi:'Assoc. Prof. Ts. Dr. Mohd Anuaruddin bin Ahmadon', chips:['Edge AI','Cyber-Physical Systems'] },
-  qopt:     { slotId:'th-pr-qopt',     title:'QOPT: quantum-assisted optimisation for refinery scheduling', summary:'A variational solver for unit-commitment style scheduling, reported alongside the classical baseline it has to beat.', trl:'TRL 2', status:'ACTIVE', grant:'RM 1.9M', period:'2025–2027', partner:'Kilang Selatan Sdn Bhd', pi:'Assoc. Prof. Dr. Ibrahim Venkat Krishnamurthy', chips:['Quantum Computing','Scheduling'] },
-  flux:     { slotId:'th-pr-flux',     title:'FLUX: energy-aware scheduling for mixed AI and simulation workloads', summary:'Cluster scheduling that treats energy per completed job as a first-class objective rather than a report line.', trl:'TRL 4', status:'ACTIVE', grant:'RM 1.3M', period:'2024–2026', partner:'National Supercomputing Centre', pi:'Prof. Ts. Dr. Mohd Fadzil Hassan', chips:['High-Performance Computing','Energy'] }
-};
-
-function proj(key, code, name) {
-  const p = PR[key];
-  return Object.assign({}, p, { theme: code + ' · ' + name.toUpperCase() });
-}
 
 const PETRA = { slotId:'th-fac-petra', category:'FACILITY', title:'PETRA-1 High-Performance Cluster', code:'Shared · Block Q, Level 1', summary:'The centre cluster. Priority queues per research group, with an allocation review each semester.', access:'ALLOCATED', specs:[{label:'CORES',value:'512 CPU cores'},{label:'GPU',value:'8× A100 80GB'},{label:'STORAGE',value:'1.2 PB parallel FS'}] };
 
@@ -259,126 +219,83 @@ const GROUPS = {
   RG01: {
     code:'RG01', name:'Data Science & Analytics', tint:'#00335F', tints:'rgba(0,51,95,.05)',
     descriptor:'Analytics environments that combine domain expertise, computational capability and statistical rigour — extracting decisions, not just insights, from operational data.',
-    counts:{ researchers:6, projects:8, publications:118, labs:1 },
+    counts:{ projects:8, publications:118, labs:1 },
     subAreas:[
-      { code:'RG01.1', title:'Data Science', desc:'Turning messy industrial telemetry into datasets a model can actually learn from — cleaning, labelling, drift detection.', chips:['Data Engineering','Feature Stores','Drift Detection'], count:'3 RESEARCHERS' },
-      { code:'RG01.2', title:'Descriptive to Prescriptive Analytics', desc:'The full analytics ladder on industrial assets: what happened, what will happen, and what to do about it.', chips:['Forecasting','Prescriptive','Decision Support'], count:'2 RESEARCHERS' },
-      { code:'RG01.3', title:'Data Quality Assurance', desc:'Measuring and defending the quality of the data everything downstream depends on.', chips:['Validation','Lineage','Monitoring'], count:'1 RESEARCHER' }
+      { code:'RG01.1', title:'Data Science', desc:'Turning messy industrial telemetry into datasets a model can actually learn from — cleaning, labelling, drift detection.', chips:['Data Engineering','Feature Stores','Drift Detection'] },
+      { code:'RG01.2', title:'Descriptive to Prescriptive Analytics', desc:'The full analytics ladder on industrial assets: what happened, what will happen, and what to do about it.', chips:['Forecasting','Prescriptive','Decision Support'] },
+      { code:'RG01.3', title:'Data Quality Assurance', desc:'Measuring and defending the quality of the data everything downstream depends on.', chips:['Validation','Lineage','Monitoring'] }
     ],
     lead:P.hitham, team:[P.emelia, P.noureen],
-    projects:[proj('sentinel','RG01','Data Science & Analytics'), proj('clara','RG01','Data Science & Analytics')],
-    publications:[
-      { year:'2026', title:'Calibrated anomaly scoring for partially observed substation telemetry', authors:'Alhussian, H. S., Talpur, N., Patah Akhir, E. A.', venue:'IEEE Trans. Industrial Informatics', tag:'Q1 · IF 11.7' },
-      { year:'2025', title:'Drift-aware feature stores for long-running industrial deployments', authors:'Patah Akhir, E. A., Alhussian, H. S.', venue:'ACM Trans. Data Science', tag:'Q1 · IF 4.2' },
-      { year:'2025', title:'A data quality assurance protocol for operational asset datasets', authors:'Talpur, N., Nasser, M. M. S.', venue:'Data & Knowledge Engineering', tag:'Q1 · IF 2.7' }
-    ],
     facilities:[
-      { slotId:'th-lab-rg01', category:'LABORATORY', title:'Data Intelligence Studio', code:'RG01 · Block N, Level 2', summary:'Collaborative space for partner data sprints — joint sessions on live datasets under a signed data agreement.', access:'PARTNERS ONLY', specs:[{label:'SEATS',value:'12 researchers'},{label:'LEAD',value:'Assoc. Prof. Ts. Dr. Hitham Seddig Alhassan Alhussian'},{label:'SESSIONS',value:'2-week sprints'}] },
       PETRA
     ]
   },
   RG02: {
     code:'RG02', name:'Machine Learning & Intelligent Systems', tint:'#004B8C', tints:'rgba(0,75,140,.055)',
     descriptor:'Machine learning and AI modelling adapted to specific client problems rather than applied generically — learning systems that stay reliable when the data is noisy or partial.',
-    counts:{ researchers:5, projects:7, publications:96, labs:1 },
+    counts:{ projects:7, publications:96, labs:1 },
     subAreas:[
-      { code:'RG02.1', title:'Machine Learning', desc:'Supervised and self-supervised methods for prediction under partial observation, with calibrated uncertainty.', chips:['Deep Learning','Uncertainty','Time Series'], count:'2 RESEARCHERS' },
-      { code:'RG02.2', title:'Intelligent Systems', desc:'Systems that decide as well as predict — combining learned components with reasoning and control.', chips:['Decision Systems','Reasoning','Control'], count:'2 RESEARCHERS' },
-      { code:'RG02.3', title:'Statistical Modelling', desc:'Statistical rigour underneath the learning — inference, experimental design and honest error bars.', chips:['Inference','Design of Experiments','Calibration'], count:'1 RESEARCHER' }
+      { code:'RG02.1', title:'Machine Learning', desc:'Supervised and self-supervised methods for prediction under partial observation, with calibrated uncertainty.', chips:['Deep Learning','Uncertainty','Time Series'] },
+      { code:'RG02.2', title:'Intelligent Systems', desc:'Systems that decide as well as predict — combining learned components with reasoning and control.', chips:['Decision Systems','Reasoning','Control'] },
+      { code:'RG02.3', title:'Statistical Modelling', desc:'Statistical rigour underneath the learning — inference, experimental design and honest error bars.', chips:['Inference','Design of Experiments','Calibration'] }
     ],
     lead:P.said, team:[P.hanita, P.yaman],
-    projects:[proj('sentinel','RG02','Machine Learning & Intelligent Systems'), proj('latch','RG02','Machine Learning & Intelligent Systems')],
-    publications:[
-      { year:'2026', title:'Self-supervised pretraining for sparse industrial sensor streams', authors:'Abdulkadir, S. J., Daud, H., Hamed, Y.', venue:'IEEE Trans. Neural Networks & Learning Systems', tag:'Q1 · IF 10.4' },
-      { year:'2025', title:'Uncertainty-aware remaining useful life estimation under regime change', authors:'Daud, H., Abdulkadir, S. J.', venue:'Reliability Engineering & System Safety', tag:'Q1 · IF 9.4' },
-      { year:'2024', title:'Hybrid learned and rule-based decision systems for plant operations', authors:'Hamed, Y., Sokkalingam, R.', venue:'Engineering Applications of AI', tag:'Q1 · IF 8.0' }
-    ],
     facilities:[
-      { slotId:'th-lab-rg02', category:'LABORATORY', title:'Applied Machine Learning Lab', code:'RG02 · Block N, Level 2', summary:'Model development and evaluation for industrial datasets, with a dedicated annotation and benchmarking bay.', access:'BY ARRANGEMENT', specs:[{label:'SEATS',value:'24 researchers'},{label:'LEAD',value:'Assoc. Prof. Ts. Dr. Said Jadid Abdulkadir'},{label:'COMPUTE',value:'8× A100, shared queue'}] },
       PETRA
     ]
   },
   RG03: {
     code:'RG03', name:'Generative AI', tint:'#1A6BAE', tints:'rgba(26,107,174,.055)',
     descriptor:'Domain-adapted generative models for technical work — inspection reports, engineering documents and synthetic data — judged on whether a specialist would accept the output.',
-    counts:{ researchers:4, projects:4, publications:34, labs:1 },
+    counts:{ projects:4, publications:34, labs:1 },
     subAreas:[
-      { code:'RG03.1', title:'Domain Adaptation', desc:'Adapting large language and diffusion models to technical vocabularies and document structures.', chips:['LLM Adaptation','Fine-Tuning','Retrieval'], count:'2 RESEARCHERS' },
-      { code:'RG03.2', title:'Synthetic Data', desc:'Generating training and test data where the real thing is scarce, sensitive or expensive to label.', chips:['Synthetic Data','Privacy','Augmentation'], count:'1 RESEARCHER' },
-      { code:'RG03.3', title:'Evaluation', desc:'Measuring generative output against expert judgement rather than benchmark leaderboards.', chips:['Human Evaluation','Benchmarking','Factuality'], count:'1 RESEARCHER' }
+      { code:'RG03.1', title:'Domain Adaptation', desc:'Adapting large language and diffusion models to technical vocabularies and document structures.', chips:['LLM Adaptation','Fine-Tuning','Retrieval'] },
+      { code:'RG03.2', title:'Synthetic Data', desc:'Generating training and test data where the real thing is scarce, sensitive or expensive to label.', chips:['Synthetic Data','Privacy','Augmentation'] },
+      { code:'RG03.3', title:'Evaluation', desc:'Measuring generative output against expert judgement rather than benchmark leaderboards.', chips:['Human Evaluation','Benchmarking','Factuality'] }
     ],
     lead:P.shakirah, team:[P.yew, P.izuddin],
-    projects:[proj('clara','RG03','Generative AI')],
-    publications:[
-      { year:'2026', title:'Evaluating domain-adapted language models on technical inspection reports', authors:'Mohd Taib, S., Yew, K. H.', venue:'Findings of EMNLP', tag:'A* CONFERENCE' },
-      { year:'2025', title:'Retrieval-grounded generation for engineering document workflows', authors:'Yew, K. H., Zainal Abidin, A. I.', venue:'Expert Systems with Applications', tag:'Q1 · IF 7.5' },
-      { year:'2025', title:'Synthetic data for low-resource defect classification', authors:'Zainal Abidin, A. I., Mausor, F. H.', venue:'Pattern Recognition Letters', tag:'Q2 · IF 3.9' }
-    ],
     facilities:[
-      { slotId:'th-lab-rg03', category:'LABORATORY', title:'Generative Systems Lab', code:'RG03 · Block N, Level 3', summary:'Adaptation, retrieval and evaluation workbench for generative models, with an expert-review station for scored output.', access:'BY ARRANGEMENT', specs:[{label:'SEATS',value:'10 researchers'},{label:'LEAD',value:'Ts. Dr. Shakirah Mohd Taib'},{label:'COMPUTE',value:'PETRA-1 GPU queue'}] },
       PETRA
     ]
   },
   RG04: {
     code:'RG04', name:'Computational Modelling, Simulation & Optimisation', tint:'#2F7CB8', tints:'rgba(47,124,184,.06)',
     descriptor:'Physics-grounded models and solvers that turn expensive simulation into decisions engineers can act on inside a shift, not a quarter.',
-    counts:{ researchers:7, projects:9, publications:104, labs:1 },
+    counts:{ projects:9, publications:104, labs:1 },
     subAreas:[
-      { code:'RG04.1', title:'Computational Modelling', desc:'Reduced-order and surrogate models that keep the physics an engineer would recognise while running orders of magnitude faster.', chips:['Reduced Order','Surrogates','Validation'], count:'3 RESEARCHERS' },
-      { code:'RG04.2', title:'Simulation & Optimisation', desc:'Coupling solvers to optimisation loops for design, scheduling and operating-envelope problems under real constraints.', chips:['Mixed Integer','Multi-Objective','Solvers'], count:'2 RESEARCHERS' },
-      { code:'RG04.3', title:'Scientific Computing', desc:'Numerical methods, parallel implementation and reproducibility for the codes the other sub-areas depend on.', chips:['Numerical Methods','Parallelism','Reproducibility'], count:'2 RESEARCHERS' }
+      { code:'RG04.1', title:'Computational Modelling', desc:'Reduced-order and surrogate models that keep the physics an engineer would recognise while running orders of magnitude faster.', chips:['Reduced Order','Surrogates','Validation'] },
+      { code:'RG04.2', title:'Simulation & Optimisation', desc:'Coupling solvers to optimisation loops for design, scheduling and operating-envelope problems under real constraints.', chips:['Mixed Integer','Multi-Objective','Solvers'] },
+      { code:'RG04.3', title:'Scientific Computing', desc:'Numerical methods, parallel implementation and reproducibility for the codes the other sub-areas depend on.', chips:['Numerical Methods','Parallelism','Reproducibility'] }
     ],
     lead:P.mohana, team:[P.hamzah, P.nooraini],
-    projects:[proj('sigma','RG04','Computational Modelling, Simulation & Optimisation'), proj('mesh','RG04','Computational Modelling, Simulation & Optimisation')],
-    publications:[
-      { year:'2026', title:'Physics-informed surrogates for multiphase flow assurance under uncertainty', authors:'Muthuvalu, M. S., Sakidin, H., Zainuddin, N.', venue:'Computers & Chemical Engineering', tag:'Q1 · IF 4.6' },
-      { year:'2025', title:'A validation protocol for reduced-order fatigue models in offshore structures', authors:'Sakidin, H., Ling, D. C. C.', venue:'Structural Safety', tag:'Q1 · IF 5.8' },
-      { year:'2024', title:'Reproducible parallel solvers for coupled optimisation loops', authors:'Zainuddin, N., Muthuvalu, M. S.', venue:'SIAM J. Scientific Computing', tag:'Q1 · IF 3.1' }
-    ],
     facilities:[
-      { slotId:'th-lab-rg04', category:'LABORATORY', title:'Computational Mechanics Lab', code:'RG04 · Block P, Level 1', summary:'Solver development and validation against physical test data, co-located with the fabrication test bay.', access:'BY ARRANGEMENT', specs:[{label:'SEATS',value:'18 researchers'},{label:'LEAD',value:'Ts. Dr. Mohana Sundaram A/L Muthuvalu'},{label:'COMPUTE',value:'PETRA-1 priority queue'}] },
       { slotId:'th-fac-twin', category:'FACILITY', title:'Digital Twin Visualisation Suite', code:'Shared · Block P, Level 1', summary:'Twelve-panel wall for reviewing twin output with partner engineering teams in the room.', access:'BOOKABLE', specs:[{label:'CAPACITY',value:'14 seated'},{label:'DISPLAY',value:'12-panel, 4K'},{label:'BOOKING',value:'Half-day blocks'}] }
     ]
   },
   RG05: {
     code:'RG05', name:'Edge Computing', tint:'#4A8CC4', tints:'rgba(74,140,196,.06)',
     descriptor:'Intelligence pushed to the edge — inference on constrained hardware, in real time, in places where the network is unreliable and the sensor is the only witness.',
-    counts:{ researchers:6, projects:6, publications:41, labs:1 },
+    counts:{ projects:6, publications:41, labs:1 },
     subAreas:[
-      { code:'RG05.1', title:'Edge Inference', desc:'Model compression, scheduling and on-device inference for hardware with a power budget measured in watts.', chips:['Quantisation','On-Device','Scheduling'], count:'3 RESEARCHERS' },
-      { code:'RG05.2', title:'Cyber-Physical Systems', desc:'Closing the loop between sensing and actuation with guarantees you can put in a safety case.', chips:['Control','Safety Cases','Fault Tolerance'], count:'2 RESEARCHERS' },
-      { code:'RG05.3', title:'Distributed Systems', desc:'Coordination, sync and federated operation across nodes that go offline without warning.', chips:['Federation','Consistency','Intermittency'], count:'1 RESEARCHER' }
+      { code:'RG05.1', title:'Edge Inference', desc:'Model compression, scheduling and on-device inference for hardware with a power budget measured in watts.', chips:['Quantisation','On-Device','Scheduling'] },
+      { code:'RG05.2', title:'Cyber-Physical Systems', desc:'Closing the loop between sensing and actuation with guarantees you can put in a safety case.', chips:['Control','Safety Cases','Fault Tolerance'] },
+      { code:'RG05.3', title:'Distributed Systems', desc:'Coordination, sync and federated operation across nodes that go offline without warning.', chips:['Federation','Consistency','Intermittency'] }
     ],
     lead:P.anuar, team:[P.syadhila, P.bukhari],
-    projects:[proj('edge','RG05','Edge Computing'), proj('latch','RG05','Edge Computing')],
-    publications:[
-      { year:'2026', title:'Worst-case latency bounds for quantised inference on commodity edge accelerators', authors:'Ahmadon, M. A., Aujih, A. B.', venue:'ACM Trans. Embedded Computing', tag:'Q1 · IF 2.9' },
-      { year:'2025', title:'Acoustic leak classification on solar-powered nodes with intermittent backhaul', authors:'Ahmadon, M. A., Che Lah, N. S.', venue:'IEEE Internet of Things Journal', tag:'Q1 · IF 10.6' },
-      { year:'2025', title:'Safety-case patterns for learned components in cyber-physical control loops', authors:'Aujih, A. B., Sarlan, A.', venue:'Reliability Engineering & System Safety', tag:'Q1 · IF 9.4' }
-    ],
     facilities:[
-      { slotId:'th-lab-rg05', category:'LABORATORY', title:'Edge & Embedded Systems Lab', code:'RG05 · Block N, Level 3', summary:'Bench-level development and power profiling for constrained inference hardware.', access:'BY ARRANGEMENT', specs:[{label:'SEATS',value:'16 researchers'},{label:'LEAD',value:'Assoc. Prof. Ts. Dr. Mohd Anuaruddin bin Ahmadon'},{label:'BENCH',value:'40 boards, 8 power rigs'}] },
-      { slotId:'th-fac-cpt', category:'FACILITY', title:'Cyber-Physical Testbed', code:'Shared · Block R, Ground', summary:'Instrumented rig for closed-loop trials before anything is put near a live asset.', access:'SUPERVISED', specs:[{label:'SEATS',value:'20 researchers'},{label:'LEAD',value:'Dr. Ahmad Bukhari bin Aujih'},{label:'CHANNELS',value:'96 sensor channels'}] }
     ]
   },
   RG06: {
     code:'RG06', name:'Next-Generation & Quantum Computing', tint:'#7FAED9', tints:'rgba(127,174,217,.09)',
     descriptor:'The compute layer underneath everything else — quantum methods, new architectures and high-performance systems, judged on whether they move a real workload.',
-    counts:{ researchers:5, projects:3, publications:19, labs:1 },
+    counts:{ projects:3, publications:19, labs:1 },
     subAreas:[
-      { code:'RG06.1', title:'Quantum Computing', desc:'Variational and annealing approaches to scheduling and allocation, benchmarked honestly against classical baselines.', chips:['Variational','Annealing','Benchmarking'], count:'2 RESEARCHERS' },
-      { code:'RG06.2', title:'Advanced Architectures', desc:'Accelerator and memory-hierarchy design for the data movement patterns the other groups actually generate.', chips:['Accelerators','Memory Hierarchy','Co-Design'], count:'2 RESEARCHERS' },
-      { code:'RG06.3', title:'High-Performance Computing', desc:'Scaling, scheduling and energy efficiency on the centre cluster and on national facilities.', chips:['Scaling','Schedulers','Energy'], count:'1 RESEARCHER' }
+      { code:'RG06.1', title:'Quantum Computing', desc:'Variational and annealing approaches to scheduling and allocation, benchmarked honestly against classical baselines.', chips:['Variational','Annealing','Benchmarking'] },
+      { code:'RG06.2', title:'Advanced Architectures', desc:'Accelerator and memory-hierarchy design for the data movement patterns the other groups actually generate.', chips:['Accelerators','Memory Hierarchy','Co-Design'] },
+      { code:'RG06.3', title:'High-Performance Computing', desc:'Scaling, scheduling and energy efficiency on the centre cluster and on national facilities.', chips:['Scaling','Schedulers','Energy'] }
     ],
     lead:P.ibrahim, team:[P.fadzil, P.hilmi],
-    projects:[proj('qopt','RG06','Next-Generation & Quantum Computing'), proj('flux','RG06','Next-Generation & Quantum Computing')],
-    publications:[
-      { year:'2026', title:'Honest baselines for variational quantum optimisation on scheduling problems', authors:'Krishnamurthy, I. V., Hasan, M. H.', venue:'Quantum Science & Technology', tag:'Q1 · IF 6.7' },
-      { year:'2025', title:'Energy-aware scheduling for mixed simulation and training workloads', authors:'Hassan, M. F., Jaafar, J.', venue:'IEEE Trans. Parallel & Distributed Systems', tag:'Q1 · IF 5.3' },
-      { year:'2024', title:'Memory-hierarchy co-design for surrogate model inference', authors:'Hasan, M. H., Abdul Aziz, I.', venue:'ACM Trans. Architecture & Code Optimization', tag:'Q1 · IF 2.4' }
-    ],
     facilities:[
-      { slotId:'th-lab-rg06', category:'LABORATORY', title:'Advanced Computing Lab', code:'RG06 · Block Q, Level 4', summary:'Architecture prototyping and cluster-side experimentation, adjacent to the PETRA-1 machine room.', access:'BY ARRANGEMENT', specs:[{label:'SEATS',value:'14 researchers'},{label:'LEAD',value:'Assoc. Prof. Dr. Ibrahim Venkat Krishnamurthy'},{label:'HARDWARE',value:'FPGA + accelerator bench'}] },
       PETRA
     ]
   }
@@ -401,8 +318,6 @@ class Component extends DCLogic {
     const propKey = (this.props.group ?? 'RG01 Data Science & Analytics').slice(0, 4).toUpperCase();
     const key = this.state.key || (GROUPS[propKey] ? propKey : 'RG01');
     const g = GROUPS[key];
-    const shown = 1 + g.team.length;
-    const rest = g.counts.researchers - shown;
 
     return {
       themeVars: { '--tk': g.tint, '--tks': g.tints },
@@ -412,20 +327,15 @@ class Component extends DCLogic {
       themeName: g.name,
       themeNameUpper: g.name.toUpperCase(),
       themeDescriptor: g.descriptor,
-      leadFull: g.lead.prefix + ' ' + g.lead.name,
-      cResearchers: String(g.counts.researchers),
+      leadFull: g.lead.name,
       cProjects: String(g.counts.projects),
       cPublications: String(g.counts.publications),
       cLabs: String(g.counts.labs),
       subAreas: g.subAreas,
       lead: g.lead,
       team: g.team,
-      projects: g.projects,
-      publications: g.publications,
       facilities: g.facilities,
-      remainderLine: rest > 0
-        ? (rest === 1 ? 'One more researcher sits in this group' : rest + ' more researchers sit in this group')
-        : 'This group\u2019s full membership is shown above',
+      hasFacilities: g.facilities.length > 0,
       switcher: ORDER.map(k => {
         const on = k === key;
         return {
@@ -440,7 +350,7 @@ class Component extends DCLogic {
       }),
       others: ORDER.filter(k => k !== key).map(k => ({
         name: GROUPS[k].name,
-        meta: k + ' · ' + GROUPS[k].counts.researchers + ' RESEARCHERS',
+        meta: k,
         href: '#',
         bar: 'height:4px;background:' + GROUPS[k].tint
       }))

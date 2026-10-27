@@ -41,7 +41,7 @@ a{color:#004B8C;text-decoration:none}a:hover{color:#00335F}
 <p style="margin:0 0 22px;font:400 15px/1.6 Inter,sans-serif;color:#BFD2E4;text-wrap:pretty">{{ oneLiner }}</p>
 
 <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:22px">
-<a href="#" style="display:flex;align-items:center;justify-content:center;min-height:46px;font:600 12.5px Inter,sans-serif;color:#FFFFFF;border:1px solid rgba(255,255,255,.42);border-radius:6px;padding:0 10px;text-align:center">Email</a>
+<a href="{{ mailto }}" style="display:flex;align-items:center;justify-content:center;min-height:46px;font:600 12.5px Inter,sans-serif;color:#FFFFFF;border:1px solid rgba(255,255,255,.42);border-radius:6px;padding:0 10px;text-align:center">Email</a>
 <a href="#" style="display:flex;align-items:center;justify-content:center;min-height:46px;font:600 12.5px Inter,sans-serif;color:#FFFFFF;border:1px solid rgba(255,255,255,.42);border-radius:6px;padding:0 10px;text-align:center">ORCID</a>
 <a href="#" style="display:flex;align-items:center;justify-content:center;min-height:46px;font:600 12.5px Inter,sans-serif;color:#FFFFFF;border:1px solid rgba(255,255,255,.42);border-radius:6px;padding:0 10px;text-align:center">Scopus</a>
 <a href="#" style="display:flex;align-items:center;justify-content:center;min-height:46px;font:600 12.5px Inter,sans-serif;color:#FFFFFF;border:1px solid rgba(255,255,255,.42);border-radius:6px;padding:0 10px;text-align:center">Google Scholar</a>
@@ -73,7 +73,7 @@ a{color:#004B8C;text-decoration:none}a:hover{color:#00335F}
 
 <div style="position:sticky;top:56px;z-index:30;background:#FFFFFF;border-bottom:1px solid #D8DEE5">
 <div data-hscroll="1" data-tabstrip="1" style="display:flex;overflow-x:auto;-webkit-overflow-scrolling:touch">
-<sc-for list="{{ tabs }}" as="t" hint-placeholder-count="7">
+<sc-for list="{{ tabs }}" as="t" hint-placeholder-count="8">
 <sc-if value="{{ t.on }}" hint-placeholder-val="{{ false }}">
 <button type="button" onClick="{{ t.pick }}" style="position:relative;flex:none;font:600 13.5px Inter,sans-serif;color:#004B8C;background:transparent;border:0;padding:16px 16px 14px;cursor:pointer;white-space:nowrap;min-height:50px">{{ t.label }}<span style="position:absolute;left:12px;right:12px;bottom:0;height:3px;background:#E38C07"></span></button>
 </sc-if>
@@ -173,6 +173,32 @@ a{color:#004B8C;text-decoration:none}a:hover{color:#00335F}
 </div>
 </sc-if>
 
+<sc-if value="{{ isInventions }}" hint-placeholder-val="{{ false }}">
+<div style="width:38px;height:3px;background:#E38C07;margin-bottom:16px"></div>
+<h2 style="margin:0 0 12px;font:700 25px/1.16 'Inter Tight',sans-serif;letter-spacing:-.018em;color:#14181D">Inventions</h2>
+<a href="CERDAS Inventions and Products.dc.html" style="display:inline-block;margin-bottom:20px;font:600 13.5px Inter,sans-serif;color:#004B8C">All inventions &amp; products →</a>
+<div style="display:flex;flex-direction:column;gap:12px">
+<sc-for list="{{ inventions }}" as="v" hint-placeholder-count="1">
+<div style="background:#FFFFFF;border:1px solid #D8DEE5;border-radius:8px;padding:20px 18px 22px">
+<div style="display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-bottom:12px">
+<span style="background:rgba(0,75,140,.08);color:#004B8C;font:600 10px 'IBM Plex Mono',monospace;letter-spacing:.08em;padding:5px 9px;border-radius:4px">{{ v.role }}</span>
+<sc-if value="{{ v.hasProduct }}" hint-placeholder-val="{{ false }}"><span style="font:500 10px 'IBM Plex Mono',monospace;letter-spacing:.12em;color:#5A6472">PRODUCT · {{ v.product }}</span></sc-if>
+</div>
+<div style="font:600 18px/1.28 'Inter Tight',sans-serif;letter-spacing:-.008em;color:#14181D;margin-bottom:10px;text-wrap:pretty">{{ v.title }}</div>
+<p style="margin:0 0 16px;font:400 14.5px/1.6 Inter,sans-serif;color:#5A6472;text-wrap:pretty">{{ v.description }}</p>
+<div style="padding-top:14px;border-top:1px solid #E8ECF1">
+<div style="font:500 9.5px 'IBM Plex Mono',monospace;letter-spacing:.12em;color:#5A6472;margin-bottom:8px">INVENTORS</div>
+<div style="display:flex;flex-direction:column;gap:6px">
+<sc-for list="{{ v.inventors }}" as="w" hint-placeholder-count="3">
+<div style="display:flex;align-items:baseline;justify-content:space-between;gap:10px"><span style="font:400 13.5px/1.4 Inter,sans-serif;color:#14181D">{{ w.name }}</span><span style="flex:none;font:500 10px 'IBM Plex Mono',monospace;letter-spacing:.08em;color:#5A6472">{{ w.role }}</span></div>
+</sc-for>
+</div>
+</div>
+</div>
+</sc-for>
+</div>
+</sc-if>
+
 <sc-if value="{{ isSupervision }}" hint-placeholder-val="{{ false }}">
 <div style="width:38px;height:3px;background:#E38C07;margin-bottom:16px"></div>
 <h2 style="margin:0 0 12px;font:700 25px/1.16 'Inter Tight',sans-serif;letter-spacing:-.018em;color:#14181D">Supervision</h2>
@@ -208,7 +234,7 @@ a{color:#004B8C;text-decoration:none}a:hover{color:#00335F}
 <sc-if value="{{ isTeaching }}" hint-placeholder-val="{{ false }}">
 <div style="width:38px;height:3px;background:#E38C07;margin-bottom:16px"></div>
 <h2 style="margin:0 0 12px;font:700 25px/1.16 'Inter Tight',sans-serif;letter-spacing:-.018em;color:#14181D">Teaching</h2>
-<p style="margin:0 0 22px;font:400 15px/1.62 Inter,sans-serif;color:#5A6472;text-wrap:pretty">Undergraduate and postgraduate courses in the current academic year, plus short courses run for industry through the consultancy route.</p>
+<p style="margin:0 0 22px;font:400 15px/1.62 Inter,sans-serif;color:#5A6472;text-wrap:pretty">Undergraduate and postgraduate courses in the current academic year.</p>
 <div style="display:flex;flex-direction:column;gap:1px;background:#E2E7EC;border:1px solid #E2E7EC;border-radius:8px;overflow:hidden;margin-bottom:16px">
 <sc-for list="{{ teaching }}" as="c" hint-placeholder-count="4">
 <div style="background:#FFFFFF;padding:16px 16px 18px">
@@ -220,11 +246,6 @@ a{color:#004B8C;text-decoration:none}a:hover{color:#00335F}
 <div style="font:400 13px/1.5 Inter,sans-serif;color:#5A6472">{{ c.level }} · {{ c.note }}</div>
 </div>
 </sc-for>
-</div>
-<div style="background:#FFFFFF;border:1px solid #D8DEE5;border-radius:8px;padding:20px 18px 22px">
-<div style="font:500 10px 'IBM Plex Mono',monospace;letter-spacing:.14em;color:#5A6472;margin-bottom:12px">SHORT COURSES FOR INDUSTRY</div>
-<p style="margin:0 0 14px;font:400 14.5px/1.6 Inter,sans-serif;color:#5A6472;text-wrap:pretty">Applied machine learning for maintenance engineers, delivered four times to 62 engineers on the client's own maintenance records.</p>
-<a href="CERDAS Consultancy.dc.html" style="font:600 13.5px Inter,sans-serif;color:#004B8C">Technical training →</a>
 </div>
 </sc-if>
 
@@ -276,7 +297,7 @@ a{color:#004B8C;text-decoration:none}a:hover{color:#00335F}
 <div style="font:400 13.5px/1.55 Inter,sans-serif;color:#5A6472;margin-bottom:6px">{{ themeRole }}</div>
 <div style="display:flex;flex-direction:column;gap:0;margin-top:12px;border-top:1px solid #D8DEE5">
 <a href="CERDAS Theme.dc.html" style="display:flex;align-items:center;min-height:48px;font:500 13.5px Inter,sans-serif;color:#004B8C">Explore the theme →</a>
-<a href="CERDAS Governance.dc.html" style="display:flex;align-items:center;min-height:48px;font:500 13.5px Inter,sans-serif;color:#004B8C;border-top:1px solid #E8ECF1">Where this sits in governance →</a>
+<a href="CERDAS Organisation Chart.dc.html" style="display:flex;align-items:center;min-height:48px;font:500 13.5px Inter,sans-serif;color:#004B8C;border-top:1px solid #E8ECF1">Where this sits in governance →</a>
 </div>
 </div>
 
@@ -311,23 +332,31 @@ a{color:#004B8C;text-decoration:none}a:hover{color:#00335F}
 
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:390},&quot;startTab&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Biography&quot;,&quot;Research interests&quot;,&quot;Publications&quot;,&quot;Projects&quot;,&quot;Supervision&quot;,&quot;Teaching&quot;,&quot;Awards&quot;],&quot;default&quot;:&quot;Biography&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Profile&quot;},&quot;available&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Profile&quot;}}">
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:390},&quot;startTab&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Biography&quot;,&quot;Research interests&quot;,&quot;Publications&quot;,&quot;Projects&quot;,&quot;Inventions&quot;,&quot;Supervision&quot;,&quot;Teaching&quot;,&quot;Awards&quot;],&quot;default&quot;:&quot;Biography&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Profile&quot;},&quot;available&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Profile&quot;}}">
+// Inventions: uploads/All List of PI CERDAS.xlsx — sheet "List of Product@Invention".
+const ME = 'Hitham Seddig Alhassan Alhussian';
+const EMAIL = 'seddig.alhussian@utp.edu.my';
+const INVENTIONS = [
+  {"title":"Intelligent Constructability Review (i-CR)","product":"","description":"Constructability Review (CR) is conducted to identify construction obstacle before/during the project construction actual work. i-CR is a software-based technique for Constructability Review (CR) process through Artificial Intelligence and data-driven architecture and design for systematic identification of constructability issues and providing advisory of recommended actions. i-CR interacts with experts to collect data, organise data and generate model for advisory. The invention automates CR and will build data-driven and evidence-driven knowledge base cumulatively. The invention’s architecture and design will allow automation leading to autonomation","inventors":[{"name":"Yew Kwang Hooi","role":"Main Inventor"},{"name":"Hitham Seddig Alhassan Alhussian","role":"Co-Inventor"},{"name":"Said Jadid Abdulkadir","role":"Co-Inventor"}]}
+];
+
 const TABS = [
   ['bio', 'Biography', ''],
   ['interests', 'Interests', '4'],
   ['pubs', 'Publications', '68'],
   ['projects', 'Projects', '5'],
+  ['inventions', 'Inventions', String(INVENTIONS.length)],
   ['supervision', 'Supervision', '23'],
   ['teaching', 'Teaching', '4'],
   ['awards', 'Awards', '6']
 ];
 
 const P = {
-  name: 'Assoc. Prof. Ts. Dr. Hitham Seddig Alhassan Alhussian',
-  shortName: 'Dr. Hitham',
-  tier: 'SENIOR FELLOW',
+  name: 'Hitham Seddig Alhassan Alhussian',
+  shortName: 'Hitham',
+  tier: 'SENIOR RESEARCHER',
   role: 'Group Head — Data Science & Analytics',
-  department: 'Department of Computer & Information Sciences, Universiti Teknologi PETRONAS',
+  department: 'Computing',
   themeLabel: 'RG01 · DATA SCIENCE & ANALYTICS',
   themeName: 'Data Science & Analytics',
   themeRole: 'Group Head · 6 researchers, 11 active projects',
@@ -423,10 +452,10 @@ const P = {
     { name: 'Lee Su Ann', topic: 'Anomaly labelling under sensor drift', degree: 'MSc', stage: 'Year 1' }
   ],
   completed: [
-    { name: 'Dr. Hanita Daud', topic: 'Topology inference from fault records', degree: 'PhD', stage: '2023 · now Senior Fellow' },
-    { name: 'Ts. Dr. Yaman Hamed', topic: 'Sparse learning for infrastructure graphs', degree: 'PhD', stage: '2023 · postdoc, Utrecht' },
+    { name: 'Hanita Daud', topic: 'Topology inference from fault records', degree: 'PhD', stage: '2023 · now Senior Researcher' },
+    { name: 'Yaman Hamed', topic: 'Sparse learning for infrastructure graphs', degree: 'PhD', stage: '2023 · postdoc, Utrecht' },
     { name: 'Nur Alia binti Kamarudin', topic: 'Load profiling under tariff reform', degree: 'MSc', stage: '2022 · Tenaga Nusantara' },
-    { name: 'Dr. Aliza Sarlan', topic: 'Human factors in control room analytics', degree: 'PhD', stage: '2025 · Meridian Semiconductor' }
+    { name: 'Aliza Sarlan', topic: 'Human factors in control room analytics', degree: 'PhD', stage: '2025 · Meridian Semiconductor' }
   ],
   teaching: [
     { code: 'CIS3043', title: 'Machine Learning', note: 'Core, semester 1', level: 'Undergraduate', students: '186 STUDENTS' },
@@ -443,10 +472,10 @@ const P = {
     { year: '2021', title: 'UTP Teaching Excellence Award', org: 'Universiti Teknologi PETRONAS' }
   ],
   colleagues: [
-    { tier: 'PRINCIPAL FELLOW', name: 'Assoc. Prof. Ts. Dr. Said Jadid Abdulkadir', focus: 'Forecasting and uncertainty quantification' },
-    { tier: 'SENIOR FELLOW', name: 'Assoc. Prof. Ts. Dr. Hanita Daud', focus: 'Graph methods and topology inference' },
-    { tier: 'FELLOW', name: 'Dr. Noureen Talpur', focus: 'Time-series analysis and benchmark curation' },
-    { tier: 'FELLOW', name: 'Dr. Aliza Sarlan', focus: 'Human factors in operational analytics' }
+    { tier: 'PRINCIPAL RESEARCHER', name: 'Said Jadid Abdulkadir', focus: 'Forecasting and uncertainty quantification' },
+    { tier: 'SENIOR RESEARCHER', name: 'Hanita Daud', focus: 'Graph methods and topology inference' },
+    { tier: 'RESEARCHER', name: 'Noureen Talpur', focus: 'Time-series analysis and benchmark curation' },
+    { tier: 'RESEARCHER', name: 'Aliza Sarlan', focus: 'Human factors in operational analytics' }
   ]
 };
 
@@ -467,7 +496,7 @@ class Component extends DCLogic {
   renderVals() {
     const startMap = {
       'Biography': 'bio', 'Research interests': 'interests', 'Publications': 'pubs',
-      'Projects': 'projects', 'Supervision': 'supervision', 'Teaching': 'teaching', 'Awards': 'awards'
+      'Projects': 'projects', 'Inventions': 'inventions', 'Supervision': 'supervision', 'Teaching': 'teaching', 'Awards': 'awards'
     };
     const tab = this.state.tab ?? (startMap[this.props.startTab ?? 'Biography'] || 'bio');
     const available = this.props.available ?? true;
@@ -478,7 +507,7 @@ class Component extends DCLogic {
       closeMenu: () => this.setState({ menu: false }),
       name: P.name, shortName: P.shortName, tier: P.tier, role: P.role, department: P.department,
       themeLabel: P.themeLabel, themeName: P.themeName, themeRole: P.themeRole,
-      oneLiner: P.oneLiner,
+      oneLiner: P.oneLiner, mailto: 'mailto:' + EMAIL,
       available, unavailable: !available, availableNote: P.availableNote,
       tabs: TABS.map(([id, label, count]) => ({
         label, count, on: tab === id, off: tab !== id,
@@ -486,7 +515,12 @@ class Component extends DCLogic {
       })),
       isBio: tab === 'bio', isInterests: tab === 'interests', isPubs: tab === 'pubs',
       isProjects: tab === 'projects', isSupervision: tab === 'supervision',
-      isTeaching: tab === 'teaching', isAwards: tab === 'awards',
+      isTeaching: tab === 'teaching', isAwards: tab === 'awards', isInventions: tab === 'inventions',
+      inventions: INVENTIONS.map(v => ({
+        title: v.title, product: v.product, hasProduct: !!v.product, description: v.description,
+        role: ((v.inventors.find(w => w.name === ME) || {}).role || '').toUpperCase(),
+        inventors: v.inventors.map(w => ({ name: w.name, role: w.role.toUpperCase() }))
+      })),
       bio: P.bio, career: P.career,
       interestsIntro: P.interestsIntro, interests: P.interests,
       pubs: P.pubs.map(p => Object.assign({}, p, { hasQ: !!p.quartile })),

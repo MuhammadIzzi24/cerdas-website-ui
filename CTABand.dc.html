@@ -10,8 +10,14 @@
 <section style="background:#004B8C;padding:60px 0">
 <div style="width:1320px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:60px">
 <div>
+<sc-if value="{{ real }}" hint-placeholder-val="{{ true }}">
 <h2 style="margin:0 0 12px;font:700 34px/1.2 'Inter Tight',sans-serif;letter-spacing:-.015em;color:#FFFFFF;text-wrap:pretty">{{ heading }}</h2>
 <p style="margin:0;font:400 16.5px/1.6 Inter,sans-serif;color:#C7DAEB;max-width:640px;text-wrap:pretty">{{ body }}</p>
+</sc-if>
+<sc-if value="{{ dummy }}" hint-placeholder-val="{{ false }}">
+<h2 style="margin:0 0 12px;font:700 34px/1.2 'Inter Tight',sans-serif;letter-spacing:-.015em;color:#FFFFFF;text-wrap:pretty"><span style="color:#A0A4AB;text-decoration-line:underline;text-decoration-style:dotted;text-decoration-thickness:1px;text-underline-offset:4px">{{ heading }}</span> <span style="font:500 11px/1 Inter,sans-serif;letter-spacing:0;color:#A0A4AB;white-space:nowrap;vertical-align:middle">(dummy)</span></h2>
+<p style="margin:0;font:400 16.5px/1.6 Inter,sans-serif;color:#A0A4AB;text-decoration-line:underline;text-decoration-style:dotted;text-decoration-thickness:1px;text-underline-offset:3px;max-width:640px;text-wrap:pretty">{{ body }}</p>
+</sc-if>
 </div>
 <div style="display:flex;gap:14px;flex:none">
 <a href="{{ href }}" style="font:600 14.5px Inter,sans-serif;color:#14181D;background:#E38C07;padding:15px 26px;border-radius:6px;white-space:nowrap" style-hover="background:#F5C46B">{{ ctaLabel }}</a>
@@ -19,7 +25,17 @@
 </div>
 </div>
 </section>
+
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props="{&quot;heading&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;Join our research community&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;body&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;We welcome researchers, postgraduate students and industry partners who want to build something measurable with us.&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;ctaLabel&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;Explore opportunities&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;secondaryLabel&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;Contact the centre&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;href&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;#&quot;,&quot;tsType&quot;:&quot;string&quot;}}"></script>
+<script type="text/x-dc" data-dc-script data-props="{&quot;heading&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;Join our research community&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;body&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;We welcome researchers, postgraduate students and industry partners who want to build something measurable with us.&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;ctaLabel&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;Explore opportunities&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;secondaryLabel&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;Contact the centre&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;href&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;#&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;placeholder&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;}}">
+class Component extends DCLogic {
+  renderVals() {
+    const p = this.props;
+    const dummy = p.placeholder === true || p.placeholder === 'true';
+    return { heading: p.heading ?? '', body: p.body ?? '', ctaLabel: p.ctaLabel ?? '', secondaryLabel: p.secondaryLabel ?? '', href: p.href ?? '#', dummy, real: !dummy };
+  }
+}
+
+</script>
 </body>
 </html>

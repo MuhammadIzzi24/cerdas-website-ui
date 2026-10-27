@@ -17,7 +17,7 @@ a{color:#004B8C;text-decoration:none}a:hover{color:#00335F}
 
 <dc-import name="SiteHeader" active="Research" hint-size="100%,78px"></dc-import>
 
-<section style="background:#00335F;padding:56px 0 60px;position:relative;overflow:hidden">
+<section style="min-height:500px;box-sizing:border-box;background:#00335F;padding:56px 0 60px;position:relative;overflow:hidden">
 <svg viewBox="0 0 1440 400" preserveAspectRatio="none" style="position:absolute;inset:0;width:100%;height:100%;opacity:.2" aria-hidden="true">
 <g stroke="#7FAED9" stroke-width="1" fill="none">
 <path d="M1080 90 V310 M1180 90 V310 M1280 90 V310 M1380 90 V310"></path>
@@ -121,33 +121,6 @@ a{color:#004B8C;text-decoration:none}a:hover{color:#00335F}
 
 <div style="background:#FFFFFF;border:1px solid #D8DEE5;border-radius:8px;padding:40px 44px 44px">
 <div style="width:44px;height:3px;background:#E38C07;margin-bottom:22px"></div>
-<h2 style="margin:0 0 14px;font:700 30px/1.16 'Inter Tight',sans-serif;letter-spacing:-.015em;color:#14181D">Workstreams</h2>
-<p style="margin:0 0 30px;font:400 16px/1.62 Inter,sans-serif;color:#5A6472;max-width:700px">Four packages across four years. The gold band marks where the project is now.</p>
-<div style="display:flex;flex-direction:column;gap:20px;margin-bottom:30px">
-<sc-for list="{{ workstreams }}" as="w" hint-placeholder-count="4">
-<div>
-<div style="display:flex;align-items:baseline;justify-content:space-between;gap:20px;margin-bottom:10px">
-<div style="display:flex;align-items:baseline;gap:12px">
-<span style="font:500 11.5px 'IBM Plex Mono',monospace;color:#004B8C">{{ w.code }}</span>
-<span style="font:600 16px/1.35 'Inter Tight',sans-serif;color:#14181D">{{ w.title }}</span>
-</div>
-<span style="flex:none;font:500 11.5px 'IBM Plex Mono',monospace;color:#5A6472">{{ w.lead }}</span>
-</div>
-<div style="position:relative;height:26px;background:#F1F3F5;border-radius:4px">
-<div style="position:absolute;top:0;bottom:0;background:#4A8CC4;border-radius:4px;left:{{ w.left }}%;width:{{ w.width }}%"></div>
-<div style="position:absolute;top:-4px;bottom:-4px;left:68%;width:2px;background:#E38C07"></div>
-</div>
-<div style="margin-top:8px;font:400 13.5px/1.55 Inter,sans-serif;color:#5A6472">{{ w.body }}</div>
-</div>
-</sc-for>
-</div>
-<div style="display:flex;align-items:center;justify-content:space-between;padding-top:18px;border-top:1px solid #E8ECF1;font:500 10.5px 'IBM Plex Mono',monospace;letter-spacing:.09em;color:#5A6472">
-<span>2023</span><span>2024</span><span>2025</span><span>2026</span><span>2027</span>
-</div>
-</div>
-
-<div style="background:#FFFFFF;border:1px solid #D8DEE5;border-radius:8px;padding:40px 44px 44px">
-<div style="width:44px;height:3px;background:#E38C07;margin-bottom:22px"></div>
 <h2 style="margin:0 0 14px;font:700 30px/1.16 'Inter Tight',sans-serif;letter-spacing:-.015em;color:#14181D">Outputs so far</h2>
 <p style="margin:0 0 28px;font:400 16px/1.62 Inter,sans-serif;color:#5A6472;max-width:700px">Everything the project has produced that someone outside it can use.</p>
 <div style="display:grid;grid-template-columns:1fr 1fr;gap:1px;background:#E8ECF1;border:1px solid #E8ECF1;border-radius:7px;overflow:hidden">
@@ -179,18 +152,6 @@ a{color:#004B8C;text-decoration:none}a:hover{color:#00335F}
 
 <div style="position:sticky;top:24px;display:flex;flex-direction:column;gap:20px">
 
-<div style="background:#FFFFFF;border:1px solid #D8DEE5;border-radius:8px;padding:26px 28px 28px">
-<div style="font:500 10px 'IBM Plex Mono',monospace;letter-spacing:.14em;color:#5A6472;margin-bottom:20px">PROJECT TEAM</div>
-<div style="display:flex;flex-direction:column;gap:1px;background:#E8ECF1;border-radius:6px;overflow:hidden">
-<sc-for list="{{ team }}" as="t" hint-placeholder-count="6">
-<a href="CERDAS Researcher Profile.dc.html" style="background:#FFFFFF;padding:14px 16px;display:block" style-hover="background:#FAFAF8">
-<div style="font:500 14px/1.35 Inter,sans-serif;color:#14181D;margin-bottom:4px">{{ t.name }}</div>
-<div style="font:400 11.5px Inter,sans-serif;color:#5A6472">{{ t.role }}</div>
-</a>
-</sc-for>
-</div>
-<div style="margin-top:18px;padding-top:16px;border-top:1px solid #E8ECF1;font:400 13px/1.55 Inter,sans-serif;color:#5A6472">Plus four postgraduate researchers and one research officer.</div>
-</div>
 
 <div style="background:#FFFFFF;border:1px solid #D8DEE5;border-radius:8px;padding:26px 28px 28px">
 <div style="font:500 10px 'IBM Plex Mono',monospace;letter-spacing:.14em;color:#5A6472;margin-bottom:20px">FUNDING</div>
@@ -232,7 +193,7 @@ a{color:#004B8C;text-decoration:none}a:hover{color:#00335F}
 <div style="font:500 10px 'IBM Plex Mono',monospace;letter-spacing:.14em;color:#5A6472;margin-bottom:18px">FACILITIES USED</div>
 <div style="display:flex;flex-direction:column;gap:12px">
 <a href="CERDAS Facility Detail.dc.html" style="font:500 14px Inter,sans-serif;color:#004B8C">PETRA-1 HPC cluster →</a>
-<a href="CERDAS Laboratories.dc.html" style="font:500 14px Inter,sans-serif;color:#004B8C">Applied Machine Learning Lab →</a>
+<a href="CERDAS Facilities.dc.html" style="font:500 14px Inter,sans-serif;color:#004B8C">Applied Machine Learning Lab →</a>
 </div>
 </div>
 
@@ -273,7 +234,6 @@ a{color:#004B8C;text-decoration:none}a:hover{color:#00335F}
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1440}}">
 const GLANCE = [
-  { label: 'PRINCIPAL INVESTIGATOR', value: 'Assoc. Prof. Ts. Dr. Hitham Seddig Alhassan Alhussian' },
   { label: 'THEME', value: 'Data Science & Analytics' },
   { label: 'INDUSTRY PARTNER', value: 'Tenaga Nusantara' },
   { label: 'FUNDING', value: 'Industry + FRGS' },
@@ -287,21 +247,12 @@ const OBJECTIVES = [
   { n: '04', title: 'Predict incipient faults 48 hours ahead', test: 'The hard one. Current precision is not yet good enough to justify a dispatch; work continues through 2027.', met: false }
 ];
 
-const WORKSTREAMS = [
-  { code: 'WP1', title: 'Data reconstruction and labelling', lead: 'H. DAUD', left: 0, width: 30,
-    body: 'Nine years of fault records reconciled against topology and weather, with mislabelled causes corrected by hand where possible.' },
-  { code: 'WP2', title: 'Sparse graph learning', lead: 'N. I. KAMAL', left: 18, width: 42,
-    body: 'The core method: learning fault propagation structure from partially observed feeders.' },
-  { code: 'WP3', title: 'Explanation layer and control room trial', lead: 'K. DEVARAJ', left: 45, width: 30,
-    body: 'What the engineer sees, tested with the people who see it. Produced the CHI paper and reshaped the interface twice.' },
-  { code: 'WP4', title: 'Incipient fault prediction', lead: 'N. I. KAMAL', left: 62, width: 38,
-    body: 'Moving from locating a fault that has happened to anticipating one that has not. Ongoing.' }
-];
+// Sample entries removed (each named a person).
+const WORKSTREAMS = [];
 
 const OUTPUTS = [
   { kind: 'PUBLICATION · Q1', title: 'Sparse graph learning for fault localisation in medium-voltage distribution networks', note: 'IEEE Transactions on Smart Grid, 2024 · 41 citations', href: 'CERDAS Publications.dc.html' },
   { kind: 'PUBLICATION · CONFERENCE', title: 'What the control room actually needs: an audit of explanation formats', note: 'ACM CHI, 2024 · 14 citations', href: 'CERDAS Publications.dc.html' },
-  { kind: 'PATENT · GRANTED', title: 'Graph-based fault localisation apparatus for distribution networks', note: 'MY-196072, granted · available to license', href: 'CERDAS Patents.dc.html' },
   { kind: 'SOFTWARE', title: 'gridloc v1.6.0', note: 'MIT licence · 8.6k downloads · SCADA import adapters', href: 'CERDAS Software.dc.html' },
   { kind: 'DATASET · ON REQUEST', title: 'Medium-voltage distribution network fault archive', note: 'Nine years of records · CC BY-NC 4.0', href: 'CERDAS Datasets.dc.html' },
   { kind: 'PEOPLE', title: 'Two doctorates awarded, four candidates in progress', note: 'Both graduates now in research posts', href: 'CERDAS People.dc.html' }
@@ -313,14 +264,8 @@ const IMPACT = [
   { value: 'RM 0.6M', label: 'licence fee to date, plus royalty on measured savings' }
 ];
 
-const TEAM = [
-  { name: 'Assoc. Prof. Ts. Dr. Hitham Seddig Alhassan Alhussian', role: 'Principal investigator · Group Head T1' },
-  { name: 'Assoc. Prof. Ts. Dr. Hanita Daud', role: 'Co-investigator · WP1 lead' },
-  { name: 'Dr. Aliza Sarlan', role: 'Co-investigator · WP3 lead' },
-  { name: 'Assoc. Prof. Ts. Dr. Said Jadid Abdulkadir', role: 'Co-investigator · forecasting' },
-  { name: 'Dr. Emelia Akashah Patah Akhir', role: 'IP and licensing' },
-  { name: 'Amirul Hakim bin Roslan', role: 'Doctoral researcher · explanation layer' }
-];
+// Sample entries removed (each named a person).
+const TEAM = [];
 
 const FUNDING = [
   { source: 'Tenaga Nusantara', value: 'RM 1.45M', pct: 60 },

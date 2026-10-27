@@ -18,7 +18,7 @@ a{color:#004B8C;text-decoration:none}a:hover{color:#00335F}
 
 <dc-import name="SiteHeader" active="Impact" hint-size="100%,78px"></dc-import>
 
-<section style="background:#00335F;padding:52px 0 56px">
+<section style="min-height:500px;box-sizing:border-box;background:#00335F;padding:52px 0 56px">
 <div style="width:1320px;margin:0 auto">
 <div style="font:500 11px 'IBM Plex Mono',monospace;letter-spacing:.13em;color:#7FAED9;margin-bottom:32px"><a href="CERDAS Home.dc.html" style="color:#7FAED9">HOME</a> <span style="color:#E38C07">/</span> <a href="CERDAS Industry.dc.html" style="color:#7FAED9">IMPACT</a> <span style="color:#E38C07">/</span> <a href="CERDAS News and Events.dc.html" style="color:#7FAED9">NEWS &amp; EVENTS</a> <span style="color:#E38C07">/</span> ARTICLE</div>
 <div style="max-width:860px">
@@ -128,6 +128,7 @@ a{color:#004B8C;text-decoration:none}a:hover{color:#00335F}
 </div>
 </section>
 
+<sc-if value="{{ hasRelated }}" hint-placeholder-val="{{ false }}">
 <section style="background:#FAFAF8;padding:64px 0 80px;border-top:1px solid #D8DEE5">
 <div style="width:1320px;margin:0 auto">
 <div style="width:44px;height:3px;background:#E38C07;margin-bottom:22px"></div>
@@ -149,6 +150,7 @@ a{color:#004B8C;text-decoration:none}a:hover{color:#00335F}
 </div>
 </div>
 </section>
+</sc-if>
 
 <dc-import name="SiteFooter" hint-size="100%,340px"></dc-import>
 
@@ -164,7 +166,6 @@ const BODY = [
   { t: 'h', text: 'The data arrangement took longest' },
   { t: 'p', text: 'The technical scope was agreed within six weeks. The data arrangement took five months, and it is the part the centre considers most important.' },
   { t: 'p', text: 'Selat Energy holds roughly a decade of operational records — fault logs, SCADA telemetry, restoration times and asset histories. None of it could be shared under the terms of the operator\u2019s existing agreements, and a straightforward transfer was never going to be acceptable. The solution runs the analysis inside the governed partition of the centre\u2019s cluster, with the operator retaining control over what leaves it.' },
-  { t: 'q', text: 'We did not want a project where the interesting result is locked behind a clause nobody can point at. It took five months, and now both sides know exactly what can be published and when.', attribution: 'Assoc. Prof. Ts. Dr. Hitham Seddig Alhassan Alhussian · Group Head, Data Science & Analytics' },
   { t: 'p', text: 'Publication terms were settled at the same time: a six-month embargo on results that touch operational detail, no embargo on methodological work, and a named reviewer on the operator\u2019s side who has ten working days to raise an objection. The centre does not agree to permanent suppression, and said so early.' },
 
   { t: 'h', text: 'Building on a measured result' },
@@ -175,7 +176,6 @@ const BODY = [
     { value: '9 years', label: 'of operational records now accessible under the new agreement' }
   ] },
   { t: 'p', text: 'What made the difference commercially was not the accuracy figure but the explanation layer — a control room engineer can see why the system has pointed at a particular section, and disagree with it. An earlier version without that layer tested well and was not used.' },
-  { t: 'q', text: 'A prediction our engineers cannot interrogate at three in the morning is a prediction they will ignore. That was the thing CERDAS understood that others did not.', attribution: 'Ir. Faizal Ramli · Head of Network Operations, Selat Energy Berhad' },
 
   { t: 'h', text: 'What happens next' },
   { t: 'p', text: 'Work begins in October 2026. The first six months are given over to data reconstruction, which is unglamorous and always takes longer than anyone plans for — the fault records carry mislabelled causes and missing restoration times that have to be reconciled by hand before any model sees them.' },
@@ -185,17 +185,13 @@ const BODY = [
 
 const MENTIONED = [
   { kind: 'PROJECT', label: 'SENTINEL-GRID', href: 'CERDAS Project Detail.dc.html' },
-  { kind: 'RESEARCHER', label: 'Assoc. Prof. Ts. Dr. Hitham Seddig Alhassan Alhussian', href: 'CERDAS Researcher Profile.dc.html' },
   { kind: 'RESEARCH GROUP', label: 'RG01 · Data Science & Analytics', href: 'CERDAS Theme.dc.html' },
   { kind: 'FACILITY', label: 'PETRA-1 governed partition', href: 'CERDAS Facility Detail.dc.html' },
   { kind: 'OPPORTUNITY', label: 'Two funded PhD places, closing 31 Oct', href: 'CERDAS Join.dc.html' }
 ];
 
-const RELATED = [
-  { type: 'INNOVATION', date: '05 AUG 2026', title: 'Two patents granted for an adaptive sensor-fusion method', body: 'Granted in Malaysia and Singapore. The method is available to license and already deployed on two operator fields.' },
-  { type: 'IMPACT', date: '12 JUN 2026', title: 'Water demand forecasting cuts error to 6% for a state operator', body: 'A sixteen-week consultancy engagement, validated on the operator\u2019s own holdout period.' },
-  { type: 'PEOPLE', date: '18 JUL 2026', title: 'Twelve postgraduate researchers complete in the first half of 2026', body: 'Seven doctorates and five research masters. Four have moved into industry roles with centre partners.' }
-];
+// Sample related stories removed (patent and people figures not supported by the Excel).
+const RELATED = [];
 
 class Component extends DCLogic {
   renderVals() {
@@ -204,7 +200,7 @@ class Component extends DCLogic {
         text: b.text, attribution: b.attribution ?? '', label: b.label ?? '', figures: b.figures ?? [],
         isPara: b.t === 'p', isHead: b.t === 'h', isQuote: b.t === 'q', isPull: b.t === 'pull'
       })),
-      mentioned: MENTIONED, related: RELATED
+      mentioned: MENTIONED, related: RELATED, hasRelated: RELATED.length > 0
     };
   }
 }

@@ -15,22 +15,12 @@ a{color:#004B8C;text-decoration:none}a:hover{color:#00335F}
 
 <div data-screen-label="D1 Publications" style="width:1440px;margin:0 auto;background:#FFFFFF">
 
-<dc-import name="SiteHeader" active="Publications &amp; Innovation" hint-size="100%,78px"></dc-import>
-
-<section style="background:#00335F;padding:56px 0 66px;position:relative;overflow:hidden">
-<svg viewBox="0 0 1440 400" preserveAspectRatio="none" style="position:absolute;inset:0;width:100%;height:100%;opacity:.2" aria-hidden="true">
-<g fill="#7FAED9">
-<rect x="1030" y="60" width="340" height="10" rx="2"></rect><rect x="1030" y="86" width="240" height="10" rx="2"></rect>
-<rect x="1030" y="140" width="300" height="10" rx="2"></rect><rect x="1030" y="166" width="200" height="10" rx="2"></rect>
-<rect x="1030" y="220" width="330" height="10" rx="2"></rect><rect x="1030" y="246" width="260" height="10" rx="2"></rect>
-<rect x="1030" y="300" width="280" height="10" rx="2"></rect><rect x="1030" y="326" width="180" height="10" rx="2"></rect>
-</g>
-<g fill="#E38C07"><rect x="1000" y="60" width="14" height="10" rx="2"></rect><rect x="1000" y="140" width="14" height="10" rx="2"></rect><rect x="1000" y="220" width="14" height="10" rx="2"></rect><rect x="1000" y="300" width="14" height="10" rx="2"></rect></g>
-</svg>
-<div style="width:1320px;margin:0 auto;position:relative">
-<div style="font:500 11px 'IBM Plex Mono',monospace;letter-spacing:.13em;color:#7FAED9;margin-bottom:28px"><a href="CERDAS Home.dc.html" style="color:#7FAED9">HOME</a> <span style="color:#E38C07">/</span> <a href="#" style="color:#7FAED9">PUBLICATIONS &amp; INNOVATION</a> <span style="color:#E38C07">/</span> PUBLICATIONS</div>
+<section style="position:relative;overflow:hidden;height:500px;box-sizing:border-box;padding:0;background-color:#0E1A26;background-image:linear-gradient(180deg,rgba(8,12,18,.94) 0%,rgba(8,12,18,.78) 12%,rgba(8,12,18,.42) 30%,rgba(8,12,18,0) 46%),linear-gradient(90deg,rgba(8,14,22,.8) 0%,rgba(8,14,22,.55) 55%,rgba(8,14,22,.35) 100%),url('assets/hero-publications.jpg');background-size:cover;background-position:center">
+<dc-import name="SiteHeader" active="Publications &amp; Innovation" overlay="{{ true }}" hint-size="100%,96px"></dc-import>
+<div style="width:1320px;margin:0 auto;position:relative;padding-top:56px">
+<div style="font:500 11px 'IBM Plex Mono',monospace;letter-spacing:.13em;color:#E6EEF5;margin-bottom:28px"><a href="CERDAS Home.dc.html" style="color:#E6EEF5">HOME</a> <span style="color:#E38C07">/</span> <a href="#" style="color:#E6EEF5">PUBLICATIONS &amp; INNOVATION</a> <span style="color:#E38C07">/</span> PUBLICATIONS</div>
 <h1 style="margin:0 0 22px;font:700 52px/1.07 'Inter Tight',sans-serif;letter-spacing:-.02em;color:#FFFFFF;max-width:840px;text-wrap:pretty">Publications</h1>
-<p style="margin:0;font:400 18.5px/1.62 Inter,sans-serif;color:#BFD2E4;max-width:720px;text-wrap:pretty">Every indexed output from the centre, with its venue, quartile and citation count stated. Filter by year, type, theme or quartile — or export the whole list.</p>
+<p style="margin:0;font:400 18.5px/1.62 Inter,sans-serif;color:#FFFFFF;max-width:720px;text-wrap:pretty">Every indexed output from the centre, with its venue, quartile and citation count stated. Filter by year, type, theme or quartile — or export the whole list.</p>
 </div>
 </section>
 
@@ -141,15 +131,22 @@ a{color:#004B8C;text-decoration:none}a:hover{color:#00335F}
 
 <sc-if value="{{ empty }}" hint-placeholder-val="{{ false }}">
 <div style="padding:56px 0;text-align:center">
+<sc-if value="{{ hasRecords }}" hint-placeholder-val="{{ true }}">
 <div style="font:600 19px 'Inter Tight',sans-serif;color:#14181D;margin-bottom:10px">No publications match those filters</div>
 <div style="font:400 14.5px Inter,sans-serif;color:#5A6472">Widen the year or quartile selection, or reset the filters.</div>
+</sc-if>
+<sc-if value="{{ noRecords }}" hint-placeholder-val="{{ false }}">
+<div style="font:600 19px 'Inter Tight',sans-serif;color:#14181D">No publications listed</div>
+</sc-if>
 </div>
 </sc-if>
 
+<sc-if value="{{ hasRecords }}" hint-placeholder-val="{{ true }}">
 <div style="margin-top:34px;display:flex;align-items:center;justify-content:space-between;gap:24px">
 <div style="font:500 12px 'IBM Plex Mono',monospace;letter-spacing:.08em;color:#5A6472">{{ pageLine }}</div>
 <a href="#" style="font:600 14px Inter,sans-serif;color:#004B8C;border:1px solid #C3D4E4;border-radius:6px;padding:13px 22px" style-hover="background:#E6EEF5">Load the next 20 →</a>
 </div>
+</sc-if>
 </div>
 
 <div style="display:flex;flex-direction:column;gap:24px">
@@ -222,7 +219,7 @@ a{color:#004B8C;text-decoration:none}a:hover{color:#00335F}
 <div style="width:34px;height:3px;background:#E38C07;margin-bottom:18px"></div>
 <h3 style="margin:0 0 20px;font:600 19px/1.25 'Inter Tight',sans-serif;color:#14181D">Also in this section</h3>
 <div style="display:flex;flex-direction:column;gap:12px">
-<a href="CERDAS Patents.dc.html" style="font:500 14px Inter,sans-serif;color:#004B8C">Patents →</a>
+<a href="CERDAS Inventions and Products.dc.html" style="font:500 14px Inter,sans-serif;color:#004B8C">Inventions &amp; Products →</a>
 <a href="CERDAS Software.dc.html" style="font:500 14px Inter,sans-serif;color:#004B8C">Software →</a>
 <a href="CERDAS Datasets.dc.html" style="font:500 14px Inter,sans-serif;color:#004B8C">Datasets →</a>
 <a href="CERDAS Technology Transfer.dc.html" style="font:500 14px Inter,sans-serif;color:#004B8C">Technology transfer →</a>
@@ -247,48 +244,8 @@ const T = {
   t4: 'T4 NEXT-GENERATION COMPUTING'
 };
 
-const PUBS = [
-  { year: '2026', type: 'Journal', quartile: 'Q1', theme: 't3', citations: '14', openAccess: true,
-    title: 'Federated anomaly detection for distributed pipeline monitoring under intermittent connectivity',
-    authors: [{ name: 'Iskandar, S.', bold: true }, { name: 'Rahim, A. N.', bold: true }, { name: 'Verma, P.' }],
-    venue: 'IEEE Transactions on Industrial Informatics', volume: 'vol. 22(4)' },
-  { year: '2026', type: 'Journal', quartile: 'Q1', theme: 't2', citations: '9', openAccess: false,
-    title: 'A physics-informed surrogate model for multiphase flow assurance in subsea gathering networks',
-    authors: [{ name: 'Tengku Zainal, M. F.', bold: true }, { name: 'Ooi, L. W.', bold: true }, { name: 'Haryono, D.' }],
-    venue: 'Computers & Chemical Engineering', volume: 'vol. 191' },
-  { year: '2025', type: 'Journal', quartile: 'Q1', theme: 't3', citations: '27', openAccess: false,
-    title: 'Edge-scheduled inference for real-time structural health monitoring on constrained hardware',
-    authors: [{ name: 'Devaraj, K.' }, { name: 'Noor Azmi, S.', bold: true }, { name: 'Whitfield, J. R.' }],
-    venue: 'ACM Transactions on Cyber-Physical Systems', volume: 'vol. 9(3)' },
-  { year: '2025', type: 'Journal', quartile: 'Q1', theme: 't1', citations: '18', openAccess: true,
-    title: 'Uncertainty-aware demand forecasting for regional water distribution under drought stress',
-    authors: [{ name: 'Zainuddin, A.', bold: true }, { name: 'Hamzah, N.', bold: true }, { name: 'Perera, S.' }],
-    venue: 'Water Resources Research', volume: 'vol. 61(8)' },
-  { year: '2025', type: 'Conference', quartile: '', theme: 't4', citations: '11', openAccess: false,
-    title: 'Quantum-assisted heuristics for unit commitment in constrained power systems',
-    authors: [{ name: 'Lim, W. S.', bold: true }, { name: 'Tan, C. M.', bold: true }, { name: 'Okafor, E.' }],
-    venue: 'Proc. IEEE Int. Conf. on Quantum Computing & Engineering', volume: 'pp. 412–423' },
-  { year: '2025', type: 'Journal', quartile: 'Q2', theme: 't3', citations: '22', openAccess: true,
-    title: 'A benchmark suite for anomaly detection on industrial telemetry with labelled fault injection',
-    authors: [{ name: 'Bakri, A.', bold: true }, { name: 'Zulkifli, I.', bold: true }, { name: 'Ramachandran, T.' }],
-    venue: 'Journal of Systems and Software', volume: 'vol. 219' },
-  { year: '2024', type: 'Journal', quartile: 'Q1', theme: 't1', citations: '41', openAccess: false,
-    title: 'Sparse graph learning for fault localisation in medium-voltage distribution networks',
-    authors: [{ name: 'Kamal, N. I.', bold: true }, { name: 'Daud, H.', bold: true }, { name: 'Nwosu, C.' }],
-    venue: 'IEEE Transactions on Smart Grid', volume: 'vol. 15(6)' },
-  { year: '2024', type: 'Journal', quartile: 'Q1', theme: 't2', citations: '33', openAccess: false,
-    title: 'Scalable domain decomposition for reservoir-scale reactive transport on GPU clusters',
-    authors: [{ name: 'Amri, K.', bold: true }, { name: 'Suresh, R.', bold: true }, { name: 'Bianchi, L.' }],
-    venue: 'SIAM Journal on Scientific Computing', volume: 'vol. 46(3)' },
-  { year: '2024', type: 'Book chapter', quartile: '', theme: 't1', citations: '16', openAccess: false,
-    title: 'Governing industrial data sharing: consent, provenance and the limits of anonymisation',
-    authors: [{ name: 'Sulaiman, F.', bold: true }, { name: 'Idris, W. S.', bold: true }],
-    venue: 'in Data Governance for Industrial AI, Springer', volume: 'pp. 145–172' },
-  { year: '2023', type: 'Journal', quartile: 'Q2', theme: 't3', citations: '58', openAccess: true,
-    title: 'Latency-bounded model updates for federated learning over cellular backhaul',
-    authors: [{ name: 'Noor Azmi, S.', bold: true }, { name: 'Bakri, A.', bold: true }],
-    venue: 'Future Generation Computer Systems', volume: 'vol. 148' }
-];
+// Sample records removed (each showed author names).
+const PUBS = [];
 
 const SERIES = [[26, 20, 15, 7], [30, 21, 15, 8], [39, 27, 18, 9], [35, 24, 14, 8], [44, 27, 16, 9], [28, 17, 9, 4]];
 const YEARS = ['2021', '2022', '2023', '2024', '2025', '2026 H1'];
@@ -349,7 +306,7 @@ class Component extends DCLogic {
         venue: p.venue, volume: p.volume, citations: p.citations, doi: 'DOI',
         themeLabel: T[p.theme], openAccess: p.openAccess
       })),
-      empty: list.length === 0,
+      empty: list.length === 0, hasRecords: PUBS.length > 0, noRecords: PUBS.length === 0,
       pageLine: 'SHOWING 1–' + list.length + ' · SORTED BY YEAR, THEN CITATIONS',
       ticks: [0, 50, 100].map(v => { const y = BOT - (v / 100) * HH; return { y, ty: y + 3.5, label: String(v) }; }),
       bars, vals,

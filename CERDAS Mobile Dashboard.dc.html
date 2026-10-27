@@ -95,6 +95,7 @@ a{color:#004B8C;text-decoration:none}a:hover{color:#00335F}
 </div>
 <div style="font:600 14.5px/1.24 'Inter Tight',sans-serif;color:#14181D;margin-bottom:12px;text-wrap:pretty">{{ t.area }}</div>
 <div style="font:600 25px/1 'IBM Plex Mono',monospace;color:#004B8C;letter-spacing:-.03em;margin-top:auto">{{ t.value }}</div>
+<sc-if value="{{ t.hasTarget }}" hint-placeholder-val="{{ true }}">
 <div style="width:100%;margin-top:12px">
 <div style="position:relative;height:4px;background:#E8ECF1;border-radius:2px">
 <div style="position:absolute;left:0;top:0;bottom:0;background:#1A6BAE;border-radius:2px;width:{{ t.railPct }}%"></div>
@@ -104,6 +105,7 @@ a{color:#004B8C;text-decoration:none}a:hover{color:#00335F}
 <span style="white-space:nowrap">{{ t.targetShort }}</span><span style="white-space:nowrap;color:#8A94A2">{{ t.attain }}</span>
 </div>
 </div>
+</sc-if>
 </button>
 </sc-if>
 
@@ -120,6 +122,7 @@ a{color:#004B8C;text-decoration:none}a:hover{color:#00335F}
 </div>
 <div style="font:400 13px/1.45 Inter,sans-serif;color:#5A6472;margin-bottom:14px">{{ t.metric }}</div>
 <div style="font:600 34px/1 'IBM Plex Mono',monospace;color:#004B8C;letter-spacing:-.03em">{{ t.value }}</div>
+<sc-if value="{{ t.hasTarget }}" hint-placeholder-val="{{ true }}">
 <div style="margin-top:14px">
 <div style="position:relative;height:5px;background:#E8ECF1;border-radius:3px">
 <div style="position:absolute;left:0;top:0;bottom:0;background:#1A6BAE;border-radius:3px;width:{{ t.railPct }}%"></div>
@@ -129,6 +132,8 @@ a{color:#004B8C;text-decoration:none}a:hover{color:#00335F}
 <span style="white-space:nowrap">TARGET {{ t.target }}</span><span style="white-space:nowrap">{{ t.attain }} OF TARGET</span>
 </div>
 </div>
+</sc-if>
+<sc-if value="{{ t.hasSubs }}" hint-placeholder-val="{{ true }}">
 <div style="margin-top:18px;padding-top:16px;border-top:1px solid #E8ECF1;display:grid;grid-template-columns:1fr 1fr;gap:16px">
 <div>
 <div style="font:400 11.5px/1.35 Inter,sans-serif;color:#5A6472;margin-bottom:6px">{{ t.sub1Label }}</div>
@@ -139,6 +144,7 @@ a{color:#004B8C;text-decoration:none}a:hover{color:#00335F}
 <div style="font:500 14.5px 'IBM Plex Mono',monospace;color:#14181D">{{ t.sub2Val }}</div>
 </div>
 </div>
+</sc-if>
 <div style="margin-top:16px;padding-top:14px;border-top:1px solid #E8ECF1;display:flex;flex-direction:column;gap:12px">
 <div>
 <div style="font:500 9.5px 'IBM Plex Mono',monospace;letter-spacing:.14em;color:#5A6472;margin-bottom:5px">OWNER</div>
@@ -291,24 +297,15 @@ const TILES = [
         [23, 22, ['PhD / MSc', '14 / 9'], ['Currently enrolled', '58']],
         [19, 20, ['PhD / MSc', '12 / 7'], ['Currently enrolled', '51']],
         [88, 85, ['PhD / MSc', '53 / 35'], ['Currently enrolled', '60']]] },
-  { code: 'KPI-04', area: 'IP, Patents & PoCs', metric: 'IP filings made in the period', fmt: 'int',
-    owner: 'Inventor teams', arm: 'Innovation & Commercialisation Unit',
-    d: [[5, 4, ['Granted, cumulative', '9'], ['Proof-of-concepts', '3']],
-        [6, 6, ['Granted, cumulative', '7'], ['Proof-of-concepts', '4']],
-        [5, 5, ['Granted, cumulative', '4'], ['Proof-of-concepts', '3']],
-        [19, 18, ['Granted, cumulative', '7'], ['Proof-of-concepts', '12']]] },
   { code: 'KPI-05', area: 'Technology Translation', metric: 'Technologies advanced to TRL 6 or above', fmt: 'int',
     owner: 'Project leads, TRL 6+', arm: 'Innovation & Commercialisation Unit',
     d: [[2, 3, ['Licences signed', '1'], ['Licensing income', 'RM 0.5M']],
         [5, 5, ['Licences signed', '2'], ['Licensing income', 'RM 0.9M']],
         [3, 4, ['Licences signed', '1'], ['Licensing income', 'RM 0.4M']],
         [14, 15, ['Licences signed', '6'], ['Licensing income', 'RM 2.8M']]] },
-  { code: 'KPI-06', area: 'Industry & Consultancy', metric: 'Contract research & consultancy value', fmt: 'money',
+  { code: 'KPI-06', area: 'Industry & Consultancy', metric: 'Consultancy value approved (by start year)', fmt: 'money', noTarget: true,
     owner: 'Group Heads', arm: 'Industry & Partnership Office',
-    d: [[1.4, 1.8, ['Active industry projects', '14'], ['Partner organisations', '31']],
-        [3.2, 3.0, ['Active industry projects', '14'], ['Partner organisations', '31']],
-        [2.4, 2.6, ['Active industry projects', '11'], ['Partner organisations', '26']],
-        [11.6, 12.0, ['Active industry projects', '14'], ['Partner organisations', '31']]] },
+    d: [[null], [1.7], [5.4], [14.1]] },
   { code: 'KPI-07', area: 'International Collaboration', metric: 'Publications with an international co-author', fmt: 'pct',
     owner: 'Group Heads', arm: 'International Relations Office',
     d: [[36, 32, ['Active MoUs', '9'], ['Visiting researchers', '4']],
@@ -387,9 +384,18 @@ class Component extends DCLogic {
 
     const tiles = TILES.map(t => {
       const row = t.d[pIdx];
-      const v = row[0], tgt = row[1], st = statusOf(v, tgt, t.fmt);
       const isOpen = open === t.code;
+      if (t.noTarget) return {
+        code: t.code, area: t.area, metric: t.metric, owner: t.owner, arm: t.arm,
+        value: row[0] == null ? '—' : fmtV(row[0], t.fmt), target: '', targetShort: '', delta: '', attain: '', railPct: '0',
+        above: false, on: false, below: false, assessed: false, hasTarget: false, hasSubs: false,
+        sub1Label: '', sub1Val: '', sub2Label: '', sub2Val: '',
+        expanded: isOpen, collapsed: !isOpen,
+        toggle: () => this.setState({ open: isOpen ? '' : t.code })
+      };
+      const v = row[0], tgt = row[1], st = statusOf(v, tgt, t.fmt);
       return {
+        assessed: true, hasTarget: true, hasSubs: true,
         code: t.code, area: t.area, metric: t.metric, owner: t.owner, arm: t.arm,
         value: fmtV(v, t.fmt), target: fmtV(tgt, t.fmt),
         targetShort: 'T ' + fmtV(tgt, t.fmt),
@@ -412,8 +418,8 @@ class Component extends DCLogic {
         pick: () => this.setState({ period: p.id })
       })),
       periodLabel: P.label, periodRange: P.range, provisionalNote: P.prov,
-      nOnOrAbove: tiles.filter(t => !t.below).length,
-      nBelow: tiles.filter(t => t.below).length,
+      nOnOrAbove: tiles.filter(t => t.assessed && !t.below).length,
+      nBelow: tiles.filter(t => t.assessed && t.below).length,
       tiles,
       charts: [
         { code: 'CHART 01', title: 'Publications by year', sub: 'Indexed output split by journal quartile.',
@@ -430,12 +436,7 @@ class Component extends DCLogic {
           legend: [['PhD', '#004B8C'], ['MSc', '#7FAED9']].map(([label, color]) => ({ label, color })),
           hasTarget: true, targetLabel: 'Target 22 / yr', targetPct: (22 / 24 * 100).toFixed(1),
           rows: rows(PG, 24, ['#004B8C', '#7FAED9'], sel, v => String(sum(v))),
-          note: '2026 IS HALF-YEAR TO 30 JUN · 88 COMPLETIONS 2021–2025 · 60 CURRENTLY ENROLLED' },
-        { code: 'CHART 04', title: 'IP filings', sub: 'Bar is filings made in the year. Figure reads filed / granted.',
-          legend: [['Filed', '#4A8CC4']].map(([label, color]) => ({ label, color })),
-          hasTarget: true, targetLabel: 'Target 6 / yr', targetPct: (6 / 8 * 100).toFixed(1),
-          rows: rows(IPF.map(p => [p[0]]), 8, ['#4A8CC4'], sel, (v, i) => IPF[i][0] + '/' + IPF[i][1]),
-          note: '2026 IS HALF-YEAR TO 30 JUN · 19 FILED 2021–2025 · 7 GRANTED · 12 PROOF-OF-CONCEPTS' }
+          note: '2026 IS HALF-YEAR TO 30 JUN · 88 COMPLETIONS 2021–2025 · 60 CURRENTLY ENROLLED' }
       ],
       stages: STAGES.map(([n, title, who, body], i) => ({ n, title, who, body, rail: i < STAGES.length - 1 })),
       accountability: ACC.map(([label, title, body]) => ({ label, title, body }))

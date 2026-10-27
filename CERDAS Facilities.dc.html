@@ -15,28 +15,18 @@ a{color:#004B8C;text-decoration:none}a:hover{color:#00335F}
 
 <div data-screen-label="B8 Facilities" style="width:1440px;margin:0 auto;background:#FFFFFF">
 
-<dc-import name="SiteHeader" active="Research" hint-size="100%,78px"></dc-import>
-
-<section style="background:#00335F;padding:56px 0 72px;position:relative;overflow:hidden">
-<svg viewBox="0 0 1440 400" preserveAspectRatio="none" style="position:absolute;inset:0;width:100%;height:100%;opacity:.26" aria-hidden="true">
-<g stroke="#7FAED9" stroke-width="1" fill="none">
-<polyline points="1010,60 1100,150 1030,300 1180,370"></polyline>
-<polyline points="1180,370 1320,300 1260,140 1390,70"></polyline>
-</g>
-<g fill="#7FAED9">
-<circle cx="1010" cy="60" r="4"></circle><circle cx="1100" cy="150" r="5"></circle><circle cx="1030" cy="300" r="3"></circle><circle cx="1180" cy="370" r="4"></circle><circle cx="1320" cy="300" r="4"></circle><circle cx="1260" cy="140" r="3"></circle><circle cx="1390" cy="70" r="4"></circle>
-</g>
-</svg>
-<div style="width:1320px;margin:0 auto;position:relative">
-<div style="font:500 11px 'IBM Plex Mono',monospace;letter-spacing:.13em;color:#7FAED9;margin-bottom:30px"><a href="CERDAS Home.dc.html" style="color:#7FAED9">HOME</a> <span style="color:#E38C07">/</span> <a href="CERDAS Research.dc.html" style="color:#7FAED9">RESEARCH</a> <span style="color:#E38C07">/</span> FACILITIES</div>
+<section style="height:500px;padding:0;position:relative;overflow:hidden;box-sizing:border-box;background-color:#0E1A26;background-image:linear-gradient(180deg,rgba(8,12,18,.94) 0%,rgba(8,12,18,.78) 12%,rgba(8,12,18,.42) 30%,rgba(8,12,18,0) 46%),linear-gradient(90deg,rgba(8,14,22,.8) 0%,rgba(8,14,22,.55) 55%,rgba(8,14,22,.35) 100%),url('assets/hero-about.jpg');background-size:cover;background-position:center">
+<dc-import name="SiteHeader" active="About" overlay="{{ true }}" hint-size="100%,96px"></dc-import>
+<div style="width:1320px;margin:0 auto;position:relative;padding-top:56px">
+<div style="font:500 11px 'IBM Plex Mono',monospace;letter-spacing:.13em;color:#E6EEF5;margin-bottom:30px"><a href="CERDAS Home.dc.html" style="color:#E6EEF5">HOME</a> <span style="color:#E38C07">/</span> <a href="CERDAS Our Vision.dc.html" style="color:#E6EEF5">ABOUT</a> <span style="color:#E38C07">/</span> FACILITIES</div>
 <h1 style="margin:0 0 24px;font:700 54px/1.07 'Inter Tight',sans-serif;letter-spacing:-.02em;color:#FFFFFF;max-width:820px;text-wrap:pretty">Facilities</h1>
-<p style="margin:0;font:400 18.5px/1.62 Inter,sans-serif;color:#BFD2E4;max-width:700px;text-wrap:pretty">Shared compute, instrumentation, data and visualisation platforms. Unlike the laboratories, these are cross-theme resources with a published access model and a written allocation review.</p>
+<p style="margin:0;font:400 18.5px/1.62 Inter,sans-serif;color:#FFFFFF;max-width:700px;text-wrap:pretty">Shared compute, instrumentation, data and visualisation platforms. These are cross-theme resources with a published access model and a written allocation review.</p>
 </div>
 </section>
 
 <section style="background:#FFFFFF;border-bottom:1px solid #D8DEE5">
 <div style="width:1320px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr)">
-<div style="padding:40px 32px 40px 0"><dc-import name="StatCounter" count="6" suffix="" label="SHARED FACILITIES" hint-size="100%,130px"></dc-import></div>
+<div style="padding:40px 32px 40px 0"><dc-import name="StatCounter" count="8" suffix="" label="SHARED FACILITIES" hint-size="100%,130px"></dc-import></div>
 <div style="padding:40px 32px;border-left:1px solid #D8DEE5"><dc-import name="StatCounter" count="512" suffix="" label="CPU CORES ON PETRA-1" hint-size="100%,130px"></dc-import></div>
 <div style="padding:40px 32px;border-left:1px solid #D8DEE5"><dc-import name="StatCounter" count="1.2" suffix="PB" label="GOVERNED DATA STORAGE" hint-size="100%,130px"></dc-import></div>
 <div style="padding:40px 0 40px 32px;border-left:1px solid #D8DEE5"><dc-import name="StatCounter" count="14" suffix="" label="ACTIVE PARTNER AGREEMENTS" hint-size="100%,130px"></dc-import></div>
@@ -51,12 +41,12 @@ a{color:#004B8C;text-decoration:none}a:hover{color:#00335F}
 <h2 style="margin:0 0 12px;font:700 32px/1.16 'Inter Tight',sans-serif;letter-spacing:-.015em;color:#14181D">Platforms</h2>
 <p style="margin:0;font:400 16px/1.6 Inter,sans-serif;color:#5A6472;max-width:620px">Four categories — compute, instrumentation, data and visualisation. Specification and access model are stated on every entry.</p>
 </div>
-<div style="font:500 11.5px 'IBM Plex Mono',monospace;letter-spacing:.1em;color:#5A6472;white-space:nowrap;text-align:right">6 PLATFORMS<br>4 CATEGORIES</div>
+<div style="font:500 11.5px 'IBM Plex Mono',monospace;letter-spacing:.1em;color:#5A6472;white-space:nowrap;text-align:right">8 FACILITIES</div>
 </div>
 
 <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:28px">
-<sc-for list="{{ facilities }}" as="f" hint-placeholder-count="6">
-<dc-import name="FacilityCard" slot-id="{{ f.slotId }}" placeholder="Facility photo" category="{{ f.category }}" title="{{ f.title }}" code="{{ f.code }}" summary="{{ f.summary }}" specs="{{ f.specs }}" link-label="Specification →" access="{{ f.access }}" href="CERDAS Facility Detail.dc.html" hint-size="100%,560px"></dc-import>
+<sc-for list="{{ facilities }}" as="f" hint-placeholder-count="8">
+<dc-import name="FacilityCard" slot-id="{{ f.slotId }}" src="{{ f.src }}" placeholder="Facility photo" category="{{ f.category }}" title="{{ f.title }}" code="{{ f.code }}" summary="{{ f.summary }}" specs="{{ f.specs }}" link-label="Specification →" access="{{ f.access }}" href="{{ f.href }}" hint-size="100%,460px"></dc-import>
 </sc-for>
 </div>
 
@@ -100,7 +90,7 @@ a{color:#004B8C;text-decoration:none}a:hover{color:#00335F}
 </div>
 </section>
 
-<dc-import name="CTABand" heading="Request platform access" body="Send us the workload and the timeline. If we cannot fit it, we will say so and point you at a national facility that can." ctaLabel="Request access" secondaryLabel="See laboratories" href="CERDAS Laboratories.dc.html" hint-size="100%,220px"></dc-import>
+<dc-import name="CTABand" heading="Request platform access" body="Send us the workload and the timeline. If we cannot fit it, we will say so and point you at a national facility that can." ctaLabel="Request access" secondaryLabel="Contact the centre" href="CERDAS Join.dc.html#collaborate" hint-size="100%,220px"></dc-import>
 
 <dc-import name="SiteFooter" hint-size="100%,340px"></dc-import>
 
@@ -108,12 +98,14 @@ a{color:#004B8C;text-decoration:none}a:hover{color:#00335F}
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props="{&quot;animateStats&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Page structure&quot;}}">
 const FACILITIES = [
-  { slotId:'fac-1', category:'COMPUTE', title:'PETRA-1 High-Performance Cluster', code:'Shared · Block Q, Level 1', summary:'The centre cluster. Priority queues per theme, with an allocation review each semester.', access:'ALLOCATED', specs:[{label:'CORES',value:'512 CPU cores'},{label:'GPU',value:'8× A100 80GB'},{label:'STORAGE',value:'1.2 PB parallel FS'}] },
-  { slotId:'fac-2', category:'COMPUTE', title:'Quantum Simulation Sandbox', code:'Shared · Block Q, Level 4', summary:'Simulator access for variational and annealing experiments, with classical baselines run on the same queue.', access:'ALLOCATED', specs:[{label:'SCALE',value:'32-qubit simulator'},{label:'QUEUE',value:'Weekly allocation'},{label:'ROUTE',value:'Via T4 group head'}] },
-  { slotId:'fac-3', category:'INSTRUMENTATION', title:'Sensor & Telemetry Test Rig', code:'Shared · Block R, Ground', summary:'Bench for characterising sensing hardware and generating labelled fault data under controlled conditions.', access:'SUPERVISED', specs:[{label:'CHANNELS',value:'96 simultaneous'},{label:'SAMPLE RATE',value:'100 kHz per channel'},{label:'RIGS',value:'3 independent'}] },
-  { slotId:'fac-4', category:'DATA', title:'Industrial Data Vault', code:'Shared · Block N, Level 1', summary:'Governed storage for partner datasets — access logged, retention set by the signed agreement, no exceptions.', access:'PARTNERS ONLY', specs:[{label:'CAPACITY',value:'1.2 PB'},{label:'AGREEMENTS',value:'14 active'},{label:'RETENTION',value:'Per agreement'}] },
-  { slotId:'fac-5', category:'VISUALISATION', title:'Digital Twin Visualisation Suite', code:'Shared · Block P, Level 1', summary:'Twelve-panel wall for reviewing twin and simulation output with partner engineering teams in the room.', access:'BOOKABLE', specs:[{label:'CAPACITY',value:'14 seated'},{label:'DISPLAY',value:'12-panel, 4K'},{label:'BOOKING',value:'Half-day blocks'}] },
-  { slotId:'fac-6', category:'INSTRUMENTATION', title:'Edge Device Bench', code:'Shared · Block N, Level 3', summary:'Power and thermal profiling for constrained inference hardware, from development board to deployed node.', access:'BY ARRANGEMENT', specs:[{label:'BOARDS',value:'40 available'},{label:'POWER RIGS',value:'8 stations'},{label:'THERMAL',value:'1 environmental chamber'}] }
+  { slotId:'fac-1', src:'assets/facilities/dgx100-data-centre.jpg', href:'CERDAS Facility Detail.dc.html', category:'COMPUTE', title:'DGX100 @ DATA Centre', code:'Shared · Block Q, Level 1', summary:'The centre cluster. Priority queues per theme, with an allocation review each semester.', access:'ALLOCATED', specs:[{label:'CORES',value:'512 CPU cores'},{label:'GPU',value:'8× A100 80GB'},{label:'STORAGE',value:'1.2 PB parallel FS'}] },
+  { slotId:'fac-2', src:'assets/facilities/nvidia-dgx.jpg', href:'', category:'COMPUTE', title:'NVIDIA® DGX-1™ & DGX A100 Deep Learning System', code:'Shared · Block Q, Level 4', summary:'Simulator access for variational and annealing experiments, with classical baselines run on the same queue.', access:'ALLOCATED', specs:[{label:'SCALE',value:'32-qubit simulator'},{label:'QUEUE',value:'Weekly allocation'},{label:'ROUTE',value:'Via T4 group head'}] },
+  { slotId:'fac-4', src:'assets/facilities/security-analytics-lab.jpg', href:'', category:'DATA', title:'Security Analytics Lab', code:'Shared · Block N, Level 1', summary:'Governed storage for partner datasets — access logged, retention set by the signed agreement, no exceptions.', access:'PARTNERS ONLY', specs:[{label:'CAPACITY',value:'1.2 PB'},{label:'AGREEMENTS',value:'14 active'},{label:'RETENTION',value:'Per agreement'}] },
+  { slotId:'fac-5', src:'assets/facilities/avengers-room.jpg', href:'', category:'VISUALISATION', title:'CERDAS Avengers Room', code:'Shared · Block P, Level 1', summary:'Twelve-panel wall for reviewing twin and simulation output with partner engineering teams in the room.', access:'BOOKABLE', specs:[{label:'CAPACITY',value:'14 seated'},{label:'DISPLAY',value:'12-panel, 4K'},{label:'BOOKING',value:'Half-day blocks'}] },
+  { slotId:'fac-7', src:'assets/facilities/meeting-room.jpg', href:'', category:'', title:'CERDAS Meeting Room', code:'', summary:'', access:'', specs:[] },
+  { slotId:'fac-8', src:'assets/facilities/workshop-area.jpg', href:'', category:'', title:'CERDAS Workshop Area', code:'', summary:'', access:'', specs:[] },
+  { slotId:'fac-9', src:'assets/facilities/office.jpg', href:'', category:'', title:'CERDAS Office', code:'', summary:'', access:'', specs:[] },
+  { slotId:'fac-10', src:'assets/facilities/entrance.jpg', href:'', category:'', title:'CERDAS Entrance', code:'', summary:'', access:'', specs:[] }
 ];
 
 class Component extends DCLogic {

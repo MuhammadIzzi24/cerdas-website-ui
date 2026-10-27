@@ -1,0 +1,268 @@
+{
+ "source": "uploads/Cerdas_list_consultancies_categorised-73898e1f.xlsx",
+ "flagships": [
+  {
+   "no": 6,
+   "slotId": "fs-1",
+   "title": "i-CoRPA Phase 3 for PRefChem",
+   "funder": "PETRONAS Technical Services Sdn Bhd",
+   "pi": "Izzatdin Abdul Aziz",
+   "years": "2023–2024",
+   "exact": "RM 1.42M"
+  },
+  {
+   "no": 47,
+   "slotId": "fs-2",
+   "title": "Development of Intelligent Corrosion Predictive Tool for PRefChem",
+   "funder": "PETRONAS Technical Services Sdn Bhd",
+   "pi": "Izzatdin Abdul Aziz",
+   "years": "2020",
+   "exact": "RM 3.80M"
+  },
+  {
+   "no": 49,
+   "slotId": "fs-3",
+   "title": "Provision of Material, Corrosion & Inspection (MCI) Consultancy Services to Develop Intelligent Corrosion Predictive Tools for PRECHEM Under PTSSB",
+   "funder": "PETRONAS Technical Services Sdn Bhd",
+   "pi": "Izzatdin Abdul Aziz",
+   "years": "2020",
+   "exact": "RM 1.66M"
+  },
+  {
+   "no": 42,
+   "slotId": "fs-4",
+   "title": "Corrosion Predictive Analytics for PCSB SBA & PGB",
+   "funder": "PETRONAS Technical Services Sdn Bhd",
+   "pi": "Said Jadid Abdulkadir",
+   "years": "2019–2020",
+   "exact": "RM 1.03M"
+  },
+  {
+   "no": 40,
+   "slotId": "fs-5",
+   "title": "Provision of Research and Development of Artificial Intelligent Monitoring and Prediction for PETRONAS Carigali Sdn Bhd",
+   "funder": "PETRONAS Carigali Sdn Bhd",
+   "pi": "Jafreezal Jaafar",
+   "years": "2019–2020",
+   "exact": "RM 5.16M"
+  }
+ ],
+ "projects": [
+  {
+   "no": 4,
+   "title": "NDE-READI Module Enhancement and Pilot Deployment",
+   "funder": "PETRONAS Technical Services Sdn Bhd",
+   "pi": "Said Jadid Abdulkadir",
+   "years": "2025–2026",
+   "exact": "RM 400,000"
+  },
+  {
+   "no": 3,
+   "title": "Job Hazard Analysis (JHA) Verification System",
+   "funder": "PETRONAS Technical Services Sdn Bhd",
+   "pi": "Ahmad Bukhari bin Aujih",
+   "years": "2025–2026",
+   "exact": "RM 331,463"
+  },
+  {
+   "no": 2,
+   "title": "Provision of Radiographic Film Digitization Services for NDE-READI Deployment at PGB (NPS 36 SG Loop 2)",
+   "funder": "PETRONAS Technical Services Sdn Bhd",
+   "pi": "Said Jadid Abdulkadir",
+   "years": "2025–2026",
+   "exact": "RM 820,496"
+  },
+  {
+   "no": 24,
+   "title": "Security Risk Assessment & Analytics System (SRAAS) Phase II",
+   "funder": "Petronas Group Security",
+   "pi": "Shakirah Mohd Taib",
+   "years": "2024–2025",
+   "exact": "RM 379,620"
+  },
+  {
+   "no": 29,
+   "title": "OPTIMUS (MVP 2):Operational Requirement",
+   "funder": "PETRONAS Technical Services Sdn Bhd",
+   "pi": "Emelia Akashah Bt Patah Akhir",
+   "years": "2024–2025",
+   "exact": "RM 507,600"
+  },
+  {
+   "no": 13,
+   "title": "UTP SLA: IPSS Analytics Development by UTP Cerdas",
+   "funder": "PETRONAS Technical Services Sdn Bhd",
+   "pi": "Emelia Akashah Bt Patah Akhir",
+   "years": "2024–2025",
+   "exact": "RM 447,120"
+  },
+  {
+   "no": 22,
+   "title": "NDE-READI: Provision of Digital Detector Array Radiographic Testing (DDA RT) Services for NDE-READI Pilot Deployment",
+   "funder": "PETRONAS Technical Services Sdn Bhd",
+   "pi": "Said Jadid Abdulkadir",
+   "years": "2024",
+   "exact": "RM 481,531"
+  },
+  {
+   "no": 7,
+   "title": "Feasibility Study for Artificial Intelligence (AI) Technology Deployment for Marine Loading Arm (MLA) - Phase 1",
+   "funder": "PETRONAS Technical Services Sdn Bhd",
+   "pi": "Hitham Seddig Alhassan Alhussian",
+   "years": "2024–2026",
+   "exact": "RM 532,556"
+  },
+  {
+   "no": 19,
+   "title": "NDE-READI Solution Enhancement and Deployment for 2024-2025 (Phase 4)",
+   "funder": "PETRONAS Technical Services Sdn Bhd",
+   "pi": "Said Jadid Abdulkadir",
+   "years": "2024–2026",
+   "exact": "RM 818,478"
+  },
+  {
+   "no": 23,
+   "title": "PETRONAS Production Loss Analytics (P2LA) Enhancement - Machine Learning",
+   "funder": "PETRONAS Technical Services Sdn Bhd",
+   "pi": "Shuhaida Mohamed Shuhidan",
+   "years": "2024",
+   "exact": "RM 996,840"
+  },
+  {
+   "no": 1,
+   "title": "MMPD - Features Development and Enhancement",
+   "funder": "PETRONAS Technical Services Sdn Bhd",
+   "pi": "Izzatdin Abdul Aziz",
+   "years": "2024–2025",
+   "exact": "RM 791,640"
+  },
+  {
+   "no": 30,
+   "title": "Predictive Model Enhancement for Naphthenic Acid Corrosion (NAC)",
+   "funder": "PETRONAS Technical Services Sdn Bhd",
+   "pi": "Izzatdin Abdul Aziz",
+   "years": "2023",
+   "exact": "RM 348,740"
+  },
+  {
+   "no": 36,
+   "title": "NDE-READI Deployment for IBO Project and Maintenance",
+   "funder": "PETRONAS Technical Services Sdn Bhd",
+   "pi": "Said Jadid Abdulkadir",
+   "years": "2023–2024",
+   "exact": "RM 452,620"
+  },
+  {
+   "no": 26,
+   "title": "GUSA Automation",
+   "funder": "PETRONAS Technical Services Sdn Bhd",
+   "pi": "Shuhaida Mohamed Shuhidan",
+   "years": "2023",
+   "exact": "RM 400,000"
+  },
+  {
+   "no": 35,
+   "title": "PETRONAS Production Loss Analytics (P2LA) Phase 2 Development",
+   "funder": "PETRONAS Technical Services Sdn Bhd",
+   "pi": "Shuhaida Mohamed Shuhidan",
+   "years": "2023",
+   "exact": "RM 280,000"
+  },
+  {
+   "no": 15,
+   "title": "Order1 for Project 2 UTP: Development of Security Analytics Programme for PETRONAS Group Security Project 2: Intelligence Learning System (Phase 1)",
+   "funder": "Petroliam Nasional Berhad (PETRONAS)",
+   "pi": "Aliza Sarlan",
+   "years": "2023",
+   "exact": "RM 318,000"
+  },
+  {
+   "no": 16,
+   "title": "Order1 for Project 3 UTP: Development of Security Analytics Programme for PETRONAS Group Security - Remote Alarm System at Unmanned Platform (Phase 1)",
+   "funder": "Petroliam Nasional Berhad (PETRONAS)",
+   "pi": "Mohd Hilmi Hasan",
+   "years": "2023",
+   "exact": "RM 477,000"
+  },
+  {
+   "no": 32,
+   "title": "Order1 for Project 1 UTP: Development of Security Analytics Programme for PETRONAS Group Security Project 1 - Security Risk Assessment & Research/Alert Analytics Application (Phase 1)",
+   "funder": "Petroliam Nasional Berhad (PETRONAS)",
+   "pi": "Shakirah Mohd Taib",
+   "years": "2023",
+   "exact": "RM 318,000"
+  },
+  {
+   "no": 34,
+   "title": "Oder 1 for OPTIMUS (MVP 2): Data Analytics for Operational REQ",
+   "funder": "Petroliam Nasional Berhad (PETRONAS)",
+   "pi": "Emelia Akashah Bt Patah Akhir",
+   "years": "2022",
+   "exact": "RM 464,227"
+  },
+  {
+   "no": 43,
+   "title": "Data-Driven Predictive Model for Naphthenic Acid Corrosion (NAC)",
+   "funder": "PETRONAS Technical Services Sdn Bhd",
+   "pi": "Izzatdin Abdul Aziz",
+   "years": "2022",
+   "exact": "RM 429,300"
+  },
+  {
+   "no": 45,
+   "title": "NDE-READI (Record Analysis & Digitalization) for Inspection Data",
+   "funder": "PETRONAS Technical Services Sdn Bhd",
+   "pi": "Hitham Seddig Alhassan Alhussian",
+   "years": "2022–2023",
+   "exact": "RM 807,511"
+  },
+  {
+   "no": 39,
+   "title": "Predictive Analytics Pipeline/Piping Weldment (PrAnWeld+) Phase 1- Radiography Test (RT)",
+   "funder": "PETRONAS Technical Services Sdn Bhd",
+   "pi": "Said Jadid Abdulkadir",
+   "years": "2021–2022",
+   "exact": "RM 963,601"
+  },
+  {
+   "no": 5,
+   "title": "Predictive Analytic for Freespan (PrAnSpan) Phase 2 (Automation of Metocean Tensor)",
+   "funder": "PETRONAS Technical Services Sdn Bhd",
+   "pi": "Hitham Seddig Alhassan Alhussian",
+   "years": "2021",
+   "exact": "RM 608,501"
+  },
+  {
+   "no": 46,
+   "title": "Intelligent Constructability Review (i-CR) - Phase 2",
+   "funder": "PETRONAS Technical Services Sdn Bhd",
+   "pi": "Yew Kwang Hooi",
+   "years": "2021",
+   "exact": "RM 256,096"
+  },
+  {
+   "no": 48,
+   "title": "Intelligent Constructability Review (i-CR)",
+   "funder": "PETRONAS Technical Services Sdn Bhd",
+   "pi": "Yew Kwang Hooi",
+   "years": "2020",
+   "exact": "RM 384,144"
+  },
+  {
+   "no": 41,
+   "title": "Free Span Predictive Analytics for PCSB",
+   "funder": "PETRONAS Technical Services Sdn Bhd",
+   "pi": "Hitham Seddig Alhassan Alhussian",
+   "years": "2019–2020",
+   "exact": "RM 606,320"
+  },
+  {
+   "no": 14,
+   "title": "Institute of Autonomous System",
+   "funder": "PETRONAS Technical Services Sdn Bhd",
+   "pi": "Yew Kwang Hooi",
+   "years": "2017–2019",
+   "exact": "RM 264,875"
+  }
+ ]
+}

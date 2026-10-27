@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""><link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&amp;family=Inter:wght@400;500;600;700&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<script src="./image-slot.js"></script>
+<style>
+body{margin:0;background:#FAFAF8;font-family:Inter,system-ui,sans-serif}
+a{color:#004B8C;text-decoration:none}a:hover{color:#00335F}
+</style></helmet>
+
+<div data-screen-label="A1 Our Vision" style="width:1440px;margin:0 auto;background:#FFFFFF">
+
+<section style="position:relative;overflow:hidden;height:500px;box-sizing:border-box;padding:0;background-color:#0E1A26;background-image:linear-gradient(180deg,rgba(8,12,18,.94) 0%,rgba(8,12,18,.78) 12%,rgba(8,12,18,.42) 30%,rgba(8,12,18,0) 46%),linear-gradient(90deg,rgba(8,14,22,.8) 0%,rgba(8,14,22,.55) 55%,rgba(8,14,22,.35) 100%),url('assets/hero-about.jpg');background-size:cover;background-position:center">
+<dc-import name="SiteHeader" active="About" overlay="{{ true }}" hint-size="100%,96px"></dc-import>
+<div style="width:1320px;margin:0 auto;position:relative;padding-top:56px">
+<div style="font:500 11px 'IBM Plex Mono',monospace;letter-spacing:.13em;color:#E6EEF5;margin-bottom:28px"><a href="CERDAS Home.dc.html" style="color:#E6EEF5">HOME</a> <span style="color:#E38C07">/</span> <a href="CERDAS Our Vision.dc.html" style="color:#E6EEF5">ABOUT</a> <span style="color:#E38C07">/</span> OUR VISION</div>
+<h1 style="margin:0 0 22px;font:700 52px/1.07 'Inter Tight',sans-serif;letter-spacing:-.02em;color:#FFFFFF;max-width:840px;text-wrap:pretty">Our vision</h1>
+<p style="margin:0;font:400 18.5px/1.62 Inter,sans-serif;color:#FFFFFF;max-width:720px;text-wrap:pretty">One objective, three pillars, and the vision and mission that set the centre’s direction.</p>
+</div>
+</section>
+
+<section style="background:#FFFFFF;padding:104px 0 20px;border-bottom:1px solid #D8DEE5">
+<div style="width:1320px;margin:0 auto">
+
+<div style="text-align:center;margin:0 auto 52px">
+<div style="font:500 10.5px 'IBM Plex Mono',monospace;letter-spacing:.2em;color:#E38C07;margin-bottom:18px">WE HAVE ONE OBJECTIVE</div>
+<div style="width:40px;height:1px;background:#D8DEE5;margin:0 auto 34px"></div>
+<p style="margin:0 auto;max-width:1120px;font:600 42px/1.26 'Inter Tight',sans-serif;letter-spacing:-.022em;color:#004B8C;text-wrap:balance">To share UTP-CERDAS strength and capability towards resilient data analytics and computational systems research.</p>
+</div>
+
+<p style="margin:0 0 8px;font:400 17px/1.66 Inter,sans-serif;color:#5A6472;text-wrap:pretty">CERDAS aspires to share UTP’s strength and capability in data analytics and computational systems research. The centre focuses on three project pillars — Solution Data Driven, Ecosystem Infrastructure, and Human Development. Together these support digital readiness across client ecosystems, develop customised AI solutions built around real domain pain points, and create a platform for talent development that combines technical know-how with data expertise.</p>
+
+<sc-if value="{{ pillarColumns }}" hint-placeholder-val="{{ true }}">
+<div style="margin-top:48px;display:grid;grid-template-columns:repeat(3,1fr);gap:32px">
+<div style="background:#F3F5F4;border-radius:14px;overflow:hidden;display:flex;flex-direction:column">
+<img src="assets/vision/pillar-01.jpg" alt="Solution Data Driven" style="display:block;width:100%;height:270px;flex:none;object-fit:cover">
+<div style="padding:32px 34px 38px">
+<div style="font:500 10.5px 'IBM Plex Mono',monospace;letter-spacing:.13em;color:#5A6472;margin-bottom:14px">PILLAR 01</div>
+<div style="font:600 25px/1.28 'Inter Tight',sans-serif;letter-spacing:-.01em;color:#004B8C;margin-bottom:12px;text-wrap:pretty">Solution Data Driven</div>
+<div style="font:400 15px/1.6 Inter,sans-serif;color:#5A6472;text-wrap:pretty">Customised AI and analytics solutions built around real domain pain points, not generic models.</div>
+</div>
+</div>
+<div style="background:#F3F5F4;border-radius:14px;overflow:hidden;display:flex;flex-direction:column">
+<img src="assets/vision/pillar-02.jpg" alt="Ecosystem Infrastructure" style="display:block;width:100%;height:270px;flex:none;object-fit:cover">
+<div style="padding:32px 34px 38px">
+<div style="font:500 10.5px 'IBM Plex Mono',monospace;letter-spacing:.13em;color:#5A6472;margin-bottom:14px">PILLAR 02</div>
+<div style="font:600 25px/1.28 'Inter Tight',sans-serif;letter-spacing:-.01em;color:#004B8C;margin-bottom:12px;text-wrap:pretty">Ecosystem Infrastructure</div>
+<div style="font:400 15px/1.6 Inter,sans-serif;color:#5A6472;text-wrap:pretty">Digital readiness across client ecosystems — the platforms and pipelines that make deployment possible.</div>
+</div>
+</div>
+<div style="background:#F3F5F4;border-radius:14px;overflow:hidden;display:flex;flex-direction:column">
+<img src="assets/vision/pillar-03.jpg" alt="Human Development" style="display:block;width:100%;height:270px;flex:none;object-fit:cover">
+<div style="padding:32px 34px 38px">
+<div style="font:500 10.5px 'IBM Plex Mono',monospace;letter-spacing:.13em;color:#5A6472;margin-bottom:14px">PILLAR 03</div>
+<div style="font:600 25px/1.28 'Inter Tight',sans-serif;letter-spacing:-.01em;color:#004B8C;margin-bottom:12px;text-wrap:pretty">Human Development</div>
+<div style="font:400 15px/1.6 Inter,sans-serif;color:#5A6472;text-wrap:pretty">A talent platform that combines technical know-how with data expertise, from postgraduate to practitioner.</div>
+</div>
+</div>
+</div>
+</sc-if>
+
+<div style="height:64px"></div>
+
+<div style="border-top:1px solid #D8DEE5;padding:40px 0 42px;display:grid;grid-template-columns:230px 1fr;gap:56px;align-items:start">
+<div style="font:500 10.5px 'IBM Plex Mono',monospace;letter-spacing:.14em;color:#5A6472">VISION</div>
+<div style="display:flex;flex-direction:column;gap:18px;max-width:900px">
+<p style="margin:0;font:400 17px/1.58 Inter,sans-serif;color:#14181D;text-wrap:pretty">To conduct research and develop researchers who deliver resilient, intelligent solutions for industry and society.</p>
+<p style="margin:0;font:400 17px/1.58 Inter,sans-serif;color:#14181D;text-wrap:pretty">To become a leading centre for data analytics and computational systems, recognised nationally and internationally for research excellence and translated impact.</p>
+</div>
+</div>
+
+<div style="border-top:1px solid #D8DEE5;padding:40px 0 48px">
+<div style="font:500 10.5px 'IBM Plex Mono',monospace;letter-spacing:.14em;color:#5A6472;margin-bottom:28px">MISSION</div>
+<div style="display:grid;grid-template-columns:repeat(4,1fr);gap:24px">
+<div style="background:#F3F5F4;border-radius:14px;overflow:hidden;display:flex;flex-direction:column">
+<img src="assets/vision/mission-01.jpg" alt="Mission 01" style="display:block;width:100%;height:190px;flex:none;object-fit:cover">
+<div style="padding:26px 26px 32px">
+<div style="font:500 10.5px 'IBM Plex Mono',monospace;letter-spacing:.13em;color:#5A6472;margin-bottom:12px">MISSION 01</div>
+<div style="font:500 18.5px/1.42 'Inter Tight',sans-serif;color:#004B8C;text-wrap:pretty">To advance research across artificial intelligence, computational science, intelligent systems, and next-generation computing.</div>
+</div>
+</div>
+<div style="background:#F3F5F4;border-radius:14px;overflow:hidden;display:flex;flex-direction:column">
+<img src="assets/vision/mission-02.jpg" alt="Mission 02" style="display:block;width:100%;height:190px;flex:none;object-fit:cover">
+<div style="padding:26px 26px 32px">
+<div style="font:500 10.5px 'IBM Plex Mono',monospace;letter-spacing:.13em;color:#5A6472;margin-bottom:12px">MISSION 02</div>
+<div style="font:500 18.5px/1.42 'Inter Tight',sans-serif;color:#004B8C;text-wrap:pretty">To develop the research leaders and technical talent of the next decade.</div>
+</div>
+</div>
+<div style="background:#F3F5F4;border-radius:14px;overflow:hidden;display:flex;flex-direction:column">
+<img src="assets/vision/mission-03.jpg" alt="Mission 03" style="display:block;width:100%;height:190px;flex:none;object-fit:cover">
+<div style="padding:26px 26px 32px">
+<div style="font:500 10.5px 'IBM Plex Mono',monospace;letter-spacing:.13em;color:#5A6472;margin-bottom:12px">MISSION 03</div>
+<div style="font:500 18.5px/1.42 'Inter Tight',sans-serif;color:#004B8C;text-wrap:pretty">To translate research into deployable technologies, platforms, and solutions.</div>
+</div>
+</div>
+<div style="background:#F3F5F4;border-radius:14px;overflow:hidden;display:flex;flex-direction:column">
+<img src="assets/vision/mission-04.jpg" alt="Mission 04" style="display:block;width:100%;height:190px;flex:none;object-fit:cover">
+<div style="padding:26px 26px 32px">
+<div style="font:500 10.5px 'IBM Plex Mono',monospace;letter-spacing:.13em;color:#5A6472;margin-bottom:12px">MISSION 04</div>
+<div style="font:500 18.5px/1.42 'Inter Tight',sans-serif;color:#004B8C;text-wrap:pretty">To collaborate with industry partners on problems that matter to them, with energy and heavy industry as a founding strength.</div>
+</div>
+</div>
+</div>
+</div>
+
+<div style="border-top:1px solid #D8DEE5;padding:40px 0 52px;display:grid;grid-template-columns:230px 1fr;gap:56px;align-items:start">
+<div>
+<div style="font:500 10.5px 'IBM Plex Mono',monospace;letter-spacing:.14em;color:#5A6472;margin-bottom:10px">NICHE AREA</div>
+<div style="font:400 12.5px/1.5 Inter,sans-serif;color:#5A6472">Four strands, delivered across the six research groups below.</div>
+</div>
+<div style="display:flex;flex-direction:column;gap:14px;max-width:900px">
+<div style="display:grid;grid-template-columns:4px 1fr;gap:0">
+<div style="background:#004B8C"></div>
+<div style="padding:2px 0 2px 20px">
+<div style="font:500 10.5px 'IBM Plex Mono',monospace;letter-spacing:.11em;color:#004B8C;margin-bottom:7px">N1 <span style="color:#5A6472">· AI &amp; DATA INTELLIGENCE</span></div>
+<div style="font:400 15px/1.6 Inter,sans-serif;color:#5A6472;text-wrap:pretty">Analytics environments that combine domain expertise, computational capability, and statistical rigour to extract decisions, not just insights, from operational data.</div>
+</div>
+</div>
+<div style="display:grid;grid-template-columns:4px 1fr;gap:0">
+<div style="background:#1A6BAE"></div>
+<div style="padding:2px 0 2px 20px">
+<div style="font:500 10.5px 'IBM Plex Mono',monospace;letter-spacing:.11em;color:#004B8C;margin-bottom:7px">N2 <span style="color:#5A6472">· COMPUTATIONAL SCIENCE &amp; OPTIMISATION</span></div>
+<div style="font:400 15px/1.6 Inter,sans-serif;color:#5A6472;text-wrap:pretty">Descriptive through prescriptive analytics for industrial assets — corrosion rate prediction, remaining useful life estimation, and data quality assurance.</div>
+</div>
+</div>
+<div style="display:grid;grid-template-columns:4px 1fr;gap:0">
+<div style="background:#4A8CC4"></div>
+<div style="padding:2px 0 2px 20px">
+<div style="font:500 10.5px 'IBM Plex Mono',monospace;letter-spacing:.11em;color:#004B8C;margin-bottom:7px">N3 <span style="color:#5A6472">· INTELLIGENT &amp; DISTRIBUTED SYSTEMS</span></div>
+<div style="font:400 15px/1.6 Inter,sans-serif;color:#5A6472;text-wrap:pretty">Machine learning and AI modelling adapted to specific client problems rather than applied generically.</div>
+</div>
+</div>
+<div style="display:grid;grid-template-columns:4px 1fr;gap:0">
+<div style="background:#7FAED9"></div>
+<div style="padding:2px 0 2px 20px">
+<div style="font:500 10.5px 'IBM Plex Mono',monospace;letter-spacing:.11em;color:#004B8C;margin-bottom:7px">N4 <span style="color:#5A6472">· NEXT-GENERATION COMPUTING</span></div>
+<div style="font:400 15px/1.6 Inter,sans-serif;color:#5A6472;text-wrap:pretty">Computational and distributed systems research — simulation, optimisation, edge intelligence, and high-performance computing — that makes the above run at operational scale.</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</section>
+
+<section style="background:#FFFFFF;padding:72px 0 76px;border-top:1px solid #D8DEE5">
+<div style="width:1320px;margin:0 auto">
+<div style="width:44px;height:3px;background:#E38C07;margin-bottom:22px"></div>
+<h2 style="margin:0 0 32px;font:700 30px/1.16 'Inter Tight',sans-serif;letter-spacing:-.015em;color:#14181D">Our values</h2>
+<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:#E8ECF1;border:1px solid #E8ECF1;border-radius:8px;overflow:hidden">
+<sc-for list="{{ values }}" as="v" hint-placeholder-count="6">
+<div style="background:#FFFFFF;padding:26px 28px 28px">
+<div style="font:500 10px 'IBM Plex Mono',monospace;letter-spacing:.14em;color:#004B8C;margin-bottom:12px">{{ v.n }}</div>
+<div style="font:600 18px/1.28 'Inter Tight',sans-serif;color:#14181D">{{ v.label }}</div>
+</div>
+</sc-for>
+</div>
+
+<div style="margin-top:36px;background:#00335F;border-radius:8px;padding:30px 36px">
+<div style="display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap">
+<sc-for list="{{ chain }}" as="c" hint-placeholder-count="5">
+<div style="display:flex;align-items:center;gap:18px">
+<span style="font:600 14px 'IBM Plex Mono',monospace;letter-spacing:.14em;color:#FFFFFF">{{ c.label }}</span>
+<sc-if value="{{ c.arrow }}" hint-placeholder-val="{{ true }}"><span style="font:600 15px Inter,sans-serif;color:#E38C07">→</span></sc-if>
+</div>
+</sc-for>
+</div>
+<div style="margin-top:22px;padding-top:22px;border-top:1px solid rgba(191,210,228,.28);font:500 15px/1.4 'Inter Tight',sans-serif;font-style:italic;color:#BFD2E4">Powering computational intelligence for a resilient &amp; sustainable future.</div>
+</div>
+</div>
+</section>
+
+<section style="background:#FAFAF8;padding:64px 0 76px;border-top:1px solid #D8DEE5">
+<div style="width:1320px;margin:0 auto">
+<div style="width:44px;height:3px;background:#E38C07;margin-bottom:22px"></div>
+<h2 style="margin:0 0 32px;font:700 26px/1.2 'Inter Tight',sans-serif;letter-spacing:-.015em;color:#14181D">Also in About</h2>
+<div style="display:grid;grid-template-columns:repeat(4,1fr);gap:20px">
+<a href="CERDAS Organisation Chart.dc.html" style="background:#FFFFFF;border:1px solid #D8DEE5;border-radius:8px;padding:26px 26px 28px;display:block" style-hover="border-color:#004B8C">
+<div style="font:600 18px/1.26 'Inter Tight',sans-serif;color:#14181D;margin-bottom:8px">Organisation chart</div>
+<div style="font:400 13.5px/1.5 Inter,sans-serif;color:#5A6472">Who leads, who advises, and where each group and function sits.</div>
+</a>
+<a href="CERDAS Fellowship Framework.dc.html" style="background:#FFFFFF;border:1px solid #D8DEE5;border-radius:8px;padding:26px 26px 28px;display:block" style-hover="border-color:#004B8C">
+<div style="font:600 18px/1.26 'Inter Tight',sans-serif;color:#14181D;margin-bottom:8px">Researcher framework</div>
+<div style="font:400 13.5px/1.5 Inter,sans-serif;color:#5A6472">Five categories, seventeen appointment types.</div>
+</a>
+<a href="CERDAS Facilities.dc.html" style="background:#FFFFFF;border:1px solid #D8DEE5;border-radius:8px;padding:26px 26px 28px;display:block" style-hover="border-color:#004B8C">
+<div style="font:600 18px/1.26 'Inter Tight',sans-serif;color:#14181D;margin-bottom:8px">Facilities</div>
+<div style="font:400 13.5px/1.5 Inter,sans-serif;color:#5A6472">Shared compute, instrumentation, data and visualisation platforms.</div>
+</a>
+<a href="CERDAS Join.dc.html#collaborate" style="background:#FFFFFF;border:1px solid #D8DEE5;border-radius:8px;padding:26px 26px 28px;display:block" style-hover="border-color:#004B8C">
+<div style="font:600 18px/1.26 'Inter Tight',sans-serif;color:#14181D;margin-bottom:8px">Collaborate with us</div>
+<div style="font:400 13.5px/1.5 Inter,sans-serif;color:#5A6472">Bring us a problem your team has run out of road on.</div>
+</a>
+</div>
+</div>
+</section>
+
+<dc-import name="SiteFooter" hint-size="100%,340px"></dc-import>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1440},&quot;pillarColumns&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Objective block&quot;}}">
+const VALUES = [
+  { n: 'V1', label: 'Excellence in Research' },
+  { n: 'V2', label: 'Collaboration & Inclusivity' },
+  { n: 'V3', label: 'Data-Driven Decision Making' },
+  { n: 'V4', label: 'Sustainability & Responsibility' },
+  { n: 'V5', label: 'Continuous Improvement' },
+  { n: 'V6', label: 'Integrity & Accountability' }
+];
+
+const CHAIN = ['RESEARCH', 'TALENT', 'INNOVATION', 'PARTNERSHIP', 'IMPACT'];
+
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      pillarColumns: this.props.pillarColumns ?? true,
+      values: VALUES,
+      chain: CHAIN.map((label, i) => ({ label, arrow: i < CHAIN.length - 1 }))
+    };
+  }
+}
+</script>
+</body>
+</html>

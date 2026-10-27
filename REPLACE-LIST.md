@@ -1,8 +1,12 @@
-# CERDAS website — invented content replace-list
+# CERDAS website — placeholder content replace-list
 
-Every figure, name, and organisation on the prototype is **invented**. Nothing below is real.
-None of it is drawn from the HR org-chart PDFs — that file was excluded from the design
-entirely and no name, role, or reporting line from it appears anywhere in this project.
+> **Status update (Oct 2026):** this list was started when every value on the prototype was invented.
+> Much of it has since been replaced with real content from `uploads/`: the researchers (names,
+> departments, emails, tiers, research groups, photos), the organisation chart, the six research
+> groups RG01–RG06, and the inventions & products list. Earlier sections may still show `TODO`
+> against items that have since been replaced or removed — see *Resolved from the CERDAS
+> Organisation Chart*, *Taxonomy migration* and `Step 2 - Change log.md`.
+> Treat any value that can't be traced to a file in `uploads/` as a placeholder.
 
 Work through this list before launch. Organised by page, then by section.
 Status key: `TODO` = needs a real value · `OK` = confirmed real.
@@ -319,7 +323,7 @@ Four reporting periods are wired: 2026 H1, 2025, 2024, 2021–2025 cumulative.
 | E13 | Currently enrolled **60** | Must match People P7 (60+) | TODO |
 | E14 | KPI-04 IP filings **5** / 4 · 5-yr **19** / 18 · granted cumulative **9** · PoCs **3** | Real filings; 19 must match Home H8 | TODO |
 | E15 | KPI-05 Translation: **2** technologies at TRL 6+ vs target 3 · licences **1** · income **RM 0.5M** | Real translation figures; confirm TRL 6 is the threshold used | TODO |
-| E16 | KPI-06 Industry: **RM 1.4M** vs **RM 1.8M** · 14 projects · 31 partners | Real contract values; 31 must match Home H7 | TODO |
+| E16 | KPI-06 Industry: **RM 1.4M** vs **RM 1.8M** · 14 projects · 31 partners | Real contract values; 31 must match Home H7 | DONE — consultancy-only value by start year from Cerdas_list_consultancies_updated.xlsx; targets and sub-figures removed; 2026 withheld pending decision |
 | E17 | KPI-07 International co-authorship **36%** vs **32%** · 9 MoUs · 4 visiting | Real share + how it is calculated | TODO |
 | E18 | KPI-08 PETRA-1 utilisation **83%** vs **75%** · 6 facilities · 27 external users | Real utilisation; 6 must match Facilities R32 | TODO |
 | E19 | KPI-09 Evidence **82%** vs **90%** · **31 / 38** lines · next submission 15 Oct 2026 | Real KPI-line count and evidence position | TODO |
@@ -501,8 +505,8 @@ Every organisation, figure and outcome below is invented.
 ### E1 Industry
 | # | Invented value | Replace with | Status |
 |---|---|---|---|
-| I1 | 31 partners · 14 active projects · RM 11.6M / 5 yr · 4 sectors | Must match Dashboard KPI-06 (E16) and Home H7 | TODO |
-| I2 | Four engagement modes with value bands and durations (RM 150k–2M contract research; RM 20k–250k consultancy; etc.) | Real engagement models and commercial bands | TODO |
+| I1 | 31 partners · 14 active projects · RM 11.6M / 5 yr · 4 sectors | Must match Dashboard KPI-06 (E16) and Home H7 | REMOVED |
+| I2 | Four engagement modes with value bands and durations (RM 150k–2M contract research; RM 20k–250k consultancy; etc.) | Real engagement models and commercial bands | VALUE BANDS AND DURATIONS REMOVED |
 | I3 | Sector split 12 energy / 8 manufacturing / 5 healthcare / 6 logistics | Real sector distribution | TODO |
 | I4 | Sector descriptions and capability chips | Approved capability statements | TODO |
 | I5 | **Six invented partner organisations**: Selat Energy Berhad · Meridian Semiconductor Malaysia · Kuala Lumpur Health Data Institute · Bina Logistik Nusantara · Perak Water Authority · Nusantara Cloud Systems | Real partners **plus written logo permission from each** before any logo appears | TODO |
@@ -510,7 +514,7 @@ Every organisation, figure and outcome below is invented.
 | I7 | Case MESH-OPT / Bina Logistik: 18% less empty running, 4 hrs → 35 min planning, RM 2.20M | Real case study + partner sign-off on the numbers | TODO |
 | I8 | Case EDGE-SENSE / Meridian: 2.4× throughput, 0 new devices, RM 2.60M | Real case study + sign-off | TODO |
 | I9 | Case CLARA / KL Health Data Institute: 2 → 14 agreements, 11 months to first analysis, RM 1.40M | Real case study + sign-off | TODO |
-| I10 | "Reply within three working days, then a 45-minute scoping call" | Confirm the centre can honour this | TODO |
+| I10 | "Reply within three working days, then a 45-minute scoping call" | Confirm the centre can honour this | REMOVED |
 | I11 | Enquiry form is visual only | Wire to real routing | TODO |
 
 ### E2 Consultancy
@@ -618,8 +622,8 @@ full enquiry form in place of the CTA band. Every figure, name, date and rate is
 |---|---|---|---|
 | J30 | 31 partners · 14 projects · RM 11.6M · 3-day reply | Must match Industry I1 and Dashboard E16 | TODO |
 | J31 | Proof strip: 18% empty running · 47→6 min · 2.4× throughput · RM 3.20 leverage | Same case studies as I7–I9 and D32–D34 — **all need partner sign-off**; the RM 3.20 leverage figure is invented outright | TODO |
-| J32 | Five routes with price bands (RM 20k–4M, funded PhD from RM 180k, adjunct no fee) | Real commercial terms | TODO |
-| J33 | Four-step start; steps 1–2 free; 6–10 weeks to start | Confirm free scoping and proposal | TODO |
+| J32 | Five routes with price bands (RM 20k–4M, funded PhD from RM 180k, adjunct no fee) | Real commercial terms | CONSULTANCY BAND REMOVED · OTHER BANDS TODO |
+| J33 | Four-step start; steps 1–2 free; 6–10 weeks to start | Confirm free scoping and proposal | STEP TIMINGS REMOVED · FREE STEPS TODO |
 | J34 | IP answer in the FAQ (background/foreground, licence in field of use) | Legal review before publishing | TODO |
 | J35 | Embargo answer: 6–12 months standard, longer for patents, no permanent suppression | Legal and Director sign-off | TODO |
 | J36 | "What if the research does not work" — negative results stated in every proposal | Confirm as real practice | TODO |
